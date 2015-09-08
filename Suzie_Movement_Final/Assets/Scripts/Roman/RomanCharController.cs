@@ -2,16 +2,16 @@
 using System.Collections;
 
 public class RomanCharController : MonoBehaviour {
-		
-
+	
+	
 	//---------------------------------------------------------------------------------------------------------------------------
 	// Public Variables
 	//---------------------------------------------------------------------------------------------------------------------------
-
+	
 	// Input Events -------------------------------------------------------------
 	public delegate void CharEvent(RomanCameraController.CamState camState);
 	public static CharEvent onCharEvent;
-
+	
 	// How long it takes for the 
 	public float DirectionDampTime = 0.25f;
 	public float speedDampTime = 0.05f;
@@ -21,11 +21,13 @@ public class RomanCharController : MonoBehaviour {
 	
 	[HideInInspector]
 	public bool turnRunning = false;				// Is the character turn running(running around the camera)?
-	
+	public float rotateToRunSpeed = 0.2f;			// How fast the character rotates from turn run to run
+	public float maxRunningRotation = 2f;				// How fast the character can rotate when he's running
+
 	//---------------------------------------------------------------------------------------------------------------------------
 	// Private Variables
 	//---------------------------------------------------------------------------------------------------------------------------	
-
+	
 	private Animator animator;
 	private Rigidbody rb;
 	private Transform cam;
@@ -35,9 +37,9 @@ public class RomanCharController : MonoBehaviour {
 	private float yRot;				// The value to feed into the character's rotation in idle mode
 	private float angle;			// used to check which way the character is rotating
 	private float dir;				// Used as a result of the cross product of the player's rotation and the camera's rotation
+	private Vector3 targetRot;		// the target rotation to achieve while running 
 	
 	
-
 	// Use this for initialization
 	void Start () 
 	{
@@ -53,83 +55,96 @@ public class RomanCharController : MonoBehaviour {
 		//animator.SetFloat ("Speed", InputController.v, speedDampTime, Time.deltaTime);
 		
 		//animator.SetFloat ("Direction", InputController.h, DirectionDampTime, Time.deltaTime);
-
-		if (charState.IsIdle() && InputController.h != 0)
+		
+		if (charState.IsIdleTurning() )
 		{	
 			
 			// Get the amount of rotation that we want to apply to the player's y axis based on horizontal input
 			yRot = transform.eulerAngles.y + InputController.h * idleTurnSpeed;
 			
 			// Get the angle at which the player is rotating relative to the camera - range of -90 to 90
-			angle = GetRotationAngle();
+			SetRotationAngle();
 			
-			// if facing right and player is pressing right, start running
-			if (angle == 90 && InputController.h > 0)
-			{
-				yRot = cam.eulerAngles.y + 90;
-				animator.SetTrigger("StartRunning");
-				//turnRunning = true;
-			}
-			// if facing left and player is pressing left, start running
-			else if (angle == -90 && InputController.h < 0)
-			{
-				yRot = cam.eulerAngles.y - 90;
-				animator.SetTrigger("StartRunning");
-				//turnRunning = true;
-			}
+			// Face the chacacter to the correct direction trigger the running animation
+			InitTurnRunning();
 			
 			transform.rotation = Quaternion.Euler (new Vector3(transform.eulerAngles.x, yRot, transform.eulerAngles.z));
 		}
-
+		
 		// If the character is turn running, rotate them around the camera
 		// dir is a 1 or -1 value
-		if (charState.Is (CharState.State.TurnRunning))
+		else if (charState.IsTurnRunning())
 		{
+			//SetRotationAngle();
 			transform.RotateAround(cam.position, Vector3.up, runningTurnSpeed * dir * Time.deltaTime);
+			
+			if (InputController.v == 1 || InputController.v == -1)
+			{
+				animator.SetTrigger ("StartRunning");
+				print("should go to run");
+			}
 		}
 		
 		
-		
 	}
+	
+	/// <summary>
+	/// Face the chacacter to the correct direction trigger the running animation
+	/// </summary>
+	private void InitTurnRunning()
+	{
+		if (angle == 90 && InputController.h > 0)
+		{
+			yRot = cam.eulerAngles.y + 90;
+			animator.SetTrigger("StartTurnRunning");
 
+			if (onCharEvent != null)
+				onCharEvent(RomanCameraController.CamState.TurnRunning);
+		}
+		// if facing left and player is pressing left, start running
+		else if (angle == -90 && InputController.h < 0)
+		{
+			yRot = cam.eulerAngles.y - 90;
+			animator.SetTrigger("StartTurnRunning");
+
+			if (onCharEvent != null)
+				onCharEvent(RomanCameraController.CamState.TurnRunning);
+		}
+	}
+	
 	private void FixedUpdate ()
 	{
 		
-			
-		if (charState.Is(CharState.State.Running))
+		if (charState.IsRunning())
 		{
-			print (Vector3.Dot (transform.forward, cam.forward));
-//			if (Vector3.Dot (transform.forward, cam.forward) < 0.9f && InputController.h == 0)
-//			{
-//				rb.rotation = Quaternion.Slerp(rb.rotation, Quaternion.Euler(cam.forward), 10);	
-//			}
-			if (InputController.h == 0)
-			{
-				Vector3 camRot = cam.eulerAngles;
-				
-				camRot.x = transform.eulerAngles.x;
-				
-				rb.rotation = Quaternion.Euler (camRot);
-			}
-			
-			rb.AddRelativeForce(new Vector3(0, 0, runSpeed * InputController.v), ForceMode.Acceleration);
+
+//			Vector3 targetRot = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y + InputController.h * maxRunningRotation, transform.eulerAngles.z); 
+//			rb.rotation = Quaternion.Slerp (rb.rotation, Quaternion.Euler (targetRot), rotateToRunSpeed);
+//			rb.velocity = transform.forward * runSpeed;
+		
+
+			Vector3 targetRot = cam.eulerAngles;
+			targetRot.x = transform.eulerAngles.x;
+			targetRot.y += InputController.h * maxRunningRotation;
+
+			if (InputController.h != 0)
+				rb.rotation = Quaternion.Slerp (transform.rotation, Quaternion.Euler (targetRot), rotateToRunSpeed);
+
+			print (InputController.h);
+
+			rb.velocity = transform.forward * runSpeed;
+
 			
 		}
 	}
 	
-	public void rotateRigidBodyAroundPointBy(Rigidbody rb, Vector3 origin, Vector3 axis, float angle)
-	{
-		Quaternion q = Quaternion.AngleAxis(angle, axis);
-		rb.MovePosition(q * (rb.transform.position - origin) + origin);
-		rb.MoveRotation(rb.transform.rotation * q);
-	}
 	/// <summary>
 	/// Used to tell which way the character is facing relative to the camera.
 	/// </summary>
 	/// <returns>a float value representing the character's rotation relative to the camera. Range is between -90 and 90</returns>
-	private float GetRotationAngle()
+	private void SetRotationAngle()
 	{
-	
+		
 		angle = Vector3.Angle (transform.forward, cam.forward);
 		
 		dir = Vector3.Cross (transform.forward, cam.forward).y;
@@ -137,7 +152,7 @@ public class RomanCharController : MonoBehaviour {
 		dir = dir > 0 ? -1 : 1;
 		angle *= dir;
 		
-		return Mathf.Clamp(angle, -90, 90);
+		angle = Mathf.Clamp(angle, -90, 90);
 		
 	}
 	
@@ -149,66 +164,87 @@ public class RomanCharController : MonoBehaviour {
 	{
 		if (coll.collider.gameObject.layer == 8 && charState.IsJumping() && Vector3.Dot(coll.contacts[0].normal, Vector3.up) > 0.5f)
 		{
+			print ("should land");
 			animator.SetTrigger("Land");
 		}
 	}
-
+	
 	//---------------------------------------------------------------------------------------------------------------------------
 	// Event Hooks
 	//---------------------------------------------------------------------------------------------------------------------------	
-
+	
 	// Hook on to Input event
 	private void OnEnable () 
 	{ 
 		InputController.onInput += StartRunning; 
-		InputController.onInput += StopRunning; 
+		InputController.onInput += StopRunning;
+		InputController.onInput += StopTurnRunning;
 	}
-
+	
 	private void OnDisable () 
 	{ 
-		InputController.onInput += StartRunning; 
+		InputController.onInput -= StartRunning; 
 		InputController.onInput -= StopRunning;
+		InputController.onInput -= StopTurnRunning;
 	}
-
+	
+	/// <summary>
+	/// Start the running animation. Make sure to check that there is vertical speed to
+	/// prevent the running animation to start instead of turn running
+	/// </summary>
+	/// <param name="e">E.</param>
 	private void StartRunning (InputController.InputEvent e)
 	{
-		if (e == InputController.InputEvent.StartRunning)
+		if (e == InputController.InputEvent.StartRunning && InputController.v > 0.02f)
 		{
-			print ("leftY stick was pressed");
 			animator.SetTrigger ("StartRunning");
+
+//			if (onCharEvent != null)
+//				onCharEvent(RomanCameraController.CamState.TurnRunning);
+
+			//			print ("Start Running");
+			//			print ("Horizontal " + InputController.h);
+			//			print ("Vertical " + InputController.v);
 		}
 	}
-
+	
 	private void StopRunning(InputController.InputEvent e)
 	{	
-		switch (e)
+		if (e == InputController.InputEvent.StopRunning && InputController.v < 0.1f)
 		{
-			case InputController.InputEvent.StopRunning:
+			animator.SetTrigger ("StopRunning");
 			
-				animator.SetTrigger ("StopRunning");
-				
-				if (onCharEvent != null)
-					onCharEvent(RomanCameraController.CamState.Behind);
+			//			print ("Stop Turn Running");
+			//			print ("Horizontal " + InputController.h);
+			//			print ("Vertical " + InputController.v);
+			
+//			if (onCharEvent != null)
+//				onCharEvent(RomanCameraController.CamState.Free);
+		}
+		
+	}
 	
-				break;
-			
-			
-			case InputController.InputEvent.StopTurnRunning:
-			
-				animator.SetTrigger ("StopRunning");
-				
-				if (onCharEvent != null)
-					onCharEvent(RomanCameraController.CamState.Behind);
-				
-				break;
+	/// <summary>
+	/// Stops turn running and makes sure horizontal is not zero (otherwise it will go to idle first)
+	/// </summary>
+	/// <param name="e">E.</param>
+	private void StopTurnRunning(InputController.InputEvent e)
+	{
+		if (e == InputController.InputEvent.StopTurnRunning)
+		{
+			animator.SetTrigger ("StopTurnRunning");
+			print ("Stop Turn Running");
+			print ("Horizontal " + Input.GetAxis("Horizontal"));
+			print ("Vertical " + Input.GetAxis("Vertical"));
 		}
 	}
-
-
+	
+	
+	
 	//---------------------------------------------------------------------------------------------------------------------------
 	// Public Methods
 	//---------------------------------------------------------------------------------------------------------------------------	
-
+	
 	// Enable Root motion
 	public void ApplyRootMotion ()
 	{

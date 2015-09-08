@@ -527,10 +527,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DirectionDampTime: .25
   speedDampTime: .0500000007
-  idleTurnSpeed: 10
-  runningTurnSpeed: 40
-  runSpeed: 8
+  idleTurnSpeed: 4
+  runningTurnSpeed: 50
+  runSpeed: 5
   turnRunning: 0
+  rotateToRunSpeed: 2.82999992
+  maxRunningRotation: 2
 --- !u!114 &442910729
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -640,9 +642,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8970de85d4320f14ca82a0f8ad747ca2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  offset: {x: 0, y: 2, z: -5}
+  offset: {x: 0, y: 2, z: -4}
   follow: {fileID: 2086329366}
-  camFollowSpeed: 5
+  camFollowSpeed: 3
   camLookAtSpeed: 5
   state: 0
 --- !u!114 &518505467

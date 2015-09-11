@@ -128,7 +128,7 @@ public class RomanCharController : MonoBehaviour {
 			targetRot.y += InputController.h * maxRunningRotation;
 
 			if (InputController.h != 0)
-				rb.rotation = Quaternion.Slerp (transform.rotation, Quaternion.Euler (targetRot), rotateToRunSpeed);
+				rb.rotation = Quaternion.Slerp (transform.rotation, Quaternion.Euler (targetRot), rotateToRunSpeed * Time.fixedDeltaTime);
 
 			print (InputController.h);
 
@@ -233,9 +233,14 @@ public class RomanCharController : MonoBehaviour {
 		if (e == InputController.InputEvent.StopTurnRunning)
 		{
 			animator.SetTrigger ("StopTurnRunning");
-			print ("Stop Turn Running");
-			print ("Horizontal " + Input.GetAxis("Horizontal"));
-			print ("Vertical " + Input.GetAxis("Vertical"));
+			
+			if (onCharEvent != null)
+				onCharEvent(RomanCameraController.CamState.Free);
+				
+//			print ("Stop Turn Running");
+//			print ("Horizontal " + Input.GetAxis("Horizontal"));
+//			print ("Vertical " + Input.GetAxis("Vertical"));
+			
 		}
 	}
 	

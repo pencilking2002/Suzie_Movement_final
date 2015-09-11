@@ -531,7 +531,7 @@ MonoBehaviour:
   runningTurnSpeed: 50
   runSpeed: 5
   turnRunning: 0
-  rotateToRunSpeed: .0599999987
+  rotateToRunSpeed: 1.29999995
   maxRunningRotation: 90
 --- !u!114 &442910729
 MonoBehaviour:

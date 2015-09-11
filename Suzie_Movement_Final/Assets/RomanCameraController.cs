@@ -19,6 +19,7 @@ public class RomanCameraController : MonoBehaviour {
 	
 	private Vector3 vel;       				// velocity needed for smooth damping the cam's position
 	private RomanCharController charController;
+	private CharState charState;
 	
 	private Quaternion targetRotation;
 	private Vector3 vecDifference;
@@ -45,6 +46,7 @@ public class RomanCameraController : MonoBehaviour {
 			follow = GameObject.FindGameObjectWithTag("Follow").transform;
 		
 		charController = follow.parent.GetComponent<RomanCharController>();
+		charState = follow.parent.GetComponent<CharState>();
 	}
 	
 	// Update is called once per frame
@@ -54,7 +56,7 @@ public class RomanCameraController : MonoBehaviour {
 		{
 			case CamState.TurnRunning:
 			
-				vecDifference = Vector3.Normalize(transform.position - follow.position ) * 5;
+				vecDifference = Vector3.Normalize(transform.position - follow.position) * -offset.z;
 				vecDifference.y = 2;
 				
 				//transform.position = Vector3.SmoothDamp(transform.position, follow.position + vecDifference, ref vel, camSmoothFollow * Time.deltaTime);
@@ -69,7 +71,25 @@ public class RomanCameraController : MonoBehaviour {
 
 			case CamState.Free:
 				
-				transform.position = Vector3.Lerp(transform.position, follow.position + offset, camFollowSpeed * Time.deltaTime);
+				//Vector3 targetPos = follow.position + offset;
+				
+				//float _camFollowSpeed;
+				
+				// if character is running straight
+//				if (charState.IsRunning() && InputController.h == 0)
+//				{
+//					// Get behind player
+//					targetPos = follow.position + transform.forward * offset.z;
+//					targetPos.y = transform.position.y;
+//					//_camFollowSpeed = 10f;
+//				}
+//				else
+//				{
+//					targetPos = follow.position + offset;
+//					//_camFollowSpeed = camFollowSpeed;
+//				}
+				
+				transform.position = Vector3.Lerp(transform.position, targetPos, camFollowSpeed * Time.deltaTime);
 
 				targetRotation = Quaternion.LookRotation(follow.position - transform.position);
 				transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, camLookAtSpeed * Time.deltaTime);

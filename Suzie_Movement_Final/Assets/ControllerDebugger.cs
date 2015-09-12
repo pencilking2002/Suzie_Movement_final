@@ -3,7 +3,8 @@ using System.Collections;
 using UnityEngine.UI;
 
 public class ControllerDebugger : MonoBehaviour {
-	
+	public Image Up, Right, Down, Left;
+
 	private Image image;
 	
 	public enum Axis
@@ -13,7 +14,7 @@ public class ControllerDebugger : MonoBehaviour {
 		DOWN,
 		LEFT
 	}
-	public Axis axis;
+	//public Axis axis;
 	
 	public enum State 
 	{
@@ -21,7 +22,7 @@ public class ControllerDebugger : MonoBehaviour {
 		Released
 	}
 	
-	private Vector4 tempColor;
+	private Vector4 tempColor = Color.white;
 	
 	private void Awake ()
 	{
@@ -30,49 +31,21 @@ public class ControllerDebugger : MonoBehaviour {
 	
 	private void Update ()
 	{
-//		switch (axis)
-//		{
-//			case Axis.UP:
-//				image.color = new Vector4(InputController.v, InputController.v, InputController.v, 1);
-//				break;
-//			
-//			case Axis.DOWN:
-//				image.color = new Vector4(InputController.v, InputController.v, InputController.v, 1);
-//				break;
-//				
-//			case Axis.LEFT:
-//				image.color = new Vector4(InputController.v, InputController.v, InputController.v, 1);
-//				break;
-//			
-//			case Axis.RIGHT:
-//				image.color = new Vector4(InputController.v, InputController.v, InputController.v, 1);
-//				break;
-//		}
 
-		print (InputController.rawH);
-		
-		if (axis == Axis.RIGHT)
-		{
+
+		//print (InputController.rawH);
+		Up.color = new Vector4(InputController.v, InputController.v, InputController.v, 1);
+		Down.color = new Vector4(-InputController.v, -InputController.v, -InputController.v, 1);
+
+
+
+		Right.color = new Vector4(InputController.h, InputController.h, InputController.h, 1);
+		Left.color = new Vector4(-InputController.h, -InputController.h, -InputController.h, 1);
+
 			
-			image.color = new Vector4(InputController.h, InputController.h, InputController.h, 1);
-			
-		}
+	
 		
-//		else if (InputController.rawH == -1 && axis == Axis.LEFT)
-//		{
-//			image.color = new Vector4(-InputController.h, -InputController.h, -InputController.h, 1);
-//		}
-//		
-//		else if (InputController.rawV == 1 && axis == Axis.UP)
-//		{
-//			image.color = new Vector4(InputController.h, InputController.h, InputController.h, 1);
-//		}
-//		
-//		else if (InputController.rawV == -1 && axis == Axis.DOWN)
-//		{
-//			image.color = new Vector4(-InputController.h, -InputController.h, -InputController.h, 1);
-//		}
-		
+
 	}
 	
 //	private void OnEnable()

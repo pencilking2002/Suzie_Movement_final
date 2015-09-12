@@ -20,7 +20,7 @@ public class RomanCameraController : MonoBehaviour {
 	private Vector3 origOffset;					// reference the original offset value
 	private Vector3 vel;       					// velocity needed for smooth damping the cam's position
 	private RomanCharController charController;
-	private CharState charState;
+	private RomanCharState charState;
 	
 	private Quaternion targetRotation;
 	private Vector3 vecDifference;
@@ -47,7 +47,7 @@ public class RomanCameraController : MonoBehaviour {
 			follow = GameObject.FindGameObjectWithTag("Follow").transform;
 		
 		charController = follow.parent.GetComponent<RomanCharController>();
-		charState = follow.parent.GetComponent<CharState>();
+		charState = follow.parent.GetComponent<RomanCharState>();
 	}
 	
 	// Update is called once per frame

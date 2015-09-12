@@ -1,11 +1,11 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 
 
 public class SetState : StateMachineBehaviour {
 	
-	 public CharState.State characterState;	// Which state to switch into on enter
+	 public RomanCharState.State characterState;	// Which state to switch into on enter
 	 
 	 public enum StateEvent { Enter, Exit }
 	 public StateEvent AnimationStateEvent;
@@ -14,14 +14,14 @@ public class SetState : StateMachineBehaviour {
 	override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) 
 	{
 		if (AnimationStateEvent == StateEvent.Enter)
-			animator.GetComponent<CharState>().SetState(characterState);
+			animator.GetComponent<RomanCharState>().SetState(characterState);
 	}
 	
 	// OnStateExit is called when a transition ends and the state machine finishes evaluating this state
 	override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) 
 	{
 		if (AnimationStateEvent == StateEvent.Exit)
-			animator.GetComponent<CharState>().SetState(characterState);
+			animator.GetComponent<RomanCharState>().SetState(characterState);
 	}
 
 	// OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks

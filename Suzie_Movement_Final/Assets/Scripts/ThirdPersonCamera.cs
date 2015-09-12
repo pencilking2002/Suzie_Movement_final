@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 public class ThirdPersonCamera : MonoBehaviour 
@@ -57,7 +57,7 @@ public class ThirdPersonCamera : MonoBehaviour
 	private Vector3 lookDir; 		// Direction the cam will be looking in
 	private Vector3 curLookDir;
 
-	private CharState charState;
+	private RomanCharState charState;
 
 	//temp vars
 	private Vector3 velocityCamSmooth = Vector3.zero;
@@ -82,7 +82,7 @@ public class ThirdPersonCamera : MonoBehaviour
 		curLookDir = follow.forward;
 
 		// Get player's character state
-		charState = GameObject.FindObjectOfType<CharState> ();
+		charState = GameObject.FindObjectOfType<RomanCharState> ();
 		//print (follow);
 	}
 	

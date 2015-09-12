@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 public class CharController : MonoBehaviour {
@@ -54,7 +54,7 @@ public class CharController : MonoBehaviour {
 	private Quaternion deltaRotation;
 	private float rot;
 
-	CharState charState;
+	RomanCharState charState;
 
 
 	//---------------------------------------------------------------------------------------------------------------------------
@@ -65,7 +65,7 @@ public class CharController : MonoBehaviour {
 	{
 		cam = Camera.main.transform;
 		animator = GetComponent<Animator>();
-		charState = GetComponent<CharState>();
+		charState = GetComponent<RomanCharState>();
 		rb = GetComponent<Rigidbody>();
 		
 		maxJumpForce = jumpForce + 20f;
@@ -89,7 +89,7 @@ public class CharController : MonoBehaviour {
 				animator.SetFloat ("Angle", charAngle);
 			}
 			
-		} else if (speed < locomotionThreshold && Mathf.Abs(InputController.h) < 0.05f)
+		} else if (speed < locomotionThreshold && Mathf.Abs(InputController.rawH) < 0.05f)
 		{
 			animator.SetFloat ("Direction", 0);
 			animator.SetFloat ("Angle", 0);
@@ -103,20 +103,20 @@ public class CharController : MonoBehaviour {
 		
 		if (charState.IsJumping())
 		{
-			if (InputController.h != 0)		
-				rb.rotation = Quaternion.Euler (new Vector3(transform.eulerAngles.x, transform.eulerAngles.y + InputController.h * jumpTurnSpeed, transform.eulerAngles.z));	
+			if (InputController.rawH != 0)		
+				rb.rotation = Quaternion.Euler (new Vector3(transform.eulerAngles.x, transform.eulerAngles.y + InputController.rawH * jumpTurnSpeed, transform.eulerAngles.z));	
 			
-			if (InputController.v != 0)
-				rb.AddRelativeForce(new Vector3(0, 0, InputController.v * jumpForwardSpeed), ForceMode.Acceleration);
+			if (InputController.rawH != 0)
+				rb.AddRelativeForce(new Vector3(0, 0, InputController.rawH * jumpForwardSpeed), ForceMode.Acceleration);
 			
 			
 		}
 		
-		if (charState.Is (CharState.State.Running) && ((direction >= 0 && InputController.h >= 0) || 
-		   (direction < 0 && InputController.h < 0 )))
+		if (charState.Is (RomanCharState.State.Running) && ((direction >= 0 && InputController.rawH >= 0) || 
+		   (direction < 0 && InputController.rawH < 0 )))
 		{
 			//print ("In locomotion");
-			rotationAmount = Vector3.Lerp (Vector3.zero, new Vector3(0f, rotationDegreePerSecond * (InputController.h < 0f ? -1f : 1f), 0f), Mathf.Abs (InputController.h));
+			rotationAmount = Vector3.Lerp (Vector3.zero, new Vector3(0f, rotationDegreePerSecond * (InputController.rawH < 0f ? -1f : 1f), 0f), Mathf.Abs (InputController.rawH));
 			deltaRotation = Quaternion.Euler(rotationAmount * Time.deltaTime);
 			transform.rotation = (transform.rotation * deltaRotation);
 		}
@@ -140,14 +140,14 @@ public class CharController : MonoBehaviour {
 		if (_event == InputController.InputEvent.JumpUp) {
 			totalJump = Mathf.Clamp (jumpForce + (jumpForce * InputController.Instance.jumpKeyHoldDuration), 0, maxJumpForce);
 
-			if (charState.Is (CharState.State.Idle)) {
+			if (charState.Is (RomanCharState.State.Idle)) {
 				Util.Instance.DelayedAction (() => {
 					rb.AddForce (new Vector3 (0, totalJump, 0), ForceMode.Impulse);
 					
 				}, 0.15f);
 				
 				JumpUpAnim ();
-			} else if (charState.Is (CharState.State.Running)) {
+			} else if (charState.Is (RomanCharState.State.Running)) {
 				rb.AddForce (new Vector3 (0, totalJump, 0), ForceMode.Impulse);
 				
 				JumpUpAnim ();
@@ -190,7 +190,7 @@ public class CharController : MonoBehaviour {
 	{
 		//rootDirection = root.forward;
 		
-		stickDirection = new Vector3(InputController.h, 0, InputController.v);
+		stickDirection = new Vector3(InputController.rawH, 0, InputController.rawH);
 		
 		speedOut = stickDirection.sqrMagnitude;
 		
@@ -233,7 +233,7 @@ public class CharController : MonoBehaviour {
 	// Handle a bug where the characters gets stuck in falling mode and doesn't land
 	private void OnCollisionStay (Collision coll)
 	{
-		if (coll.collider.gameObject.layer == 8 && charState.Is(CharState.State.Falling) && Vector3.Dot(coll.contacts[0].normal, Vector3.up) > 0.5f && rb.velocity.y <= 0)
+		if (coll.collider.gameObject.layer == 8 && charState.Is(RomanCharState.State.Falling) && Vector3.Dot(coll.contacts[0].normal, Vector3.up) > 0.5f && rb.velocity.y <= 0)
 		{
 			//print (rb.velocity.y);
 			animator.SetTrigger("Land");

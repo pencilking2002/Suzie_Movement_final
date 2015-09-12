@@ -10,12 +10,15 @@ public class InputController : MonoBehaviour {
 	
 	public static InputController Instance;
 	
-	public static float h, v, orbitH, orbitV;
+	public static float v, h, rawH, rawV, orbitH, orbitV;
 
 	
 	// Input Events -------------------------------------------------------------
 	public delegate void InputAction(InputEvent inputEvent);
 	public static InputAction onInput;
+	
+	public delegate void ControllerDebugAction(ControllerDebugger.Axis axisEvent, ControllerDebugger.State state);
+	public static ControllerDebugAction onControllerDebug;
 	
 	// Enum to use for chcking input events
 	public enum InputEvent										
@@ -50,8 +53,12 @@ public class InputController : MonoBehaviour {
 	{
 		inputDevice = InputManager.ActiveDevice;
 		
-		h = inputDevice.LeftStickX.Value;
-		v = inputDevice.LeftStickY.Value;
+		rawH = Input.GetAxisRaw("Horizontal");
+		rawV = Input.GetAxisRaw("Vertical");
+		
+		h = Input.GetAxis ("Horizontal");
+		v = Input.GetAxis ("Vertical");
+		
 		orbitH = inputDevice.RightStickX;
 		orbitV = inputDevice.RightStickY;
 
@@ -64,6 +71,17 @@ public class InputController : MonoBehaviour {
 		{
 			if (onInput != null)
 				onInput (InputEvent.StartRunning);
+			
+			// Debugging
+//			if (onControllerDebug != null)
+//			{
+//				//print ("yooo");
+//				if (inputDevice.LeftStickY.Value > 0)
+//					onControllerDebug (ControllerDebugger.Axis.UP, ControllerDebugger.State.Pressed);
+//				else
+//					onControllerDebug (ControllerDebugger.Axis.DOWN, ControllerDebugger.State.Pressed);
+//			}
+				
 		}
 
 		// Stop running
@@ -74,6 +92,16 @@ public class InputController : MonoBehaviour {
 				onInput (InputEvent.StopRunning);
 				print ("LeftStickY was released");
 			}
+			
+			// Debugging
+//			if (onControllerDebug != null)
+//			{
+//				//print ("yooo");
+//				//if (inputDevice.LeftStickY.Value > 0)
+//					onControllerDebug (ControllerDebugger.Axis.UP, ControllerDebugger.State.Released);
+//				else
+//					onControllerDebug (ControllerDebugger.Axis.DOWN, ControllerDebugger.State.Released);
+//			}
 		}
 		
 		if (inputDevice.LeftStickX.WasReleased)
@@ -134,6 +162,18 @@ public class InputController : MonoBehaviour {
 			if (onInput != null)
 				onInput (InputEvent.CamBehind);
 		}
+		
+		// Controller debgging
+//		if (inputDevice.LeftStickY.IsPressed)
+//		{
+//			if (inputDevice.LeftStickY.Value > 0)
+//				onControllerDebug (ControllerDebugger.Axis.UP, ControllerDebugger.State.Pressed);
+//		}
+//		
+//		if (inputDevice.LeftStickX.IsPressed)
+//		{
+//			
+//		}
 
 	}
 		

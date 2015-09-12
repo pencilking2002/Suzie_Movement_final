@@ -1,14 +1,14 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 public class GameManager : MonoBehaviour {
 	
 	public static GameManager Instance;
 	public static bool debug = true;			// Toggle debug mode
-	public CharState charState;
+	public CharState_old charState;
 
 	// debug
-	private CharState charStateScript;
+	private RomanCharState charStateScript;
 	private RomanCameraController camScript;
 
 	private void Awake ()
@@ -16,7 +16,7 @@ public class GameManager : MonoBehaviour {
 		if (Instance == null)
 			Instance = this;
 
-		charStateScript = GameObject.FindObjectOfType<CharState> ();
+		charStateScript = GameObject.FindObjectOfType<RomanCharState> ();
 		camScript = GameObject.FindObjectOfType<RomanCameraController> ();
 	}
 
@@ -26,8 +26,8 @@ public class GameManager : MonoBehaviour {
 	{
 		if (GameManager.debug)
 		{
-			GUI.Button(new Rect(30, 30, 170, 50), "Squirrel State: " + charStateScript.GetState());
-			GUI.Button(new Rect(30, 100, 170, 50), "Cam State: " + camScript.state.ToString());
+			GUI.Button(new Rect(Screen.width - 150, 30, 170, 50), "Squirrel State: " + charStateScript.GetState());
+			GUI.Button(new Rect(Screen.width - 150, 100, 170, 50), "Cam State: " + camScript.state.ToString());
 		}
 	}
 	

@@ -1,7 +1,7 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
-public class CharState : MonoBehaviour {
+public class CharState_old : MonoBehaviour {
 	
 	//---------------------------------------------------------------------------
 	// Public Variables
@@ -35,7 +35,7 @@ public class CharState : MonoBehaviour {
 	private float locomotionPivotLT_ID = 0;
 	private float locomotionPivotRT_ID = 0;
 	
-	private RomanCharController charController;
+	private RomanCharController_old charController;
 	private Rigidbody rb;
 	
 	//---------------------------------------------------------------------------------------------------------------------------
@@ -45,7 +45,7 @@ public class CharState : MonoBehaviour {
 	private void Awake ()
 	{
 		animator = GetComponent<Animator> ();
-		charController = GetComponent<RomanCharController>();
+		charController = GetComponent<RomanCharController_old>();
 		rb = GetComponent<Rigidbody>();
 	}
 	
@@ -56,7 +56,7 @@ public class CharState : MonoBehaviour {
 	
 	public void SetState (State _state)
 	{
-		if (_state == State.Running && InputController.v == 0)
+		if (_state == State.Running && InputController.rawH == 0)
 			state = State.TurnRunning;
 		else	
 			state = _state;
@@ -87,7 +87,7 @@ public class CharState : MonoBehaviour {
 	
 	public bool IsIdleTurning ()
 	{
-		return state == State.Idle && InputController.h != 0;
+		return state == State.Idle && InputController.rawH != 0;
 	}
 	
 	public bool IsTurnRunning ()

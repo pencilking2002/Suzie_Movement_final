@@ -1,16 +1,16 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 public class ChangeSpeed : StateMachineBehaviour {
 	
-	private CharState charState;
+	private RomanCharState charState;
 	
 	 // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
 	override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) 
 	{
-		charState = animator.GetComponent<CharState>();
+		charState = animator.GetComponent<RomanCharState>();
 		
-		if (charState.Is(CharState.State.IdleJumping))
+		if (charState.Is(RomanCharState.State.IdleJumping))
 		{
 			animator.speed = 1;
 		}

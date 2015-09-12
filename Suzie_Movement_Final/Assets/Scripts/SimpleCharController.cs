@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 public class SimpleCharController : MonoBehaviour {
@@ -38,7 +38,7 @@ public class SimpleCharController : MonoBehaviour {
 	private Transform cam;
 
 	
-	CharState charState;
+	RomanCharState charState;
 
 	private bool canTurn = true;
 	private bool isTurning = false;
@@ -50,7 +50,7 @@ public class SimpleCharController : MonoBehaviour {
 	{
 		cam = Camera.main.transform;
 		animator = GetComponent<Animator>();
-		charState = GetComponent<CharState>();
+		charState = GetComponent<RomanCharState>();
 		rb = GetComponent<Rigidbody>();
 		
 		maxJumpForce = jumpForce + 20f;
@@ -59,10 +59,10 @@ public class SimpleCharController : MonoBehaviour {
 	
 	private void Update ()
 	{
-		animator.SetFloat ("Speed", InputController.v, speedDampTime, Time.deltaTime);
-		animator.SetFloat ("Direction", InputController.h, DirectionDampTime, Time.deltaTime);
+		animator.SetFloat ("Speed", InputController.rawH, speedDampTime, Time.deltaTime);
+		animator.SetFloat ("Direction", InputController.rawH, DirectionDampTime, Time.deltaTime);
 
-		print (InputController.v);
+		print (InputController.rawH);
 
 
 	}
@@ -74,17 +74,17 @@ public class SimpleCharController : MonoBehaviour {
 		if (charState.IsInLocomotion()) 
 		{
 			// When jumping player is able to rotate the character
-			rb.rotation = Quaternion.Euler (new Vector3(transform.eulerAngles.x, transform.eulerAngles.y + InputController.h * runningTurnSpeed, transform.eulerAngles.z));	
+			rb.rotation = Quaternion.Euler (new Vector3(transform.eulerAngles.x, transform.eulerAngles.y + InputController.rawH * runningTurnSpeed, transform.eulerAngles.z));	
 			//rb.AddTorque(new Vector3(0, InputController.h * runningTurnSpeed, 0));
 		}
 
 		if (charState.IsJumping())
 		{
 			// When jumping player is able to rotate the character
-			rb.rotation = Quaternion.Euler (new Vector3(transform.eulerAngles.x, transform.eulerAngles.y + InputController.h * jumpTurnSpeed, transform.eulerAngles.z));	
+			rb.rotation = Quaternion.Euler (new Vector3(transform.eulerAngles.x, transform.eulerAngles.y + InputController.rawH * jumpTurnSpeed, transform.eulerAngles.z));	
 
 			// Character moves extra forward if player is pressing the vertical stick
-			rb.AddRelativeForce(new Vector3(0, 0, InputController.v * jumpForwardSpeed), ForceMode.Acceleration);	
+			rb.AddRelativeForce(new Vector3(0, 0, InputController.rawH * jumpForwardSpeed), ForceMode.Acceleration);	
 		}
 
 	}
@@ -107,7 +107,7 @@ public class SimpleCharController : MonoBehaviour {
 		if (_event == InputController.InputEvent.JumpUp) {
 			totalJump = Mathf.Clamp (jumpForce + (jumpForce * InputController.Instance.jumpKeyHoldDuration), 0, maxJumpForce);
 			
-			if (charState.Is (CharState.State.Idle)) {
+			if (charState.Is (RomanCharState.State.Idle)) {
 				Util.Instance.DelayedAction (() => {
 					rb.AddForce (new Vector3 (0, totalJump, 0), ForceMode.Impulse);
 					
@@ -115,7 +115,7 @@ public class SimpleCharController : MonoBehaviour {
 				
 				JumpUpAnim ();
 
-			} else if (charState.Is (CharState.State.Running)) {
+			} else if (charState.Is (RomanCharState.State.Running)) {
 				rb.AddForce (new Vector3 (0, totalJump, 0), ForceMode.Impulse);
 				
 				JumpUpAnim ();
@@ -126,12 +126,12 @@ public class SimpleCharController : MonoBehaviour {
 	// Trigger the jump up animation
 	private void JumpUpAnim()
 	{
-		animator.SetTrigger (InputController.v == 0.0f ? "IdleJump" : "RunningJump");
+		animator.SetTrigger (InputController.rawH == 0.0f ? "IdleJump" : "RunningJump");
 	}
 	
 	private void FaceOppositeDir (InputController.InputEvent e)
 	{
-		if (e == InputController.InputEvent.faceOppositeDirection && InputController.v < 0 && canTurn)
+		if (e == InputController.InputEvent.faceOppositeDirection && InputController.rawH < 0 && canTurn)
 		{
 			isTurning = true; 
 			//Vector3 camDirection = Vector3.Normalize(Camera.main.transform.position - transform.position);
@@ -177,7 +177,7 @@ public class SimpleCharController : MonoBehaviour {
 	// Handle a bug where the characters gets stuck in falling mode and doesn't land
 	private void OnCollisionStay (Collision coll)
 	{
-		if (coll.collider.gameObject.layer == 8 && charState.Is(CharState.State.Falling) && Vector3.Dot(coll.contacts[0].normal, Vector3.up) > 0.5f && rb.velocity.y <= 0)
+		if (coll.collider.gameObject.layer == 8 && charState.Is(RomanCharState.State.Falling) && Vector3.Dot(coll.contacts[0].normal, Vector3.up) > 0.5f && rb.velocity.y <= 0)
 		{
 			//print (rb.velocity.y);
 			animator.SetTrigger("Land");

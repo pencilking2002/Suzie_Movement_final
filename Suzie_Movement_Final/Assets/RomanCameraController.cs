@@ -16,8 +16,9 @@ public class RomanCameraController : MonoBehaviour {
 	//---------------------------------------------------------------------------------------------------------------------------
 	// Private Variables
 	//---------------------------------------------------------------------------------------------------------------------------	
-	
-	private Vector3 vel;       				// velocity needed for smooth damping the cam's position
+
+	private Vector3 origOffset;					// reference the original offset value
+	private Vector3 vel;       					// velocity needed for smooth damping the cam's position
 	private RomanCharController charController;
 	private CharState charState;
 	
@@ -89,7 +90,7 @@ public class RomanCameraController : MonoBehaviour {
 //					//_camFollowSpeed = camFollowSpeed;
 //				}
 				
-				transform.position = Vector3.Lerp(transform.position, targetPos, camFollowSpeed * Time.deltaTime);
+				transform.position = Vector3.Lerp(transform.position, follow.position + offset, camFollowSpeed * Time.deltaTime);
 
 				targetRotation = Quaternion.LookRotation(follow.position - transform.position);
 				transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, camLookAtSpeed * Time.deltaTime);

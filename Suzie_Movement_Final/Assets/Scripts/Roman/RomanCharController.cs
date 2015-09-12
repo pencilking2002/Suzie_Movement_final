@@ -21,7 +21,7 @@ public class RomanCharController : MonoBehaviour {
 	
 	[HideInInspector]
 	public bool turnRunning = false;				// Is the character turn running(running around the camera)?
-	public float rotateToRunSpeed = 0.2f;			// How fast the character rotates from turn run to run
+	public float runRotateSpeed = 0.2f;			// How fast the character rotates from turn run to run
 	public float maxRunningRotation = 2f;				// How fast the character can rotate when he's running
 
 	//---------------------------------------------------------------------------------------------------------------------------
@@ -52,9 +52,9 @@ public class RomanCharController : MonoBehaviour {
 	// Update is called once per frame
 	private void Update () 
 	{
-		//animator.SetFloat ("Speed", InputController.v, speedDampTime, Time.deltaTime);
+		animator.SetFloat ("Speed", InputController.v, speedDampTime, Time.deltaTime);
 		
-		//animator.SetFloat ("Direction", InputController.h, DirectionDampTime, Time.deltaTime);
+		animator.SetFloat ("Direction", InputController.h, DirectionDampTime, Time.deltaTime);
 		
 		if (charState.IsIdleTurning() )
 		{	
@@ -128,9 +128,9 @@ public class RomanCharController : MonoBehaviour {
 			targetRot.y += InputController.h * maxRunningRotation;
 
 			if (InputController.h != 0)
-				rb.rotation = Quaternion.Slerp (transform.rotation, Quaternion.Euler (targetRot), rotateToRunSpeed * Time.fixedDeltaTime);
+				rb.rotation = Quaternion.Slerp (transform.rotation, Quaternion.Euler (targetRot), runRotateSpeed * Time.fixedDeltaTime);
 
-			print (InputController.h);
+			//print (InputController.h);
 
 			rb.velocity = transform.forward * runSpeed;
 
@@ -213,13 +213,7 @@ public class RomanCharController : MonoBehaviour {
 		if (e == InputController.InputEvent.StopRunning && InputController.v < 0.1f)
 		{
 			animator.SetTrigger ("StopRunning");
-			
-			//			print ("Stop Turn Running");
-			//			print ("Horizontal " + InputController.h);
-			//			print ("Vertical " + InputController.v);
-			
-//			if (onCharEvent != null)
-//				onCharEvent(RomanCameraController.CamState.Free);
+			//print ("Stop running");
 		}
 		
 	}
@@ -234,8 +228,8 @@ public class RomanCharController : MonoBehaviour {
 		{
 			animator.SetTrigger ("StopTurnRunning");
 			
-			if (onCharEvent != null)
-				onCharEvent(RomanCameraController.CamState.Free);
+//			if (onCharEvent != null)
+//				onCharEvent(RomanCameraController.CamState.Free);
 				
 //			print ("Stop Turn Running");
 //			print ("Horizontal " + Input.GetAxis("Horizontal"));

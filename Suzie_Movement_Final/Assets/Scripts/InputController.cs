@@ -72,6 +72,7 @@ public class InputController : MonoBehaviour {
 			if (onInput != null)
 			{
 				onInput (InputEvent.StopRunning);
+				print ("LeftStickY was released");
 			}
 		}
 		

@@ -17,7 +17,7 @@ public class RomanCharState : MonoBehaviour {
 		Swimming,
 		Falling,
 		Running,
-		TurnRunning,
+		SideRunning,
 		InCombat,
 		InAir,
 		Pivoting
@@ -56,10 +56,7 @@ public class RomanCharState : MonoBehaviour {
 	
 	public void SetState (State _state)
 	{
-		if (_state == State.Running && InputController.rawH == 0)
-			state = State.TurnRunning;
-		else	
-			state = _state;
+		state = _state;
 		
 		if (_state == State.Idle)
 			rb.velocity = Vector3.zero; 
@@ -77,7 +74,7 @@ public class RomanCharState : MonoBehaviour {
 	
 	public bool IsInLocomotion()
 	{
-		return state == State.Running || state == State.TurnRunning;
+		return state == State.Running || state == State.SideRunning;
 	}
 	
 	public bool IsIdle ()
@@ -90,14 +87,19 @@ public class RomanCharState : MonoBehaviour {
 		return state == State.Idle && InputController.rawH != 0;
 	}
 	
-	public bool IsTurnRunning ()
+	public bool IsSideRunning ()
 	{
-		return state == State.TurnRunning;
+		return state == State.SideRunning;
 	}
-
-	public bool IsRunning ()
+	
+	public bool IsRunningStraight ()
 	{
 		return state == State.Running;
+	}
+	
+	public bool IsRunning ()
+	{
+		return state == State.Running || state == State.SideRunning;
 	}
 
 	public bool IsJumping()

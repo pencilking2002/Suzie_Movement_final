@@ -60,9 +60,7 @@ public class RomanCameraController : MonoBehaviour {
 				vecDifference = Vector3.Normalize(transform.position - follow.position) * -offset.z;
 				vecDifference.y = 2;
 				
-				//transform.position = Vector3.SmoothDamp(transform.position, follow.position + vecDifference, ref vel, camSmoothFollow * Time.deltaTime);
 				transform.position = Vector3.Lerp(transform.position, follow.position + vecDifference, camFollowSpeed * Time.deltaTime);
-				//transform.position = Vector3.Lerp(transform.position, follow.position + offset, camFollowSpeed * Time.deltaTime);
 				
 				//Smoothly rotate towards the target point.
 				targetRotation = Quaternion.LookRotation(follow.position - transform.position);

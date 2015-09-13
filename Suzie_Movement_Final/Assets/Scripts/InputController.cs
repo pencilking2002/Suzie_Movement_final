@@ -30,7 +30,8 @@ public class InputController : MonoBehaviour {
 		faceOppositeDirection,
 		StopRunning,
 		StartRunning,
-		StopTurnRunning
+		StopTurnRunning,
+		StartTurnRunning
 	}
 	
 	[HideInInspector]
@@ -53,11 +54,15 @@ public class InputController : MonoBehaviour {
 	{
 		inputDevice = InputManager.ActiveDevice;
 		
+		h = Input.GetAxis ("Horizontal");
+		v = Input.GetAxis ("Vertical");
+		
 		rawH = Input.GetAxisRaw("Horizontal");
 		rawV = Input.GetAxisRaw("Vertical");
 		
-		h = Input.GetAxis ("Horizontal");
-		v = Input.GetAxis ("Vertical");
+		//rawH = Mathf.CeilToInt(h);
+		//rawV = Mathf.CeilToInt(v);
+		
 		
 		orbitH = inputDevice.RightStickX;
 		orbitV = inputDevice.RightStickY;
@@ -89,7 +94,7 @@ public class InputController : MonoBehaviour {
 		{
 			if (onInput != null)
 			{
-				onInput (InputEvent.StopRunning);
+				onInput (InputEvent.StopTurnRunning);
 			}
 		}
 

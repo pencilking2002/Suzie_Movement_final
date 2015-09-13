@@ -31,13 +31,9 @@ public class ControllerDebugger : MonoBehaviour {
 	
 	private void Update ()
 	{
-
-
 		//print (InputController.rawH);
 		Up.color = new Vector4(InputController.v, InputController.v, InputController.v, 1);
 		Down.color = new Vector4(-InputController.v, -InputController.v, -InputController.v, 1);
-
-
 
 		Right.color = new Vector4(InputController.h, InputController.h, InputController.h, 1);
 		Left.color = new Vector4(-InputController.h, -InputController.h, -InputController.h, 1);

@@ -4,10 +4,15 @@ using System.Collections;
 public class ApplyRootMotion : StateMachineBehaviour {
 	
 	public bool apply;
+	RomanCharController charController = null;
+	
 	
     // OnStateEnter is called before OnStateEnter is called on any state inside this state machine
 	override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
-		animator.applyRootMotion = apply;	
+		if(charController == null)
+			charController = animator.GetComponent<RomanCharController>();
+			
+		charController.ApplyRootMotion(apply);	
 	}
 
 	// OnStateUpdate is called before OnStateUpdate is called on any state inside this state machine

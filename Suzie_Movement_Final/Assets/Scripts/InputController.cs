@@ -71,16 +71,6 @@ public class InputController : MonoBehaviour {
 		{
 			if (onInput != null)
 				onInput (InputEvent.StartRunning);
-			
-			// Debugging
-//			if (onControllerDebug != null)
-//			{
-//				//print ("yooo");
-//				if (inputDevice.LeftStickY.Value > 0)
-//					onControllerDebug (ControllerDebugger.Axis.UP, ControllerDebugger.State.Pressed);
-//				else
-//					onControllerDebug (ControllerDebugger.Axis.DOWN, ControllerDebugger.State.Pressed);
-//			}
 				
 		}
 
@@ -92,23 +82,14 @@ public class InputController : MonoBehaviour {
 				onInput (InputEvent.StopRunning);
 				print ("LeftStickY was released");
 			}
-			
-			// Debugging
-//			if (onControllerDebug != null)
-//			{
-//				//print ("yooo");
-//				//if (inputDevice.LeftStickY.Value > 0)
-//					onControllerDebug (ControllerDebugger.Axis.UP, ControllerDebugger.State.Released);
-//				else
-//					onControllerDebug (ControllerDebugger.Axis.DOWN, ControllerDebugger.State.Released);
-//			}
+		
 		}
 		
 		if (inputDevice.LeftStickX.WasReleased)
 		{
 			if (onInput != null)
 			{
-				onInput (InputEvent.StopTurnRunning);
+				onInput (InputEvent.StopRunning);
 			}
 		}
 
@@ -162,18 +143,7 @@ public class InputController : MonoBehaviour {
 			if (onInput != null)
 				onInput (InputEvent.CamBehind);
 		}
-		
-		// Controller debgging
-//		if (inputDevice.LeftStickY.IsPressed)
-//		{
-//			if (inputDevice.LeftStickY.Value > 0)
-//				onControllerDebug (ControllerDebugger.Axis.UP, ControllerDebugger.State.Pressed);
-//		}
-//		
-//		if (inputDevice.LeftStickX.IsPressed)
-//		{
-//			
-//		}
+
 
 	}
 		

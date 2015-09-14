@@ -12,7 +12,7 @@ public class RomanCharController : MonoBehaviour {
 	public delegate void CharEvent(RomanCameraController.CamState camState);
 	public static CharEvent onCharEvent;
 	
-	public float idleTurnSpeed = 10.0f;				// How fast the Squirrel will turn in idle mode
+	public float idleRotateSpeed = 10.0f;				// How fast the Squirrel will turn in idle mode
 	public float speedDampTime = 0.05f;
 	public float maxRunningRotation = 20f;
 	
@@ -32,6 +32,7 @@ public class RomanCharController : MonoBehaviour {
 	private Transform cam;	
 	
 	private Vector3 moveDirection;
+	private Vector3 moveDirectionRaw;
 	private Quaternion targetRot;		// the target rotation to achieve while in idle or running
 	
 	
@@ -58,19 +59,35 @@ public class RomanCharController : MonoBehaviour {
 	private void LateUpdate ()
 	{
 		moveDirection = new Vector3(InputController.h, 0, InputController.v);
-	
+		moveDirectionRaw = new Vector3(InputController.rawH, 0, InputController.rawV);
+		
+		// else if character is not runnign to the side and there is a move direction
+		if (moveDirection == Vector3.zero) 
+			return;
+			
 		// if char is running to the side
 		if (charState.IsSideRunning())
 		{
-		
 			transform.RotateAround(cam.position, Vector3.up, sideRunRotateSpeed * InputController.rawH * Time.deltaTime);
 		}
 		
-		// else if character is not runnign to the side and there is a move direction
-		else if (moveDirection != Vector3.zero)
+		else if (charState.IsRunningStraight())
 		{
-			transform.rotation = Quaternion.Slerp (transform.rotation, Quaternion.LookRotation(moveDirection), runRotateSpeed * Time.fixedDeltaTime);
+			//print (moveDirectionRaw);
+			//if (InputController.h != 0)
+			//{
+//				moveDirectionRaw = transform.eulerAngles * 10 * InputController.rawH;
+//				moveDirectionRaw.y = 0;
+//				
+//				print (moveDirectionRaw);
+				//Vector3 rot = new Vector3(transform.eulerAngles.x, cam.eulerAngles.y + 50 * InputController.rawH, transform.eulerAngles.z);
+			//}
+			//transform.eulerAngles = Vector3.Lerp (transform.eulerAngles, rot, runRotateSpeed * Time.deltaTime);
+			transform.rotation = Quaternion.Slerp (transform.rotation, Quaternion.LookRotation(moveDirectionRaw), runRotateSpeed * Time.deltaTime);
 		}
+		else
+			transform.rotation = Quaternion.Slerp (transform.rotation, Quaternion.LookRotation(moveDirection), idleRotateSpeed * Time.deltaTime);
+		
 		
 		if (charState.IsIdle())
 		{
@@ -101,7 +118,7 @@ public class RomanCharController : MonoBehaviour {
 	private float CalculateIdleRotationAngle()
 	{
 		// Get the amount of rotation that we want to apply to the player's y axis based on horizontal input
-		yRot = transform.eulerAngles.y + InputController.rawH * idleTurnSpeed;
+		yRot = transform.eulerAngles.y + InputController.rawH * idleRotateSpeed;
 
 		// Get the direction the player is facing in reference to the camera
 		dir = Vector3.Cross (transform.forward, cam.forward).y;

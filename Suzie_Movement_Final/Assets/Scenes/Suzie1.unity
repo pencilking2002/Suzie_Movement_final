@@ -321,7 +321,7 @@ Transform:
   - {fileID: 636557166}
   - {fileID: 57009923}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
 --- !u!1 &195616242
 GameObject:
   m_ObjectHideFlags: 0
@@ -484,7 +484,7 @@ Transform:
   m_LocalScale: {x: 220.42688, y: 1.94080102, z: 220.426804}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
 --- !u!1 &331856414
 GameObject:
   m_ObjectHideFlags: 0
@@ -557,7 +557,7 @@ Transform:
   m_LocalScale: {x: 4.46517897, y: 4.4651804, z: 4.4651804}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
 --- !u!1 &394793980
 GameObject:
   m_ObjectHideFlags: 0
@@ -685,8 +685,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   idleRotateSpeed: 2
   speedDampTime: .0500000007
+  walkToRunDampTime: .140000001
   maxRunningRotation: 90
-  runRotateSpeed: 20
+  runRotateSpeed: 10
   runSpeed: 1.10000002
 --- !u!114 &442910729
 MonoBehaviour:
@@ -699,6 +700,46 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a00388ce032c4f1d94e2b08e7a6d914, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &517959652
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 517959654}
+  - 114: {fileID: 517959653}
+  m_Layer: 0
+  m_Name: SmoothFollow
+  m_TagString: Follow
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!114 &517959653
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 517959652}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e34c6b2ec7d284c4a826508917aebf51, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 2
+--- !u!4 &517959654
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 517959652}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -8.50261688, y: 4.44968843, z: -18.3668728}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 2
 --- !u!1 &518505460
 GameObject:
   m_ObjectHideFlags: 0
@@ -814,7 +855,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73d16997bff0c4388b05dfb39215bfed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  on: 1
+  on: 0
   onlyInPlayMode: 0
   sceneViewFollowers:
   - enable: 1
@@ -884,7 +925,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
 --- !u!1001 &593336847
 Prefab:
   m_ObjectHideFlags: 0
@@ -898,7 +939,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 465690, guid: 178ddc6b4425848ef9730a8bb314f783, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 1.4853133
+      value: 1.45799994
       objectReference: {fileID: 0}
     - target: {fileID: 465690, guid: 178ddc6b4425848ef9730a8bb314f783, type: 2}
       propertyPath: m_LocalPosition.z
@@ -922,7 +963,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 465690, guid: 178ddc6b4425848ef9730a8bb314f783, type: 2}
       propertyPath: m_RootOrder
-      value: 2
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 9555880, guid: 178ddc6b4425848ef9730a8bb314f783, type: 2}
       propertyPath: m_Controller
@@ -950,7 +991,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 5486736, guid: 178ddc6b4425848ef9730a8bb314f783, type: 2}
       propertyPath: m_Interpolate
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9555880, guid: 178ddc6b4425848ef9730a8bb314f783, type: 2}
       propertyPath: m_UpdateMode
@@ -966,7 +1007,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 128798, guid: 178ddc6b4425848ef9730a8bb314f783, type: 2}
       propertyPath: m_TagString
-      value: Player
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 5486736, guid: 178ddc6b4425848ef9730a8bb314f783, type: 2}
       propertyPath: m_UseGravity
@@ -1000,6 +1041,22 @@ Prefab:
     - target: {fileID: 159642, guid: 178ddc6b4425848ef9730a8bb314f783, type: 2}
       propertyPath: m_TagString
       value: Untagged
+      objectReference: {fileID: 0}
+    - target: {fileID: 13628534, guid: 178ddc6b4425848ef9730a8bb314f783, type: 2}
+      propertyPath: m_Center.y
+      value: .5
+      objectReference: {fileID: 0}
+    - target: {fileID: 469700, guid: 178ddc6b4425848ef9730a8bb314f783, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 469700, guid: 178ddc6b4425848ef9730a8bb314f783, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -.486000001
+      objectReference: {fileID: 0}
+    - target: {fileID: 469700, guid: 178ddc6b4425848ef9730a8bb314f783, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -.00800000038
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 178ddc6b4425848ef9730a8bb314f783, type: 2}
@@ -1173,7 +1230,7 @@ Transform:
   - {fileID: 55417668}
   - {fileID: 394793981}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
 --- !u!1 &1079297325
 GameObject:
   m_ObjectHideFlags: 0
@@ -1895,7 +1952,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 11
 --- !u!1 &2086329365
 GameObject:
   m_ObjectHideFlags: 0
@@ -1930,11 +1987,12 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2086329365}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e34c6b2ec7d284c4a826508917aebf51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 10
 --- !u!1 &2095017285
 GameObject:
   m_ObjectHideFlags: 0
@@ -2007,4 +2065,4 @@ Transform:
   m_LocalScale: {x: 2.61250043, y: .152972221, z: 2.68801999}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 10

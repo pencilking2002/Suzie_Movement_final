@@ -14,6 +14,8 @@ public class RomanCharController : MonoBehaviour {
 	
 	public float idleRotateSpeed = 10.0f;				// How fast the Squirrel will turn in idle mode
 	public float speedDampTime = 0.05f;
+	public float walkToRunDampTime = 1f;
+
 	public float maxRunningRotation = 20f;
 	
 	public float runRotateSpeed = 10f;
@@ -52,11 +54,13 @@ public class RomanCharController : MonoBehaviour {
 	private void LateUpdate ()
 	{
 
-		//moveDirection = new Vector3(InputController.h, 0, InputController.v);
+		moveDirection = new Vector3(InputController.h, 0, InputController.v);
 		moveDirectionRaw = new Vector3(InputController.rawH, 0, InputController.rawV);
 		
 		//animator.SetFloat ("Speed", moveDirectionRaw.sqrMagnitude, speedDampTime, Time.deltaTime);
 		animator.SetFloat ("Speed", moveDirectionRaw.sqrMagnitude);
+		animator.SetFloat ("WalkToRun", moveDirection.sqrMagnitude, walkToRunDampTime, Time.deltaTime);
+		//print (moveDirection.sqrMagnitude);
 
 		TurnCharToCamera();
 
@@ -76,11 +80,6 @@ public class RomanCharController : MonoBehaviour {
 
 	}
 
-	private void FixedUpdate()
-	{
-
-
-	}
 
 	/// <summary>
 	/// - Get a vector of the camera's forward direction

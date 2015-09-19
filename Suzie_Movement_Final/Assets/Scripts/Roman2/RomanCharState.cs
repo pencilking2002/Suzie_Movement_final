@@ -17,7 +17,6 @@ public class RomanCharState : MonoBehaviour {
 		Swimming,
 		Falling,
 		Running,
-		SideRunning,
 		InCombat,
 		InAir,
 		Pivoting
@@ -31,9 +30,6 @@ public class RomanCharState : MonoBehaviour {
 	
 	// mechanim
 	private Animator animator;
-	private AnimatorTransitionInfo transInfo;
-	private float locomotionPivotLT_ID = 0;
-	private float locomotionPivotRT_ID = 0;
 	
 	private RomanCharController_old charController;
 	private Rigidbody rb;
@@ -48,12 +44,7 @@ public class RomanCharState : MonoBehaviour {
 		charController = GetComponent<RomanCharController_old>();
 		rb = GetComponent<Rigidbody>();
 	}
-	
-	private void Update ()
-	{
-		transInfo = animator.GetAnimatorTransitionInfo (0);
-	}
-	
+
 	public void SetState (State _state)
 	{
 		state = _state;
@@ -71,11 +62,7 @@ public class RomanCharState : MonoBehaviour {
 	{
 		return state == _state;
 	}
-	
-	public bool IsInLocomotion()
-	{
-		return state == State.Running || state == State.SideRunning;
-	}
+
 	
 	public bool IsIdle ()
 	{
@@ -86,33 +73,18 @@ public class RomanCharState : MonoBehaviour {
 	{
 		return state == State.Idle && InputController.rawH != 0;
 	}
-	
-	public bool IsSideRunning ()
-	{
-		return state == State.SideRunning;
-	}
-	
-	public bool IsRunningStraight ()
-	{
-		return state == State.Running;
-	}
+
 	
 	public bool IsRunning ()
 	{
-		return state == State.Running || state == State.SideRunning;
+		return state == State.Running;
 	}
 
 	public bool IsJumping()
 	{
 		return (state == State.IdleJumping || state == State.RunningJumping || state == State.Falling);
 	}
-	
-	public bool IsInPivot()
-	{
-		return state == State.Pivoting ||
-			transInfo.nameHash == locomotionPivotLT_ID ||
-				transInfo.nameHash == locomotionPivotRT_ID;
-	}
+
 	
 	
 }

@@ -683,11 +683,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d13c90e411fe4b5095496e50d7f209d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  idleRotateSpeed: 10
+  idleRotateSpeed: 2
   speedDampTime: .0500000007
   maxRunningRotation: 90
   runRotateSpeed: 20
-  sideRunRotateSpeed: 60
+  runSpeed: 1.10000002
 --- !u!114 &442910729
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -713,7 +713,6 @@ GameObject:
   - 81: {fileID: 518505461}
   - 114: {fileID: 518505466}
   - 114: {fileID: 518505467}
-  - 114: {fileID: 518505468}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -801,8 +800,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   offset: {x: 0, y: 1.79999995, z: -4}
   follow: {fileID: 2086329366}
-  camFollowSpeed: 3
-  camLookAtSpeed: 10
+  camFollowSpeed: 4
+  camLookAtSpeed: 2
   state: 0
 --- !u!114 &518505467
 MonoBehaviour:
@@ -810,153 +809,22 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 518505460}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 73d16997bff0c4388b05dfb39215bfed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  on: 0
+  on: 1
   onlyInPlayMode: 0
   sceneViewFollowers:
   - enable: 1
-    positionOffset: {x: 0, y: 10.0600004, z: 0}
+    positionOffset: {x: -1.22000003, y: 3.46000004, z: .409999996}
     enableFixedRotation: 1
-    fixedRotation: {x: 90, y: 0, z: 0}
+    fixedRotation: {x: 99.8000031, y: 76.5, z: 0}
     targetTransform: {fileID: 2086329366}
     size: .00999999978
     orthographic: 0
     sceneViewIndex: 0
---- !u!114 &518505468
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 518505460}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 46535b7816492e44ea56a28fa521c58c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  collisionLayers:
-    serializedVersion: 2
-    m_Bits: 1
-  avoidanceLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  collisionBuffer: .200000003
-  collisionAlphaLayers:
-    serializedVersion: 2
-    m_Bits: 2
-  avoidanceSpeed: .5
-  ignoreCurrentTarget: 1
-  target: {fileID: 0}
-  targetTag: Follow
-  targetOffset: {x: 0, y: 0, z: 0}
-  smoothOffset: 1
-  smoothOffsetSpeed: 5
-  relativeOffset: 1
-  useTargetAxis: 0
-  softTracking: 0
-  softTrackingRadius: 3
-  softTrackingSpeed: 3
-  allowMouseDrag: 0
-  mouseDragButton: 20
-  mouseDragSensitivity: {x: 15, y: 15}
-  allowEdgeMovement: 0
-  allowEdgeKeys: 0
-  lockToTarget: 0
-  limitBounds: 0
-  boundOrigin: {x: 0, y: 0, z: 0}
-  boundSize: {x: 0, y: 0, z: 0}
-  edgePadding: 20
-  scrollSpeed: 10
-  keyFollowTarget: 32
-  keyMoveUp: 119
-  keyMoveDown: 115
-  keyMoveLeft: 97
-  keyMoveRight: 100
-  showEdges: 0
-  edgeTexture: {fileID: 2800000, guid: 81035a403332f1e448d3ffc0f8ed2b86, type: 3}
-  allowRotation: 1
-  mouseHorizontalAxis: Mouse X
-  mouseVerticalAxis: Mouse Y
-  invertRotationX: 0
-  invertRotationY: 0
-  mouseLook: 0
-  disableWhileUnlocked: 1
-  useJoystick: 0
-  joystickSensitivity: {x: 1, y: 1}
-  joystickHorizontalAxis: JoystickHorizontal
-  joystickVerticalAxis: JoystickVertical
-  allowRotationLeft: 1
-  allowRotationMiddle: 1
-  allowRotationRight: 1
-  originRotation: {x: 0, y: 25}
-  returnToOrigin: 0
-  returnToOriginOnKey: 0
-  returnToOriginKey: 0
-  stayBehindTarget: 0
-  stayBehindTargetOnKey: 0
-  stayBehindTargetKey: 0
-  setOriginKey: 0
-  setOriginLeft: 0
-  setOriginMiddle: 0
-  setOriginRight: 0
-  minAngle: 0
-  maxAngle: 30
-  rotationSmoothing: 5
-  autoSmoothing: 1
-  returnSmoothing: 5
-  returnDelay: 0
-  rotationSensitivity: {x: 7, y: 7}
-  lockCursor: 1
-  lockLeft: 1
-  lockMiddle: 1
-  lockRight: 1
-  allowRotationKeys: 1
-  keyRotateUp: 261
-  keyRotateDown: 258
-  keyRotateLeft: 257
-  keyRotateRight: 259
-  rotationKeySensitivity: {x: 3, y: 3}
-  rotateObjects: 1
-  objectsToRotate:
-  - {fileID: 442910724}
-  autoAddTargetToRotate: 1
-  rotateObjectsLeft: 0
-  rotateObjectsMiddle: 0
-  rotateObjectsRight: 1
-  allowZoom: 1
-  distance: 7
-  minDistance: 2
-  maxDistance: 5
-  zoomSpeed: 1
-  zoomSmoothing: 5
-  invertZoom: 0
-  allowZoomKeys: 1
-  keyZoomIn: 278
-  keyZoomOut: 279
-  keyZoomDelay: .5
-  fadeCurrentTarget: 0
-  fadeDistance: 1
-  fadeAmount: .25
-  alphaFadeSpeed: 10
-  replaceShaders: 0
-  transparentShader: {fileID: 0}
-  allowTouch: 0
-  touchSensitivity: .699999988
-  mobileRotationType: 2
-  mobileRotationDelay: .25
-  mobileSwipeActiveTime: .200000003
-  mobileSwipeMinDistance: 150
-  mobileSwipeRotationAmount: {x: 45, y: 45}
-  mobilePanType: 0
-  mobilePanningTouchCount: 3
-  mobilePanSwipeActiveTime: .200000003
-  mobilePanSwipeMinDistance: 150
-  mobilePanSwipeDistance: {x: 20, y: 20}
-  mobileZoomDeadzone: 7
-  mobileZoomSpeed: .25
 --- !u!1 &565086904
 GameObject:
   m_ObjectHideFlags: 0
@@ -1086,7 +954,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 9555880, guid: 178ddc6b4425848ef9730a8bb314f783, type: 2}
       propertyPath: m_UpdateMode
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5486736, guid: 178ddc6b4425848ef9730a8bb314f783, type: 2}
       propertyPath: m_Mass

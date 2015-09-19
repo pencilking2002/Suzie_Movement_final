@@ -89,14 +89,7 @@ public class InputController : MonoBehaviour {
 			}
 		
 		}
-		
-		if (inputDevice.LeftStickX.WasReleased)
-		{
-			if (onInput != null)
-			{
-				onInput (InputEvent.StopTurnRunning);
-			}
-		}
+	
 
 		// Run Right
 //		if (InputDevice.LeftStickX.WasPressed)

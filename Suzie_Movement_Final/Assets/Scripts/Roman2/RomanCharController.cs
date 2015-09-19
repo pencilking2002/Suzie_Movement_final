@@ -16,8 +16,8 @@ public class RomanCharController : MonoBehaviour {
 	public float speedDampTime = 0.05f;
 	public float maxRunningRotation = 20f;
 	
-	public float runRotateSpeed = 10f;	
-	public float sideRunRotateSpeed = 20f;
+	public float runRotateSpeed = 10f;
+	public float runSpeed = 10.0f;
 	
 	//---------------------------------------------------------------------------------------------------------------------------
 	//	Private Variables
@@ -47,40 +47,39 @@ public class RomanCharController : MonoBehaviour {
 		rb = GetComponent<Rigidbody>();
 		cam = Camera.main.transform;
 	}
-	
-	// Update is called once per frame
-	private void Update () 
-	{
-		animator.SetFloat ("Speed", moveDirectionRaw.sqrMagnitude, speedDampTime, Time.deltaTime);
 
-		
-	}
 	
 	private void LateUpdate ()
 	{
+
 		//moveDirection = new Vector3(InputController.h, 0, InputController.v);
 		moveDirectionRaw = new Vector3(InputController.rawH, 0, InputController.rawV);
 		
-		// else if character is not runnign to the side and there is a move direction
-		//if (moveDirection == Vector3.zero) 
-			//return;
+		//animator.SetFloat ("Speed", moveDirectionRaw.sqrMagnitude, speedDampTime, Time.deltaTime);
+		animator.SetFloat ("Speed", moveDirectionRaw.sqrMagnitude);
 
 		TurnCharToCamera();
 
 		if (moveDirectionRaw == Vector3.zero) 
 			return;
-
-		if (charState.IsRunningStraight())
+		
+		if (charState.IsRunning())
 		{
-			//if (moveDirectionRaw != Vector3.zero)
-				transform.rotation = Quaternion.Slerp (transform.rotation, Quaternion.LookRotation(moveDirectionRaw), runRotateSpeed * Time.deltaTime);
+			transform.rotation = Quaternion.Slerp (transform.rotation, Quaternion.LookRotation(moveDirectionRaw), runRotateSpeed * Time.deltaTime);
 		}
 		else if (charState.IsIdle())
 		{
 			transform.rotation = Quaternion.Slerp (transform.rotation, Quaternion.LookRotation(moveDirectionRaw), runRotateSpeed * Time.deltaTime);
 		}
-		
-	
+
+
+
+	}
+
+	private void FixedUpdate()
+	{
+
+
 	}
 
 	/// <summary>
@@ -94,7 +93,7 @@ public class RomanCharController : MonoBehaviour {
 		camForward = new Vector3(cam.forward.x, 0, cam.forward.z);
 		camRot = Quaternion.LookRotation(camForward);
 		moveDirectionRaw = camRot * moveDirectionRaw;
-		print (moveDirectionRaw);
+		//print (moveDirectionRaw);
 	}
 
 	private void OnCollisionEnter (Collision coll)
@@ -174,11 +173,11 @@ public class RomanCharController : MonoBehaviour {
 	/// <param name="e">E.</param>
 	private void StopSideRunning(InputController.InputEvent e)
 	{	
-		if (e == InputController.InputEvent.StopTurnRunning && charState.IsSideRunning())
-		{
-			animator.SetTrigger ("StopSideRunning");
-			//print ("Stop running");
-		}
+//		if (e == InputController.InputEvent.StopTurnRunning && charState.IsSideRunning())
+//		{
+//			animator.SetTrigger ("StopSideRunning");
+//			//print ("Stop running");
+//		}
 		
 	}
 	
@@ -196,17 +195,17 @@ public class RomanCharController : MonoBehaviour {
 	/// Called when the LeftStickY is pressed
 	/// </summary>
 	/// <param name="e">E.</param>
-	private void StartRunning(InputController.InputEvent e)
-	{
-		if (e == InputController.InputEvent.StartRunning)
-		{
-			animator.SetTrigger ("StartRunning");
-			charState.SetState (RomanCharState.State.Running);
-			
-			//if (InputController.rawV == -1)
-				//transform.eulerAngles = new Vector3(transform.eulerAngles.x, -transform.eulerAngles.y, transform.eulerAngles.z);
-		}
-	}
+//	private void StartRunning(InputController.InputEvent e)
+//	{
+//		if (e == InputController.InputEvent.StartRunning)
+//		{
+//			animator.SetTrigger ("StartRunning");
+//			charState.SetState (RomanCharState.State.Running);
+//			
+//			//if (InputController.rawV == -1)
+//				//transform.eulerAngles = new Vector3(transform.eulerAngles.x, -transform.eulerAngles.y, transform.eulerAngles.z);
+//		}
+//	}
 	
 	//---------------------------------------------------------------------------------------------------------------------------
 	// Public Methods
@@ -215,8 +214,8 @@ public class RomanCharController : MonoBehaviour {
 	// Enable Root motion
 	public void ApplyRootMotion (bool apply)
 	{
-		if (charState.IsSideRunning())
-			apply = false;
+//		if (charState.IsSideRunning())
+//			apply = false;
 	
 		animator.applyRootMotion = apply;
 	}
@@ -226,8 +225,8 @@ public class RomanCharController : MonoBehaviour {
 	{
 		if (onCharEvent == null) return;
 		
-		if (charState.IsSideRunning())
-			onCharEvent(RomanCameraController.CamState.TurnRunning);
+//		if (charState.IsSideRunning())
+//			onCharEvent(RomanCameraController.CamState.TurnRunning);
 			
 		if (charState.IsIdle())
 			onCharEvent(RomanCameraController.CamState.Free);

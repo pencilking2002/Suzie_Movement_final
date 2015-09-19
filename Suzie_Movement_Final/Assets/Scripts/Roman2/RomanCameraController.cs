@@ -52,70 +52,20 @@ public class RomanCameraController : MonoBehaviour {
 		
 		charController = follow.parent.GetComponent<RomanCharController>();
 		charState = follow.parent.GetComponent<RomanCharState>();
-		
-		// Cache the original offset
-		//offset = transform.position - follow.transform.position;
-		
 	}
 	
 	// Update is called once per frame
-	private void Update () 
+	private void LateUpdate () 
 	{
-//		float dist = Vector3.Distance(follow.position, transform.position);
-//	
-//		
-//		if (dist >= 2f)
-//		{
-//			//print("4 is bigger than 20");
-//			transform.position = Vector3.SmoothDamp(transform.position, follow.transform.position + offset, ref vel, camFollowSpeed * Time.deltaTime);
-//		}
-//		
-//		transform.LookAt (follow);
-
-		//		switch (state)
-//		{
-//			case CamState.TurnRunning:
-//				
-				vecDifference = Vector3.Normalize(transform.position - follow.position) * -offset.z;
-				vecDifference.y = 2;
-				
-				transform.position = Vector3.Lerp(transform.position, follow.position + vecDifference, camFollowSpeed * Time.deltaTime);
-				
-				//Smoothly rotate towards the target point.
-				targetRotation = Quaternion.LookRotation(follow.position - transform.position);
-				transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, camLookAtSpeed * Time.deltaTime);
-//
-//				break;
-//
-//			case CamState.Free:
-//				
-//				
-//				//targetPos = follow.position + offset;
-//				
-////				targetPos = Vector3.Normalize(transform.position - follow.position) * -offset.z;
-////				targetPos.y = 2;
-//				targetPos = follow.position + follow.forward * offset.z;
-//				targetPos.y = follow.position.y + offset.y;
-//				
-//				transform.position = Vector3.Lerp(transform.position, targetPos, camFollowSpeed * Time.deltaTime);
-//
-//				targetRotation = Quaternion.LookRotation(follow.position - transform.position);
-//				transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, camLookAtSpeed * Time.deltaTime);
-//				break;
-//				
-//			break;
-//			
-//			case CamState.Behind:
-//				float currentAngle = transform.eulerAngles.y;
-//				float desiredAngle = follow.transform.eulerAngles.y;
-//				float angle = Mathf.LerpAngle(currentAngle, desiredAngle, Time.deltaTime * camFollowSpeed);
-//				Quaternion rotation = Quaternion.Euler(0, angle, 0);
-//				
-//				transform.position = follow.transform.position - (rotation * offset);
-//				transform.LookAt(follow.transform);
-//			break;
-//		}
-
+		vecDifference = Vector3.Normalize(transform.position - follow.position) * -offset.z;
+		vecDifference.y = 2;
+		
+		transform.position = Vector3.Lerp(transform.position, follow.position + vecDifference, camFollowSpeed * Time.deltaTime);
+		
+		//Smoothly rotate towards the target point.
+		targetRotation = Quaternion.LookRotation(follow.position - transform.position);
+		transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, camFollowSpeed * Time.deltaTime);
+		
 	}
 	
 	private void OnEnable ()

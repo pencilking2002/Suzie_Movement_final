@@ -55,7 +55,7 @@ public class RomanCameraController : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	private void LateUpdate () 
+	private void FixedUpdate () 
 	{
 		vecDifference = Vector3.Normalize(transform.position - follow.position) * -offset.z;
 		vecDifference.y = 2;

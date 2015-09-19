@@ -35,8 +35,8 @@ public class RomanCharController : MonoBehaviour {
 	private Vector3 moveDirectionRaw;
 	private Quaternion targetRot;		// the target rotation to achieve while in idle or running
 	
-	
-	
+	private Vector3 camForward;
+	private Quaternion camRot;
 
 	//private Quaternion zeroAngle = new Quaternion(0,0,0,1);
 
@@ -51,57 +51,52 @@ public class RomanCharController : MonoBehaviour {
 	// Update is called once per frame
 	private void Update () 
 	{
-		//animator.SetFloat ("Speed", InputController.v, speedDampTime, Time.deltaTime);
+		animator.SetFloat ("Speed", moveDirectionRaw.sqrMagnitude, speedDampTime, Time.deltaTime);
 
 		
 	}
 	
 	private void LateUpdate ()
 	{
-		moveDirection = new Vector3(InputController.h, 0, InputController.v);
+		//moveDirection = new Vector3(InputController.h, 0, InputController.v);
 		moveDirectionRaw = new Vector3(InputController.rawH, 0, InputController.rawV);
 		
 		// else if character is not runnign to the side and there is a move direction
-		if (moveDirection == Vector3.zero) 
+		//if (moveDirection == Vector3.zero) 
+			//return;
+
+		TurnCharToCamera();
+
+		if (moveDirectionRaw == Vector3.zero) 
 			return;
-			
-		// if char is running to the side
-		if (charState.IsSideRunning())
+
+		if (charState.IsRunningStraight())
 		{
-			transform.RotateAround(cam.position, Vector3.up, sideRunRotateSpeed * InputController.rawH * Time.deltaTime);
+			//if (moveDirectionRaw != Vector3.zero)
+				transform.rotation = Quaternion.Slerp (transform.rotation, Quaternion.LookRotation(moveDirectionRaw), runRotateSpeed * Time.deltaTime);
 		}
-		
-		else if (charState.IsRunningStraight())
+		else if (charState.IsIdle())
 		{
-			//print (moveDirectionRaw);
-			//if (InputController.h != 0)
-			//{
-//				moveDirectionRaw = transform.eulerAngles * 10 * InputController.rawH;
-//				moveDirectionRaw.y = 0;
-//				
-//				print (moveDirectionRaw);
-				//Vector3 rot = new Vector3(transform.eulerAngles.x, cam.eulerAngles.y + 50 * InputController.rawH, transform.eulerAngles.z);
-			//}
-			//transform.eulerAngles = Vector3.Lerp (transform.eulerAngles, rot, runRotateSpeed * Time.deltaTime);
 			transform.rotation = Quaternion.Slerp (transform.rotation, Quaternion.LookRotation(moveDirectionRaw), runRotateSpeed * Time.deltaTime);
 		}
-		else
-			transform.rotation = Quaternion.Slerp (transform.rotation, Quaternion.LookRotation(moveDirection), idleRotateSpeed * Time.deltaTime);
 		
-		
-		if (charState.IsIdle())
-		{
-//			if (onCharEvent != null)
-//				onCharEvent(RomanCameraController.CamState.TurnRunning);
-				
-			float theAngle = CalculateIdleRotationAngle();
-			InitSideRunning(theAngle);
-		}
-		
-
-				
-	}
 	
+	}
+
+	/// <summary>
+	/// - Get a vector of the camera's forward direction
+	/// - Create a rotation based on the forward direction of the camera
+	/// - Move moveDirectionRaw be in reference to the camera rotation so that if we go straight for example
+	/// the character will also go straight
+	/// </summary>
+	private void TurnCharToCamera()
+	{
+		camForward = new Vector3(cam.forward.x, 0, cam.forward.z);
+		camRot = Quaternion.LookRotation(camForward);
+		moveDirectionRaw = camRot * moveDirectionRaw;
+		print (moveDirectionRaw);
+	}
+
 	private void OnCollisionEnter (Collision coll)
 	{
 		if (coll.collider.gameObject.layer == 8 && charState.IsJumping() && Vector3.Dot(coll.contacts[0].normal, Vector3.up) > 0.5f)
@@ -115,62 +110,62 @@ public class RomanCharController : MonoBehaviour {
 	/// Used to tell which way the character is facing relative to the camera.
 	/// </summary>
 	/// <returns>a float value representing the character's rotation relative to the camera. Range is between -90 and 90</returns>
-	private float CalculateIdleRotationAngle()
-	{
-		// Get the amount of rotation that we want to apply to the player's y axis based on horizontal input
-		yRot = transform.eulerAngles.y + InputController.rawH * idleRotateSpeed;
-
-		// Get the direction the player is facing in reference to the camera
-		dir = Vector3.Cross (transform.forward, cam.forward).y;
-		dir = dir > 0 ? -1 : 1;
-
-		angle = Vector3.Angle (transform.forward, cam.forward);
-		angle *= dir;
-		
-		return Mathf.Clamp(angle, -90, 90);
-		
-	}
+//	private float CalculateIdleRotationAngle()
+//	{
+//		// Get the amount of rotation that we want to apply to the player's y axis based on horizontal input
+//		yRot = transform.eulerAngles.y + InputController.rawH * idleRotateSpeed;
+//
+//		// Get the direction the player is facing in reference to the camera
+//		dir = Vector3.Cross (transform.forward, cam.forward).y;
+//		dir = dir > 0 ? -1 : 1;
+//
+//		angle = Vector3.Angle (transform.forward, cam.forward);
+//		angle *= dir;
+//		
+//		return Mathf.Clamp(angle, -90, 90);
+//		
+//	}
 
 	/// <summary>
 	/// Turn in idle mode and unles you are perpendicular to the cam
 	/// </summary>
-	private void InitSideRunning(float _angle)
-	{
-		if (_angle > 88 && InputController.rawH > 0)
-		{
-			transform.eulerAngles = new Vector3(transform.eulerAngles.x, cam.eulerAngles.y + 90, transform.eulerAngles.z);
-			animator.SetTrigger("StartSideRunning");
-			charState.SetState (RomanCharState.State.SideRunning);
-			
-			print ("Side running");
-		}
-		
-		else if (_angle < -88 && InputController.rawH < 0)
-		{
-			transform.eulerAngles = new Vector3(transform.eulerAngles.x, cam.eulerAngles.y - 90, transform.eulerAngles.z);
-			animator.SetTrigger("StartSideRunning");
-			charState.SetState (RomanCharState.State.SideRunning);
-			
-			print ("Side running");
-		}
-
-	}
+//	private void InitSideRunning(float _angle)
+//	{
+//		if (_angle > 88 && InputController.rawH > 0)
+//		{
+//			transform.eulerAngles = new Vector3(transform.eulerAngles.x, cam.eulerAngles.y + 90, transform.eulerAngles.z);
+//			animator.SetTrigger("StarRunning");
+//			charState.SetState (RomanCharState.State.Running);
+//			
+//			print ("Side running");
+//		}
+//		
+//		else if (_angle < -88 && InputController.rawH < 0)
+//		{
+//			transform.eulerAngles = new Vector3(transform.eulerAngles.x, cam.eulerAngles.y - 90, transform.eulerAngles.z);
+//			animator.SetTrigger("StartRunning");
+//			charState.SetState (RomanCharState.State.Running);
+//			
+//			print ("Side running");
+//		}
+//
+//	}
 
 	// Events --------------------------------------------------------------------------------------------------------------------------------
 	
 	// Hook on to Input event
 	private void OnEnable () 
 	{ 
-		InputController.onInput += StartRunning; 
-		InputController.onInput += StopRunning;
-		InputController.onInput += StopSideRunning;
+		//InputController.onInput += StartRunning; 
+		//InputController.onInput += StopRunning;
+		//InputController.onInput += StopSideRunning;
 	}
 		
 	private void OnDisable () 
 	{ 
-		InputController.onInput -= StartRunning; 
-		InputController.onInput -= StopRunning;
-		InputController.onInput -= StopSideRunning;
+		//InputController.onInput -= StartRunning; 
+		//InputController.onInput -= StopRunning;
+		//InputController.onInput -= StopSideRunning;
 	}
 
 	/// <summary>
@@ -187,15 +182,15 @@ public class RomanCharController : MonoBehaviour {
 		
 	}
 	
-	private void StopRunning(InputController.InputEvent e)
-	{	
-		if (e == InputController.InputEvent.StopRunning)
-		{
-			animator.SetTrigger ("StopRunning");
-			//print ("Stop running");
-		}
-		
-	}
+//	private void StopRunning(InputController.InputEvent e)
+//	{	
+//		if (e == InputController.InputEvent.StopRunning)
+//		{
+//			animator.SetTrigger ("StopRunning");
+//			//print ("Stop running");
+//		}
+//		
+//	}
 	
 	/// <summary>
 	/// Called when the LeftStickY is pressed

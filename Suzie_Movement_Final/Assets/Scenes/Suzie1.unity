@@ -37,9 +37,6 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
---- !u!127 &3
-LevelGameManager:
-  m_ObjectHideFlags: 0
 --- !u!157 &4
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -68,6 +65,7 @@ LightmapSettings:
     m_TextureCompression: 1
     m_FinalGather: 0
     m_FinalGatherRayCount: 1024
+    m_ReflectionCompression: 2
   m_LightmapSnapshot: {fileID: 0}
   m_RuntimeCPUUsage: 25
 --- !u!196 &5
@@ -341,7 +339,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &195616243
 RectTransform:
   m_ObjectHideFlags: 0
@@ -371,6 +369,11 @@ MonoBehaviour:
   m_Script: {fileID: 1301386320, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_IgnoreReversedGraphics: 1
+  m_BlockingObjects: 0
+  m_BlockingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
 --- !u!114 &195616245
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -382,6 +385,16 @@ MonoBehaviour:
   m_Script: {fileID: 1980459831, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_UiScaleMode: 0
+  m_ReferencePixelsPerUnit: 100
+  m_ScaleFactor: 1
+  m_ReferenceResolution: {x: 800, y: 600}
+  m_ScreenMatchMode: 0
+  m_MatchWidthOrHeight: 0
+  m_PhysicalUnit: 3
+  m_FallbackScreenDPI: 96
+  m_DefaultSpriteDPI: 96
+  m_DynamicPixelsPerUnit: 1
 --- !u!223 &195616246
 Canvas:
   m_ObjectHideFlags: 0
@@ -629,6 +642,22 @@ MonoBehaviour:
   m_Script: {fileID: -765806418, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
 --- !u!222 &425774135
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -657,7 +686,7 @@ MonoBehaviour:
   idleRotateSpeed: 10
   speedDampTime: .0500000007
   maxRunningRotation: 90
-  runRotateSpeed: 10
+  runRotateSpeed: 20
   sideRunRotateSpeed: 60
 --- !u!114 &442910729
 MonoBehaviour:
@@ -684,6 +713,7 @@ GameObject:
   - 81: {fileID: 518505461}
   - 114: {fileID: 518505466}
   - 114: {fileID: 518505467}
+  - 114: {fileID: 518505468}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -740,6 +770,7 @@ Camera:
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
+  m_TargetEye: 3
   m_HDR: 0
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
@@ -752,7 +783,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 518505460}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -.0700000003, y: 7.67999983, z: -16.6800003}
+  m_LocalPosition: {x: -.00141521601, y: 5.80000019, z: -11.25}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -779,7 +810,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 518505460}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 73d16997bff0c4388b05dfb39215bfed, type: 3}
   m_Name: 
@@ -795,6 +826,137 @@ MonoBehaviour:
     size: .00999999978
     orthographic: 0
     sceneViewIndex: 0
+--- !u!114 &518505468
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 518505460}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46535b7816492e44ea56a28fa521c58c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  collisionLayers:
+    serializedVersion: 2
+    m_Bits: 1
+  avoidanceLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  collisionBuffer: .200000003
+  collisionAlphaLayers:
+    serializedVersion: 2
+    m_Bits: 2
+  avoidanceSpeed: .5
+  ignoreCurrentTarget: 1
+  target: {fileID: 0}
+  targetTag: Follow
+  targetOffset: {x: 0, y: 0, z: 0}
+  smoothOffset: 1
+  smoothOffsetSpeed: 5
+  relativeOffset: 1
+  useTargetAxis: 0
+  softTracking: 0
+  softTrackingRadius: 3
+  softTrackingSpeed: 3
+  allowMouseDrag: 0
+  mouseDragButton: 20
+  mouseDragSensitivity: {x: 15, y: 15}
+  allowEdgeMovement: 0
+  allowEdgeKeys: 0
+  lockToTarget: 0
+  limitBounds: 0
+  boundOrigin: {x: 0, y: 0, z: 0}
+  boundSize: {x: 0, y: 0, z: 0}
+  edgePadding: 20
+  scrollSpeed: 10
+  keyFollowTarget: 32
+  keyMoveUp: 119
+  keyMoveDown: 115
+  keyMoveLeft: 97
+  keyMoveRight: 100
+  showEdges: 0
+  edgeTexture: {fileID: 2800000, guid: 81035a403332f1e448d3ffc0f8ed2b86, type: 3}
+  allowRotation: 1
+  mouseHorizontalAxis: Mouse X
+  mouseVerticalAxis: Mouse Y
+  invertRotationX: 0
+  invertRotationY: 0
+  mouseLook: 0
+  disableWhileUnlocked: 1
+  useJoystick: 0
+  joystickSensitivity: {x: 1, y: 1}
+  joystickHorizontalAxis: JoystickHorizontal
+  joystickVerticalAxis: JoystickVertical
+  allowRotationLeft: 1
+  allowRotationMiddle: 1
+  allowRotationRight: 1
+  originRotation: {x: 0, y: 25}
+  returnToOrigin: 0
+  returnToOriginOnKey: 0
+  returnToOriginKey: 0
+  stayBehindTarget: 0
+  stayBehindTargetOnKey: 0
+  stayBehindTargetKey: 0
+  setOriginKey: 0
+  setOriginLeft: 0
+  setOriginMiddle: 0
+  setOriginRight: 0
+  minAngle: 0
+  maxAngle: 30
+  rotationSmoothing: 5
+  autoSmoothing: 1
+  returnSmoothing: 5
+  returnDelay: 0
+  rotationSensitivity: {x: 7, y: 7}
+  lockCursor: 1
+  lockLeft: 1
+  lockMiddle: 1
+  lockRight: 1
+  allowRotationKeys: 1
+  keyRotateUp: 261
+  keyRotateDown: 258
+  keyRotateLeft: 257
+  keyRotateRight: 259
+  rotationKeySensitivity: {x: 3, y: 3}
+  rotateObjects: 1
+  objectsToRotate:
+  - {fileID: 442910724}
+  autoAddTargetToRotate: 1
+  rotateObjectsLeft: 0
+  rotateObjectsMiddle: 0
+  rotateObjectsRight: 1
+  allowZoom: 1
+  distance: 7
+  minDistance: 2
+  maxDistance: 5
+  zoomSpeed: 1
+  zoomSmoothing: 5
+  invertZoom: 0
+  allowZoomKeys: 1
+  keyZoomIn: 278
+  keyZoomOut: 279
+  keyZoomDelay: .5
+  fadeCurrentTarget: 0
+  fadeDistance: 1
+  fadeAmount: .25
+  alphaFadeSpeed: 10
+  replaceShaders: 0
+  transparentShader: {fileID: 0}
+  allowTouch: 0
+  touchSensitivity: .699999988
+  mobileRotationType: 2
+  mobileRotationDelay: .25
+  mobileSwipeActiveTime: .200000003
+  mobileSwipeMinDistance: 150
+  mobileSwipeRotationAmount: {x: 45, y: 45}
+  mobilePanType: 0
+  mobilePanningTouchCount: 3
+  mobilePanSwipeActiveTime: .200000003
+  mobilePanSwipeMinDistance: 150
+  mobilePanSwipeDistance: {x: 20, y: 20}
+  mobileZoomDeadzone: 7
+  mobileZoomSpeed: .25
 --- !u!1 &565086904
 GameObject:
   m_ObjectHideFlags: 0
@@ -967,6 +1129,10 @@ Prefab:
       propertyPath: m_Constraints
       value: 80
       objectReference: {fileID: 0}
+    - target: {fileID: 159642, guid: 178ddc6b4425848ef9730a8bb314f783, type: 2}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 178ddc6b4425848ef9730a8bb314f783, type: 2}
   m_IsPrefabParent: 0
@@ -1071,6 +1237,22 @@ MonoBehaviour:
   m_Script: {fileID: -765806418, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
 --- !u!222 &735660661
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1523,6 +1705,22 @@ MonoBehaviour:
   m_Script: {fileID: -765806418, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
 --- !u!222 &1424672170
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1647,6 +1845,22 @@ MonoBehaviour:
   m_Script: {fileID: -765806418, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
 --- !u!222 &1778799532
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1703,6 +1917,22 @@ MonoBehaviour:
   m_Script: {fileID: -765806418, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
 --- !u!222 &1941473790
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1753,6 +1983,7 @@ MonoBehaviour:
   m_Script: {fileID: 1997211142, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_ForceModuleActive: 0
 --- !u!114 &2014022550
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1764,6 +1995,13 @@ MonoBehaviour:
   m_Script: {fileID: 1077351063, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_HorizontalAxis: Horizontal
+  m_VerticalAxis: Vertical
+  m_SubmitButton: Submit
+  m_CancelButton: Cancel
+  m_InputActionsPerSecond: 10
+  m_RepeatDelay: .5
+  m_ForceModuleActive: 0
 --- !u!114 &2014022551
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1775,6 +2013,9 @@ MonoBehaviour:
   m_Script: {fileID: -619905303, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_FirstSelected: {fileID: 0}
+  m_sendNavigationEvents: 1
+  m_DragThreshold: 5
 --- !u!4 &2014022552
 Transform:
   m_ObjectHideFlags: 0

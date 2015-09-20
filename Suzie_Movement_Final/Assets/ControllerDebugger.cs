@@ -38,7 +38,6 @@ public class ControllerDebugger : MonoBehaviour {
 		Right.color = new Vector4(InputController.h, InputController.h, InputController.h, 1);
 		Left.color = new Vector4(-InputController.h, -InputController.h, -InputController.h, 1);
 
-
 	}
 	
 //	private void OnEnable()

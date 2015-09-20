@@ -60,10 +60,7 @@ public class InputController : MonoBehaviour {
 		rawH = Input.GetAxisRaw("Horizontal");
 		rawV = Input.GetAxisRaw("Vertical");
 		
-		//rawH = Mathf.CeilToInt(h);
-		//rawV = Mathf.CeilToInt(v);
-		
-		
+
 		orbitH = inputDevice.RightStickX;
 		orbitV = inputDevice.RightStickY;
 

@@ -37,17 +37,30 @@ public class RomanCharController : MonoBehaviour {
 	private Vector3 moveDirectionRaw;
 	private Quaternion targetRot;		// the target rotation to achieve while in idle or running
 	
+	// Character rotation -------------
 	private Vector3 camForward;
 	private Quaternion camRot;
-
-	//private Quaternion zeroAngle = new Quaternion(0,0,0,1);
-
+	
+	// jumping ----------------------
+	[Range(0,50)]
+	public float jumpTurnSpeed = 20f;
+	// Speed modifier of the character's Z movement wheile jumping
+	[Range(0,50)]
+	public float jumpForwardSpeed = 10f;
+	
+	public float jumpForce = 10f;
+	private float maxJumpForce;
+	private float totalJump;			// Total amount of jump force to add to the character
+	
+	
 	void Start () 
 	{
 		charState = GetComponent<RomanCharState>();
 		animator = GetComponent<Animator>();
 		rb = GetComponent<Rigidbody>();
 		cam = Camera.main.transform;
+		
+		maxJumpForce = jumpForce + 20f;
 	}
 
 	
@@ -56,11 +69,8 @@ public class RomanCharController : MonoBehaviour {
 
 		moveDirection = new Vector3(InputController.h, 0, InputController.v);
 		moveDirectionRaw = new Vector3(InputController.rawH, 0, InputController.rawV);
-		
-		//animator.SetFloat ("Speed", moveDirectionRaw.sqrMagnitude, speedDampTime, Time.deltaTime);
-		animator.SetFloat ("Speed", moveDirectionRaw.sqrMagnitude);
-		animator.SetFloat ("WalkToRun", moveDirection.sqrMagnitude, walkToRunDampTime, Time.deltaTime);
-		//print (moveDirection.sqrMagnitude);
+	
+		animator.SetFloat ("Speed", moveDirection.sqrMagnitude, walkToRunDampTime, Time.deltaTime);
 
 		TurnCharToCamera();
 
@@ -74,6 +84,16 @@ public class RomanCharController : MonoBehaviour {
 		else if (charState.IsIdle())
 		{
 			transform.rotation = Quaternion.Slerp (transform.rotation, Quaternion.LookRotation(moveDirectionRaw), runRotateSpeed * Time.deltaTime);
+		}
+		
+		if (charState.IsJumping())
+		{
+			//if (InputController.rawH != 0)		
+				//rb.rotation = Quaternion.Euler (new Vector3(transform.eulerAngles.x, transform.eulerAngles.y + InputController.h * jumpTurnSpeed, transform.eulerAngles.z));	
+			
+			if (InputController.rawV != 0)
+				rb.AddRelativeForce(new Vector3(0, 0, InputController.v * jumpForwardSpeed), ForceMode.Acceleration);
+			
 		}
 
 
@@ -104,50 +124,7 @@ public class RomanCharController : MonoBehaviour {
 		}
 	}
 
-	/// <summary>
-	/// Used to tell which way the character is facing relative to the camera.
-	/// </summary>
-	/// <returns>a float value representing the character's rotation relative to the camera. Range is between -90 and 90</returns>
-//	private float CalculateIdleRotationAngle()
-//	{
-//		// Get the amount of rotation that we want to apply to the player's y axis based on horizontal input
-//		yRot = transform.eulerAngles.y + InputController.rawH * idleRotateSpeed;
-//
-//		// Get the direction the player is facing in reference to the camera
-//		dir = Vector3.Cross (transform.forward, cam.forward).y;
-//		dir = dir > 0 ? -1 : 1;
-//
-//		angle = Vector3.Angle (transform.forward, cam.forward);
-//		angle *= dir;
-//		
-//		return Mathf.Clamp(angle, -90, 90);
-//		
-//	}
-
-	/// <summary>
-	/// Turn in idle mode and unles you are perpendicular to the cam
-	/// </summary>
-//	private void InitSideRunning(float _angle)
-//	{
-//		if (_angle > 88 && InputController.rawH > 0)
-//		{
-//			transform.eulerAngles = new Vector3(transform.eulerAngles.x, cam.eulerAngles.y + 90, transform.eulerAngles.z);
-//			animator.SetTrigger("StarRunning");
-//			charState.SetState (RomanCharState.State.Running);
-//			
-//			print ("Side running");
-//		}
-//		
-//		else if (_angle < -88 && InputController.rawH < 0)
-//		{
-//			transform.eulerAngles = new Vector3(transform.eulerAngles.x, cam.eulerAngles.y - 90, transform.eulerAngles.z);
-//			animator.SetTrigger("StartRunning");
-//			charState.SetState (RomanCharState.State.Running);
-//			
-//			print ("Side running");
-//		}
-//
-//	}
+	
 
 	// Events --------------------------------------------------------------------------------------------------------------------------------
 	
@@ -157,6 +134,7 @@ public class RomanCharController : MonoBehaviour {
 		//InputController.onInput += StartRunning; 
 		//InputController.onInput += StopRunning;
 		//InputController.onInput += StopSideRunning;
+		InputController.onInput += Jump;
 	}
 		
 	private void OnDisable () 
@@ -164,47 +142,36 @@ public class RomanCharController : MonoBehaviour {
 		//InputController.onInput -= StartRunning; 
 		//InputController.onInput -= StopRunning;
 		//InputController.onInput -= StopSideRunning;
+		InputController.onInput -= Jump;
 	}
 
-	/// <summary>
-	/// Stop running
-	/// </summary>
-	/// <param name="e">E.</param>
-	private void StopSideRunning(InputController.InputEvent e)
-	{	
-//		if (e == InputController.InputEvent.StopTurnRunning && charState.IsSideRunning())
-//		{
-//			animator.SetTrigger ("StopSideRunning");
-//			//print ("Stop running");
-//		}
-		
+	
+	// Trigger the jump animation and disable root motion
+	public void Jump (InputController.InputEvent _event)
+	{
+		if (_event == InputController.InputEvent.JumpUp) {
+			totalJump = Mathf.Clamp (jumpForce + (jumpForce * InputController.Instance.jumpKeyHoldDuration), 0, maxJumpForce);
+			
+			if (charState.IsIdle()) {
+				Util.Instance.DelayedAction (() => {
+					rb.AddForce (new Vector3 (0, totalJump, 0), ForceMode.Impulse);
+					
+				}, 0.15f);
+				
+				JumpUpAnim ();
+			} else if (charState.IsRunning()) {
+				rb.AddForce (new Vector3 (0, totalJump, 0), ForceMode.Impulse);
+				
+				JumpUpAnim ();
+			}
+		}
 	}
 	
-//	private void StopRunning(InputController.InputEvent e)
-//	{	
-//		if (e == InputController.InputEvent.StopRunning)
-//		{
-//			animator.SetTrigger ("StopRunning");
-//			//print ("Stop running");
-//		}
-//		
-//	}
-	
-	/// <summary>
-	/// Called when the LeftStickY is pressed
-	/// </summary>
-	/// <param name="e">E.</param>
-//	private void StartRunning(InputController.InputEvent e)
-//	{
-//		if (e == InputController.InputEvent.StartRunning)
-//		{
-//			animator.SetTrigger ("StartRunning");
-//			charState.SetState (RomanCharState.State.Running);
-//			
-//			//if (InputController.rawV == -1)
-//				//transform.eulerAngles = new Vector3(transform.eulerAngles.x, -transform.eulerAngles.y, transform.eulerAngles.z);
-//		}
-//	}
+	// Trigger the jump up animation
+	private void JumpUpAnim()
+	{
+		animator.SetTrigger (moveDirectionRaw.sqrMagnitude == 0.0f ? "IdleJump" : "RunningJump");
+	}
 	
 	//---------------------------------------------------------------------------------------------------------------------------
 	// Public Methods
@@ -213,22 +180,16 @@ public class RomanCharController : MonoBehaviour {
 	// Enable Root motion
 	public void ApplyRootMotion (bool apply)
 	{
-//		if (charState.IsSideRunning())
-//			apply = false;
-	
 		animator.applyRootMotion = apply;
 	}
 	
 	// Run any extra state logic when entering an animation state
 	public void RunStateLogic ()
 	{
-		if (onCharEvent == null) return;
-		
-//		if (charState.IsSideRunning())
-//			onCharEvent(RomanCameraController.CamState.TurnRunning);
-			
-		if (charState.IsIdle())
-			onCharEvent(RomanCameraController.CamState.Free);
+//		if (onCharEvent == null) return;
+//
+//		if (charState.IsIdle())
+//			onCharEvent(RomanCameraController.CamState.Free);
 	}
 	
 	

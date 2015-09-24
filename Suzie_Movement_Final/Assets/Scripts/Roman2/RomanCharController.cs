@@ -64,7 +64,7 @@ public class RomanCharController : MonoBehaviour {
 	}
 
 	
-	private void LateUpdate ()
+	private void Update ()
 	{
 
 		moveDirection = new Vector3(InputController.h, 0, InputController.v);
@@ -77,10 +77,6 @@ public class RomanCharController : MonoBehaviour {
 		if (moveDirectionRaw == Vector3.zero) 
 			return;
 		
-		if (charState.IsRunning())
-		{
-			transform.rotation = Quaternion.Slerp (transform.rotation, Quaternion.LookRotation(moveDirectionRaw), runRotateSpeed * Time.deltaTime);
-		}
 		else if (charState.IsIdle())
 		{
 			transform.rotation = Quaternion.Slerp (transform.rotation, Quaternion.LookRotation(moveDirectionRaw), runRotateSpeed * Time.deltaTime);
@@ -92,12 +88,19 @@ public class RomanCharController : MonoBehaviour {
 				//rb.rotation = Quaternion.Euler (new Vector3(transform.eulerAngles.x, transform.eulerAngles.y + InputController.h * jumpTurnSpeed, transform.eulerAngles.z));	
 			
 			if (InputController.rawV != 0)
-				rb.AddRelativeForce(new Vector3(0, 0, InputController.v * jumpForwardSpeed), ForceMode.Acceleration);
-			
+				rb.AddRelativeForce(new Vector3(0, 0, InputController.v * jumpForwardSpeed), ForceMode.Acceleration);	
 		}
 
-
-
+	}
+	
+	private void OnAnimatorMove ()
+	{
+		if (charState.IsRunning() && moveDirectionRaw != Vector3.zero)
+		{		
+			transform.rotation = Quaternion.Slerp (transform.rotation, Quaternion.LookRotation(moveDirectionRaw), runRotateSpeed * Time.fixedDeltaTime);
+			animator.ApplyBuiltinRootMotion();
+			
+		}
 	}
 
 
@@ -131,17 +134,11 @@ public class RomanCharController : MonoBehaviour {
 	// Hook on to Input event
 	private void OnEnable () 
 	{ 
-		//InputController.onInput += StartRunning; 
-		//InputController.onInput += StopRunning;
-		//InputController.onInput += StopSideRunning;
 		InputController.onInput += Jump;
 	}
 		
 	private void OnDisable () 
 	{ 
-		//InputController.onInput -= StartRunning; 
-		//InputController.onInput -= StopRunning;
-		//InputController.onInput -= StopSideRunning;
 		InputController.onInput -= Jump;
 	}
 
@@ -153,10 +150,10 @@ public class RomanCharController : MonoBehaviour {
 			totalJump = Mathf.Clamp (jumpForce + (jumpForce * InputController.Instance.jumpKeyHoldDuration), 0, maxJumpForce);
 			
 			if (charState.IsIdle()) {
-				Util.Instance.DelayedAction (() => {
+				//Util.Instance.DelayedAction (() => {
 					rb.AddForce (new Vector3 (0, totalJump, 0), ForceMode.Impulse);
 					
-				}, 0.15f);
+				//}, 0.15f);
 				
 				JumpUpAnim ();
 			} else if (charState.IsRunning()) {

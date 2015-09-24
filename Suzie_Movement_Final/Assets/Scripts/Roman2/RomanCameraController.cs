@@ -21,8 +21,8 @@ public class RomanCameraController : MonoBehaviour {
 	private Vector3 targetPos = Vector3.zero;
 	
 	private Vector3 vel;       					// velocity needed for smooth damping the cam's position
-	private RomanCharController charController;	
-	private RomanCharState charState;
+	//private RomanCharController charController;	
+	//private RomanCharState charState;
 	
 	private Quaternion targetRotation;
 	private Vector3 vecDifference;
@@ -50,22 +50,26 @@ public class RomanCameraController : MonoBehaviour {
 		if (follow == null) 
 			follow = GameObject.FindGameObjectWithTag("Follow").transform;
 		
-		charController = follow.parent.GetComponent<RomanCharController>();
-		charState = follow.parent.GetComponent<RomanCharState>();
+		//charController = follow.parent.GetComponent<RomanCharController>();
+		//charState = follow.parent.GetComponent<RomanCharState>();
 	}
 	
 	// Update is called once per frame
-	private void FixedUpdate () 
+	private void LateUpdate () 
 	{
 		vecDifference = Vector3.Normalize(transform.position - follow.position) * -offset.z;
 		vecDifference.y = follow.position.y + offset.y;
+		
+		print (vecDifference.y);
 		
 		transform.position = Vector3.Lerp(transform.position, follow.position + vecDifference, camFollowSpeed * Time.deltaTime);
 		
 		//Smoothly rotate towards the target point.
 		targetRotation = Quaternion.LookRotation(follow.position - transform.position);
 		transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, camFollowSpeed * Time.deltaTime);
-		
+
+//		Vector3 targetPos = follow.position + offset;
+//		transform.position = Vector3.Lerp (transform.position, targetPos, camFollowSpeed * Time.deltaTime);		
 	}
 	
 	private void OnEnable ()
@@ -80,21 +84,6 @@ public class RomanCameraController : MonoBehaviour {
 	
 	private void SetState (CamState s)
 	{
-//		if (s == RomanCameraController.CamState.TurnRunning)
-//		{
-//			switchedFromTurnRunState = true;
-//		}
-		
-//		else if (s == RomanCameraController.CamState.Free)
-//		{
-//			if (inTurnRunMode)
-//			{
-//				print ("switch from turn run to free");
-//			}
-//			
-//			inTurnRunMode = false;	
-//		}
-		
 		state = s;
 		
 	}

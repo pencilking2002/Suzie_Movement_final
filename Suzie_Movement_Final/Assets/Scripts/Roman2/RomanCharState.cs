@@ -31,7 +31,7 @@ public class RomanCharState : MonoBehaviour {
 	// mechanim
 	private Animator animator;
 	
-	private RomanCharController_old charController;
+	//private RomanCharController charController;
 	private Rigidbody rb;
 	
 	//---------------------------------------------------------------------------------------------------------------------------
@@ -41,7 +41,7 @@ public class RomanCharState : MonoBehaviour {
 	private void Awake ()
 	{
 		animator = GetComponent<Animator> ();
-		charController = GetComponent<RomanCharController_old>();
+		//charController = GetComponent<RomanCharController>();
 		rb = GetComponent<Rigidbody>();
 	}
 

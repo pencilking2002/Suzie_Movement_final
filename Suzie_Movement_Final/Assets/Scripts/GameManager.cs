@@ -5,7 +5,6 @@ public class GameManager : MonoBehaviour {
 	
 	public static GameManager Instance;
 	public static bool debug = true;			// Toggle debug mode
-	public CharState_old charState;
 
 	// debug
 	private RomanCharState charStateScript;

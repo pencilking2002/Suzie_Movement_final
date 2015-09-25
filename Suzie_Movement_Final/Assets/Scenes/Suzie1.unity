@@ -687,9 +687,10 @@ MonoBehaviour:
   maxRunningRotation: 90
   runRotateSpeed: 10
   runSpeed: 1.10000002
+  maxJumpForce: 2.67000008
+  jumpForceDeclineSpeed: .294999987
   jumpTurnSpeed: 1.79999995
-  jumpForwardSpeed: 5
-  jumpForce: 80
+  jumpForwardSpeed: 7.0999999
 --- !u!114 &442910729
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1000,7 +1001,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 5486736, guid: 178ddc6b4425848ef9730a8bb314f783, type: 2}
       propertyPath: m_Mass
-      value: 10
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5486736, guid: 178ddc6b4425848ef9730a8bb314f783, type: 2}
       propertyPath: m_AngularDrag
@@ -1655,6 +1656,10 @@ Prefab:
     - target: {fileID: 106782, guid: ed72e9928348a4677b9e8e6fbe6a2df9, type: 2}
       propertyPath: m_Name
       value: cliffTest (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 189598, guid: ed72e9928348a4677b9e8e6fbe6a2df9, type: 2}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ed72e9928348a4677b9e8e6fbe6a2df9, type: 2}

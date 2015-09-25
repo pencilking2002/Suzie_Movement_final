@@ -33,7 +33,8 @@ public class RomanCharState : MonoBehaviour {
 	
 	//private RomanCharController charController;
 	private Rigidbody rb;
-	
+	public static bool landedFirstTime = false;
+
 	//---------------------------------------------------------------------------------------------------------------------------
 	// Public Methods
 	//---------------------------------------------------------------------------------------------------------------------------	
@@ -50,7 +51,10 @@ public class RomanCharState : MonoBehaviour {
 		state = _state;
 		
 		if (_state == State.Idle)
-			rb.velocity = Vector3.zero; 
+		{
+			rb.velocity = Vector3.zero;
+			landedFirstTime = true;
+		}
 	}
 	
 	public State GetState ()
@@ -84,6 +88,22 @@ public class RomanCharState : MonoBehaviour {
 	{
 		return (state == State.IdleJumping || state == State.RunningJumping || state == State.Falling);
 	}
+
+	public bool IsRunIdleJumping()
+	{
+		return (state == State.IdleJumping || state == State.RunningJumping);
+	}
+
+	public bool IsLanding()
+	{
+		return state == State.Landing;
+	}
+
+	public bool IsFalling()
+	{
+		return state == State.Falling;
+	}
+
 
 	
 	

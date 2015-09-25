@@ -42,6 +42,7 @@ public class InputController : MonoBehaviour {
 	// Priate Variables
 	//---------------------------------------------------------------------------------------------------------------------------
 	private InputDevice inputDevice;
+	public static bool jumpIsPressed = false;
 
 	private void Awake ()
 	{
@@ -98,8 +99,12 @@ public class InputController : MonoBehaviour {
 		if (inputDevice.Action4.WasPressed)
 		{
 			onInput(InputEvent.Jump);
-			// Reset the jump key timer
-			//jumpKeyHoldDuration = 0.0f;	
+			jumpIsPressed = true;	
+		}
+
+		if (inputDevice.Action4.WasReleased)
+		{
+			jumpIsPressed = false;
 		}
 
 		//----------------------------------------------------------------------------------------------------------------------

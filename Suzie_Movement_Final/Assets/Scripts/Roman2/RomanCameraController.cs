@@ -60,7 +60,7 @@ public class RomanCameraController : MonoBehaviour {
 		vecDifference = Vector3.Normalize(transform.position - follow.position) * -offset.z;
 		vecDifference.y = follow.position.y + offset.y;
 		
-		print (vecDifference.y);
+		//print (vecDifference.y);
 		
 		transform.position = Vector3.Lerp(transform.position, follow.position + vecDifference, camFollowSpeed * Time.deltaTime);
 		

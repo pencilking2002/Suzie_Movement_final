@@ -3,42 +3,42 @@ using System.Collections;
 using UnityEngine.UI;
 
 public class ControllerDebugger : MonoBehaviour {
-	public Image Up, Right, Down, Left;
-
-	private Image image;
-	
-	public enum Axis
-	{
-		UP,
-		RIGHT,
-		DOWN,
-		LEFT
-	}
-	//public Axis axis;
-	
-	public enum State 
-	{
-		Pressed,
-		Released
-	}
-	
-	private Vector4 tempColor = Color.white;
-	
-	private void Awake ()
-	{
-		image = GetComponent<Image>();
-	}
-	
-	private void Update ()
-	{
-		//print (InputController.rawH);
-		Up.color = new Vector4(InputController.v, InputController.v, InputController.v, 1);
-		Down.color = new Vector4(-InputController.v, -InputController.v, -InputController.v, 1);
-
-		Right.color = new Vector4(InputController.h, InputController.h, InputController.h, 1);
-		Left.color = new Vector4(-InputController.h, -InputController.h, -InputController.h, 1);
-
-	}
+//	public Image Up, Right, Down, Left;
+//
+//	private Image image;
+//	
+//	public enum Axis
+//	{
+//		UP,
+//		RIGHT,
+//		DOWN,
+//		LEFT
+//	}
+//	//public Axis axis;
+//	
+//	public enum State 
+//	{
+//		Pressed,
+//		Released
+//	}
+//	
+//	private Vector4 tempColor = Color.white;
+//	
+//	private void Awake ()
+//	{
+//		image = GetComponent<Image>();
+//	}
+//	
+//	private void Update ()
+//	{
+//		//print (InputController.rawH);
+//		Up.color = new Vector4(InputController.v, InputController.v, InputController.v, 1);
+//		Down.color = new Vector4(-InputController.v, -InputController.v, -InputController.v, 1);
+//
+//		Right.color = new Vector4(InputController.h, InputController.h, InputController.h, 1);
+//		Left.color = new Vector4(-InputController.h, -InputController.h, -InputController.h, 1);
+//
+//	}
 	
 //	private void OnEnable()
 //	{

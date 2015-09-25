@@ -125,7 +125,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42236daaa715a4120857563f09222762, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpKeyHoldDuration: 0
 --- !u!1 &55812878
 GameObject:
   m_ObjectHideFlags: 0
@@ -459,7 +458,7 @@ BoxCollider:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 250639926}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: c2815a7ab32e42c4bb42f59caacb8ec1, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -690,7 +689,7 @@ MonoBehaviour:
   runSpeed: 1.10000002
   jumpTurnSpeed: 1.79999995
   jumpForwardSpeed: 5
-  jumpForce: 60
+  jumpForce: 80
 --- !u!114 &442910729
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1292,6 +1291,7 @@ GameObject:
   - 33: {fileID: 1079297328}
   - 65: {fileID: 1079297327}
   - 23: {fileID: 1079297326}
+  - 54: {fileID: 1079297330}
   m_Layer: 8
   m_Name: JumpPlatform
   m_TagString: Untagged
@@ -1354,6 +1354,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 111866196}
   m_RootOrder: 3
+--- !u!54 &1079297330
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1079297325}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: .0500000007
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1001 &1182466034
 Prefab:
   m_ObjectHideFlags: 0
@@ -2057,10 +2072,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12a15f2dcc71a4d769cd34e983c1eac1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Up: {fileID: 0}
-  Right: {fileID: 1424672169}
-  Down: {fileID: 735660660}
-  Left: {fileID: 425774134}
 --- !u!1 &2014022548
 GameObject:
   m_ObjectHideFlags: 0

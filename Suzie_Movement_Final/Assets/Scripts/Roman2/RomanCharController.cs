@@ -51,6 +51,7 @@ public class RomanCharController : MonoBehaviour {
 	public float jumpForce = 10f;
 	private float maxJumpForce;
 	private float totalJump;			// Total amount of jump force to add to the character
+	private float zJumpVelocity = 0.0f;
 	
 	
 	void Start () 
@@ -73,22 +74,29 @@ public class RomanCharController : MonoBehaviour {
 		animator.SetFloat ("Speed", moveDirection.sqrMagnitude, walkToRunDampTime, Time.deltaTime);
 
 		TurnCharToCamera();
-
-		if (moveDirectionRaw == Vector3.zero) 
-			return;
 		
-		else if (charState.IsIdle())
+		if (charState.IsIdle() && moveDirectionRaw != Vector3.zero)
 		{
 			transform.rotation = Quaternion.Slerp (transform.rotation, Quaternion.LookRotation(moveDirectionRaw), runRotateSpeed * Time.deltaTime);
 		}
 		
 		if (charState.IsJumping())
 		{
-			//if (InputController.rawH != 0)		
-				//rb.rotation = Quaternion.Euler (new Vector3(transform.eulerAngles.x, transform.eulerAngles.y + InputController.h * jumpTurnSpeed, transform.eulerAngles.z));	
-			
-			if (InputController.rawV != 0)
-				rb.AddRelativeForce(new Vector3(0, 0, InputController.v * jumpForwardSpeed), ForceMode.Acceleration);	
+//			print("Jump update");
+//			//if (InputController.rawH != 0)		
+//				//rb.rotation = Quaternion.Euler (new Vector3(transform.eulerAngles.x, transform.eulerAngles.y + InputController.h * jumpTurnSpeed, transform.eulerAngles.z));	
+//			
+//			if (InputController.rawV != 0)
+//				rb.AddRelativeForce(new Vector3(0, 0, InputController.v * jumpForwardSpeed), ForceMode.Acceleration);
+//
+			//rb.velocity = new Vector3(rb.velocity.x, rb.velocity.y, Mathf.Clamp (rb.velocity.z, 0, 1000));
+			//print (transform.InverseTransformDirection(rb.velocity).z);
+
+			// prevent a negative z velocity when jumping
+			zJumpVelocity = transform.InverseTransformDirection(rb.velocity).z < 0.0f ? 0.0f : rb.velocity.z;
+			rb.velocity = new Vector3(rb.velocity.x, rb.velocity.y, zJumpVelocity);
+		
+
 		}
 
 	}
@@ -122,7 +130,7 @@ public class RomanCharController : MonoBehaviour {
 	{
 		if (coll.collider.gameObject.layer == 8 && charState.IsJumping() && Vector3.Dot(coll.contacts[0].normal, Vector3.up) > 0.5f)
 		{
-			print ("should land");
+			//print ("should land");
 			animator.SetTrigger("Land");
 		}
 	}
@@ -144,23 +152,15 @@ public class RomanCharController : MonoBehaviour {
 
 	
 	// Trigger the jump animation and disable root motion
-	public void Jump (InputController.InputEvent _event)
+	public void Jump (InputController.InputEvent e)
 	{
-		if (_event == InputController.InputEvent.JumpUp) {
-			totalJump = Mathf.Clamp (jumpForce + (jumpForce * InputController.Instance.jumpKeyHoldDuration), 0, maxJumpForce);
-			
-			if (charState.IsIdle()) {
-				//Util.Instance.DelayedAction (() => {
-					rb.AddForce (new Vector3 (0, totalJump, 0), ForceMode.Impulse);
-					
-				//}, 0.15f);
-				
-				JumpUpAnim ();
-			} else if (charState.IsRunning()) {
-				rb.AddForce (new Vector3 (0, totalJump, 0), ForceMode.Impulse);
-				
-				JumpUpAnim ();
-			}
+		if (e == InputController.InputEvent.Jump && !charState.IsJumping()) 
+		{
+			//totalJump = Mathf.Clamp (jumpForce + (jumpForce * InputController.Instance.jumpKeyHoldDuration), 0, maxJumpForce);
+	
+			rb.AddForce (new Vector3 (0, jumpForce, 0), ForceMode.Impulse);
+			JumpUpAnim ();
+			print("Jump");
 		}
 	}
 	
@@ -168,6 +168,7 @@ public class RomanCharController : MonoBehaviour {
 	private void JumpUpAnim()
 	{
 		animator.SetTrigger (moveDirectionRaw.sqrMagnitude == 0.0f ? "IdleJump" : "RunningJump");
+
 	}
 	
 	//---------------------------------------------------------------------------------------------------------------------------

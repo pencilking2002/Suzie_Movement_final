@@ -17,13 +17,13 @@ public class InputController : MonoBehaviour {
 	public delegate void InputAction(InputEvent inputEvent);
 	public static InputAction onInput;
 	
-	public delegate void ControllerDebugAction(ControllerDebugger.Axis axisEvent, ControllerDebugger.State state);
-	public static ControllerDebugAction onControllerDebug;
+	//public delegate void ControllerDebugAction(ControllerDebugger.Axis axisEvent, ControllerDebugger.State state);
+	//public static ControllerDebugAction onControllerDebug;
 	
 	// Enum to use for chcking input events
 	public enum InputEvent										
 	{
-		JumpUp,
+		Jump,
 		RecenterCam,
 		CamBehind,
 		OrbitCamera,
@@ -34,8 +34,8 @@ public class InputController : MonoBehaviour {
 		StartTurnRunning
 	}
 	
-	[HideInInspector]
-	public float jumpKeyHoldDuration = 0.0f;
+	//[HideInInspector]
+	//public float jumpKeyHoldDuration = 0.0f;
 	
 	
 	//---------------------------------------------------------------------------------------------------------------------------
@@ -68,48 +68,38 @@ public class InputController : MonoBehaviour {
 		// Player Movement
 		//----------------------------------------------------------------------------------------------------------------------
 
+		if (onInput == null)
+			return;
+
 		// Start running
 		if (inputDevice.LeftStickY.WasPressed) 
 		{
-			if (onInput != null)
-				onInput (InputEvent.StartRunning);
-				
+			onInput (InputEvent.StartRunning);
 		}
 
 		// Stop running
 		if (inputDevice.LeftStickY.WasReleased) 
 		{
-			if (onInput != null)
-			{
-				onInput (InputEvent.StopRunning);
-				print ("LeftStickY was released");
-			}
-		
+			onInput (InputEvent.StopRunning);
+			//print ("LeftStickY was released");
 		}
-	
-
-		// Run Right
-//		if (InputDevice.LeftStickX.WasPressed)
-//		{
-//			if (onInput != InputEvent.)
-//		}
 
 		//----------------------------------------------------------------------------------------------------------------------
 		// Jumping
 		//----------------------------------------------------------------------------------------------------------------------
-		
-		if (inputDevice.Action4.IsPressed)
-			jumpKeyHoldDuration += Time.deltaTime;
-		
+
+		// Time how long
+//		if (inputDevice.Action4.IsPressed)
+//		{
+//			jumpKeyHoldDuration += Time.deltaTime;
+//		}
 		
 		// if pressed Y or pressed Space
-		if (inputDevice.Action4.WasReleased)
+		if (inputDevice.Action4.WasPressed)
 		{
-			if (onInput != null)
-				onInput(InputEvent.JumpUp);
-			
+			onInput(InputEvent.Jump);
 			// Reset the jump key timer
-			jumpKeyHoldDuration = 0.0f;	
+			//jumpKeyHoldDuration = 0.0f;	
 		}
 
 		//----------------------------------------------------------------------------------------------------------------------

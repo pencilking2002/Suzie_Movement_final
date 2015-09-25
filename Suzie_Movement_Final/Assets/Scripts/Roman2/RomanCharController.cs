@@ -105,8 +105,10 @@ public class RomanCharController : MonoBehaviour {
 			if (InputController.jumpIsPressed)
 			{
 				// Deminish the jumping force
-				jumpForce -= jumpForceDeclineSpeed;
-				rb.AddForce (new Vector3 (0, Mathf.Clamp (jumpForce, -0.1f, maxJumpForce), 0), ForceMode.Impulse);
+				//jumpForce -= jumpForceDeclineSpeed;
+				jumpForce = Mathf.Clamp (jumpForce - jumpForceDeclineSpeed, 0, maxJumpForce);
+			
+				rb.AddForce (new Vector3 (0, jumpForce, 0), ForceMode.Impulse);
 				//print (rb.velocity.y);
 			}
 
@@ -115,7 +117,7 @@ public class RomanCharController : MonoBehaviour {
 			rb.MoveRotation(Quaternion.Euler (new Vector3(transform.eulerAngles.x, yRot, transform.eulerAngles.z)));
 
 			// Move the character forward based on Vertical input
-			if (charState.IsIdleJumping())
+			//if (charState.IsIdleJumping())
 				rb.AddRelativeForce(new Vector3(0, 0, InputController.v * jumpForwardSpeed * facingAwayFromCam), ForceMode.Acceleration);
 
 			// prevent a negative z velocity when jumping

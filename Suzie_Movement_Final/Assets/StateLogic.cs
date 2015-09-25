@@ -12,7 +12,7 @@ public class StateLogic : StateMachineBehaviour {
 		if(charController == null)
 			charController = animator.GetComponent<RomanCharController>();
 		
-		charController.RunStateLogic();
+		//charController.RunStateLogic();
 	}
 
 	// OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks

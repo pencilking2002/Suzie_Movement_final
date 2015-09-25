@@ -100,6 +100,7 @@ public class RomanCharController : MonoBehaviour {
 
 		if (charState.IsJumping () && RomanCharState.landedFirstTime)
 		{
+
 			// Apply Z Force if the character is jumping but is not falling
 			if (InputController.jumpIsPressed)
 			{
@@ -114,8 +115,8 @@ public class RomanCharController : MonoBehaviour {
 			rb.MoveRotation(Quaternion.Euler (new Vector3(transform.eulerAngles.x, yRot, transform.eulerAngles.z)));
 
 			// Move the character forward based on Vertical input
-
-			rb.AddRelativeForce(new Vector3(0, 0, InputController.v * jumpForwardSpeed * facingAwayFromCam), ForceMode.Acceleration);
+			if (charState.IsIdleJumping())
+				rb.AddRelativeForce(new Vector3(0, 0, InputController.v * jumpForwardSpeed * facingAwayFromCam), ForceMode.Acceleration);
 
 			// prevent a negative z velocity when jumping
 			zJumpVelocity = transform.InverseTransformDirection(rb.velocity).z < 0.0f ? 0.0f : rb.velocity.z;
@@ -180,7 +181,7 @@ public class RomanCharController : MonoBehaviour {
 	{
 		if (e == InputController.InputEvent.Jump && !charState.IsJumping()) 
 		{	
-			//rb.AddForce (new Vector3 (0, jumpForce, 0), ForceMode.Impulse);
+			rb.AddForce (new Vector3 (0,  maxJumpForce, 0), ForceMode.Impulse);
 			jumpForce = maxJumpForce;
 			JumpUpAnim ();
 			//print("Jump");
@@ -190,8 +191,17 @@ public class RomanCharController : MonoBehaviour {
 	// Trigger the jump up animation
 	private void JumpUpAnim()
 	{
-		animator.SetTrigger (moveDirectionRaw.sqrMagnitude == 0.0f ? "IdleJump" : "RunningJump");
 
+		if (charState.IsIdle())
+		{
+			charState.SetState(RomanCharState.State.IdleJumping);
+			animator.SetTrigger ("IdleJump");
+		}
+		else if (charState.IsRunning())
+		{
+			charState.SetState(RomanCharState.State.RunningJumping);
+			animator.SetTrigger ("RunningJump");
+		}
 	}
 	
 	//---------------------------------------------------------------------------------------------------------------------------
@@ -202,15 +212,6 @@ public class RomanCharController : MonoBehaviour {
 	public void ApplyRootMotion (bool apply)
 	{
 		animator.applyRootMotion = apply;
-	}
-	
-	// Run any extra state logic when entering an animation state
-	public void RunStateLogic ()
-	{
-//		if (onCharEvent == null) return;
-//
-//		if (charState.IsIdle())
-//			onCharEvent(RomanCameraController.CamState.Free);
 	}
 
 	private void ResetJumpForce ()

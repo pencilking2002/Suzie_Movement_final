@@ -687,9 +687,9 @@ MonoBehaviour:
   maxRunningRotation: 90
   runRotateSpeed: 10
   runSpeed: 1.10000002
-  maxJumpForce: 2.67000008
+  maxJumpForce: 3.21000004
   jumpForceDeclineSpeed: .294999987
-  jumpTurnSpeed: 1.79999995
+  jumpTurnSpeed: 3
   jumpForwardSpeed: 7.0999999
 --- !u!114 &442910729
 MonoBehaviour:
@@ -843,8 +843,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   offset: {x: 0, y: -3.25, z: -5.25}
   follow: {fileID: 2086329366}
-  camFollowSpeed: 4
-  camLookAtSpeed: 2
+  camFollowSpeed: 8
   state: 0
 --- !u!114 &518505467
 MonoBehaviour:
@@ -1213,7 +1212,7 @@ MeshCollider:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 801575254}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: c2815a7ab32e42c4bb42f59caacb8ec1, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2

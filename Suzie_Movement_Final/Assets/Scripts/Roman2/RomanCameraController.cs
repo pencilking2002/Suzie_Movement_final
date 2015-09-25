@@ -44,26 +44,37 @@ public class RomanCameraController : MonoBehaviour {
 	
 	[HideInInspector]
 	public CamState state = CamState.Free;
-	
+
+	private RomanCharState charState;
+
 	// Use this for initialization
 	private void Start () 
 	{
-		if (follow == null) 
+
+		if (follow == null)
 			follow = GameObject.FindGameObjectWithTag("Follow").transform;
 		
-		//charController = follow.parent.GetComponent<RomanCharController>();
-		//charState = follow.parent.GetComponent<RomanCharState>();
+		charState = GameObject.FindObjectOfType<RomanCharState>();
+
 	}
 	
 	// Update is called once per frame
 	private void LateUpdate () 
 	{
 		vecDifference = Vector3.Normalize(transform.position - follow.position) * -offset.z;
+
+	
 		vecDifference.y = follow.position.y + offset.y;
-		
+
+		//vecDifference.y = Mathf.Lerp(vecDifference.y, follow.position.y + offset.y, 2.0f * Time.deltaTime);
+
 		//print (vecDifference.y);
-		
-		transform.position = Vector3.Lerp(transform.position, follow.position + vecDifference, camFollowSpeed * Time.deltaTime);
+		Vector3 targetPos = Vector3.Lerp(transform.position, follow.position + vecDifference, camFollowSpeed * Time.deltaTime);
+
+		//if (charState.IsJumping())
+			//targetPos.y = transform.position.y;
+
+		transform.position = targetPos;
 		
 		//Smoothly rotate towards the target point.
 		targetRotation = Quaternion.LookRotation(follow.position - transform.position);

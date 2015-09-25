@@ -89,6 +89,12 @@ public class RomanCharState : MonoBehaviour {
 		return (state == State.IdleJumping || state == State.RunningJumping || state == State.Falling);
 	}
 
+	
+	public bool IsIdleJumping()
+	{
+		return (state == State.IdleJumping);
+	}
+
 	public bool IsRunIdleJumping()
 	{
 		return (state == State.IdleJumping || state == State.RunningJumping);

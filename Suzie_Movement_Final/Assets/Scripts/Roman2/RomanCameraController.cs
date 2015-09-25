@@ -10,8 +10,9 @@ public class RomanCameraController : MonoBehaviour {
 	
 	public Vector3 offset;					// How much to offset the camera from the follow
 	public Transform follow = null;			// Object to follow
+	[Range(0,20)]
 	public float camFollowSpeed = 10.0f;
-	public float camLookAtSpeed = 10.0f;	// How fast the camera lerps to look at the follow
+	//public float camLookAtSpeed = 10.0f;	// How fast the camera lerps to look at the follow
 	
 	//---------------------------------------------------------------------------------------------------------------------------
 	// Private Variables

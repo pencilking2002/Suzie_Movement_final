@@ -55,7 +55,7 @@ public class RomanCharController : MonoBehaviour {
 
 	private float jumpForce;
 	private float zJumpVelocity = 0.0f;
-	
+	private int facingAwayFromCam = 1; 
 	
 	void Start () 
 	{
@@ -76,6 +76,9 @@ public class RomanCharController : MonoBehaviour {
 	
 		animator.SetFloat ("Speed", moveDirection.sqrMagnitude, walkToRunDampTime, Time.deltaTime);
 
+		// Keep track of the character's direction compared to the camera
+		facingAwayFromCam = Vector3.Dot (transform.forward, cam.forward) < 0.0f ? -1 : 1;
+
 		TurnCharToCamera();
 		
 		if (charState.IsIdle() && moveDirectionRaw != Vector3.zero)
@@ -87,39 +90,38 @@ public class RomanCharController : MonoBehaviour {
 			//if (moveDirectionRaw.sqrMagnitude == 0)
 
 		}
+	}
 
+	private void FixedUpdate()
+	{
 		// Stop moving on the X and Z plane when landing
-		if (charState.IsLanding())
+		if (charState.IsLanding() || charState.IsIdle())
 			rb.velocity = new Vector3(0, rb.velocity.y, 0);
 
-		if (charState.IsJumping ())
+		if (charState.IsJumping () && RomanCharState.landedFirstTime)
 		{
 			// Apply Z Force if the character is jumping but is not falling
 			if (InputController.jumpIsPressed)
 			{
 				// Deminish the jumping force
 				jumpForce -= jumpForceDeclineSpeed;
-				rb.AddForce (new Vector3 (0, Mathf.Clamp (jumpForce, -0.05f, maxJumpForce), 0), ForceMode.Impulse);
+				rb.AddForce (new Vector3 (0, Mathf.Clamp (jumpForce, -0.1f, maxJumpForce), 0), ForceMode.Impulse);
 				//print (rb.velocity.y);
 			}
 
-			if (RomanCharState.landedFirstTime)
-			{
-	//			print("Jump update");
-	//			//if (InputController.rawH != 0)		
-	//				//rb.rotation = Quaternion.Euler (new Vector3(transform.eulerAngles.x, transform.eulerAngles.y + InputController.h * jumpTurnSpeed, transform.eulerAngles.z));	
-	//			
+			//Rotate the character mid air and account for the character's direction relative to the camera
+			float yRot = transform.eulerAngles.y + InputController.h * jumpTurnSpeed * facingAwayFromCam;
+			rb.MoveRotation(Quaternion.Euler (new Vector3(transform.eulerAngles.x, yRot, transform.eulerAngles.z)));
 
-				rb.AddRelativeForce(new Vector3(0, 0, InputController.v * jumpForwardSpeed), ForceMode.Acceleration);
-	//
-				//rb.velocity = new Vector3(rb.velocity.x, rb.velocity.y, Mathf.Clamp (rb.velocity.z, 0, 1000));
-				//print (transform.InverseTransformDirection(rb.velocity).z);
+			// Move the character forward based on Vertical input
 
-				// prevent a negative z velocity when jumping
-				zJumpVelocity = transform.InverseTransformDirection(rb.velocity).z < 0.0f ? 0.0f : rb.velocity.z;
-				rb.velocity = new Vector3(rb.velocity.x, rb.velocity.y, zJumpVelocity);
+			rb.AddRelativeForce(new Vector3(0, 0, InputController.v * jumpForwardSpeed * facingAwayFromCam), ForceMode.Acceleration);
 
-			}
+			// prevent a negative z velocity when jumping
+			zJumpVelocity = transform.InverseTransformDirection(rb.velocity).z < 0.0f ? 0.0f : rb.velocity.z;
+			rb.velocity = new Vector3(rb.velocity.x, rb.velocity.y, zJumpVelocity);
+
+
 		}
 	}
 	

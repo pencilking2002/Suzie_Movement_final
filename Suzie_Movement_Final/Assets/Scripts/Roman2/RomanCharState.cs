@@ -15,11 +15,12 @@ public class RomanCharState : MonoBehaviour {
 		RunningJumping,
 		Climbing,
 		Swimming,
-		Falling,
+		IdleFalling,
+		RunningFalling,
 		Running,
 		InCombat,
 		InAir,
-		Pivoting
+		Pivoting,
 	}
 	
 	//---------------------------------------------------------------------------------------------------------------------------
@@ -86,19 +87,24 @@ public class RomanCharState : MonoBehaviour {
 
 	public bool IsJumping()
 	{
-		return (state == State.IdleJumping || state == State.RunningJumping || state == State.Falling);
+		return (state == State.IdleJumping || state == State.RunningJumping || state == State.IdleFalling ||  state == State.RunningFalling) && landedFirstTime;
 	}
 
 	
 	public bool IsIdleJumping()
 	{
-		return (state == State.IdleJumping);
+		return (state == State.IdleJumping || state == State.IdleFalling);
 	}
 
-	public bool IsRunIdleJumping()
+	public bool IsRunningJumping()
 	{
-		return (state == State.IdleJumping || state == State.RunningJumping);
+		return (state == State.RunningJumping || state == State.RunningFalling);
 	}
+
+//	public bool IsRunIdleJumping()
+//	{
+//		return (state == State.IdleJumping || state == State.RunningJumping);
+//	}
 
 	public bool IsLanding()
 	{
@@ -107,7 +113,7 @@ public class RomanCharState : MonoBehaviour {
 
 	public bool IsFalling()
 	{
-		return state == State.Falling;
+		return state == State.IdleFalling;
 	}
 
 

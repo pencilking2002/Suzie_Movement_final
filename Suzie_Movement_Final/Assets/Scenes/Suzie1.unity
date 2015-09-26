@@ -681,16 +681,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d13c90e411fe4b5095496e50d7f209d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  idleRotateSpeed: 2
+  idleRotateSpeed: 30
   speedDampTime: .0500000007
   walkToRunDampTime: .0199999996
   maxRunningRotation: 90
   runRotateSpeed: 10
   runSpeed: 1.10000002
-  maxJumpForce: 3.28999996
+  maxJumpForce: 3.93000007
   jumpForceDeclineSpeed: .338
-  jumpTurnSpeed: 3
-  jumpForwardSpeed: 2.5
+  jumpTurnSpeed: 2
+  idleJumpForwardSpeed: 26
+  runningJumpForwardSpeed: 5
 --- !u!114 &442910729
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -427,7 +427,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a93b69adba4a407aa98e64d93e322d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  apply: 0
+  apply: 1
 --- !u!114 &11486506
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -507,7 +507,7 @@ BlendTree:
     m_DirectBlendParameter: Blend
     m_Mirror: 0
   - serializedVersion: 2
-    m_Motion: {fileID: 7400000, guid: 1cb8ed3cbba15f0479fbae54e0a963df, type: 3}
+    m_Motion: {fileID: 7400002, guid: e93436e6e23f9cc4bb97b6e8de11719f, type: 3}
     m_Threshold: .5
     m_Position: {x: 0, y: 0}
     m_TimeScale: 1.20000005
@@ -1115,7 +1115,7 @@ AnimatorState:
   m_SpeedParameterActive: 0
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
-  m_Motion: {fileID: 7400004, guid: 370d3959975f648a2bcb61997f4bceda, type: 3}
+  m_Motion: {fileID: 7400002, guid: 5b50309ebfcc6554aa10cf88de420472, type: 3}
   m_Tag: 
   m_SpeedParameter: Direction
   m_MirrorParameter: 
@@ -1168,7 +1168,7 @@ AnimatorState:
   m_SpeedParameterActive: 0
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
-  m_Motion: {fileID: 7400004, guid: 370d3959975f648a2bcb61997f4bceda, type: 3}
+  m_Motion: {fileID: 7400002, guid: 5b50309ebfcc6554aa10cf88de420472, type: 3}
   m_Tag: 
   m_SpeedParameter: Direction
   m_MirrorParameter: 
@@ -1317,7 +1317,7 @@ AnimatorStateMachine:
     m_Position: {x: 984, y: -588, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 110271842}
-    m_Position: {x: 948, y: -480, z: 0}
+    m_Position: {x: 936, y: -480, z: 0}
   m_ChildStateMachines:
   - serializedVersion: 1
     m_StateMachine: {fileID: 110767800}

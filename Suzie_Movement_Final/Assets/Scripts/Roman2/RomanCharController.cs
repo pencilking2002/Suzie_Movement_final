@@ -109,7 +109,7 @@ public class RomanCharController : MonoBehaviour {
 				// Deminish the jumping force
 				//jumpForce -= jumpForceDeclineSpeed;
 				jumpForce -= jumpForceDeclineSpeed;
-				jumpForce = Mathf.Clamp (jumpForce, -0.5f, maxJumpForce);
+				jumpForce = Mathf.Clamp (jumpForce, 0f, maxJumpForce);
 
 				rb.AddForce (new Vector3 (0, jumpForce, 0), ForceMode.Impulse);
 				//print (rb.velocity.y);
@@ -188,6 +188,9 @@ public class RomanCharController : MonoBehaviour {
 	{
 		if (e == InputController.InputEvent.Jump && !charState.IsJumping()) 
 		{	
+			if (onCharEvent != null)
+				onCharEvent(RomanCameraController.CamState.StoreJumpPoint);
+
 			JumpUpAnim ();
 			rb.AddForce (new Vector3 (0,  maxJumpForce, 0), ForceMode.Impulse);
 			jumpForce = maxJumpForce;

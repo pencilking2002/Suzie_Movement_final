@@ -13,7 +13,9 @@ public class RomanCameraController : MonoBehaviour {
 	[Range(0,20)]
 	public float camFollowSpeed = 10.0f;
 	//public float camLookAtSpeed = 10.0f;	// How fast the camera lerps to look at the follow
-	
+
+	[HideInInspector]
+	public float yJumpPoint;
 	//---------------------------------------------------------------------------------------------------------------------------
 	// Private Variables
 	//---------------------------------------------------------------------------------------------------------------------------	
@@ -29,6 +31,7 @@ public class RomanCameraController : MonoBehaviour {
 	private Vector3 vecDifference;
 	
 	private bool switchedFromTurnRunState = false;
+
 	
 	//---------------------------------------------------------------------------------------------------------------------------
 	// Private Methods
@@ -39,7 +42,8 @@ public class RomanCameraController : MonoBehaviour {
 		Free,
 		Target,
 		TurnRunning,
-		Behind
+		Behind,
+		StoreJumpPoint
 	}
 	
 	[HideInInspector]
@@ -62,24 +66,18 @@ public class RomanCameraController : MonoBehaviour {
 	private void LateUpdate () 
 	{
 		vecDifference = Vector3.Normalize(transform.position - follow.position) * -offset.z;
-
-	
 		vecDifference.y = follow.position.y + offset.y;
 
-		//vecDifference.y = Mathf.Lerp(vecDifference.y, follow.position.y + offset.y, 2.0f * Time.deltaTime);
-
-		//print (vecDifference.y);
 		Vector3 targetPos = Vector3.Lerp(transform.position, follow.position + vecDifference, camFollowSpeed * Time.deltaTime);
-
-		//if (charState.IsJumping())
-			//targetPos.y = transform.position.y;
-
 		transform.position = targetPos;
-		
-		//Smoothly rotate towards the target point.
-		targetRotation = Quaternion.LookRotation(follow.position - transform.position);
-		transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, camFollowSpeed * Time.deltaTime);
 
+			
+		//Smoothly rotate towards the target point.
+
+		targetRotation = Quaternion.LookRotation(follow.position - transform.position);
+			
+		transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, camFollowSpeed * Time.deltaTime);
+		
 //		Vector3 targetPos = follow.position + offset;
 //		transform.position = Vector3.Lerp (transform.position, targetPos, camFollowSpeed * Time.deltaTime);		
 	}
@@ -87,17 +85,25 @@ public class RomanCameraController : MonoBehaviour {
 	private void OnEnable ()
 	{
 		RomanCharController.onCharEvent += SetState;
+		RomanCharController.onCharEvent += StoreJumpPoint;
 	}
 	
 	private void OnDisable ()
 	{
 		RomanCharController.onCharEvent -= SetState;
+		RomanCharController.onCharEvent -= StoreJumpPoint;
+
 	}
-	
+
+	private void StoreJumpPoint(CamState e)
+	{
+		if (e == CamState.StoreJumpPoint)
+			yJumpPoint = follow.position.y; 
+	}
+
 	private void SetState (CamState s)
 	{
 		state = s;
-		
 	}
 	
 }

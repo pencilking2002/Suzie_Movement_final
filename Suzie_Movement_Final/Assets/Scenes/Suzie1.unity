@@ -319,7 +319,7 @@ Transform:
   - {fileID: 636557166}
   - {fileID: 57009923}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
 --- !u!1 &195616242
 GameObject:
   m_ObjectHideFlags: 0
@@ -482,7 +482,7 @@ Transform:
   m_LocalScale: {x: 220.42688, y: 1.94080102, z: 220.426804}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
 --- !u!1 &331856414
 GameObject:
   m_ObjectHideFlags: 0
@@ -555,7 +555,7 @@ Transform:
   m_LocalScale: {x: 4.46517897, y: 4.4651804, z: 4.4651804}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
 --- !u!1 &394793980
 GameObject:
   m_ObjectHideFlags: 0
@@ -665,10 +665,6 @@ CanvasRenderer:
 --- !u!1 &442910722 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 128798, guid: 178ddc6b4425848ef9730a8bb314f783, type: 2}
-  m_PrefabInternal: {fileID: 593336847}
---- !u!4 &442910724 stripped
-Transform:
-  m_PrefabParentObject: {fileID: 465690, guid: 178ddc6b4425848ef9730a8bb314f783, type: 2}
   m_PrefabInternal: {fileID: 593336847}
 --- !u!114 &442910727
 MonoBehaviour:
@@ -844,7 +840,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   offset: {x: 0, y: -3.25, z: -5.25}
   follow: {fileID: 2086329366}
-  camFollowSpeed: 8
+  camFollowSpeed: 16.2999992
+  yJumpPoint: 0
   state: 0
 --- !u!114 &518505467
 MonoBehaviour:
@@ -927,7 +924,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
 --- !u!1001 &593336847
 Prefab:
   m_ObjectHideFlags: 0
@@ -965,7 +962,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 465690, guid: 178ddc6b4425848ef9730a8bb314f783, type: 2}
       propertyPath: m_RootOrder
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 9555880, guid: 178ddc6b4425848ef9730a8bb314f783, type: 2}
       propertyPath: m_Controller
@@ -985,7 +982,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 469700, guid: 178ddc6b4425848ef9730a8bb314f783, type: 2}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 483744, guid: 178ddc6b4425848ef9730a8bb314f783, type: 2}
       propertyPath: m_RootOrder
@@ -1009,7 +1006,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 128798, guid: 178ddc6b4425848ef9730a8bb314f783, type: 2}
       propertyPath: m_TagString
-      value: Untagged
+      value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 5486736, guid: 178ddc6b4425848ef9730a8bb314f783, type: 2}
       propertyPath: m_UseGravity
@@ -1280,7 +1277,7 @@ Transform:
   - {fileID: 55417668}
   - {fileID: 394793981}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 10
 --- !u!1 &1079297325
 GameObject:
   m_ObjectHideFlags: 0
@@ -2154,7 +2151,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 14
 --- !u!1 &2086329365
 GameObject:
   m_ObjectHideFlags: 0
@@ -2177,24 +2174,24 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2086329365}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -.00600000005, y: 1.89999998, z: -.0240000002}
-  m_LocalScale: {x: .775586128, y: .775586128, z: .775586128}
+  m_LocalRotation: {x: .00850542169, y: 2.20359127e-07, z: -.00195732177, w: .999961913}
+  m_LocalPosition: {x: .000439356663, y: 3.90794349, z: .149372473}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 442910724}
-  m_RootOrder: 1
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
 --- !u!114 &2086329367
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2086329365}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e34c6b2ec7d284c4a826508917aebf51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
+  speed: 20
 --- !u!1 &2095017285
 GameObject:
   m_ObjectHideFlags: 0
@@ -2267,4 +2264,4 @@ Transform:
   m_LocalScale: {x: 2.61250043, y: .152972221, z: 2.68801999}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 11

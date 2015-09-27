@@ -1,0 +1,1870 @@
+fileFormatVersion: 2
+guid: 5b50309ebfcc6554aa10cf88de420472
+timeCreated: 1443304167
+licenseType: Free
+ModelImporter:
+  serializedVersion: 18
+  fileIDToRecycleName:
+    100000: allJumpsAdjust:EditingMesh6:HairJoint1_base_
+    100002: allJumpsAdjust:EditingMesh6:HairJoint2
+    100004: allJumpsAdjust:EditingMesh6:HairJoint3
+    100006: allJumpsAdjust:EditingMesh6:HairJoint4_end_
+    100008: allJumpsAdjust:EditingMesh6:Head
+    100010: allJumpsAdjust:EditingMesh6:Head1
+    100012: allJumpsAdjust:EditingMesh6:Head2
+    100014: allJumpsAdjust:EditingMesh6:LeftLeg
+    100016: allJumpsAdjust:EditingMesh6:RightLeg
+    100018: allJumpsAdjust:EditingMesh6:Spine1
+    100020: allJumpsAdjust:EditingMesh6:Spine2
+    100022: allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftArm
+    100024: allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftFoot
+    100026: allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftForeArm
+    100028: allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHand
+    100030: allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHandIndex1
+    100032: allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHandIndex2
+    100034: allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHandIndex3
+    100036: allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHandIndex4
+    100038: allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHandMiddle1
+    100040: allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHandMiddle2
+    100042: allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHandMiddle3
+    100044: allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHandMiddle4
+    100046: allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHandRing1
+    100048: allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHandRing2
+    100050: allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHandRing3
+    100052: allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHandRing4
+    100054: allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHandThumb1
+    100056: allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHandThumb2
+    100058: allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHandThumb3
+    100060: allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHandThumb4
+    100062: allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftLeg
+    100064: allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftShoulder
+    100066: allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftToe_End
+    100068: allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftToeBase
+    100070: allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightArm
+    100072: allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightFoot
+    100074: allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightForeArm
+    100076: allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHand
+    100078: allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHandIndex1
+    100080: allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHandIndex2
+    100082: allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHandIndex3
+    100084: allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHandIndex4
+    100086: allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHandMiddle1
+    100088: allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHandMiddle2
+    100090: allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHandMiddle3
+    100092: allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHandMiddle4
+    100094: allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHandRing1
+    100096: allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHandRing2
+    100098: allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHandRing3
+    100100: allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHandRing4
+    100102: allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHandThumb1
+    100104: allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHandThumb2
+    100106: allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHandThumb3
+    100108: allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHandThumb4
+    100110: allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightLeg
+    100112: allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightShoulder
+    100114: allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightToe_End
+    100116: allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightToeBase
+    100118: allJumpsAdjust:EditingMesh6:TailBase
+    100120: allJumpsAdjust:EditingMesh6:TailJoint2
+    100122: allJumpsAdjust:EditingMesh6:TailJoint3
+    100124: allJumpsAdjust:EditingMesh6:TailJoint4
+    100126: allJumpsAdjust:EditingMesh6:TailJoint5
+    100128: allJumpsAdjust:EditingMesh6:TailJoint6
+    100130: allJumpsAdjust:EditingMesh6:TailJoint7_end_
+    100132: allJumpsAdjust:EditingMesh6:UpperTorso
+    100134: allJumpsAdjust:SkeletonJoints
+    100136: allJumpsAdjust:Suzie_Ctrl_ChestEndEffector
+    100138: allJumpsAdjust:Suzie_Ctrl_ChestOriginEffector
+    100140: allJumpsAdjust:Suzie_Ctrl_Head
+    100142: allJumpsAdjust:Suzie_Ctrl_HeadEffector
+    100144: allJumpsAdjust:Suzie_Ctrl_Hips
+    100146: allJumpsAdjust:Suzie_Ctrl_HipsEffector
+    100148: allJumpsAdjust:Suzie_Ctrl_LeftAnkleEffector
+    100150: allJumpsAdjust:Suzie_Ctrl_LeftArm
+    100152: allJumpsAdjust:Suzie_Ctrl_LeftElbowEffector
+    100154: allJumpsAdjust:Suzie_Ctrl_LeftFoot
+    100156: allJumpsAdjust:Suzie_Ctrl_LeftFootEffector
+    100158: allJumpsAdjust:Suzie_Ctrl_LeftFootExtraFinger1
+    100160: allJumpsAdjust:Suzie_Ctrl_LeftFootExtraFingerEffector
+    100162: allJumpsAdjust:Suzie_Ctrl_LeftForeArm
+    100164: allJumpsAdjust:Suzie_Ctrl_LeftHand
+    100166: allJumpsAdjust:Suzie_Ctrl_LeftHandIndex1
+    100168: allJumpsAdjust:Suzie_Ctrl_LeftHandIndex2
+    100170: allJumpsAdjust:Suzie_Ctrl_LeftHandIndex3
+    100172: allJumpsAdjust:Suzie_Ctrl_LeftHandIndex4
+    100174: allJumpsAdjust:Suzie_Ctrl_LeftHandIndexEffector
+    100176: allJumpsAdjust:Suzie_Ctrl_LeftHandMiddle1
+    100178: allJumpsAdjust:Suzie_Ctrl_LeftHandMiddle2
+    100180: allJumpsAdjust:Suzie_Ctrl_LeftHandMiddle3
+    100182: allJumpsAdjust:Suzie_Ctrl_LeftHandMiddle4
+    100184: allJumpsAdjust:Suzie_Ctrl_LeftHandMiddleEffector
+    100186: allJumpsAdjust:Suzie_Ctrl_LeftHandRing1
+    100188: allJumpsAdjust:Suzie_Ctrl_LeftHandRing2
+    100190: allJumpsAdjust:Suzie_Ctrl_LeftHandRing3
+    100192: allJumpsAdjust:Suzie_Ctrl_LeftHandRing4
+    100194: allJumpsAdjust:Suzie_Ctrl_LeftHandRingEffector
+    100196: allJumpsAdjust:Suzie_Ctrl_LeftHandThumb1
+    100198: allJumpsAdjust:Suzie_Ctrl_LeftHandThumb2
+    100200: allJumpsAdjust:Suzie_Ctrl_LeftHandThumb3
+    100202: allJumpsAdjust:Suzie_Ctrl_LeftHandThumb4
+    100204: allJumpsAdjust:Suzie_Ctrl_LeftHandThumbEffector
+    100206: allJumpsAdjust:Suzie_Ctrl_LeftHipEffector
+    100208: allJumpsAdjust:Suzie_Ctrl_LeftKneeEffector
+    100210: allJumpsAdjust:Suzie_Ctrl_LeftLeg
+    100212: allJumpsAdjust:Suzie_Ctrl_LeftShoulder
+    100214: allJumpsAdjust:Suzie_Ctrl_LeftShoulderEffector
+    100216: allJumpsAdjust:Suzie_Ctrl_LeftToeBase
+    100218: allJumpsAdjust:Suzie_Ctrl_LeftUpLeg
+    100220: allJumpsAdjust:Suzie_Ctrl_LeftWristEffector
+    100222: allJumpsAdjust:Suzie_Ctrl_Neck
+    100224: allJumpsAdjust:Suzie_Ctrl_Reference
+    100226: allJumpsAdjust:Suzie_Ctrl_RightAnkleEffector
+    100228: allJumpsAdjust:Suzie_Ctrl_RightArm
+    100230: allJumpsAdjust:Suzie_Ctrl_RightElbowEffector
+    100232: allJumpsAdjust:Suzie_Ctrl_RightFoot
+    100234: allJumpsAdjust:Suzie_Ctrl_RightFootEffector
+    100236: allJumpsAdjust:Suzie_Ctrl_RightFootExtraFinger1
+    100238: allJumpsAdjust:Suzie_Ctrl_RightFootExtraFingerEffector
+    100240: allJumpsAdjust:Suzie_Ctrl_RightForeArm
+    100242: allJumpsAdjust:Suzie_Ctrl_RightHand
+    100244: allJumpsAdjust:Suzie_Ctrl_RightHandIndex1
+    100246: allJumpsAdjust:Suzie_Ctrl_RightHandIndex2
+    100248: allJumpsAdjust:Suzie_Ctrl_RightHandIndex3
+    100250: allJumpsAdjust:Suzie_Ctrl_RightHandIndex4
+    100252: allJumpsAdjust:Suzie_Ctrl_RightHandIndexEffector
+    100254: allJumpsAdjust:Suzie_Ctrl_RightHandMiddle1
+    100256: allJumpsAdjust:Suzie_Ctrl_RightHandMiddle2
+    100258: allJumpsAdjust:Suzie_Ctrl_RightHandMiddle3
+    100260: allJumpsAdjust:Suzie_Ctrl_RightHandMiddle4
+    100262: allJumpsAdjust:Suzie_Ctrl_RightHandMiddleEffector
+    100264: allJumpsAdjust:Suzie_Ctrl_RightHandRing1
+    100266: allJumpsAdjust:Suzie_Ctrl_RightHandRing2
+    100268: allJumpsAdjust:Suzie_Ctrl_RightHandRing3
+    100270: allJumpsAdjust:Suzie_Ctrl_RightHandRing4
+    100272: allJumpsAdjust:Suzie_Ctrl_RightHandRingEffector
+    100274: allJumpsAdjust:Suzie_Ctrl_RightHandThumb1
+    100276: allJumpsAdjust:Suzie_Ctrl_RightHandThumb2
+    100278: allJumpsAdjust:Suzie_Ctrl_RightHandThumb3
+    100280: allJumpsAdjust:Suzie_Ctrl_RightHandThumb4
+    100282: allJumpsAdjust:Suzie_Ctrl_RightHandThumbEffector
+    100284: allJumpsAdjust:Suzie_Ctrl_RightHipEffector
+    100286: allJumpsAdjust:Suzie_Ctrl_RightKneeEffector
+    100288: allJumpsAdjust:Suzie_Ctrl_RightLeg
+    100290: allJumpsAdjust:Suzie_Ctrl_RightShoulder
+    100292: allJumpsAdjust:Suzie_Ctrl_RightShoulderEffector
+    100294: allJumpsAdjust:Suzie_Ctrl_RightToeBase
+    100296: allJumpsAdjust:Suzie_Ctrl_RightUpLeg
+    100298: allJumpsAdjust:Suzie_Ctrl_RightWristEffector
+    100300: allJumpsAdjust:Suzie_Ctrl_Spine
+    100302: allJumpsAdjust:Suzie_Ctrl_Spine1
+    100304: allJumpsAdjust:Suzie_Ctrl_Spine2
+    100306: allJumpsAdjust:SuzieMesh
+    100308: //RootNode
+    400000: allJumpsAdjust:EditingMesh6:HairJoint1_base_
+    400002: allJumpsAdjust:EditingMesh6:HairJoint2
+    400004: allJumpsAdjust:EditingMesh6:HairJoint3
+    400006: allJumpsAdjust:EditingMesh6:HairJoint4_end_
+    400008: allJumpsAdjust:EditingMesh6:Head
+    400010: allJumpsAdjust:EditingMesh6:Head1
+    400012: allJumpsAdjust:EditingMesh6:Head2
+    400014: allJumpsAdjust:EditingMesh6:LeftLeg
+    400016: allJumpsAdjust:EditingMesh6:RightLeg
+    400018: allJumpsAdjust:EditingMesh6:Spine1
+    400020: allJumpsAdjust:EditingMesh6:Spine2
+    400022: allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftArm
+    400024: allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftFoot
+    400026: allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftForeArm
+    400028: allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHand
+    400030: allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHandIndex1
+    400032: allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHandIndex2
+    400034: allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHandIndex3
+    400036: allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHandIndex4
+    400038: allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHandMiddle1
+    400040: allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHandMiddle2
+    400042: allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHandMiddle3
+    400044: allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHandMiddle4
+    400046: allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHandRing1
+    400048: allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHandRing2
+    400050: allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHandRing3
+    400052: allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHandRing4
+    400054: allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHandThumb1
+    400056: allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHandThumb2
+    400058: allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHandThumb3
+    400060: allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHandThumb4
+    400062: allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftLeg
+    400064: allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftShoulder
+    400066: allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftToe_End
+    400068: allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftToeBase
+    400070: allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightArm
+    400072: allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightFoot
+    400074: allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightForeArm
+    400076: allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHand
+    400078: allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHandIndex1
+    400080: allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHandIndex2
+    400082: allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHandIndex3
+    400084: allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHandIndex4
+    400086: allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHandMiddle1
+    400088: allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHandMiddle2
+    400090: allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHandMiddle3
+    400092: allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHandMiddle4
+    400094: allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHandRing1
+    400096: allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHandRing2
+    400098: allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHandRing3
+    400100: allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHandRing4
+    400102: allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHandThumb1
+    400104: allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHandThumb2
+    400106: allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHandThumb3
+    400108: allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHandThumb4
+    400110: allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightLeg
+    400112: allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightShoulder
+    400114: allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightToe_End
+    400116: allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightToeBase
+    400118: allJumpsAdjust:EditingMesh6:TailBase
+    400120: allJumpsAdjust:EditingMesh6:TailJoint2
+    400122: allJumpsAdjust:EditingMesh6:TailJoint3
+    400124: allJumpsAdjust:EditingMesh6:TailJoint4
+    400126: allJumpsAdjust:EditingMesh6:TailJoint5
+    400128: allJumpsAdjust:EditingMesh6:TailJoint6
+    400130: allJumpsAdjust:EditingMesh6:TailJoint7_end_
+    400132: allJumpsAdjust:EditingMesh6:UpperTorso
+    400134: allJumpsAdjust:SkeletonJoints
+    400136: allJumpsAdjust:Suzie_Ctrl_ChestEndEffector
+    400138: allJumpsAdjust:Suzie_Ctrl_ChestOriginEffector
+    400140: allJumpsAdjust:Suzie_Ctrl_Head
+    400142: allJumpsAdjust:Suzie_Ctrl_HeadEffector
+    400144: allJumpsAdjust:Suzie_Ctrl_Hips
+    400146: allJumpsAdjust:Suzie_Ctrl_HipsEffector
+    400148: allJumpsAdjust:Suzie_Ctrl_LeftAnkleEffector
+    400150: allJumpsAdjust:Suzie_Ctrl_LeftArm
+    400152: allJumpsAdjust:Suzie_Ctrl_LeftElbowEffector
+    400154: allJumpsAdjust:Suzie_Ctrl_LeftFoot
+    400156: allJumpsAdjust:Suzie_Ctrl_LeftFootEffector
+    400158: allJumpsAdjust:Suzie_Ctrl_LeftFootExtraFinger1
+    400160: allJumpsAdjust:Suzie_Ctrl_LeftFootExtraFingerEffector
+    400162: allJumpsAdjust:Suzie_Ctrl_LeftForeArm
+    400164: allJumpsAdjust:Suzie_Ctrl_LeftHand
+    400166: allJumpsAdjust:Suzie_Ctrl_LeftHandIndex1
+    400168: allJumpsAdjust:Suzie_Ctrl_LeftHandIndex2
+    400170: allJumpsAdjust:Suzie_Ctrl_LeftHandIndex3
+    400172: allJumpsAdjust:Suzie_Ctrl_LeftHandIndex4
+    400174: allJumpsAdjust:Suzie_Ctrl_LeftHandIndexEffector
+    400176: allJumpsAdjust:Suzie_Ctrl_LeftHandMiddle1
+    400178: allJumpsAdjust:Suzie_Ctrl_LeftHandMiddle2
+    400180: allJumpsAdjust:Suzie_Ctrl_LeftHandMiddle3
+    400182: allJumpsAdjust:Suzie_Ctrl_LeftHandMiddle4
+    400184: allJumpsAdjust:Suzie_Ctrl_LeftHandMiddleEffector
+    400186: allJumpsAdjust:Suzie_Ctrl_LeftHandRing1
+    400188: allJumpsAdjust:Suzie_Ctrl_LeftHandRing2
+    400190: allJumpsAdjust:Suzie_Ctrl_LeftHandRing3
+    400192: allJumpsAdjust:Suzie_Ctrl_LeftHandRing4
+    400194: allJumpsAdjust:Suzie_Ctrl_LeftHandRingEffector
+    400196: allJumpsAdjust:Suzie_Ctrl_LeftHandThumb1
+    400198: allJumpsAdjust:Suzie_Ctrl_LeftHandThumb2
+    400200: allJumpsAdjust:Suzie_Ctrl_LeftHandThumb3
+    400202: allJumpsAdjust:Suzie_Ctrl_LeftHandThumb4
+    400204: allJumpsAdjust:Suzie_Ctrl_LeftHandThumbEffector
+    400206: allJumpsAdjust:Suzie_Ctrl_LeftHipEffector
+    400208: allJumpsAdjust:Suzie_Ctrl_LeftKneeEffector
+    400210: allJumpsAdjust:Suzie_Ctrl_LeftLeg
+    400212: allJumpsAdjust:Suzie_Ctrl_LeftShoulder
+    400214: allJumpsAdjust:Suzie_Ctrl_LeftShoulderEffector
+    400216: allJumpsAdjust:Suzie_Ctrl_LeftToeBase
+    400218: allJumpsAdjust:Suzie_Ctrl_LeftUpLeg
+    400220: allJumpsAdjust:Suzie_Ctrl_LeftWristEffector
+    400222: allJumpsAdjust:Suzie_Ctrl_Neck
+    400224: allJumpsAdjust:Suzie_Ctrl_Reference
+    400226: allJumpsAdjust:Suzie_Ctrl_RightAnkleEffector
+    400228: allJumpsAdjust:Suzie_Ctrl_RightArm
+    400230: allJumpsAdjust:Suzie_Ctrl_RightElbowEffector
+    400232: allJumpsAdjust:Suzie_Ctrl_RightFoot
+    400234: allJumpsAdjust:Suzie_Ctrl_RightFootEffector
+    400236: allJumpsAdjust:Suzie_Ctrl_RightFootExtraFinger1
+    400238: allJumpsAdjust:Suzie_Ctrl_RightFootExtraFingerEffector
+    400240: allJumpsAdjust:Suzie_Ctrl_RightForeArm
+    400242: allJumpsAdjust:Suzie_Ctrl_RightHand
+    400244: allJumpsAdjust:Suzie_Ctrl_RightHandIndex1
+    400246: allJumpsAdjust:Suzie_Ctrl_RightHandIndex2
+    400248: allJumpsAdjust:Suzie_Ctrl_RightHandIndex3
+    400250: allJumpsAdjust:Suzie_Ctrl_RightHandIndex4
+    400252: allJumpsAdjust:Suzie_Ctrl_RightHandIndexEffector
+    400254: allJumpsAdjust:Suzie_Ctrl_RightHandMiddle1
+    400256: allJumpsAdjust:Suzie_Ctrl_RightHandMiddle2
+    400258: allJumpsAdjust:Suzie_Ctrl_RightHandMiddle3
+    400260: allJumpsAdjust:Suzie_Ctrl_RightHandMiddle4
+    400262: allJumpsAdjust:Suzie_Ctrl_RightHandMiddleEffector
+    400264: allJumpsAdjust:Suzie_Ctrl_RightHandRing1
+    400266: allJumpsAdjust:Suzie_Ctrl_RightHandRing2
+    400268: allJumpsAdjust:Suzie_Ctrl_RightHandRing3
+    400270: allJumpsAdjust:Suzie_Ctrl_RightHandRing4
+    400272: allJumpsAdjust:Suzie_Ctrl_RightHandRingEffector
+    400274: allJumpsAdjust:Suzie_Ctrl_RightHandThumb1
+    400276: allJumpsAdjust:Suzie_Ctrl_RightHandThumb2
+    400278: allJumpsAdjust:Suzie_Ctrl_RightHandThumb3
+    400280: allJumpsAdjust:Suzie_Ctrl_RightHandThumb4
+    400282: allJumpsAdjust:Suzie_Ctrl_RightHandThumbEffector
+    400284: allJumpsAdjust:Suzie_Ctrl_RightHipEffector
+    400286: allJumpsAdjust:Suzie_Ctrl_RightKneeEffector
+    400288: allJumpsAdjust:Suzie_Ctrl_RightLeg
+    400290: allJumpsAdjust:Suzie_Ctrl_RightShoulder
+    400292: allJumpsAdjust:Suzie_Ctrl_RightShoulderEffector
+    400294: allJumpsAdjust:Suzie_Ctrl_RightToeBase
+    400296: allJumpsAdjust:Suzie_Ctrl_RightUpLeg
+    400298: allJumpsAdjust:Suzie_Ctrl_RightWristEffector
+    400300: allJumpsAdjust:Suzie_Ctrl_Spine
+    400302: allJumpsAdjust:Suzie_Ctrl_Spine1
+    400304: allJumpsAdjust:Suzie_Ctrl_Spine2
+    400306: allJumpsAdjust:SuzieMesh
+    400308: //RootNode
+    4300000: allJumpsAdjust:SuzieMesh
+    7400000: Take 001
+    7400002: Falling01
+    9500000: //RootNode
+    13700000: allJumpsAdjust:SuzieMesh
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: "\nClip 'Take 001' has import animation warnings that
+      might lower retargeting quality:\nNote: Activate translation DOF on avatar to
+      improve retargeting quality.\n\t'allJumpsAdjust:EditingMesh6:Spine1' is inbetween
+      humanoid transforms and has rotation animation that will be discarded.\n\t'allJumpsAdjust:EditingMesh6:Head'
+      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\t'allJumpsAdjust:EditingMesh6:Head1'
+      is inbetween humanoid transforms and has rotation animation that will be discarded.\n"
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 3
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Falling01
+      takeName: Take 001
+      firstFrame: 50
+      lastFrame: 80
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 1
+      loopBlend: 1
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: allJumpsAdjust:SkeletonJoints
+        weight: 1
+      - path: allJumpsAdjust:SkeletonJoints/allJumpsAdjust:EditingMesh6:LeftLeg
+        weight: 1
+      - path: allJumpsAdjust:SkeletonJoints/allJumpsAdjust:EditingMesh6:LeftLeg/allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftLeg
+        weight: 1
+      - path: allJumpsAdjust:SkeletonJoints/allJumpsAdjust:EditingMesh6:LeftLeg/allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftLeg/allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftFoot
+        weight: 1
+      - path: allJumpsAdjust:SkeletonJoints/allJumpsAdjust:EditingMesh6:LeftLeg/allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftLeg/allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftFoot/allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftToeBase
+        weight: 1
+      - path: allJumpsAdjust:SkeletonJoints/allJumpsAdjust:EditingMesh6:LeftLeg/allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftLeg/allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftFoot/allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftToeBase/allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftToe_End
+        weight: 1
+      - path: allJumpsAdjust:SkeletonJoints/allJumpsAdjust:EditingMesh6:RightLeg
+        weight: 1
+      - path: allJumpsAdjust:SkeletonJoints/allJumpsAdjust:EditingMesh6:RightLeg/allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightLeg
+        weight: 1
+      - path: allJumpsAdjust:SkeletonJoints/allJumpsAdjust:EditingMesh6:RightLeg/allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightLeg/allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightFoot
+        weight: 1
+      - path: allJumpsAdjust:SkeletonJoints/allJumpsAdjust:EditingMesh6:RightLeg/allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightLeg/allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightFoot/allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightToeBase
+        weight: 1
+      - path: allJumpsAdjust:SkeletonJoints/allJumpsAdjust:EditingMesh6:RightLeg/allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightLeg/allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightFoot/allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightToeBase/allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightToe_End
+        weight: 1
+      - path: allJumpsAdjust:SkeletonJoints/allJumpsAdjust:EditingMesh6:TailBase
+        weight: 1
+      - path: allJumpsAdjust:SkeletonJoints/allJumpsAdjust:EditingMesh6:TailBase/allJumpsAdjust:EditingMesh6:TailJoint2
+        weight: 1
+      - path: allJumpsAdjust:SkeletonJoints/allJumpsAdjust:EditingMesh6:TailBase/allJumpsAdjust:EditingMesh6:TailJoint2/allJumpsAdjust:EditingMesh6:TailJoint3
+        weight: 1
+      - path: allJumpsAdjust:SkeletonJoints/allJumpsAdjust:EditingMesh6:TailBase/allJumpsAdjust:EditingMesh6:TailJoint2/allJumpsAdjust:EditingMesh6:TailJoint3/allJumpsAdjust:EditingMesh6:TailJoint4
+        weight: 1
+      - path: allJumpsAdjust:SkeletonJoints/allJumpsAdjust:EditingMesh6:TailBase/allJumpsAdjust:EditingMesh6:TailJoint2/allJumpsAdjust:EditingMesh6:TailJoint3/allJumpsAdjust:EditingMesh6:TailJoint4/allJumpsAdjust:EditingMesh6:TailJoint5
+        weight: 1
+      - path: allJumpsAdjust:SkeletonJoints/allJumpsAdjust:EditingMesh6:TailBase/allJumpsAdjust:EditingMesh6:TailJoint2/allJumpsAdjust:EditingMesh6:TailJoint3/allJumpsAdjust:EditingMesh6:TailJoint4/allJumpsAdjust:EditingMesh6:TailJoint5/allJumpsAdjust:EditingMesh6:TailJoint6
+        weight: 1
+      - path: allJumpsAdjust:SkeletonJoints/allJumpsAdjust:EditingMesh6:TailBase/allJumpsAdjust:EditingMesh6:TailJoint2/allJumpsAdjust:EditingMesh6:TailJoint3/allJumpsAdjust:EditingMesh6:TailJoint4/allJumpsAdjust:EditingMesh6:TailJoint5/allJumpsAdjust:EditingMesh6:TailJoint6/allJumpsAdjust:EditingMesh6:TailJoint7_end_
+        weight: 1
+      - path: allJumpsAdjust:SkeletonJoints/allJumpsAdjust:EditingMesh6:UpperTorso
+        weight: 1
+      - path: allJumpsAdjust:SkeletonJoints/allJumpsAdjust:EditingMesh6:UpperTorso/allJumpsAdjust:EditingMesh6:Spine1
+        weight: 1
+      - path: allJumpsAdjust:SkeletonJoints/allJumpsAdjust:EditingMesh6:UpperTorso/allJumpsAdjust:EditingMesh6:Spine1/allJumpsAdjust:EditingMesh6:Spine2
+        weight: 1
+      - path: allJumpsAdjust:SkeletonJoints/allJumpsAdjust:EditingMesh6:UpperTorso/allJumpsAdjust:EditingMesh6:Spine1/allJumpsAdjust:EditingMesh6:Spine2/allJumpsAdjust:EditingMesh6:Head
+        weight: 1
+      - path: allJumpsAdjust:SkeletonJoints/allJumpsAdjust:EditingMesh6:UpperTorso/allJumpsAdjust:EditingMesh6:Spine1/allJumpsAdjust:EditingMesh6:Spine2/allJumpsAdjust:EditingMesh6:Head/allJumpsAdjust:EditingMesh6:Head1
+        weight: 1
+      - path: allJumpsAdjust:SkeletonJoints/allJumpsAdjust:EditingMesh6:UpperTorso/allJumpsAdjust:EditingMesh6:Spine1/allJumpsAdjust:EditingMesh6:Spine2/allJumpsAdjust:EditingMesh6:Head/allJumpsAdjust:EditingMesh6:Head1/allJumpsAdjust:EditingMesh6:Head2
+        weight: 1
+      - path: allJumpsAdjust:SkeletonJoints/allJumpsAdjust:EditingMesh6:UpperTorso/allJumpsAdjust:EditingMesh6:Spine1/allJumpsAdjust:EditingMesh6:Spine2/allJumpsAdjust:EditingMesh6:Head/allJumpsAdjust:EditingMesh6:Head1/allJumpsAdjust:EditingMesh6:Head2/allJumpsAdjust:EditingMesh6:HairJoint1_base_
+        weight: 1
+      - path: allJumpsAdjust:SkeletonJoints/allJumpsAdjust:EditingMesh6:UpperTorso/allJumpsAdjust:EditingMesh6:Spine1/allJumpsAdjust:EditingMesh6:Spine2/allJumpsAdjust:EditingMesh6:Head/allJumpsAdjust:EditingMesh6:Head1/allJumpsAdjust:EditingMesh6:Head2/allJumpsAdjust:EditingMesh6:HairJoint1_base_/allJumpsAdjust:EditingMesh6:HairJoint2
+        weight: 1
+      - path: allJumpsAdjust:SkeletonJoints/allJumpsAdjust:EditingMesh6:UpperTorso/allJumpsAdjust:EditingMesh6:Spine1/allJumpsAdjust:EditingMesh6:Spine2/allJumpsAdjust:EditingMesh6:Head/allJumpsAdjust:EditingMesh6:Head1/allJumpsAdjust:EditingMesh6:Head2/allJumpsAdjust:EditingMesh6:HairJoint1_base_/allJumpsAdjust:EditingMesh6:HairJoint2/allJumpsAdjust:EditingMesh6:HairJoint3
+        weight: 1
+      - path: allJumpsAdjust:SkeletonJoints/allJumpsAdjust:EditingMesh6:UpperTorso/allJumpsAdjust:EditingMesh6:Spine1/allJumpsAdjust:EditingMesh6:Spine2/allJumpsAdjust:EditingMesh6:Head/allJumpsAdjust:EditingMesh6:Head1/allJumpsAdjust:EditingMesh6:Head2/allJumpsAdjust:EditingMesh6:HairJoint1_base_/allJumpsAdjust:EditingMesh6:HairJoint2/allJumpsAdjust:EditingMesh6:HairJoint3/allJumpsAdjust:EditingMesh6:HairJoint4_end_
+        weight: 1
+      - path: allJumpsAdjust:SkeletonJoints/allJumpsAdjust:EditingMesh6:UpperTorso/allJumpsAdjust:EditingMesh6:Spine1/allJumpsAdjust:EditingMesh6:Spine2/allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftShoulder
+        weight: 1
+      - path: allJumpsAdjust:SkeletonJoints/allJumpsAdjust:EditingMesh6:UpperTorso/allJumpsAdjust:EditingMesh6:Spine1/allJumpsAdjust:EditingMesh6:Spine2/allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftShoulder/allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftArm
+        weight: 1
+      - path: allJumpsAdjust:SkeletonJoints/allJumpsAdjust:EditingMesh6:UpperTorso/allJumpsAdjust:EditingMesh6:Spine1/allJumpsAdjust:EditingMesh6:Spine2/allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftShoulder/allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftArm/allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftForeArm
+        weight: 1
+      - path: allJumpsAdjust:SkeletonJoints/allJumpsAdjust:EditingMesh6:UpperTorso/allJumpsAdjust:EditingMesh6:Spine1/allJumpsAdjust:EditingMesh6:Spine2/allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftShoulder/allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftArm/allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftForeArm/allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHand
+        weight: 1
+      - path: allJumpsAdjust:SkeletonJoints/allJumpsAdjust:EditingMesh6:UpperTorso/allJumpsAdjust:EditingMesh6:Spine1/allJumpsAdjust:EditingMesh6:Spine2/allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftShoulder/allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftArm/allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftForeArm/allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHand/allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHandIndex1
+        weight: 1
+      - path: allJumpsAdjust:SkeletonJoints/allJumpsAdjust:EditingMesh6:UpperTorso/allJumpsAdjust:EditingMesh6:Spine1/allJumpsAdjust:EditingMesh6:Spine2/allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftShoulder/allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftArm/allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftForeArm/allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHand/allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHandIndex1/allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHandIndex2
+        weight: 1
+      - path: allJumpsAdjust:SkeletonJoints/allJumpsAdjust:EditingMesh6:UpperTorso/allJumpsAdjust:EditingMesh6:Spine1/allJumpsAdjust:EditingMesh6:Spine2/allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftShoulder/allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftArm/allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftForeArm/allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHand/allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHandIndex1/allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHandIndex2/allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHandIndex3
+        weight: 1
+      - path: allJumpsAdjust:SkeletonJoints/allJumpsAdjust:EditingMesh6:UpperTorso/allJumpsAdjust:EditingMesh6:Spine1/allJumpsAdjust:EditingMesh6:Spine2/allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftShoulder/allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftArm/allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftForeArm/allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHand/allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHandIndex1/allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHandIndex2/allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHandIndex3/allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHandIndex4
+        weight: 1
+      - path: allJumpsAdjust:SkeletonJoints/allJumpsAdjust:EditingMesh6:UpperTorso/allJumpsAdjust:EditingMesh6:Spine1/allJumpsAdjust:EditingMesh6:Spine2/allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftShoulder/allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftArm/allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftForeArm/allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHand/allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHandMiddle1
+        weight: 1
+      - path: allJumpsAdjust:SkeletonJoints/allJumpsAdjust:EditingMesh6:UpperTorso/allJumpsAdjust:EditingMesh6:Spine1/allJumpsAdjust:EditingMesh6:Spine2/allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftShoulder/allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftArm/allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftForeArm/allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHand/allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHandMiddle1/allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHandMiddle2
+        weight: 1
+      - path: allJumpsAdjust:SkeletonJoints/allJumpsAdjust:EditingMesh6:UpperTorso/allJumpsAdjust:EditingMesh6:Spine1/allJumpsAdjust:EditingMesh6:Spine2/allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftShoulder/allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftArm/allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftForeArm/allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHand/allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHandMiddle1/allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHandMiddle2/allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHandMiddle3
+        weight: 1
+      - path: allJumpsAdjust:SkeletonJoints/allJumpsAdjust:EditingMesh6:UpperTorso/allJumpsAdjust:EditingMesh6:Spine1/allJumpsAdjust:EditingMesh6:Spine2/allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftShoulder/allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftArm/allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftForeArm/allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHand/allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHandMiddle1/allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHandMiddle2/allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHandMiddle3/allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHandMiddle4
+        weight: 1
+      - path: allJumpsAdjust:SkeletonJoints/allJumpsAdjust:EditingMesh6:UpperTorso/allJumpsAdjust:EditingMesh6:Spine1/allJumpsAdjust:EditingMesh6:Spine2/allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftShoulder/allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftArm/allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftForeArm/allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHand/allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHandRing1
+        weight: 1
+      - path: allJumpsAdjust:SkeletonJoints/allJumpsAdjust:EditingMesh6:UpperTorso/allJumpsAdjust:EditingMesh6:Spine1/allJumpsAdjust:EditingMesh6:Spine2/allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftShoulder/allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftArm/allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftForeArm/allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHand/allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHandRing1/allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHandRing2
+        weight: 1
+      - path: allJumpsAdjust:SkeletonJoints/allJumpsAdjust:EditingMesh6:UpperTorso/allJumpsAdjust:EditingMesh6:Spine1/allJumpsAdjust:EditingMesh6:Spine2/allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftShoulder/allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftArm/allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftForeArm/allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHand/allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHandRing1/allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHandRing2/allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHandRing3
+        weight: 1
+      - path: allJumpsAdjust:SkeletonJoints/allJumpsAdjust:EditingMesh6:UpperTorso/allJumpsAdjust:EditingMesh6:Spine1/allJumpsAdjust:EditingMesh6:Spine2/allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftShoulder/allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftArm/allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftForeArm/allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHand/allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHandRing1/allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHandRing2/allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHandRing3/allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHandRing4
+        weight: 1
+      - path: allJumpsAdjust:SkeletonJoints/allJumpsAdjust:EditingMesh6:UpperTorso/allJumpsAdjust:EditingMesh6:Spine1/allJumpsAdjust:EditingMesh6:Spine2/allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftShoulder/allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftArm/allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftForeArm/allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHand/allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHandThumb1
+        weight: 1
+      - path: allJumpsAdjust:SkeletonJoints/allJumpsAdjust:EditingMesh6:UpperTorso/allJumpsAdjust:EditingMesh6:Spine1/allJumpsAdjust:EditingMesh6:Spine2/allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftShoulder/allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftArm/allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftForeArm/allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHand/allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHandThumb1/allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHandThumb2
+        weight: 1
+      - path: allJumpsAdjust:SkeletonJoints/allJumpsAdjust:EditingMesh6:UpperTorso/allJumpsAdjust:EditingMesh6:Spine1/allJumpsAdjust:EditingMesh6:Spine2/allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftShoulder/allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftArm/allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftForeArm/allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHand/allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHandThumb1/allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHandThumb2/allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHandThumb3
+        weight: 1
+      - path: allJumpsAdjust:SkeletonJoints/allJumpsAdjust:EditingMesh6:UpperTorso/allJumpsAdjust:EditingMesh6:Spine1/allJumpsAdjust:EditingMesh6:Spine2/allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftShoulder/allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftArm/allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftForeArm/allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHand/allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHandThumb1/allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHandThumb2/allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHandThumb3/allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHandThumb4
+        weight: 1
+      - path: allJumpsAdjust:SkeletonJoints/allJumpsAdjust:EditingMesh6:UpperTorso/allJumpsAdjust:EditingMesh6:Spine1/allJumpsAdjust:EditingMesh6:Spine2/allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightShoulder
+        weight: 1
+      - path: allJumpsAdjust:SkeletonJoints/allJumpsAdjust:EditingMesh6:UpperTorso/allJumpsAdjust:EditingMesh6:Spine1/allJumpsAdjust:EditingMesh6:Spine2/allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightShoulder/allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightArm
+        weight: 1
+      - path: allJumpsAdjust:SkeletonJoints/allJumpsAdjust:EditingMesh6:UpperTorso/allJumpsAdjust:EditingMesh6:Spine1/allJumpsAdjust:EditingMesh6:Spine2/allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightShoulder/allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightArm/allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightForeArm
+        weight: 1
+      - path: allJumpsAdjust:SkeletonJoints/allJumpsAdjust:EditingMesh6:UpperTorso/allJumpsAdjust:EditingMesh6:Spine1/allJumpsAdjust:EditingMesh6:Spine2/allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightShoulder/allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightArm/allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightForeArm/allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHand
+        weight: 1
+      - path: allJumpsAdjust:SkeletonJoints/allJumpsAdjust:EditingMesh6:UpperTorso/allJumpsAdjust:EditingMesh6:Spine1/allJumpsAdjust:EditingMesh6:Spine2/allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightShoulder/allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightArm/allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightForeArm/allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHand/allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHandIndex1
+        weight: 1
+      - path: allJumpsAdjust:SkeletonJoints/allJumpsAdjust:EditingMesh6:UpperTorso/allJumpsAdjust:EditingMesh6:Spine1/allJumpsAdjust:EditingMesh6:Spine2/allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightShoulder/allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightArm/allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightForeArm/allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHand/allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHandIndex1/allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHandIndex2
+        weight: 1
+      - path: allJumpsAdjust:SkeletonJoints/allJumpsAdjust:EditingMesh6:UpperTorso/allJumpsAdjust:EditingMesh6:Spine1/allJumpsAdjust:EditingMesh6:Spine2/allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightShoulder/allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightArm/allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightForeArm/allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHand/allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHandIndex1/allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHandIndex2/allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHandIndex3
+        weight: 1
+      - path: allJumpsAdjust:SkeletonJoints/allJumpsAdjust:EditingMesh6:UpperTorso/allJumpsAdjust:EditingMesh6:Spine1/allJumpsAdjust:EditingMesh6:Spine2/allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightShoulder/allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightArm/allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightForeArm/allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHand/allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHandIndex1/allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHandIndex2/allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHandIndex3/allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHandIndex4
+        weight: 1
+      - path: allJumpsAdjust:SkeletonJoints/allJumpsAdjust:EditingMesh6:UpperTorso/allJumpsAdjust:EditingMesh6:Spine1/allJumpsAdjust:EditingMesh6:Spine2/allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightShoulder/allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightArm/allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightForeArm/allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHand/allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHandMiddle1
+        weight: 1
+      - path: allJumpsAdjust:SkeletonJoints/allJumpsAdjust:EditingMesh6:UpperTorso/allJumpsAdjust:EditingMesh6:Spine1/allJumpsAdjust:EditingMesh6:Spine2/allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightShoulder/allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightArm/allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightForeArm/allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHand/allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHandMiddle1/allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHandMiddle2
+        weight: 1
+      - path: allJumpsAdjust:SkeletonJoints/allJumpsAdjust:EditingMesh6:UpperTorso/allJumpsAdjust:EditingMesh6:Spine1/allJumpsAdjust:EditingMesh6:Spine2/allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightShoulder/allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightArm/allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightForeArm/allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHand/allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHandMiddle1/allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHandMiddle2/allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHandMiddle3
+        weight: 1
+      - path: allJumpsAdjust:SkeletonJoints/allJumpsAdjust:EditingMesh6:UpperTorso/allJumpsAdjust:EditingMesh6:Spine1/allJumpsAdjust:EditingMesh6:Spine2/allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightShoulder/allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightArm/allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightForeArm/allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHand/allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHandMiddle1/allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHandMiddle2/allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHandMiddle3/allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHandMiddle4
+        weight: 1
+      - path: allJumpsAdjust:SkeletonJoints/allJumpsAdjust:EditingMesh6:UpperTorso/allJumpsAdjust:EditingMesh6:Spine1/allJumpsAdjust:EditingMesh6:Spine2/allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightShoulder/allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightArm/allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightForeArm/allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHand/allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHandRing1
+        weight: 1
+      - path: allJumpsAdjust:SkeletonJoints/allJumpsAdjust:EditingMesh6:UpperTorso/allJumpsAdjust:EditingMesh6:Spine1/allJumpsAdjust:EditingMesh6:Spine2/allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightShoulder/allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightArm/allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightForeArm/allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHand/allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHandRing1/allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHandRing2
+        weight: 1
+      - path: allJumpsAdjust:SkeletonJoints/allJumpsAdjust:EditingMesh6:UpperTorso/allJumpsAdjust:EditingMesh6:Spine1/allJumpsAdjust:EditingMesh6:Spine2/allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightShoulder/allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightArm/allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightForeArm/allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHand/allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHandRing1/allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHandRing2/allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHandRing3
+        weight: 1
+      - path: allJumpsAdjust:SkeletonJoints/allJumpsAdjust:EditingMesh6:UpperTorso/allJumpsAdjust:EditingMesh6:Spine1/allJumpsAdjust:EditingMesh6:Spine2/allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightShoulder/allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightArm/allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightForeArm/allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHand/allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHandRing1/allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHandRing2/allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHandRing3/allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHandRing4
+        weight: 1
+      - path: allJumpsAdjust:SkeletonJoints/allJumpsAdjust:EditingMesh6:UpperTorso/allJumpsAdjust:EditingMesh6:Spine1/allJumpsAdjust:EditingMesh6:Spine2/allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightShoulder/allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightArm/allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightForeArm/allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHand/allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHandThumb1
+        weight: 1
+      - path: allJumpsAdjust:SkeletonJoints/allJumpsAdjust:EditingMesh6:UpperTorso/allJumpsAdjust:EditingMesh6:Spine1/allJumpsAdjust:EditingMesh6:Spine2/allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightShoulder/allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightArm/allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightForeArm/allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHand/allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHandThumb1/allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHandThumb2
+        weight: 1
+      - path: allJumpsAdjust:SkeletonJoints/allJumpsAdjust:EditingMesh6:UpperTorso/allJumpsAdjust:EditingMesh6:Spine1/allJumpsAdjust:EditingMesh6:Spine2/allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightShoulder/allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightArm/allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightForeArm/allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHand/allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHandThumb1/allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHandThumb2/allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHandThumb3
+        weight: 1
+      - path: allJumpsAdjust:SkeletonJoints/allJumpsAdjust:EditingMesh6:UpperTorso/allJumpsAdjust:EditingMesh6:Spine1/allJumpsAdjust:EditingMesh6:Spine2/allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightShoulder/allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightArm/allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightForeArm/allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHand/allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHandThumb1/allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHandThumb2/allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHandThumb3/allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHandThumb4
+        weight: 1
+      - path: allJumpsAdjust:Suzie_Ctrl_Reference
+        weight: 1
+      - path: allJumpsAdjust:Suzie_Ctrl_Reference/allJumpsAdjust:Suzie_Ctrl_ChestEndEffector
+        weight: 1
+      - path: allJumpsAdjust:Suzie_Ctrl_Reference/allJumpsAdjust:Suzie_Ctrl_ChestOriginEffector
+        weight: 1
+      - path: allJumpsAdjust:Suzie_Ctrl_Reference/allJumpsAdjust:Suzie_Ctrl_HeadEffector
+        weight: 1
+      - path: allJumpsAdjust:Suzie_Ctrl_Reference/allJumpsAdjust:Suzie_Ctrl_Hips
+        weight: 1
+      - path: allJumpsAdjust:Suzie_Ctrl_Reference/allJumpsAdjust:Suzie_Ctrl_Hips/allJumpsAdjust:Suzie_Ctrl_LeftUpLeg
+        weight: 1
+      - path: allJumpsAdjust:Suzie_Ctrl_Reference/allJumpsAdjust:Suzie_Ctrl_Hips/allJumpsAdjust:Suzie_Ctrl_LeftUpLeg/allJumpsAdjust:Suzie_Ctrl_LeftLeg
+        weight: 1
+      - path: allJumpsAdjust:Suzie_Ctrl_Reference/allJumpsAdjust:Suzie_Ctrl_Hips/allJumpsAdjust:Suzie_Ctrl_LeftUpLeg/allJumpsAdjust:Suzie_Ctrl_LeftLeg/allJumpsAdjust:Suzie_Ctrl_LeftFoot
+        weight: 1
+      - path: allJumpsAdjust:Suzie_Ctrl_Reference/allJumpsAdjust:Suzie_Ctrl_Hips/allJumpsAdjust:Suzie_Ctrl_LeftUpLeg/allJumpsAdjust:Suzie_Ctrl_LeftLeg/allJumpsAdjust:Suzie_Ctrl_LeftFoot/allJumpsAdjust:Suzie_Ctrl_LeftToeBase
+        weight: 1
+      - path: allJumpsAdjust:Suzie_Ctrl_Reference/allJumpsAdjust:Suzie_Ctrl_Hips/allJumpsAdjust:Suzie_Ctrl_LeftUpLeg/allJumpsAdjust:Suzie_Ctrl_LeftLeg/allJumpsAdjust:Suzie_Ctrl_LeftFoot/allJumpsAdjust:Suzie_Ctrl_LeftToeBase/allJumpsAdjust:Suzie_Ctrl_LeftFootExtraFinger1
+        weight: 1
+      - path: allJumpsAdjust:Suzie_Ctrl_Reference/allJumpsAdjust:Suzie_Ctrl_Hips/allJumpsAdjust:Suzie_Ctrl_RightUpLeg
+        weight: 1
+      - path: allJumpsAdjust:Suzie_Ctrl_Reference/allJumpsAdjust:Suzie_Ctrl_Hips/allJumpsAdjust:Suzie_Ctrl_RightUpLeg/allJumpsAdjust:Suzie_Ctrl_RightLeg
+        weight: 1
+      - path: allJumpsAdjust:Suzie_Ctrl_Reference/allJumpsAdjust:Suzie_Ctrl_Hips/allJumpsAdjust:Suzie_Ctrl_RightUpLeg/allJumpsAdjust:Suzie_Ctrl_RightLeg/allJumpsAdjust:Suzie_Ctrl_RightFoot
+        weight: 1
+      - path: allJumpsAdjust:Suzie_Ctrl_Reference/allJumpsAdjust:Suzie_Ctrl_Hips/allJumpsAdjust:Suzie_Ctrl_RightUpLeg/allJumpsAdjust:Suzie_Ctrl_RightLeg/allJumpsAdjust:Suzie_Ctrl_RightFoot/allJumpsAdjust:Suzie_Ctrl_RightToeBase
+        weight: 1
+      - path: allJumpsAdjust:Suzie_Ctrl_Reference/allJumpsAdjust:Suzie_Ctrl_Hips/allJumpsAdjust:Suzie_Ctrl_RightUpLeg/allJumpsAdjust:Suzie_Ctrl_RightLeg/allJumpsAdjust:Suzie_Ctrl_RightFoot/allJumpsAdjust:Suzie_Ctrl_RightToeBase/allJumpsAdjust:Suzie_Ctrl_RightFootExtraFinger1
+        weight: 1
+      - path: allJumpsAdjust:Suzie_Ctrl_Reference/allJumpsAdjust:Suzie_Ctrl_Hips/allJumpsAdjust:Suzie_Ctrl_Spine
+        weight: 1
+      - path: allJumpsAdjust:Suzie_Ctrl_Reference/allJumpsAdjust:Suzie_Ctrl_Hips/allJumpsAdjust:Suzie_Ctrl_Spine/allJumpsAdjust:Suzie_Ctrl_Spine1
+        weight: 1
+      - path: allJumpsAdjust:Suzie_Ctrl_Reference/allJumpsAdjust:Suzie_Ctrl_Hips/allJumpsAdjust:Suzie_Ctrl_Spine/allJumpsAdjust:Suzie_Ctrl_Spine1/allJumpsAdjust:Suzie_Ctrl_Spine2
+        weight: 1
+      - path: allJumpsAdjust:Suzie_Ctrl_Reference/allJumpsAdjust:Suzie_Ctrl_Hips/allJumpsAdjust:Suzie_Ctrl_Spine/allJumpsAdjust:Suzie_Ctrl_Spine1/allJumpsAdjust:Suzie_Ctrl_Spine2/allJumpsAdjust:Suzie_Ctrl_LeftShoulder
+        weight: 1
+      - path: allJumpsAdjust:Suzie_Ctrl_Reference/allJumpsAdjust:Suzie_Ctrl_Hips/allJumpsAdjust:Suzie_Ctrl_Spine/allJumpsAdjust:Suzie_Ctrl_Spine1/allJumpsAdjust:Suzie_Ctrl_Spine2/allJumpsAdjust:Suzie_Ctrl_LeftShoulder/allJumpsAdjust:Suzie_Ctrl_LeftArm
+        weight: 1
+      - path: allJumpsAdjust:Suzie_Ctrl_Reference/allJumpsAdjust:Suzie_Ctrl_Hips/allJumpsAdjust:Suzie_Ctrl_Spine/allJumpsAdjust:Suzie_Ctrl_Spine1/allJumpsAdjust:Suzie_Ctrl_Spine2/allJumpsAdjust:Suzie_Ctrl_LeftShoulder/allJumpsAdjust:Suzie_Ctrl_LeftArm/allJumpsAdjust:Suzie_Ctrl_LeftForeArm
+        weight: 1
+      - path: allJumpsAdjust:Suzie_Ctrl_Reference/allJumpsAdjust:Suzie_Ctrl_Hips/allJumpsAdjust:Suzie_Ctrl_Spine/allJumpsAdjust:Suzie_Ctrl_Spine1/allJumpsAdjust:Suzie_Ctrl_Spine2/allJumpsAdjust:Suzie_Ctrl_LeftShoulder/allJumpsAdjust:Suzie_Ctrl_LeftArm/allJumpsAdjust:Suzie_Ctrl_LeftForeArm/allJumpsAdjust:Suzie_Ctrl_LeftHand
+        weight: 1
+      - path: allJumpsAdjust:Suzie_Ctrl_Reference/allJumpsAdjust:Suzie_Ctrl_Hips/allJumpsAdjust:Suzie_Ctrl_Spine/allJumpsAdjust:Suzie_Ctrl_Spine1/allJumpsAdjust:Suzie_Ctrl_Spine2/allJumpsAdjust:Suzie_Ctrl_LeftShoulder/allJumpsAdjust:Suzie_Ctrl_LeftArm/allJumpsAdjust:Suzie_Ctrl_LeftForeArm/allJumpsAdjust:Suzie_Ctrl_LeftHand/allJumpsAdjust:Suzie_Ctrl_LeftHandIndex1
+        weight: 1
+      - path: allJumpsAdjust:Suzie_Ctrl_Reference/allJumpsAdjust:Suzie_Ctrl_Hips/allJumpsAdjust:Suzie_Ctrl_Spine/allJumpsAdjust:Suzie_Ctrl_Spine1/allJumpsAdjust:Suzie_Ctrl_Spine2/allJumpsAdjust:Suzie_Ctrl_LeftShoulder/allJumpsAdjust:Suzie_Ctrl_LeftArm/allJumpsAdjust:Suzie_Ctrl_LeftForeArm/allJumpsAdjust:Suzie_Ctrl_LeftHand/allJumpsAdjust:Suzie_Ctrl_LeftHandIndex1/allJumpsAdjust:Suzie_Ctrl_LeftHandIndex2
+        weight: 1
+      - path: allJumpsAdjust:Suzie_Ctrl_Reference/allJumpsAdjust:Suzie_Ctrl_Hips/allJumpsAdjust:Suzie_Ctrl_Spine/allJumpsAdjust:Suzie_Ctrl_Spine1/allJumpsAdjust:Suzie_Ctrl_Spine2/allJumpsAdjust:Suzie_Ctrl_LeftShoulder/allJumpsAdjust:Suzie_Ctrl_LeftArm/allJumpsAdjust:Suzie_Ctrl_LeftForeArm/allJumpsAdjust:Suzie_Ctrl_LeftHand/allJumpsAdjust:Suzie_Ctrl_LeftHandIndex1/allJumpsAdjust:Suzie_Ctrl_LeftHandIndex2/allJumpsAdjust:Suzie_Ctrl_LeftHandIndex3
+        weight: 1
+      - path: allJumpsAdjust:Suzie_Ctrl_Reference/allJumpsAdjust:Suzie_Ctrl_Hips/allJumpsAdjust:Suzie_Ctrl_Spine/allJumpsAdjust:Suzie_Ctrl_Spine1/allJumpsAdjust:Suzie_Ctrl_Spine2/allJumpsAdjust:Suzie_Ctrl_LeftShoulder/allJumpsAdjust:Suzie_Ctrl_LeftArm/allJumpsAdjust:Suzie_Ctrl_LeftForeArm/allJumpsAdjust:Suzie_Ctrl_LeftHand/allJumpsAdjust:Suzie_Ctrl_LeftHandIndex1/allJumpsAdjust:Suzie_Ctrl_LeftHandIndex2/allJumpsAdjust:Suzie_Ctrl_LeftHandIndex3/allJumpsAdjust:Suzie_Ctrl_LeftHandIndex4
+        weight: 1
+      - path: allJumpsAdjust:Suzie_Ctrl_Reference/allJumpsAdjust:Suzie_Ctrl_Hips/allJumpsAdjust:Suzie_Ctrl_Spine/allJumpsAdjust:Suzie_Ctrl_Spine1/allJumpsAdjust:Suzie_Ctrl_Spine2/allJumpsAdjust:Suzie_Ctrl_LeftShoulder/allJumpsAdjust:Suzie_Ctrl_LeftArm/allJumpsAdjust:Suzie_Ctrl_LeftForeArm/allJumpsAdjust:Suzie_Ctrl_LeftHand/allJumpsAdjust:Suzie_Ctrl_LeftHandMiddle1
+        weight: 1
+      - path: allJumpsAdjust:Suzie_Ctrl_Reference/allJumpsAdjust:Suzie_Ctrl_Hips/allJumpsAdjust:Suzie_Ctrl_Spine/allJumpsAdjust:Suzie_Ctrl_Spine1/allJumpsAdjust:Suzie_Ctrl_Spine2/allJumpsAdjust:Suzie_Ctrl_LeftShoulder/allJumpsAdjust:Suzie_Ctrl_LeftArm/allJumpsAdjust:Suzie_Ctrl_LeftForeArm/allJumpsAdjust:Suzie_Ctrl_LeftHand/allJumpsAdjust:Suzie_Ctrl_LeftHandMiddle1/allJumpsAdjust:Suzie_Ctrl_LeftHandMiddle2
+        weight: 1
+      - path: allJumpsAdjust:Suzie_Ctrl_Reference/allJumpsAdjust:Suzie_Ctrl_Hips/allJumpsAdjust:Suzie_Ctrl_Spine/allJumpsAdjust:Suzie_Ctrl_Spine1/allJumpsAdjust:Suzie_Ctrl_Spine2/allJumpsAdjust:Suzie_Ctrl_LeftShoulder/allJumpsAdjust:Suzie_Ctrl_LeftArm/allJumpsAdjust:Suzie_Ctrl_LeftForeArm/allJumpsAdjust:Suzie_Ctrl_LeftHand/allJumpsAdjust:Suzie_Ctrl_LeftHandMiddle1/allJumpsAdjust:Suzie_Ctrl_LeftHandMiddle2/allJumpsAdjust:Suzie_Ctrl_LeftHandMiddle3
+        weight: 1
+      - path: allJumpsAdjust:Suzie_Ctrl_Reference/allJumpsAdjust:Suzie_Ctrl_Hips/allJumpsAdjust:Suzie_Ctrl_Spine/allJumpsAdjust:Suzie_Ctrl_Spine1/allJumpsAdjust:Suzie_Ctrl_Spine2/allJumpsAdjust:Suzie_Ctrl_LeftShoulder/allJumpsAdjust:Suzie_Ctrl_LeftArm/allJumpsAdjust:Suzie_Ctrl_LeftForeArm/allJumpsAdjust:Suzie_Ctrl_LeftHand/allJumpsAdjust:Suzie_Ctrl_LeftHandMiddle1/allJumpsAdjust:Suzie_Ctrl_LeftHandMiddle2/allJumpsAdjust:Suzie_Ctrl_LeftHandMiddle3/allJumpsAdjust:Suzie_Ctrl_LeftHandMiddle4
+        weight: 1
+      - path: allJumpsAdjust:Suzie_Ctrl_Reference/allJumpsAdjust:Suzie_Ctrl_Hips/allJumpsAdjust:Suzie_Ctrl_Spine/allJumpsAdjust:Suzie_Ctrl_Spine1/allJumpsAdjust:Suzie_Ctrl_Spine2/allJumpsAdjust:Suzie_Ctrl_LeftShoulder/allJumpsAdjust:Suzie_Ctrl_LeftArm/allJumpsAdjust:Suzie_Ctrl_LeftForeArm/allJumpsAdjust:Suzie_Ctrl_LeftHand/allJumpsAdjust:Suzie_Ctrl_LeftHandRing1
+        weight: 1
+      - path: allJumpsAdjust:Suzie_Ctrl_Reference/allJumpsAdjust:Suzie_Ctrl_Hips/allJumpsAdjust:Suzie_Ctrl_Spine/allJumpsAdjust:Suzie_Ctrl_Spine1/allJumpsAdjust:Suzie_Ctrl_Spine2/allJumpsAdjust:Suzie_Ctrl_LeftShoulder/allJumpsAdjust:Suzie_Ctrl_LeftArm/allJumpsAdjust:Suzie_Ctrl_LeftForeArm/allJumpsAdjust:Suzie_Ctrl_LeftHand/allJumpsAdjust:Suzie_Ctrl_LeftHandRing1/allJumpsAdjust:Suzie_Ctrl_LeftHandRing2
+        weight: 1
+      - path: allJumpsAdjust:Suzie_Ctrl_Reference/allJumpsAdjust:Suzie_Ctrl_Hips/allJumpsAdjust:Suzie_Ctrl_Spine/allJumpsAdjust:Suzie_Ctrl_Spine1/allJumpsAdjust:Suzie_Ctrl_Spine2/allJumpsAdjust:Suzie_Ctrl_LeftShoulder/allJumpsAdjust:Suzie_Ctrl_LeftArm/allJumpsAdjust:Suzie_Ctrl_LeftForeArm/allJumpsAdjust:Suzie_Ctrl_LeftHand/allJumpsAdjust:Suzie_Ctrl_LeftHandRing1/allJumpsAdjust:Suzie_Ctrl_LeftHandRing2/allJumpsAdjust:Suzie_Ctrl_LeftHandRing3
+        weight: 1
+      - path: allJumpsAdjust:Suzie_Ctrl_Reference/allJumpsAdjust:Suzie_Ctrl_Hips/allJumpsAdjust:Suzie_Ctrl_Spine/allJumpsAdjust:Suzie_Ctrl_Spine1/allJumpsAdjust:Suzie_Ctrl_Spine2/allJumpsAdjust:Suzie_Ctrl_LeftShoulder/allJumpsAdjust:Suzie_Ctrl_LeftArm/allJumpsAdjust:Suzie_Ctrl_LeftForeArm/allJumpsAdjust:Suzie_Ctrl_LeftHand/allJumpsAdjust:Suzie_Ctrl_LeftHandRing1/allJumpsAdjust:Suzie_Ctrl_LeftHandRing2/allJumpsAdjust:Suzie_Ctrl_LeftHandRing3/allJumpsAdjust:Suzie_Ctrl_LeftHandRing4
+        weight: 1
+      - path: allJumpsAdjust:Suzie_Ctrl_Reference/allJumpsAdjust:Suzie_Ctrl_Hips/allJumpsAdjust:Suzie_Ctrl_Spine/allJumpsAdjust:Suzie_Ctrl_Spine1/allJumpsAdjust:Suzie_Ctrl_Spine2/allJumpsAdjust:Suzie_Ctrl_LeftShoulder/allJumpsAdjust:Suzie_Ctrl_LeftArm/allJumpsAdjust:Suzie_Ctrl_LeftForeArm/allJumpsAdjust:Suzie_Ctrl_LeftHand/allJumpsAdjust:Suzie_Ctrl_LeftHandThumb1
+        weight: 1
+      - path: allJumpsAdjust:Suzie_Ctrl_Reference/allJumpsAdjust:Suzie_Ctrl_Hips/allJumpsAdjust:Suzie_Ctrl_Spine/allJumpsAdjust:Suzie_Ctrl_Spine1/allJumpsAdjust:Suzie_Ctrl_Spine2/allJumpsAdjust:Suzie_Ctrl_LeftShoulder/allJumpsAdjust:Suzie_Ctrl_LeftArm/allJumpsAdjust:Suzie_Ctrl_LeftForeArm/allJumpsAdjust:Suzie_Ctrl_LeftHand/allJumpsAdjust:Suzie_Ctrl_LeftHandThumb1/allJumpsAdjust:Suzie_Ctrl_LeftHandThumb2
+        weight: 1
+      - path: allJumpsAdjust:Suzie_Ctrl_Reference/allJumpsAdjust:Suzie_Ctrl_Hips/allJumpsAdjust:Suzie_Ctrl_Spine/allJumpsAdjust:Suzie_Ctrl_Spine1/allJumpsAdjust:Suzie_Ctrl_Spine2/allJumpsAdjust:Suzie_Ctrl_LeftShoulder/allJumpsAdjust:Suzie_Ctrl_LeftArm/allJumpsAdjust:Suzie_Ctrl_LeftForeArm/allJumpsAdjust:Suzie_Ctrl_LeftHand/allJumpsAdjust:Suzie_Ctrl_LeftHandThumb1/allJumpsAdjust:Suzie_Ctrl_LeftHandThumb2/allJumpsAdjust:Suzie_Ctrl_LeftHandThumb3
+        weight: 1
+      - path: allJumpsAdjust:Suzie_Ctrl_Reference/allJumpsAdjust:Suzie_Ctrl_Hips/allJumpsAdjust:Suzie_Ctrl_Spine/allJumpsAdjust:Suzie_Ctrl_Spine1/allJumpsAdjust:Suzie_Ctrl_Spine2/allJumpsAdjust:Suzie_Ctrl_LeftShoulder/allJumpsAdjust:Suzie_Ctrl_LeftArm/allJumpsAdjust:Suzie_Ctrl_LeftForeArm/allJumpsAdjust:Suzie_Ctrl_LeftHand/allJumpsAdjust:Suzie_Ctrl_LeftHandThumb1/allJumpsAdjust:Suzie_Ctrl_LeftHandThumb2/allJumpsAdjust:Suzie_Ctrl_LeftHandThumb3/allJumpsAdjust:Suzie_Ctrl_LeftHandThumb4
+        weight: 1
+      - path: allJumpsAdjust:Suzie_Ctrl_Reference/allJumpsAdjust:Suzie_Ctrl_Hips/allJumpsAdjust:Suzie_Ctrl_Spine/allJumpsAdjust:Suzie_Ctrl_Spine1/allJumpsAdjust:Suzie_Ctrl_Spine2/allJumpsAdjust:Suzie_Ctrl_Neck
+        weight: 1
+      - path: allJumpsAdjust:Suzie_Ctrl_Reference/allJumpsAdjust:Suzie_Ctrl_Hips/allJumpsAdjust:Suzie_Ctrl_Spine/allJumpsAdjust:Suzie_Ctrl_Spine1/allJumpsAdjust:Suzie_Ctrl_Spine2/allJumpsAdjust:Suzie_Ctrl_Neck/allJumpsAdjust:Suzie_Ctrl_Head
+        weight: 1
+      - path: allJumpsAdjust:Suzie_Ctrl_Reference/allJumpsAdjust:Suzie_Ctrl_Hips/allJumpsAdjust:Suzie_Ctrl_Spine/allJumpsAdjust:Suzie_Ctrl_Spine1/allJumpsAdjust:Suzie_Ctrl_Spine2/allJumpsAdjust:Suzie_Ctrl_RightShoulder
+        weight: 1
+      - path: allJumpsAdjust:Suzie_Ctrl_Reference/allJumpsAdjust:Suzie_Ctrl_Hips/allJumpsAdjust:Suzie_Ctrl_Spine/allJumpsAdjust:Suzie_Ctrl_Spine1/allJumpsAdjust:Suzie_Ctrl_Spine2/allJumpsAdjust:Suzie_Ctrl_RightShoulder/allJumpsAdjust:Suzie_Ctrl_RightArm
+        weight: 1
+      - path: allJumpsAdjust:Suzie_Ctrl_Reference/allJumpsAdjust:Suzie_Ctrl_Hips/allJumpsAdjust:Suzie_Ctrl_Spine/allJumpsAdjust:Suzie_Ctrl_Spine1/allJumpsAdjust:Suzie_Ctrl_Spine2/allJumpsAdjust:Suzie_Ctrl_RightShoulder/allJumpsAdjust:Suzie_Ctrl_RightArm/allJumpsAdjust:Suzie_Ctrl_RightForeArm
+        weight: 1
+      - path: allJumpsAdjust:Suzie_Ctrl_Reference/allJumpsAdjust:Suzie_Ctrl_Hips/allJumpsAdjust:Suzie_Ctrl_Spine/allJumpsAdjust:Suzie_Ctrl_Spine1/allJumpsAdjust:Suzie_Ctrl_Spine2/allJumpsAdjust:Suzie_Ctrl_RightShoulder/allJumpsAdjust:Suzie_Ctrl_RightArm/allJumpsAdjust:Suzie_Ctrl_RightForeArm/allJumpsAdjust:Suzie_Ctrl_RightHand
+        weight: 1
+      - path: allJumpsAdjust:Suzie_Ctrl_Reference/allJumpsAdjust:Suzie_Ctrl_Hips/allJumpsAdjust:Suzie_Ctrl_Spine/allJumpsAdjust:Suzie_Ctrl_Spine1/allJumpsAdjust:Suzie_Ctrl_Spine2/allJumpsAdjust:Suzie_Ctrl_RightShoulder/allJumpsAdjust:Suzie_Ctrl_RightArm/allJumpsAdjust:Suzie_Ctrl_RightForeArm/allJumpsAdjust:Suzie_Ctrl_RightHand/allJumpsAdjust:Suzie_Ctrl_RightHandIndex1
+        weight: 1
+      - path: allJumpsAdjust:Suzie_Ctrl_Reference/allJumpsAdjust:Suzie_Ctrl_Hips/allJumpsAdjust:Suzie_Ctrl_Spine/allJumpsAdjust:Suzie_Ctrl_Spine1/allJumpsAdjust:Suzie_Ctrl_Spine2/allJumpsAdjust:Suzie_Ctrl_RightShoulder/allJumpsAdjust:Suzie_Ctrl_RightArm/allJumpsAdjust:Suzie_Ctrl_RightForeArm/allJumpsAdjust:Suzie_Ctrl_RightHand/allJumpsAdjust:Suzie_Ctrl_RightHandIndex1/allJumpsAdjust:Suzie_Ctrl_RightHandIndex2
+        weight: 1
+      - path: allJumpsAdjust:Suzie_Ctrl_Reference/allJumpsAdjust:Suzie_Ctrl_Hips/allJumpsAdjust:Suzie_Ctrl_Spine/allJumpsAdjust:Suzie_Ctrl_Spine1/allJumpsAdjust:Suzie_Ctrl_Spine2/allJumpsAdjust:Suzie_Ctrl_RightShoulder/allJumpsAdjust:Suzie_Ctrl_RightArm/allJumpsAdjust:Suzie_Ctrl_RightForeArm/allJumpsAdjust:Suzie_Ctrl_RightHand/allJumpsAdjust:Suzie_Ctrl_RightHandIndex1/allJumpsAdjust:Suzie_Ctrl_RightHandIndex2/allJumpsAdjust:Suzie_Ctrl_RightHandIndex3
+        weight: 1
+      - path: allJumpsAdjust:Suzie_Ctrl_Reference/allJumpsAdjust:Suzie_Ctrl_Hips/allJumpsAdjust:Suzie_Ctrl_Spine/allJumpsAdjust:Suzie_Ctrl_Spine1/allJumpsAdjust:Suzie_Ctrl_Spine2/allJumpsAdjust:Suzie_Ctrl_RightShoulder/allJumpsAdjust:Suzie_Ctrl_RightArm/allJumpsAdjust:Suzie_Ctrl_RightForeArm/allJumpsAdjust:Suzie_Ctrl_RightHand/allJumpsAdjust:Suzie_Ctrl_RightHandIndex1/allJumpsAdjust:Suzie_Ctrl_RightHandIndex2/allJumpsAdjust:Suzie_Ctrl_RightHandIndex3/allJumpsAdjust:Suzie_Ctrl_RightHandIndex4
+        weight: 1
+      - path: allJumpsAdjust:Suzie_Ctrl_Reference/allJumpsAdjust:Suzie_Ctrl_Hips/allJumpsAdjust:Suzie_Ctrl_Spine/allJumpsAdjust:Suzie_Ctrl_Spine1/allJumpsAdjust:Suzie_Ctrl_Spine2/allJumpsAdjust:Suzie_Ctrl_RightShoulder/allJumpsAdjust:Suzie_Ctrl_RightArm/allJumpsAdjust:Suzie_Ctrl_RightForeArm/allJumpsAdjust:Suzie_Ctrl_RightHand/allJumpsAdjust:Suzie_Ctrl_RightHandMiddle1
+        weight: 1
+      - path: allJumpsAdjust:Suzie_Ctrl_Reference/allJumpsAdjust:Suzie_Ctrl_Hips/allJumpsAdjust:Suzie_Ctrl_Spine/allJumpsAdjust:Suzie_Ctrl_Spine1/allJumpsAdjust:Suzie_Ctrl_Spine2/allJumpsAdjust:Suzie_Ctrl_RightShoulder/allJumpsAdjust:Suzie_Ctrl_RightArm/allJumpsAdjust:Suzie_Ctrl_RightForeArm/allJumpsAdjust:Suzie_Ctrl_RightHand/allJumpsAdjust:Suzie_Ctrl_RightHandMiddle1/allJumpsAdjust:Suzie_Ctrl_RightHandMiddle2
+        weight: 1
+      - path: allJumpsAdjust:Suzie_Ctrl_Reference/allJumpsAdjust:Suzie_Ctrl_Hips/allJumpsAdjust:Suzie_Ctrl_Spine/allJumpsAdjust:Suzie_Ctrl_Spine1/allJumpsAdjust:Suzie_Ctrl_Spine2/allJumpsAdjust:Suzie_Ctrl_RightShoulder/allJumpsAdjust:Suzie_Ctrl_RightArm/allJumpsAdjust:Suzie_Ctrl_RightForeArm/allJumpsAdjust:Suzie_Ctrl_RightHand/allJumpsAdjust:Suzie_Ctrl_RightHandMiddle1/allJumpsAdjust:Suzie_Ctrl_RightHandMiddle2/allJumpsAdjust:Suzie_Ctrl_RightHandMiddle3
+        weight: 1
+      - path: allJumpsAdjust:Suzie_Ctrl_Reference/allJumpsAdjust:Suzie_Ctrl_Hips/allJumpsAdjust:Suzie_Ctrl_Spine/allJumpsAdjust:Suzie_Ctrl_Spine1/allJumpsAdjust:Suzie_Ctrl_Spine2/allJumpsAdjust:Suzie_Ctrl_RightShoulder/allJumpsAdjust:Suzie_Ctrl_RightArm/allJumpsAdjust:Suzie_Ctrl_RightForeArm/allJumpsAdjust:Suzie_Ctrl_RightHand/allJumpsAdjust:Suzie_Ctrl_RightHandMiddle1/allJumpsAdjust:Suzie_Ctrl_RightHandMiddle2/allJumpsAdjust:Suzie_Ctrl_RightHandMiddle3/allJumpsAdjust:Suzie_Ctrl_RightHandMiddle4
+        weight: 1
+      - path: allJumpsAdjust:Suzie_Ctrl_Reference/allJumpsAdjust:Suzie_Ctrl_Hips/allJumpsAdjust:Suzie_Ctrl_Spine/allJumpsAdjust:Suzie_Ctrl_Spine1/allJumpsAdjust:Suzie_Ctrl_Spine2/allJumpsAdjust:Suzie_Ctrl_RightShoulder/allJumpsAdjust:Suzie_Ctrl_RightArm/allJumpsAdjust:Suzie_Ctrl_RightForeArm/allJumpsAdjust:Suzie_Ctrl_RightHand/allJumpsAdjust:Suzie_Ctrl_RightHandRing1
+        weight: 1
+      - path: allJumpsAdjust:Suzie_Ctrl_Reference/allJumpsAdjust:Suzie_Ctrl_Hips/allJumpsAdjust:Suzie_Ctrl_Spine/allJumpsAdjust:Suzie_Ctrl_Spine1/allJumpsAdjust:Suzie_Ctrl_Spine2/allJumpsAdjust:Suzie_Ctrl_RightShoulder/allJumpsAdjust:Suzie_Ctrl_RightArm/allJumpsAdjust:Suzie_Ctrl_RightForeArm/allJumpsAdjust:Suzie_Ctrl_RightHand/allJumpsAdjust:Suzie_Ctrl_RightHandRing1/allJumpsAdjust:Suzie_Ctrl_RightHandRing2
+        weight: 1
+      - path: allJumpsAdjust:Suzie_Ctrl_Reference/allJumpsAdjust:Suzie_Ctrl_Hips/allJumpsAdjust:Suzie_Ctrl_Spine/allJumpsAdjust:Suzie_Ctrl_Spine1/allJumpsAdjust:Suzie_Ctrl_Spine2/allJumpsAdjust:Suzie_Ctrl_RightShoulder/allJumpsAdjust:Suzie_Ctrl_RightArm/allJumpsAdjust:Suzie_Ctrl_RightForeArm/allJumpsAdjust:Suzie_Ctrl_RightHand/allJumpsAdjust:Suzie_Ctrl_RightHandRing1/allJumpsAdjust:Suzie_Ctrl_RightHandRing2/allJumpsAdjust:Suzie_Ctrl_RightHandRing3
+        weight: 1
+      - path: allJumpsAdjust:Suzie_Ctrl_Reference/allJumpsAdjust:Suzie_Ctrl_Hips/allJumpsAdjust:Suzie_Ctrl_Spine/allJumpsAdjust:Suzie_Ctrl_Spine1/allJumpsAdjust:Suzie_Ctrl_Spine2/allJumpsAdjust:Suzie_Ctrl_RightShoulder/allJumpsAdjust:Suzie_Ctrl_RightArm/allJumpsAdjust:Suzie_Ctrl_RightForeArm/allJumpsAdjust:Suzie_Ctrl_RightHand/allJumpsAdjust:Suzie_Ctrl_RightHandRing1/allJumpsAdjust:Suzie_Ctrl_RightHandRing2/allJumpsAdjust:Suzie_Ctrl_RightHandRing3/allJumpsAdjust:Suzie_Ctrl_RightHandRing4
+        weight: 1
+      - path: allJumpsAdjust:Suzie_Ctrl_Reference/allJumpsAdjust:Suzie_Ctrl_Hips/allJumpsAdjust:Suzie_Ctrl_Spine/allJumpsAdjust:Suzie_Ctrl_Spine1/allJumpsAdjust:Suzie_Ctrl_Spine2/allJumpsAdjust:Suzie_Ctrl_RightShoulder/allJumpsAdjust:Suzie_Ctrl_RightArm/allJumpsAdjust:Suzie_Ctrl_RightForeArm/allJumpsAdjust:Suzie_Ctrl_RightHand/allJumpsAdjust:Suzie_Ctrl_RightHandThumb1
+        weight: 1
+      - path: allJumpsAdjust:Suzie_Ctrl_Reference/allJumpsAdjust:Suzie_Ctrl_Hips/allJumpsAdjust:Suzie_Ctrl_Spine/allJumpsAdjust:Suzie_Ctrl_Spine1/allJumpsAdjust:Suzie_Ctrl_Spine2/allJumpsAdjust:Suzie_Ctrl_RightShoulder/allJumpsAdjust:Suzie_Ctrl_RightArm/allJumpsAdjust:Suzie_Ctrl_RightForeArm/allJumpsAdjust:Suzie_Ctrl_RightHand/allJumpsAdjust:Suzie_Ctrl_RightHandThumb1/allJumpsAdjust:Suzie_Ctrl_RightHandThumb2
+        weight: 1
+      - path: allJumpsAdjust:Suzie_Ctrl_Reference/allJumpsAdjust:Suzie_Ctrl_Hips/allJumpsAdjust:Suzie_Ctrl_Spine/allJumpsAdjust:Suzie_Ctrl_Spine1/allJumpsAdjust:Suzie_Ctrl_Spine2/allJumpsAdjust:Suzie_Ctrl_RightShoulder/allJumpsAdjust:Suzie_Ctrl_RightArm/allJumpsAdjust:Suzie_Ctrl_RightForeArm/allJumpsAdjust:Suzie_Ctrl_RightHand/allJumpsAdjust:Suzie_Ctrl_RightHandThumb1/allJumpsAdjust:Suzie_Ctrl_RightHandThumb2/allJumpsAdjust:Suzie_Ctrl_RightHandThumb3
+        weight: 1
+      - path: allJumpsAdjust:Suzie_Ctrl_Reference/allJumpsAdjust:Suzie_Ctrl_Hips/allJumpsAdjust:Suzie_Ctrl_Spine/allJumpsAdjust:Suzie_Ctrl_Spine1/allJumpsAdjust:Suzie_Ctrl_Spine2/allJumpsAdjust:Suzie_Ctrl_RightShoulder/allJumpsAdjust:Suzie_Ctrl_RightArm/allJumpsAdjust:Suzie_Ctrl_RightForeArm/allJumpsAdjust:Suzie_Ctrl_RightHand/allJumpsAdjust:Suzie_Ctrl_RightHandThumb1/allJumpsAdjust:Suzie_Ctrl_RightHandThumb2/allJumpsAdjust:Suzie_Ctrl_RightHandThumb3/allJumpsAdjust:Suzie_Ctrl_RightHandThumb4
+        weight: 1
+      - path: allJumpsAdjust:Suzie_Ctrl_Reference/allJumpsAdjust:Suzie_Ctrl_HipsEffector
+        weight: 1
+      - path: allJumpsAdjust:Suzie_Ctrl_Reference/allJumpsAdjust:Suzie_Ctrl_LeftAnkleEffector
+        weight: 1
+      - path: allJumpsAdjust:Suzie_Ctrl_Reference/allJumpsAdjust:Suzie_Ctrl_LeftElbowEffector
+        weight: 1
+      - path: allJumpsAdjust:Suzie_Ctrl_Reference/allJumpsAdjust:Suzie_Ctrl_LeftFootEffector
+        weight: 1
+      - path: allJumpsAdjust:Suzie_Ctrl_Reference/allJumpsAdjust:Suzie_Ctrl_LeftFootExtraFingerEffector
+        weight: 1
+      - path: allJumpsAdjust:Suzie_Ctrl_Reference/allJumpsAdjust:Suzie_Ctrl_LeftHandIndexEffector
+        weight: 1
+      - path: allJumpsAdjust:Suzie_Ctrl_Reference/allJumpsAdjust:Suzie_Ctrl_LeftHandMiddleEffector
+        weight: 1
+      - path: allJumpsAdjust:Suzie_Ctrl_Reference/allJumpsAdjust:Suzie_Ctrl_LeftHandRingEffector
+        weight: 1
+      - path: allJumpsAdjust:Suzie_Ctrl_Reference/allJumpsAdjust:Suzie_Ctrl_LeftHandThumbEffector
+        weight: 1
+      - path: allJumpsAdjust:Suzie_Ctrl_Reference/allJumpsAdjust:Suzie_Ctrl_LeftHipEffector
+        weight: 1
+      - path: allJumpsAdjust:Suzie_Ctrl_Reference/allJumpsAdjust:Suzie_Ctrl_LeftKneeEffector
+        weight: 1
+      - path: allJumpsAdjust:Suzie_Ctrl_Reference/allJumpsAdjust:Suzie_Ctrl_LeftShoulderEffector
+        weight: 1
+      - path: allJumpsAdjust:Suzie_Ctrl_Reference/allJumpsAdjust:Suzie_Ctrl_LeftWristEffector
+        weight: 1
+      - path: allJumpsAdjust:Suzie_Ctrl_Reference/allJumpsAdjust:Suzie_Ctrl_RightAnkleEffector
+        weight: 1
+      - path: allJumpsAdjust:Suzie_Ctrl_Reference/allJumpsAdjust:Suzie_Ctrl_RightElbowEffector
+        weight: 1
+      - path: allJumpsAdjust:Suzie_Ctrl_Reference/allJumpsAdjust:Suzie_Ctrl_RightFootEffector
+        weight: 1
+      - path: allJumpsAdjust:Suzie_Ctrl_Reference/allJumpsAdjust:Suzie_Ctrl_RightFootExtraFingerEffector
+        weight: 1
+      - path: allJumpsAdjust:Suzie_Ctrl_Reference/allJumpsAdjust:Suzie_Ctrl_RightHandIndexEffector
+        weight: 1
+      - path: allJumpsAdjust:Suzie_Ctrl_Reference/allJumpsAdjust:Suzie_Ctrl_RightHandMiddleEffector
+        weight: 1
+      - path: allJumpsAdjust:Suzie_Ctrl_Reference/allJumpsAdjust:Suzie_Ctrl_RightHandRingEffector
+        weight: 1
+      - path: allJumpsAdjust:Suzie_Ctrl_Reference/allJumpsAdjust:Suzie_Ctrl_RightHandThumbEffector
+        weight: 1
+      - path: allJumpsAdjust:Suzie_Ctrl_Reference/allJumpsAdjust:Suzie_Ctrl_RightHipEffector
+        weight: 1
+      - path: allJumpsAdjust:Suzie_Ctrl_Reference/allJumpsAdjust:Suzie_Ctrl_RightKneeEffector
+        weight: 1
+      - path: allJumpsAdjust:Suzie_Ctrl_Reference/allJumpsAdjust:Suzie_Ctrl_RightShoulderEffector
+        weight: 1
+      - path: allJumpsAdjust:Suzie_Ctrl_Reference/allJumpsAdjust:Suzie_Ctrl_RightWristEffector
+        weight: 1
+      - path: allJumpsAdjust:SuzieMesh
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human:
+    - boneName: allJumpsAdjust:SkeletonJoints
+      humanName: Hips
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: allJumpsAdjust:EditingMesh6:LeftLeg
+      humanName: LeftUpperLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: allJumpsAdjust:EditingMesh6:RightLeg
+      humanName: RightUpperLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftLeg
+      humanName: LeftLowerLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightLeg
+      humanName: RightLowerLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftFoot
+      humanName: LeftFoot
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightFoot
+      humanName: RightFoot
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: allJumpsAdjust:EditingMesh6:UpperTorso
+      humanName: Spine
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: allJumpsAdjust:EditingMesh6:Spine2
+      humanName: Chest
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: allJumpsAdjust:EditingMesh6:Head2
+      humanName: Neck
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: allJumpsAdjust:EditingMesh6:HairJoint2
+      humanName: Head
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftShoulder
+      humanName: LeftShoulder
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightShoulder
+      humanName: RightShoulder
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftArm
+      humanName: LeftUpperArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightArm
+      humanName: RightUpperArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftForeArm
+      humanName: LeftLowerArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightForeArm
+      humanName: RightLowerArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHand
+      humanName: LeftHand
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHand
+      humanName: RightHand
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftToeBase
+      humanName: LeftToes
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightToeBase
+      humanName: RightToes
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: allJumpsAdjust:EditingMesh6:HairJoint3
+      humanName: RightEye
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHandThumb1
+      humanName: Left Thumb Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHandThumb2
+      humanName: Left Thumb Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHandThumb3
+      humanName: Left Thumb Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHandIndex1
+      humanName: Left Index Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHandIndex2
+      humanName: Left Index Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHandIndex3
+      humanName: Left Index Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHandMiddle1
+      humanName: Left Middle Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHandMiddle2
+      humanName: Left Middle Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHandMiddle3
+      humanName: Left Middle Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHandRing1
+      humanName: Left Ring Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHandRing2
+      humanName: Left Ring Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHandRing3
+      humanName: Left Ring Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHandThumb1
+      humanName: Right Thumb Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHandThumb2
+      humanName: Right Thumb Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHandThumb3
+      humanName: Right Thumb Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHandIndex1
+      humanName: Right Index Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHandIndex2
+      humanName: Right Index Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHandIndex3
+      humanName: Right Index Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHandMiddle1
+      humanName: Right Middle Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHandMiddle2
+      humanName: Right Middle Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHandMiddle3
+      humanName: Right Middle Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHandRing1
+      humanName: Right Ring Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHandRing2
+      humanName: Right Ring Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHandRing3
+      humanName: Right Ring Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    skeleton:
+    - name: allJumpsAdjusted(Clone)
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: allJumpsAdjust:Suzie_Ctrl_Reference
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: allJumpsAdjust:Suzie_Ctrl_ChestEndEffector
+      position: {x: -.0288710538, y: .696951985, z: .0784527361}
+      rotation: {x: .148532376, y: -.115056895, z: .0354586057, w: .98155123}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: allJumpsAdjust:Suzie_Ctrl_ChestOriginEffector
+      position: {x: -.00207455596, y: .420237333, z: .00341177825}
+      rotation: {x: .108694687, y: -.0435407013, z: .0351997688, w: .992497206}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: allJumpsAdjust:Suzie_Ctrl_HeadEffector
+      position: {x: -.0344321802, y: .736449182, z: .100923173}
+      rotation: {x: .0923550799, y: -.0248822812, z: .0379174538, w: .994692743}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: allJumpsAdjust:Suzie_Ctrl_Hips
+      position: {x: -.000760279072, y: .347535551, z: -.0105206501}
+      rotation: {x: .0893467739, y: -.00079313654, z: .00884120446, w: .99596101}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: allJumpsAdjust:Suzie_Ctrl_LeftUpLeg
+      position: {x: -.101590008, y: -.0411728099, z: .00110271934}
+      rotation: {x: -.692517221, y: .00790937338, z: .0189350434, w: .72110945}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: allJumpsAdjust:Suzie_Ctrl_LeftLeg
+      position: {x: -.00802887883, y: -.144756794, z: .000980303274}
+      rotation: {x: .570741653, y: -.0240323171, z: -.0123684471, w: .820684731}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: allJumpsAdjust:Suzie_Ctrl_LeftFoot
+      position: {x: -.0023386383, y: -.0943555012, z: .00452170381}
+      rotation: {x: .441885382, y: .00138315652, z: -.0292371102, w: .896593869}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: allJumpsAdjust:Suzie_Ctrl_LeftToeBase
+      position: {x: .019851407, y: -.0413027182, z: .102777481}
+      rotation: {x: 3.46914214e-32, y: -0, z: -1.22464672e-16, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: allJumpsAdjust:Suzie_Ctrl_LeftFootExtraFinger1
+      position: {x: .00843619369, y: -.000682907063, z: .0450313836}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: allJumpsAdjust:Suzie_Ctrl_RightUpLeg
+      position: {x: .101590008, y: -.0411728099, z: -7.11607936e-05}
+      rotation: {x: .207151279, y: .00526588457, z: -.0300588626, w: .977832854}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: allJumpsAdjust:Suzie_Ctrl_RightLeg
+      position: {x: .00802887883, y: -.144756809, z: .0018431854}
+      rotation: {x: .0480288789, y: .00304519152, z: .00204878836, w: .9988392}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: allJumpsAdjust:Suzie_Ctrl_RightFoot
+      position: {x: .0023386383, y: -.0943557546, z: .00246189348}
+      rotation: {x: -.0234373584, y: -.00398295978, z: .0205372963, w: .999506414}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: allJumpsAdjust:Suzie_Ctrl_RightToeBase
+      position: {x: -.0198511891, y: -.0413070284, z: .102944382}
+      rotation: {x: -.400292605, y: 4.33725688e-07, z: 3.00782034e-07, w: .916387379}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: allJumpsAdjust:Suzie_Ctrl_RightFootExtraFinger1
+      position: {x: -.00843609776, y: -.000684852595, z: .044938352}
+      rotation: {x: -.203600571, y: -1.341065e-07, z: -5.40378799e-08, w: .979054034}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: allJumpsAdjust:Suzie_Ctrl_Spine
+      position: {x: 5.2939558e-25, y: .0740323588, z: .000770077691}
+      rotation: {x: .0192222167, y: -.0403936654, z: .0300867446, w: .998545766}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: allJumpsAdjust:Suzie_Ctrl_Spine1
+      position: {x: -5.2939558e-25, y: .0863710418, z: .000898420811}
+      rotation: {x: .0190282296, y: -.0365554504, z: .00268121017, w: .999146879}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: allJumpsAdjust:Suzie_Ctrl_Spine2
+      position: {x: -5.2939558e-25, y: .0987098292, z: .00102677103}
+      rotation: {x: .0192754939, y: -.0363127925, z: .00399187906, w: .999146581}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: allJumpsAdjust:Suzie_Ctrl_LeftShoulder
+      position: {x: -.0267114807, y: .103007585, z: .00140367739}
+      rotation: {x: 3.27882645e-08, y: 9.92719862e-09, z: -1.02227915e-07, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: allJumpsAdjust:Suzie_Ctrl_LeftArm
+      position: {x: -.0526473038, y: -.0159398653, z: .000497124158}
+      rotation: {x: .477118731, y: -.503526032, z: .346361071, w: .631548345}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: allJumpsAdjust:Suzie_Ctrl_LeftForeArm
+      position: {x: -.0690052658, y: -.00115043635, z: -.0143523356}
+      rotation: {x: -.059083648, y: .496540219, z: .0351582468, w: .865286589}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: allJumpsAdjust:Suzie_Ctrl_LeftHand
+      position: {x: -.142029077, y: .00543655362, z: .00585917477}
+      rotation: {x: 1.95848191e-08, y: -7.09352719e-08, z: -7.31228795e-07, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: allJumpsAdjust:Suzie_Ctrl_LeftHandIndex1
+      position: {x: -.0796496943, y: -.00939147919, z: .0164382532}
+      rotation: {x: .000899663137, y: .00152659032, z: .502473772, w: .864590704}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: allJumpsAdjust:Suzie_Ctrl_LeftHandIndex2
+      position: {x: -.0182002261, y: -.00423461897, z: .00285974494}
+      rotation: {x: -.00171573006, y: -4.48645032e-08, z: .502469063, w: .864593506}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: allJumpsAdjust:Suzie_Ctrl_LeftHandIndex3
+      position: {x: -.0177034754, y: -.00365989679, z: .00269028894}
+      rotation: {x: 3.50987648e-05, y: 3.04096466e-06, z: .502471805, w: .864593625}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: allJumpsAdjust:Suzie_Ctrl_LeftHandIndex4
+      position: {x: -.0132475663, y: .000654220581, z: .00135357142}
+      rotation: {x: -7.12119927e-08, y: -4.44675869e-08, z: -3.6027906e-08, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: allJumpsAdjust:Suzie_Ctrl_LeftHandMiddle1
+      position: {x: -.0797444135, y: -.0132630151, z: .000633850112}
+      rotation: {x: -7.02080683e-07, y: -2.00189947e-06, z: .540631115, w: .841259778}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: allJumpsAdjust:Suzie_Ctrl_LeftHandMiddle2
+      position: {x: -.0211970136, y: -.00308425887, z: -.00025667905}
+      rotation: {x: 3.47939749e-06, y: -4.10113159e-07, z: .540592968, w: .841284275}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: allJumpsAdjust:Suzie_Ctrl_LeftHandMiddle3
+      position: {x: -.022898674, y: -.00334350578, z: .000219101901}
+      rotation: {x: 1.3306466e-07, y: -4.63583461e-07, z: .540593266, w: .841284096}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: allJumpsAdjust:Suzie_Ctrl_LeftHandMiddle4
+      position: {x: -.0159443654, y: -.00182052609, z: 7.1544644e-05}
+      rotation: {x: 1.17508698e-07, y: -4.99371815e-08, z: -1.7881943e-08, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: allJumpsAdjust:Suzie_Ctrl_LeftHandRing1
+      position: {x: -.0755849034, y: -.0142844385, z: -.0171960611}
+      rotation: {x: 5.4157932e-05, y: .000175592024, z: .560935438, w: .827859521}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: allJumpsAdjust:Suzie_Ctrl_LeftHandRing2
+      position: {x: -.0195776746, y: -.00453224173, z: -.00359857082}
+      rotation: {x: -.000183625059, y: -1.55310099e-05, z: .56093657, w: .827858746}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: allJumpsAdjust:Suzie_Ctrl_LeftHandRing3
+      position: {x: -.0207398981, y: -.0048175049, z: -.0033535813}
+      rotation: {x: 7.54892483e-07, y: -3.61345428e-07, z: .560935557, w: .827859461}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: allJumpsAdjust:Suzie_Ctrl_LeftHandRing4
+      position: {x: -.0144664003, y: -.00397865288, z: -.00229796884}
+      rotation: {x: 1.82612592e-08, y: -6.61871766e-08, z: 1.00953784e-07, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: allJumpsAdjust:Suzie_Ctrl_LeftHandThumb1
+      position: {x: -.0298571009, y: -.00758033758, z: .0169186946}
+      rotation: {x: .0892927051, y: -.206216425, z: -.0515541211, w: .973058999}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: allJumpsAdjust:Suzie_Ctrl_LeftHandThumb2
+      position: {x: -.0238856878, y: -.00606422406, z: .0135349557}
+      rotation: {x: .0892966315, y: -.206221789, z: -.0515556708, w: .973057389}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: allJumpsAdjust:Suzie_Ctrl_LeftHandThumb3
+      position: {x: -.0239964295, y: -.00823219307, z: .0120616723}
+      rotation: {x: -4.41823289e-08, y: 2.39215883e-08, z: -3.8935152e-08, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: allJumpsAdjust:Suzie_Ctrl_LeftHandThumb4
+      position: {x: -.0201841723, y: -.00376838678, z: .00849951245}
+      rotation: {x: 2.51753174e-09, y: 1.06594618e-08, z: 1.0704527e-08, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: allJumpsAdjust:Suzie_Ctrl_Neck
+      position: {x: 9.86076109e-34, y: .111048505, z: .00115511648}
+      rotation: {x: -.0269067492, y: .0461556911, z: -.00373902405, w: .998564839}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: allJumpsAdjust:Suzie_Ctrl_Head
+      position: {x: 5.2939558e-25, y: .0359587073, z: .0122571131}
+      rotation: {x: -.0268984362, y: .0462901555, z: -.00124688004, w: .998565018}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: allJumpsAdjust:Suzie_Ctrl_RightShoulder
+      position: {x: .0267114807, y: .103007585, z: .000906553236}
+      rotation: {x: -1.0208181e-08, y: 4.44752786e-08, z: -1.31667415e-08, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: allJumpsAdjust:Suzie_Ctrl_RightArm
+      position: {x: .0526473038, y: -.0159398653, z: -.000497124158}
+      rotation: {x: -.208435908, y: -.370674223, z: -.448619545, w: .786063373}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: allJumpsAdjust:Suzie_Ctrl_RightForeArm
+      position: {x: .069144927, y: -.000523757946, z: -.0121122999}
+      rotation: {x: -.0590869822, y: -.496540189, z: -.0351579487, w: .86528635}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: allJumpsAdjust:Suzie_Ctrl_RightHand
+      position: {x: .141782373, y: .00986885093, z: .00489943754}
+      rotation: {x: 5.91823159e-08, y: -1.65436788e-07, z: -6.13689565e-07, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: allJumpsAdjust:Suzie_Ctrl_RightHandIndex1
+      position: {x: .0862458199, y: -.00713066105, z: .0186823681}
+      rotation: {x: .000360130914, y: -.000943251769, z: -.565865636, w: .824496865}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: allJumpsAdjust:Suzie_Ctrl_RightHandIndex2
+      position: {x: .0165702812, y: -.00308349612, z: .00291007501}
+      rotation: {x: -.00100849138, y: -1.57601323e-06, z: -.565861046, w: .824500024}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: allJumpsAdjust:Suzie_Ctrl_RightHandIndex3
+      position: {x: .0160572045, y: -.00155868533, z: .00241992227}
+      rotation: {x: -1.31940317e-06, y: -1.90955257e-06, z: -.565863192, w: .82449913}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: allJumpsAdjust:Suzie_Ctrl_RightHandIndex4
+      position: {x: .0104694366, y: 3.73840317e-06, z: .001293106}
+      rotation: {x: -5.42101086e-20, y: 1.04083409e-16, z: -7.83505412e-20, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: allJumpsAdjust:Suzie_Ctrl_RightHandMiddle1
+      position: {x: .0820929483, y: -.01165123, z: .00257358304}
+      rotation: {x: -7.90156633e-08, y: -6.9080038e-06, z: -.586699963, w: .80980438}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: allJumpsAdjust:Suzie_Ctrl_RightHandMiddle2
+      position: {x: .0225154106, y: -.00191276544, z: -.000444765086}
+      rotation: {x: -3.66381119e-06, y: -1.13874887e-06, z: -.58660984, w: .809869766}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: allJumpsAdjust:Suzie_Ctrl_RightHandMiddle3
+      position: {x: .0214084629, y: -.00176765444, z: .000251910678}
+      rotation: {x: -8.40234748e-07, y: -1.88499541e-06, z: -.586608112, w: .809870958}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: allJumpsAdjust:Suzie_Ctrl_RightHandMiddle4
+      position: {x: .0150527572, y: .000805892923, z: -.000346388813}
+      rotation: {x: 5.78515937e-07, y: -3.14762559e-07, z: -8.36983645e-07, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: allJumpsAdjust:Suzie_Ctrl_RightHandRing1
+      position: {x: .0772425234, y: -.0135950465, z: -.0162927099}
+      rotation: {x: -.000913196243, y: .00120016711, z: -.592246413, w: .805755496}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: allJumpsAdjust:Suzie_Ctrl_RightHandRing2
+      position: {x: .0203203205, y: -.00476417551, z: -.00130361551}
+      rotation: {x: .00078578695, y: -3.15398574e-05, z: -.592245638, w: .805757165}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: allJumpsAdjust:Suzie_Ctrl_RightHandRing3
+      position: {x: .0201581959, y: -.00470581045, z: -.00100791932}
+      rotation: {x: -.000517121865, y: -3.9314531e-05, z: -.592245579, w: .805757344}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: allJumpsAdjust:Suzie_Ctrl_RightHandRing4
+      position: {x: .0136935422, y: .00081779476, z: -.00164687156}
+      rotation: {x: -1.08420217e-17, y: 6.93889457e-17, z: -4.3368091e-18, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: allJumpsAdjust:Suzie_Ctrl_RightHandThumb1
+      position: {x: .030218944, y: -.00488601672, z: .0172483064}
+      rotation: {x: .0502133667, y: .284260243, z: -.0300843883, w: .956958532}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: allJumpsAdjust:Suzie_Ctrl_RightHandThumb2
+      position: {x: .0241751466, y: -.00390876783, z: .0137986466}
+      rotation: {x: .267847419, y: .618566573, z: .154643789, w: .722300887}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: allJumpsAdjust:Suzie_Ctrl_RightHandThumb3
+      position: {x: .0235410295, y: -.00554618845, z: .0123196123}
+      rotation: {x: -.118976675, y: -.274763852, z: -.068692416, w: .951646328}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: allJumpsAdjust:Suzie_Ctrl_RightHandThumb4
+      position: {x: .0210086443, y: -.000830841018, z: .00767968642}
+      rotation: {x: -7.82335476e-08, y: 1.16643456e-07, z: 1.14516844e-07, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: allJumpsAdjust:Suzie_Ctrl_HipsEffector
+      position: {x: -2.93636313e-05, y: .306934685, z: -.0173401348}
+      rotation: {x: .0893467814, y: -.000793136714, z: .00884120539, w: .99596101}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: allJumpsAdjust:Suzie_Ctrl_LeftAnkleEffector
+      position: {x: -.101643942, y: .181460962, z: .14178282}
+      rotation: {x: .380500019, y: 1.6515304e-07, z: 1.54989024e-07, w: .924780905}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: allJumpsAdjust:Suzie_Ctrl_LeftElbowEffector
+      position: {x: -.10325215, y: .714048266, z: -.00512092561}
+      rotation: {x: .247877091, y: -.32188186, z: .54582876, w: .732816458}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: allJumpsAdjust:Suzie_Ctrl_LeftFootEffector
+      position: {x: -.0817924961, y: .0797873288, z: .185732856}
+      rotation: {x: .380500048, y: 1.56462178e-07, z: 1.49011569e-07, w: .924780905}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: allJumpsAdjust:Suzie_Ctrl_LeftFootExtraFingerEffector
+      position: {x: -.0733562857, y: .0476109311, z: .217244312}
+      rotation: {x: .380500048, y: 1.56462136e-07, z: 1.49011584e-07, w: .924780905}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: allJumpsAdjust:Suzie_Ctrl_LeftHandIndexEffector
+      position: {x: -.114609487, y: .554054499, z: -.135609075}
+      rotation: {x: .323945612, y: .245066613, z: -.728136301, w: .552104235}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: allJumpsAdjust:Suzie_Ctrl_LeftHandMiddleEffector
+      position: {x: -.107292518, y: .573721766, z: -.146298856}
+      rotation: {x: .353855401, y: .199589536, z: -.647759378, w: .644482911}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: allJumpsAdjust:Suzie_Ctrl_LeftHandRingEffector
+      position: {x: -.10806299, y: .598158479, z: -.160929635}
+      rotation: {x: .367484838, y: .173221767, z: -.59897542, w: .690056205}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: allJumpsAdjust:Suzie_Ctrl_LeftHandThumbEffector
+      position: {x: -.143663526, y: .553419888, z: -.185266495}
+      rotation: {x: .600221694, y: -.462036699, z: .370729715, w: .537415564}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: allJumpsAdjust:Suzie_Ctrl_LeftHipEffector
+      position: {x: -.101603456, y: .305055529, z: -.0170835592}
+      rotation: {x: -.625376225, y: -.000508978497, z: .0253914502, w: .779909968}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: allJumpsAdjust:Suzie_Ctrl_LeftKneeEffector
+      position: {x: -.104012795, y: .274346113, z: .124588929}
+      rotation: {x: -.0674930811, y: -.012403721, z: .0265118405, w: .997290313}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: allJumpsAdjust:Suzie_Ctrl_LeftShoulderEffector
+      position: {x: -.104435414, y: .678720355, z: .0558674335}
+      rotation: {x: -.540124893, y: .601428449, z: -.342470646, w: -.478813916}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: allJumpsAdjust:Suzie_Ctrl_LeftWristEffector
+      position: {x: -.137616709, y: .620432973, z: -.106567532}
+      rotation: {x: .247877374, y: -.321881711, z: .545828223, w: .732816875}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: allJumpsAdjust:Suzie_Ctrl_RightAnkleEffector
+      position: {x: .101557955, y: .11363288, z: -.155860722}
+      rotation: {x: .317226857, y: -1.37595535e-07, z: 1.37211032e-07, w: .948349655}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: allJumpsAdjust:Suzie_Ctrl_RightElbowEffector
+      position: {x: .0708984658, y: .627913594, z: .127447382}
+      rotation: {x: .295969993, y: .698792875, z: .464455307, w: -.456477463}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: allJumpsAdjust:Suzie_Ctrl_RightFootEffector
+      position: {x: .0817067698, y: .0186995119, z: -.0984892622}
+      rotation: {x: -.0889146551, y: 1.37835741e-07, z: 4.95463553e-07, w: .996039271}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: allJumpsAdjust:Suzie_Ctrl_RightFootExtraFingerEffector
+      position: {x: .0732706711, y: .0259851832, z: -.0541401356}
+      rotation: {x: -.28984642, y: -1.04308128e-07, z: 4.71249251e-07, w: .957073152}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: allJumpsAdjust:Suzie_Ctrl_RightHandIndexEffector
+      position: {x: -.0409736484, y: .646155357, z: .306376159}
+      rotation: {x: -.748327971, y: .126141876, z: .336541086, w: .557524502}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: allJumpsAdjust:Suzie_Ctrl_RightHandMiddleEffector
+      position: {x: -.035005156, y: .621634066, z: .296990812}
+      rotation: {x: -.755765021, y: .0687573254, z: .293081969, w: .581545055}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: allJumpsAdjust:Suzie_Ctrl_RightHandRingEffector
+      position: {x: -.0215048008, y: .6022802, z: .293958902}
+      rotation: {x: -.756628156, y: .0526507497, z: .281468749, w: .587807}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: allJumpsAdjust:Suzie_Ctrl_RightHandThumbEffector
+      position: {x: .00200693845, y: .60792464, z: .33033365}
+      rotation: {x: .153206393, y: -.340901792, z: -.339697689, w: .863087058}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: allJumpsAdjust:Suzie_Ctrl_RightHipEffector
+      position: {x: .10154473, y: .30881384, z: -.0175967086}
+      rotation: {x: .293658078, y: .00898618903, z: -.0206574481, w: .955645025}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: allJumpsAdjust:Suzie_Ctrl_RightKneeEffector
+      position: {x: .103095427, y: .18783693, z: -.0975003392}
+      rotation: {x: .339297086, y: .010292083, z: -.0182129014, w: .940446615}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: allJumpsAdjust:Suzie_Ctrl_RightShoulderEffector
+      position: {x: .0500020497, y: .684790611, z: .092002511}
+      rotation: {x: -.0230742674, y: -.395034015, z: -.491509438, w: .775779724}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: allJumpsAdjust:Suzie_Ctrl_RightWristEffector
+      position: {x: .0195308831, y: .634827673, z: .259875506}
+      rotation: {x: .295969576, y: .698793113, z: .464455485, w: -.456477016}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: allJumpsAdjust:SuzieMesh
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: .99999994, y: .99999994, z: .99999994}
+      transformModified: 1
+    - name: allJumpsAdjust:SkeletonJoints
+      position: {x: -.000760288502, y: .347535551, z: -.0105206538}
+      rotation: {x: -5.82076698e-09, y: 1.05879139e-18, z: -1.81898968e-10, w: 1}
+      scale: {x: 1.00000024, y: .99999994, z: 1.00000024}
+      transformModified: 1
+    - name: allJumpsAdjust:EditingMesh6:UpperTorso
+      position: {x: 1.61895844e-10, y: .0740324035, z: .000770077982}
+      rotation: {x: .00520073343, y: -2.90182989e-09, z: 1.65220437e-09, w: .99998647}
+      scale: {x: .999999702, y: 1.00000024, z: .99999994}
+      transformModified: 1
+    - name: allJumpsAdjust:EditingMesh6:Spine1
+      position: {x: -4.16188595e-09, y: .0863756761, z: 1.33306601e-08}
+      rotation: {x: 1.25728548e-08, y: 2.83454615e-09, z: -7.30583505e-09, w: 1}
+      scale: {x: 1.00000036, y: 1.00000012, z: 1.00000024}
+      transformModified: 1
+    - name: allJumpsAdjust:EditingMesh6:Spine2
+      position: {x: -3.62386987e-09, y: .0987151489, z: 4.17179624e-09}
+      rotation: {x: 3.3993274e-08, y: 6.05441391e-11, z: 5.82045079e-09, w: 1}
+      scale: {x: .999999881, y: 1, z: .999999583}
+      transformModified: 1
+    - name: allJumpsAdjust:EditingMesh6:Head
+      position: {x: -5.52555655e-08, y: .111054629, z: 1.40180731e-07}
+      rotation: {x: -.00520078605, y: 1.16413768e-08, z: -6.0545173e-11, w: .99998647}
+      scale: {x: 1.00000012, y: 1.00000012, z: 1.00000036}
+      transformModified: 1
+    - name: allJumpsAdjust:EditingMesh6:Head1
+      position: {x: -1.44304977e-08, y: .0359585881, z: .0122571895}
+      rotation: {x: 1.76951307e-08, y: -1.1641534e-08, z: -1.09139398e-09, w: 1}
+      scale: {x: 1.00000012, y: 1, z: 1.00000012}
+      transformModified: 1
+    - name: allJumpsAdjust:EditingMesh6:Head2
+      position: {x: 7.92390306e-18, y: .109350644, z: .00605557021}
+      rotation: {x: 1.77635684e-15, y: 2.22044605e-16, z: -2.22044605e-16, w: 1}
+      scale: {x: 1, y: .999999881, z: 1}
+      transformModified: 1
+    - name: allJumpsAdjust:EditingMesh6:HairJoint1_base_
+      position: {x: 1.11022302e-16, y: .0469122864, z: -.00483763823}
+      rotation: {x: -.231638789, y: .375094086, z: -.471616894, w: .763691962}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: allJumpsAdjust:EditingMesh6:HairJoint2
+      position: {x: -.052888196, y: 0, z: 7.1054272e-17}
+      rotation: {x: -.305978209, y: .595912874, z: .438675106, w: .599023759}
+      scale: {x: 1, y: .99999994, z: .999999762}
+      transformModified: 1
+    - name: allJumpsAdjust:EditingMesh6:HairJoint3
+      position: {x: -.0569558404, y: -1.42108544e-16, z: -6.21724896e-17}
+      rotation: {x: -.297221661, y: -.373990089, z: .431775361, w: .765088797}
+      scale: {x: 1, y: .999999821, z: .99999994}
+      transformModified: 1
+    - name: allJumpsAdjust:EditingMesh6:HairJoint4_end_
+      position: {x: -.0772391483, y: 0, z: 7.77156104e-17}
+      rotation: {x: .429885894, y: .638373017, z: -.356642306, w: .529607594}
+      scale: {x: 1.00000036, y: 1.00000024, z: 1.00000024}
+      transformModified: 1
+    - name: allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftShoulder
+      position: {x: -.0267114937, y: .10301663, z: .000332182215}
+      rotation: {x: .571367204, y: -.418740273, z: .564240396, w: .424062461}
+      scale: {x: 1.00000072, y: 1.00000036, z: 1.0000006}
+      transformModified: 1
+    - name: allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftArm
+      position: {x: -9.1711394e-09, y: .0550096817, z: -6.86907384e-08}
+      rotation: {x: .131890252, y: .194702566, z: -.0683540925, w: -.969548106}
+      scale: {x: .999999881, y: .999999762, z: .999999702}
+      transformModified: 1
+    - name: allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftForeArm
+      position: {x: -1.15295764e-08, y: .0704914108, z: -7.09922503e-08}
+      rotation: {x: -.0429729074, y: .00725211203, z: -.0639198422, w: .997003078}
+      scale: {x: .999999821, y: 1.00000012, z: .999999762}
+      transformModified: 1
+    - name: allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHand
+      position: {x: 7.58831054e-10, y: .142253876, z: -1.22994223e-07}
+      rotation: {x: -.0813773945, y: -.275562644, z: -.0100549748, w: -.957779646}
+      scale: {x: 1.0000006, y: .99999994, z: .999999702}
+      transformModified: 1
+    - name: allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHandThumb1
+      position: {x: .0163232889, y: .0306827854, z: .00522163371}
+      rotation: {x: .066671446, y: -.00990782399, z: -.291216224, w: .95427978}
+      scale: {x: .999999464, y: .999999881, z: 1.00000012}
+      transformModified: 1
+    - name: allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHandThumb2
+      position: {x: .000951557595, y: .0280996468, z: -7.78730502e-09}
+      rotation: {x: .0301794708, y: -.000629126851, z: .010511619, w: .999489009}
+      scale: {x: .99999994, y: .999999702, z: .999999702}
+      transformModified: 1
+    - name: allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHandThumb3
+      position: {x: -4.19864664e-05, y: .0280905534, z: -3.66941144e-08}
+      rotation: {x: -.0385226533, y: .000640958373, z: -.0086640846, w: .999219954}
+      scale: {x: 1.00000036, y: 1, z: 1.00000024}
+      transformModified: 1
+    - name: allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHandThumb4
+      position: {x: -.000909556926, y: .0222039465, z: -5.10083353e-08}
+      rotation: {x: 1.49011576e-08, y: -8.94069458e-08, z: 0, w: 1}
+      scale: {x: 1.00000012, y: .99999994, z: 1.00000012}
+      transformModified: 1
+    - name: allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHandIndex1
+      position: {x: .0167563781, y: .0801304579, z: -.000906471745}
+      rotation: {x: .0448751152, y: -.00311216712, z: -.0691181421, w: .996593833}
+      scale: {x: .999999225, y: .999999225, z: 1}
+      transformModified: 1
+    - name: allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHandIndex2
+      position: {x: 3.74406372e-05, y: .0189038645, z: -9.35642497e-09}
+      rotation: {x: -.0123999687, y: -5.96046306e-08, z: 7.45057918e-08, w: .99992311}
+      scale: {x: 1.00000083, y: 1.00000083, z: 1.00000072}
+      transformModified: 1
+    - name: allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHandIndex3
+      position: {x: 2.36883443e-05, y: .018276887, z: -1.89575093e-08}
+      rotation: {x: -.0372036919, y: .000149548025, z: -.00208659424, w: .999305487}
+      scale: {x: .999999166, y: .999999523, z: .999999642}
+      transformModified: 1
+    - name: allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHandIndex4
+      position: {x: -6.11195719e-05, y: .0133324647, z: 2.7789417e-08}
+      rotation: {x: 2.98023188e-08, y: -4.470348e-08, z: -2.98023188e-08, w: 1}
+      scale: {x: 1.00000048, y: 1.00000048, z: .999999881}
+      transformModified: 1
+    - name: allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHandMiddle1
+      position: {x: .000561790483, y: .0808387473, z: .000511306454}
+      rotation: {x: -.00835522916, y: -3.4451481e-05, z: .00411815895, w: .999956608}
+      scale: {x: .999999821, y: 1.00000012, z: 1.0000006}
+      transformModified: 1
+    - name: allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHandMiddle2
+      position: {x: -3.00205702e-05, y: .0214217249, z: -3.59676271e-08}
+      rotation: {x: .00184231997, y: .000575423241, z: -.00942975283, w: .999953747}
+      scale: {x: 1, y: .999999702, z: .999999642}
+      transformModified: 1
+    - name: allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHandMiddle3
+      position: {x: 2.03038398e-05, y: .0231425036, z: -2.20823626e-09}
+      rotation: {x: -.0158465933, y: -2.98023188e-08, z: 7.45057989e-08, w: .999874473}
+      scale: {x: 1.00000048, y: 1.00000024, z: 1.00000072}
+      transformModified: 1
+    - name: allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHandMiddle4
+      position: {x: 9.70908604e-06, y: .0160481278, z: -4.83431712e-08}
+      rotation: {x: 5.96046306e-08, y: 0, z: -4.47034729e-08, w: 1}
+      scale: {x: 1.00000012, y: 1.00000024, z: 1.00000012}
+      transformModified: 1
+    - name: allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHandRing1
+      position: {x: -.0173182338, y: .0768939033, z: -.000485872064}
+      rotation: {x: .0172590129, y: .00188693358, z: .0768082291, w: .996894777}
+      scale: {x: .999999702, y: .999999404, z: 1.00000072}
+      transformModified: 1
+    - name: allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHandRing2
+      position: {x: -3.37424353e-05, y: .0204150639, z: -2.69099942e-08}
+      rotation: {x: .00202298164, y: .000468850136, z: -.0085439235, w: .999961376}
+      scale: {x: 1.00000024, y: 1.00000072, z: .999999285}
+      transformModified: 1
+    - name: allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHandRing3
+      position: {x: 3.9908271e-05, y: .0215544961, z: 2.64623612e-08}
+      rotation: {x: .0199215394, y: 1.7881392e-07, z: -4.470348e-08, w: .999801517}
+      scale: {x: .999999762, y: .999999642, z: 1.00000072}
+      transformModified: 1
+    - name: allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHandRing4
+      position: {x: -6.10736515e-06, y: .0151784932, z: -1.03804121e-08}
+      rotation: {x: 0, y: -5.96046377e-08, z: 1.49011594e-08, w: 1}
+      scale: {x: .99999994, y: .999999881, z: .999999821}
+      transformModified: 1
+    - name: allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightShoulder
+      position: {x: .02671149, y: .103011481, z: -.000164920144}
+      rotation: {x: .566075385, y: .422683895, z: -.569631755, w: .420019865}
+      scale: {x: 1.00000024, y: 1.00000012, z: .999999821}
+      transformModified: 1
+    - name: allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightArm
+      position: {x: -5.75431525e-09, y: .0550097153, z: 1.67462701e-08}
+      rotation: {x: -.139287993, y: .0967042446, z: -.0543682277, w: .984017909}
+      scale: {x: 1.00000012, y: 1.00000012, z: 1.00000024}
+      transformModified: 1
+    - name: allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightForeArm
+      position: {x: -1.03373337e-08, y: .0701996908, z: -6.3799213e-08}
+      rotation: {x: -.0367829986, y: -.00498376833, z: .067771472, w: .997010171}
+      scale: {x: .999999642, y: 1.00000012, z: .999999762}
+      transformModified: 1
+    - name: allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHand
+      position: {x: -6.30478709e-08, y: .142209873, z: -7.83699647e-08}
+      rotation: {x: .0782000944, y: -.213883713, z: -.00692567136, w: .97369945}
+      scale: {x: 1.00000024, y: .99999994, z: 1.00000024}
+      transformModified: 1
+    - name: allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHandThumb1
+      position: {x: -.0160585232, y: .0309485383, z: .00434439443}
+      rotation: {x: .07113114, y: .0122851525, z: .295580894, w: .952586651}
+      scale: {x: .999999821, y: 1.00000012, z: 1.00000036}
+      transformModified: 1
+    - name: allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHandThumb2
+      position: {x: -.000549908844, y: .0281036701, z: -3.37242128e-08}
+      rotation: {x: .0274889059, y: .000881731394, z: -.0299234651, w: .99917376}
+      scale: {x: 1.00000024, y: .999999583, z: .999999404}
+      transformModified: 1
+    - name: allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHandThumb3
+      position: {x: -.000756095978, y: .0271319374, z: 2.5784308e-10}
+      rotation: {x: -.0350529067, y: -.000959157827, z: .0276593231, w: .999002218}
+      scale: {x: 1.00000012, y: 1.00000036, z: 1.00000083}
+      transformModified: 1
+    - name: allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHandThumb4
+      position: {x: .00130598969, y: .0223455783, z: 1.7211919e-08}
+      rotation: {x: -2.98023188e-08, y: -8.94069601e-08, z: 4.470348e-08, w: 1}
+      scale: {x: 1.00000012, y: .999999642, z: .999999344}
+      transformModified: 1
+    - name: allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHandIndex1
+      position: {x: -.0174536873, y: .0867933407, z: -.000706827792}
+      rotation: {x: .040211454, y: .00269058347, z: .0667093843, w: .996958256}
+      scale: {x: .999999821, y: .999999762, z: .999999762}
+      transformModified: 1
+    - name: allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHandIndex2
+      position: {x: -5.21554466e-05, y: .017104039, z: 5.45059713e-08}
+      rotation: {x: -.0413650461, y: 4.02331261e-06, z: .000119090051, w: .999144077}
+      scale: {x: 1.00000095, y: 1.00000083, z: 1.00000072}
+      transformModified: 1
+    - name: allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHandIndex3
+      position: {x: 7.15036867e-06, y: .0163131375, z: -4.56061713e-08}
+      rotation: {x: -.0411057509, y: -2.03251784e-05, z: .000334530981, w: .999154806}
+      scale: {x: 1.00000012, y: .99999994, z: 1.00000036}
+      transformModified: 1
+    - name: allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHandIndex4
+      position: {x: 4.50539083e-05, y: .0105488952, z: 5.4942138e-08}
+      rotation: {x: 8.94069672e-08, y: -7.4505806e-08, z: -5.96046448e-08, w: 1}
+      scale: {x: .999999702, y: .999999762, z: .999999702}
+      transformModified: 1
+    - name: allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHandMiddle1
+      position: {x: -.000716003706, y: .0829487145, z: .000791816099}
+      rotation: {x: -.0280936621, y: .000369340123, z: -.0131463092, w: .999518752}
+      scale: {x: 1.00000083, y: 1.00000072, z: 1.00000095}
+      transformModified: 1
+    - name: allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHandMiddle2
+      position: {x: 5.95509155e-05, y: .0226007905, z: -7.06632441e-09}
+      rotation: {x: .00220300234, y: -.00144791591, z: .0125042778, w: .999918342}
+      scale: {x: .999998987, y: .999999404, z: .999999166}
+      transformModified: 1
+    - name: allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHandMiddle3
+      position: {x: -7.60966432e-05, y: .021482639, z: 3.69002571e-08}
+      rotation: {x: -.0400979333, y: 3.66270506e-05, z: .000992700341, w: .999195278}
+      scale: {x: 1.00000036, y: 1.00000024, z: 1.00000036}
+      transformModified: 1
+    - name: allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHandMiddle4
+      position: {x: 1.65405581e-05, y: .0150782773, z: -2.63102056e-08}
+      rotation: {x: -1.78813934e-07, y: 2.98023224e-08, z: 4.47034836e-08, w: 1}
+      scale: {x: .999999583, y: .999999523, z: .999999881}
+      transformModified: 1
+    - name: allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHandRing1
+      position: {x: .01816958, y: .0780132487, z: -.000697242212}
+      rotation: {x: -.0382758826, y: .00196433067, z: .0512115955, w: -.997952223}
+      scale: {x: 1.00000036, y: 1.00000012, z: 1.00000036}
+      transformModified: 1
+    - name: allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHandRing2
+      position: {x: -1.36543413e-05, y: .0209120195, z: 7.35848804e-09}
+      rotation: {x: .00103887904, y: -.000321596832, z: .00552889658, w: .999984145}
+      scale: {x: 1, y: 1, z: .99999994}
+      transformModified: 1
+    - name: allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHandRing3
+      position: {x: -6.62706734e-05, y: .0207245871, z: 3.20227755e-08}
+      rotation: {x: .0361439399, y: .000146180319, z: -.00340069667, w: -.999340892}
+      scale: {x: 1, y: 1.0000006, z: 1.00000024}
+      transformModified: 1
+    - name: allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHandRing4
+      position: {x: 7.99289046e-05, y: .0138161974, z: 1.69698993e-08}
+      rotation: {x: 5.96046235e-08, y: 7.45057775e-08, z: -1.63912716e-07, w: 1}
+      scale: {x: 1.00000083, y: 1.00000048, z: 1.00000012}
+      transformModified: 1
+    - name: allJumpsAdjust:EditingMesh6:LeftLeg
+      position: {x: -.101590104, y: -.0411728173, z: .00110271783}
+      rotation: {x: -9.38510129e-05, y: .00338468258, z: .999610603, w: .0276995879}
+      scale: {x: .999999702, y: 1.00000012, z: .999999464}
+      transformModified: 1
+    - name: allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftLeg
+      position: {x: -3.24844818e-09, y: .144982576, z: 3.17658042e-08}
+      rotation: {x: .0205465667, y: .000314736884, z: .0153130386, w: .999671638}
+      scale: {x: 1.00000095, y: .999999344, z: 1.00000107}
+      transformModified: 1
+    - name: allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftFoot
+      position: {x: 1.63710734e-09, y: .0944927707, z: 1.88185787e-08}
+      rotation: {x: .542203784, y: -.0855761915, z: .0556335486, w: .83402437}
+      scale: {x: .999998808, y: .999999404, z: 1.00000119}
+      transformModified: 1
+    - name: allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftToeBase
+      position: {x: 3.38147288e-08, y: .112530977, z: -6.51868177e-08}
+      rotation: {x: .179235831, y: -.00177166588, z: -.00972400513, w: .983756483}
+      scale: {x: 1.00000131, y: 1.00000012, z: 1.00000083}
+      transformModified: 1
+    - name: allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftToe_End
+      position: {x: 1.37850131e-08, y: .0458198525, z: 1.43779078e-09}
+      rotation: {x: 0, y: 3.72528985e-09, z: 3.72528985e-09, w: 1}
+      scale: {x: 1.00000012, y: 1, z: 1}
+      transformModified: 1
+    - name: allJumpsAdjust:EditingMesh6:RightLeg
+      position: {x: .101590067, y: -.0411728472, z: -7.11614193e-05}
+      rotation: {x: .000176525849, y: .00636361493, z: .999596119, w: -.0276975706}
+      scale: {x: .999999702, y: .99999994, z: .999999881}
+      transformModified: 1
+    - name: allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightLeg
+      position: {x: 5.29619548e-09, y: .144991115, z: -1.88938021e-08}
+      rotation: {x: .00667385105, y: -.000102215083, z: -.015313698, w: .999860525}
+      scale: {x: 1.00000107, y: 1, z: 1.00000095}
+      transformModified: 1
+    - name: allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightFoot
+      position: {x: 6.53818111e-09, y: .094416894, z: -7.02736358e-08}
+      rotation: {x: .551333606, y: .0841041729, z: -.0559930727, w: .828144073}
+      scale: {x: 1.00000083, y: .999999702, z: 1.00000048}
+      transformModified: 1
+    - name: allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightToeBase
+      position: {x: -2.33791986e-09, y: .112684943, z: 1.48056884e-07}
+      rotation: {x: .179014817, y: .00154062337, z: .00846685749, w: .983808756}
+      scale: {x: .999998093, y: .999999166, z: 1.00000024}
+      transformModified: 1
+    - name: allJumpsAdjust:EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightToe_End
+      position: {x: -2.79122281e-10, y: .0457285009, z: 1.36313201e-08}
+      rotation: {x: 0, y: 1.86264479e-08, z: -1.11758682e-08, w: 1}
+      scale: {x: .999999583, y: 1, z: .999999464}
+      transformModified: 1
+    - name: allJumpsAdjust:EditingMesh6:TailBase
+      position: {x: 4.78347374e-06, y: -.00227249647, z: -.125337541}
+      rotation: {x: -.0248492584, y: -.70668596, z: .0248547066, w: .706653893}
+      scale: {x: .999999821, y: 1, z: 1}
+      transformModified: 1
+    - name: allJumpsAdjust:EditingMesh6:TailJoint2
+      position: {x: -.0688205883, y: -2.06591633e-09, z: -1.31006311e-16}
+      rotation: {x: -1.86264515e-09, y: 1.55297144e-08, z: -.0351460166, w: .999382198}
+      scale: {x: 1, y: 1.00000012, z: 1}
+      transformModified: 1
+    - name: allJumpsAdjust:EditingMesh6:TailJoint3
+      position: {x: -.112687983, y: 2.25337926e-09, z: -8.88178367e-17}
+      rotation: {x: 2.69847056e-09, y: -6.54712267e-08, z: .00515443692, w: .999986708}
+      scale: {x: 1, y: .999999881, z: .999999881}
+      transformModified: 1
+    - name: allJumpsAdjust:EditingMesh6:TailJoint4
+      position: {x: -.24564752, y: 4.35218173e-09, z: -1.60982331e-16}
+      rotation: {x: -4.42378267e-09, y: 6.85977355e-08, z: -.0301290918, w: .999546051}
+      scale: {x: .999999881, y: .999999821, z: .999999881}
+      transformModified: 1
+    - name: allJumpsAdjust:EditingMesh6:TailJoint5
+      position: {x: -.228192985, y: -5.84864646e-09, z: -3.35287351e-16}
+      rotation: {x: 1.86264537e-09, y: -4.10218526e-08, z: .0360805877, w: .999348879}
+      scale: {x: .999999821, y: 1.00000012, z: .99999994}
+      transformModified: 1
+    - name: allJumpsAdjust:EditingMesh6:TailJoint6
+      position: {x: -.170973405, y: 6.66196431e-09, z: 1.77635673e-16}
+      rotation: {x: -.00432713237, y: -.0108926548, z: -.00396193238, w: .999923468}
+      scale: {x: 1, y: .999999821, z: 1}
+      transformModified: 1
+    - name: allJumpsAdjust:EditingMesh6:TailJoint7_end_
+      position: {x: -.176014051, y: -1.08302149e-08, z: 3.55271347e-16}
+      rotation: {x: .00508672092, y: .70708853, z: .00508671859, w: -.70708853}
+      scale: {x: .999999642, y: .99999994, z: .999999881}
+      transformModified: 1
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 3
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

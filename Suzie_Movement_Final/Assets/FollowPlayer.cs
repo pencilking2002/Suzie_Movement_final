@@ -3,28 +3,32 @@ using System.Collections;
 
 public class FollowPlayer : MonoBehaviour {
 
-	private Transform player;
-	private Vector3 playerPos;
-
-	private float yPos;
 	public float speed = 10.0f;
-	private Vector3 vel;
 
-	// Use this for initialization
+	private Vector3 offset;
+	private Vector3 vel;
+	private Vector3 targetPos;
+	private Transform player;
+	private RomanCharState charState;
+
+
+
 	void Start () 
 	{
 		player = GameObject.FindGameObjectWithTag("Player").transform;
-		yPos = player.position.y;
-
+		offset = transform.position - player.position;
+		charState = GameObject.FindObjectOfType<RomanCharState>();
 	}
 	
 	// Update is called once per frame
-	void LateUpdate () 
+	void Update () 
 	{
-		//yPos = Mathf.Lerp(yPos, player.position.y, Time.deltaTime);
-		//transform.position = new Vector3(player.position.x, yPos, player.position.z);
-		playerPos = player.transform.position;
-		playerPos.y = 1.5f;
-		transform.position = Vector3.SmoothDamp(transform.position, playerPos, ref vel, speed * Time.deltaTime);
+		targetPos = player.position + offset;
+
+		if (charState.IsJumping())
+		    targetPos.y = transform.position.y;
+		
+		transform.position = Vector3.SmoothDamp(transform.position, targetPos, ref vel, speed * Time.deltaTime);
+
 	}
 }

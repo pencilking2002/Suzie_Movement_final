@@ -70,7 +70,7 @@ public class RomanCharController : MonoBehaviour {
 	}
 
 	
-	private void Update ()
+	private void FixedUpdate ()
 	{
 
 		moveDirection = new Vector3(InputController.h, 0, InputController.v);
@@ -83,31 +83,29 @@ public class RomanCharController : MonoBehaviour {
 
 		TurnCharToCamera();
 		
-		if (charState.IsIdle() && moveDirectionRaw != Vector3.zero)
+		if (charState.IsIdle())
 		{
-			transform.rotation = Quaternion.Slerp (transform.rotation, Quaternion.LookRotation(moveDirectionRaw), idleRotateSpeed * Time.deltaTime);
+			if (moveDirectionRaw != Vector3.zero)
+				rb.MoveRotation(Quaternion.Slerp (transform.rotation, Quaternion.LookRotation(moveDirectionRaw), idleRotateSpeed * Time.deltaTime));
+			
 			rb.velocity = Vector3.zero;
 			rb.angularVelocity = Vector3.zero;
-
-			//if (moveDirectionRaw.sqrMagnitude == 0)
-
+			
 		}
-	}
-
-	private void FixedUpdate()
-	{
+		
 		// Stop moving on the X and Z plane when landing
-		if (charState.IsLanding() || charState.IsIdle())
-			rb.velocity = new Vector3(0, rb.velocity.y, 0);
+		if (charState.IsLanding())
+			rb.velocity = Vector3.zero;
 
-		if (charState.IsJumping ())
+		else if (charState.IsJumping ())
 		{
-
+			if (moveDirectionRaw != Vector3.zero)
+				rb.MoveRotation(Quaternion.Slerp (transform.rotation, Quaternion.LookRotation(moveDirectionRaw), idleRotateSpeed * Time.deltaTime));
+			
 			// Apply Z Force if the character is jumping but is not falling
 			if (InputController.jumpIsPressed)
 			{
 				// Deminish the jumping force
-				//jumpForce -= jumpForceDeclineSpeed;
 				jumpForce -= jumpForceDeclineSpeed;
 				jumpForce = Mathf.Clamp (jumpForce, 0f, maxJumpForce);
 
@@ -115,22 +113,17 @@ public class RomanCharController : MonoBehaviour {
 				//print (rb.velocity.y);
 			}
 
-			//Rotate the character mid air and account for the character's direction relative to the camera
-			float yRot = transform.eulerAngles.y + InputController.h * jumpTurnSpeed;
-			rb.MoveRotation(Quaternion.Euler (new Vector3(transform.eulerAngles.x, yRot, transform.eulerAngles.z)));
-
-			// Move the character forward based on Vertical input
-			if (charState.IsIdleJumping())
-				rb.AddRelativeForce(Vector3.forward * InputController.rawV * idleJumpForwardSpeed * facingAwayFromCam); //rb.AddRelativeForce(new Vector3(0, 0, InputController.v * idleJumpForwardSpeed * facingAwayFromCam), ForceMode.Acceleration);
-			else if (charState.IsRunningJumping())
-				rb.AddRelativeForce(Vector3.forward * InputController.rawV * runningJumpForwardSpeed * facingAwayFromCam); //rb.AddRelativeForce(new Vector3(0, 0, InputController.v * idleJumpForwardSpeed * facingAwayFromCam), ForceMode.Acceleration);
-
+			// Move the character forward based on Vertical input and weather they are idle jumping or runnign jumping
+			float forwardSpeed = charState.IsIdleJumping() ? idleJumpForwardSpeed : runningJumpForwardSpeed;
+			//rb.AddRelativeForce(Vector3.forward * moveDirectionRaw.sqrMagnitude * forwardSpeed * facingAwayFromCam); 
+			rb.AddForce(moveDirectionRaw * forwardSpeed);
+			
 			// prevent a negative z velocity when jumping
-			zJumpVelocity = transform.InverseTransformDirection(rb.velocity).z < 0.0f ? 0.0f : rb.velocity.z;
-			rb.velocity = new Vector3(rb.velocity.x, rb.velocity.y, zJumpVelocity);
-
+			//zJumpVelocity = transform.InverseTransformDirection(rb.velocity).z < 0.0f ? 0.0f : rb.velocity.z;
+			//rb.velocity = new Vector3(rb.velocity.x, rb.velocity.y, zJumpVelocity);
 
 		}
+		
 	}
 	
 	private void OnAnimatorMove ()
@@ -160,7 +153,7 @@ public class RomanCharController : MonoBehaviour {
 
 	private void OnCollisionEnter (Collision coll)
 	{
-		if (coll.collider.gameObject.layer == 8 && (charState.IsJumping() || charState.IsFalling()) && Vector3.Dot(coll.contacts[0].normal, Vector3.up) > 0.5f)
+		if (/*coll.collider.gameObject.layer == 8 && */ (charState.IsJumping() || charState.IsFalling()) && Vector3.Dot(coll.contacts[0].normal, Vector3.up) > 0.5f)
 		{
 			//print ("should land");
 			animator.SetTrigger("Land");

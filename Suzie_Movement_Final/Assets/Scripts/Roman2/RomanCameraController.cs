@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+// Camera used for 3rd person follow. Smoothing is optinal
 public class RomanCameraController : MonoBehaviour {
 	
 	
@@ -8,6 +9,7 @@ public class RomanCameraController : MonoBehaviour {
 	// Public Variables
 	//---------------------------------------------------------------------------------------------------------------------------	
 	
+	public bool smoothing;					// Will the camera smooth its movement?				
 	public Vector3 offset;					// How much to offset the camera from the follow
 	public Transform follow = null;			// Object to follow
 	[Range(0,20)]
@@ -30,8 +32,6 @@ public class RomanCameraController : MonoBehaviour {
 	private Quaternion targetRotation;
 	private Vector3 vecDifference;
 	
-	private bool switchedFromTurnRunState = false;
-
 	
 	//---------------------------------------------------------------------------------------------------------------------------
 	// Private Methods
@@ -49,7 +49,7 @@ public class RomanCameraController : MonoBehaviour {
 	[HideInInspector]
 	public CamState state = CamState.Free;
 
-	private RomanCharState charState;
+	//private RomanCharState charState;
 
 	// Use this for initialization
 	private void Start () 
@@ -58,7 +58,7 @@ public class RomanCameraController : MonoBehaviour {
 		if (follow == null)
 			follow = GameObject.FindGameObjectWithTag("Follow").transform;
 		
-		charState = GameObject.FindObjectOfType<RomanCharState>();
+		//charState = GameObject.FindObjectOfType<RomanCharState>();
 
 	}
 	
@@ -68,18 +68,24 @@ public class RomanCameraController : MonoBehaviour {
 		vecDifference = Vector3.Normalize(transform.position - follow.position) * -offset.z;
 		vecDifference.y = follow.position.y + offset.y;
 
-		Vector3 targetPos = Vector3.Lerp(transform.position, follow.position + vecDifference, camFollowSpeed * Time.deltaTime);
+		if (smoothing)
+			targetPos = Vector3.Lerp(transform.position, follow.position + vecDifference, camFollowSpeed * Time.deltaTime);
+		else
+			targetPos = follow.position + vecDifference;
+			
 		transform.position = targetPos;
 
 			
 		//Smoothly rotate towards the target point.
 
 		targetRotation = Quaternion.LookRotation(follow.position - transform.position);
-			
-		transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, camFollowSpeed * Time.deltaTime);
 		
-//		Vector3 targetPos = follow.position + offset;
-//		transform.position = Vector3.Lerp (transform.position, targetPos, camFollowSpeed * Time.deltaTime);		
+		if (smoothing)
+			transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, camFollowSpeed * Time.deltaTime);
+		else
+			transform.rotation = targetRotation;
+		
+
 	}
 	
 	private void OnEnable ()

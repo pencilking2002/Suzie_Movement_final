@@ -58,6 +58,7 @@ public class RomanCharController : MonoBehaviour {
 	private float jumpForce;
 	private float zJumpVelocity = 0.0f;
 	private int facingAwayFromCam = 1; 
+	private float forwardSpeed; 			// Temp var for forward speed
 	
 	void Start () 
 	{
@@ -100,7 +101,17 @@ public class RomanCharController : MonoBehaviour {
 		else if (charState.IsJumping ())
 		{
 			if (moveDirectionRaw != Vector3.zero)
+			{
 				rb.MoveRotation(Quaternion.Slerp (transform.rotation, Quaternion.LookRotation(moveDirectionRaw), idleRotateSpeed * Time.deltaTime));
+				
+				// Move the character forward based on Vertical input and weather they are idle jumping or runnign jumping
+				forwardSpeed = charState.IsIdleJumping() ? idleJumpForwardSpeed : runningJumpForwardSpeed;
+				rb.AddForce(moveDirectionRaw * forwardSpeed);
+			}
+			else
+			{
+				rb.velocity = Vector3.Lerp(rb.velocity, new Vector3(0, rb.velocity.y, 0), 5 * Time.deltaTime);
+			}
 			
 			// Apply Z Force if the character is jumping but is not falling
 			if (InputController.jumpIsPressed)
@@ -113,14 +124,8 @@ public class RomanCharController : MonoBehaviour {
 				//print (rb.velocity.y);
 			}
 
-			// Move the character forward based on Vertical input and weather they are idle jumping or runnign jumping
-			float forwardSpeed = charState.IsIdleJumping() ? idleJumpForwardSpeed : runningJumpForwardSpeed;
-			//rb.AddRelativeForce(Vector3.forward * moveDirectionRaw.sqrMagnitude * forwardSpeed * facingAwayFromCam); 
-			rb.AddForce(moveDirectionRaw * forwardSpeed);
 			
-			// prevent a negative z velocity when jumping
-			//zJumpVelocity = transform.InverseTransformDirection(rb.velocity).z < 0.0f ? 0.0f : rb.velocity.z;
-			//rb.velocity = new Vector3(rb.velocity.x, rb.velocity.y, zJumpVelocity);
+		
 
 		}
 		

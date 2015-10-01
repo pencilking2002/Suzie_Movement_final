@@ -106,7 +106,7 @@ public class RomanCharController : MonoBehaviour {
 				
 				// Move the character forward based on Vertical input and weather they are idle jumping or runnign jumping
 				forwardSpeed = charState.IsIdleJumping() ? idleJumpForwardSpeed : runningJumpForwardSpeed;
-				rb.AddForce(moveDirectionRaw * forwardSpeed);
+				rb.MovePosition(transform.position + transform.forward * forwardSpeed * moveDirectionRaw.sqrMagnitude * Time.deltaTime);
 			}
 			else
 			{
@@ -124,8 +124,6 @@ public class RomanCharController : MonoBehaviour {
 				//print (rb.velocity.y);
 			}
 
-			
-		
 
 		}
 		

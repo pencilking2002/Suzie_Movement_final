@@ -21,7 +21,7 @@ public class RomanCameraController : MonoBehaviour {
 //	[HideInInspector]
 //	public float yJumpPoint;
 
-	[Range(0,100)]
+	[Range(0,200)]
 	public float orbitSpeed = 10.0f;
 	//---------------------------------------------------------------------------------------------------------------------------
 	// Private Variables
@@ -100,7 +100,7 @@ public class RomanCameraController : MonoBehaviour {
 //			transform.RotateAround (follow.position, Vector3.up, speed);
 //		}
 		
-		offset = Quaternion.AngleAxis (Input.GetAxis("Mouse X") * orbitSpeed, Vector3.up) * offset;
+		offset = Quaternion.AngleAxis (InputController.orbitH * orbitSpeed * Time.deltaTime, Vector3.up) * offset;
 		transform.position = follow.position + offset; 
 		transform.LookAt(follow.position); //transform.rotation = Quaternion.LookRotation(follow.position - transform.position); 
 		

@@ -29,10 +29,14 @@ public class RomanCharController : MonoBehaviour {
 	[Range(0,50)]
 	public float jumpTurnSpeed = 20f;
 	// Speed modifier of the character's Z movement wheile jumping
-	[Range(0,50)]
+	[Range(0,400)]
 	public float idleJumpForwardSpeed = 10f;
-	[Range(0,50)]
+	[Range(0,400)]
 	public float runningJumpForwardSpeed = 10f;
+	
+	public float jumpTimer = 1.0f; 		// used to add force to the jump for a defaul amount of time
+	private float startJumpTime;
+	
 	//---------------------------------------------------------------------------------------------------------------------------
 	//	Private Variables
 	//---------------------------------------------------------------------------------------------------------------------------	
@@ -106,7 +110,13 @@ public class RomanCharController : MonoBehaviour {
 				
 				// Move the character forward based on Vertical input and weather they are idle jumping or runnign jumping
 				forwardSpeed = charState.IsIdleJumping() ? idleJumpForwardSpeed : runningJumpForwardSpeed;
-				rb.MovePosition(transform.position + transform.forward * forwardSpeed * moveDirectionRaw.sqrMagnitude * Time.deltaTime);
+
+				Vector3 vel = transform.forward * forwardSpeed * moveDirectionRaw.sqrMagnitude * Time.deltaTime;
+				vel.y = rb.velocity.y;
+				rb.velocity = vel;
+				
+				//rb.velocity = transform.forward * forwardSpeed * moveDirectionRaw.sqrMagnitude * Time.fixedTime;
+				//rb.MovePosition(transform.position + transform.forward * forwardSpeed * moveDirectionRaw.sqrMagnitude * Time.fixedTime);
 			}
 			else
 			{
@@ -114,14 +124,13 @@ public class RomanCharController : MonoBehaviour {
 			}
 			
 			// Apply Z Force if the character is jumping but is not falling
-			if (InputController.jumpIsPressed)
+			if (InputController.jumpIsPressed || Time.time < startJumpTime + jumpTimer)
 			{
 				// Deminish the jumping force
 				jumpForce -= jumpForceDeclineSpeed;
 				jumpForce = Mathf.Clamp (jumpForce, 0f, maxJumpForce);
 
 				rb.AddForce (new Vector3 (0, jumpForce, 0), ForceMode.Impulse);
-				//print (rb.velocity.y);
 			}
 
 
@@ -135,7 +144,6 @@ public class RomanCharController : MonoBehaviour {
 		{		
 			transform.rotation = Quaternion.Slerp (transform.rotation, Quaternion.LookRotation(moveDirectionRaw), runRotateSpeed * Time.fixedDeltaTime);
 			animator.ApplyBuiltinRootMotion();
-			
 		}
 	}
 
@@ -151,7 +159,7 @@ public class RomanCharController : MonoBehaviour {
 		camForward = new Vector3(cam.forward.x, 0, cam.forward.z);
 		camRot = Quaternion.LookRotation(camForward);
 		moveDirectionRaw = camRot * moveDirectionRaw;
-		//print (moveDirectionRaw);
+		//moveDirection = camRot * moveDirection;
 	}
 
 	private void OnCollisionEnter (Collision coll)
@@ -184,9 +192,7 @@ public class RomanCharController : MonoBehaviour {
 	{
 		if (e == InputController.InputEvent.Jump && !charState.IsJumping()) 
 		{	
-			if (onCharEvent != null)
-				onCharEvent(RomanCameraController.CamState.StoreJumpPoint);
-
+			startJumpTime = Time.time;
 			JumpUpAnim ();
 			rb.AddForce (new Vector3 (0,  maxJumpForce, 0), ForceMode.Impulse);
 			jumpForce = maxJumpForce;

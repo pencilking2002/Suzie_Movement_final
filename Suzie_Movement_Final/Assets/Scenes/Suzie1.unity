@@ -681,9 +681,9 @@ MonoBehaviour:
   runSpeed: 1.10000002
   maxJumpForce: 3.93000007
   jumpForceDeclineSpeed: .338
-  jumpTurnSpeed: 2
-  idleJumpForwardSpeed: 26
-  runningJumpForwardSpeed: 5
+  jumpTurnSpeed: 29.5
+  idleJumpForwardSpeed: 1.89999998
+  runningJumpForwardSpeed: .699999988
 --- !u!114 &442910729
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -834,10 +834,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   smoothing: 0
-  offset: {x: 0, y: -3.25, z: -5.25}
+  theOffset: {x: 0, y: -2, z: -5}
   follow: {fileID: 2086329366}
   camFollowSpeed: 16.2999992
-  yJumpPoint: 0
+  orbitSpeed: 160
   state: 0
 --- !u!114 &518505467
 MonoBehaviour:
@@ -2193,7 +2193,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e34c6b2ec7d284c4a826508917aebf51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 8
+  speed: 4
 --- !u!1 &2095017285
 GameObject:
   m_ObjectHideFlags: 0

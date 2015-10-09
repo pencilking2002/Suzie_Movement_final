@@ -3,9 +3,10 @@ using System.Collections;
 
 public class FollowPlayer : MonoBehaviour {
 
+	public Vector3 offset;
 	public float speed = 10.0f;
 
-	private Vector3 offset;
+
 	private Vector3 vel;
 	private Vector3 targetPos;
 	private Transform player;
@@ -13,11 +14,11 @@ public class FollowPlayer : MonoBehaviour {
 
 
 
-	void Start () 
+	void Awake () 
 	{
 		player = GameObject.FindGameObjectWithTag("Player").transform;
-		offset = transform.position - player.position;
 		charState = GameObject.FindObjectOfType<RomanCharState>();
+
 	}
 	
 	// Update is called once per frame

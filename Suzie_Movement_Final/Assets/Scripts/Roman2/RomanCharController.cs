@@ -22,7 +22,7 @@ public class RomanCharController : MonoBehaviour {
 	public float runSpeed = 10.0f;
 
 	[Header("JUMPING")]
-	[Range(0,5)]
+	[Range(0,100)]
 	public float maxJumpForce = 0.8f;					// Maximum Y force to Apply to Rigidbody when jumping
 	[Range(0,1)]
 	public float jumpForceDeclineSpeed = 0.02f;			// How fast the jump force declines when jumping
@@ -44,7 +44,7 @@ public class RomanCharController : MonoBehaviour {
 	private RomanCharState charState;
 	private Animator animator;
 	private Rigidbody rb;
-	private float yRot;				// The value to feed into the character's rotation in idle mode
+	private float yRot;				// The value to bfeed into the character's rotation in idle mode
 	private float angle;			// used to check which way the character is rotating
 	private float dir;				// Used as a result of the cross product of the player's rotation and the camera's rotation
 	private Transform cam;	
@@ -93,7 +93,7 @@ public class RomanCharController : MonoBehaviour {
 			if (moveDirectionRaw != Vector3.zero)
 				rb.MoveRotation(Quaternion.Slerp (transform.rotation, Quaternion.LookRotation(moveDirectionRaw), idleRotateSpeed * Time.deltaTime));
 			
-			rb.velocity = Vector3.zero;
+			//rb.velocity = Vector3.zero;
 			rb.angularVelocity = Vector3.zero;
 			
 		}
@@ -122,17 +122,19 @@ public class RomanCharController : MonoBehaviour {
 			{
 				rb.velocity = Vector3.Lerp(rb.velocity, new Vector3(0, rb.velocity.y, 0), 2 * Time.deltaTime);
 			}
-			
-			// Apply Z Force if the character is jumping but is not falling
-			if (InputController.jumpIsPressed || Time.time < startJumpTime + jumpTimer)
+
+			// Aadd a force downwards if the player releases the jump button
+			// when the character is jumping up
+			if (InputController.jumpReleased)
 			{
-				// Deminish the jumping force
-				jumpForce -= jumpForceDeclineSpeed;
-				jumpForce = Mathf.Clamp (jumpForce, 0f, maxJumpForce);
+				InputController.jumpReleased = false;
 
-				rb.AddForce (new Vector3 (0, jumpForce, 0), ForceMode.Impulse);
+				if (rb.velocity.y > 0)
+				{
+					rb.AddForce (new Vector3 (0,  -5, 0), ForceMode.Impulse);
+				}
 			}
-
+			//rb.AddForce (new Vector3 (0, jumpForce, 0), ForceMode.Impulse);
 
 		}
 		
@@ -162,12 +164,13 @@ public class RomanCharController : MonoBehaviour {
 		//moveDirection = camRot * moveDirection;
 	}
 
-	private void OnCollisionEnter (Collision coll)
+	private void OnCollisionStay (Collision coll)
 	{
-		if (/*coll.collider.gameObject.layer == 8 && */ (charState.IsJumping() || charState.IsFalling()) && Vector3.Dot(coll.contacts[0].normal, Vector3.up) > 0.5f)
+		if (charState.IsFalling() && Vector3.Dot(coll.contacts[0].normal, Vector3.up) > 0.5f )
 		{
 			//print ("should land");
 			animator.SetTrigger("Land");
+			//print ("player Y velocity " + rb.velocity.y);
 		}
 	}
 
@@ -190,7 +193,7 @@ public class RomanCharController : MonoBehaviour {
 	// Trigger the jump animation and disable root motion
 	public void Jump (InputController.InputEvent e)
 	{
-		if (e == InputController.InputEvent.Jump && !charState.IsJumping()) 
+		if (e == InputController.InputEvent.Jump && (charState.IsIdle() || charState.IsRunning())) 
 		{	
 			startJumpTime = Time.time;
 			JumpUpAnim ();

@@ -43,6 +43,7 @@ public class InputController : MonoBehaviour {
 	//---------------------------------------------------------------------------------------------------------------------------
 	private InputDevice inputDevice;
 	public static bool jumpIsPressed = false;
+	public static bool jumpReleased = false;
 
 	private void Awake ()
 	{
@@ -105,6 +106,7 @@ public class InputController : MonoBehaviour {
 		if (inputDevice.Action4.WasReleased)
 		{
 			jumpIsPressed = false;
+			jumpReleased = true;
 		}
 
 		//----------------------------------------------------------------------------------------------------------------------

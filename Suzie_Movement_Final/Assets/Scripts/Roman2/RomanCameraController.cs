@@ -71,38 +71,37 @@ public class RomanCameraController : MonoBehaviour {
 	// Update is called once per frame
 	private void LateUpdate () 
 	{
-		//offset = follow.position + offset;
-//		vecDifference = Vector3.Normalize(transform.position - follow.position) * -offset.z;
-//		vecDifference.y = follow.position.y + offset.y;
-//
-//		if (smoothing)
-//			targetPos = Vector3.Lerp(transform.position, follow.position + vecDifference, camFollowSpeed * Time.deltaTime);
-//		else
-//			targetPos = follow.position + vecDifference;
-//			
-//		transform.position = targetPos;
-//
-//			
-//		//Smoothly rotate towards the target point.
-//
-//		targetRotation = Quaternion.LookRotation(follow.position - transform.position);
-//		
-//		if (InputController.orbitH == 0)
-//		{
-//			if (smoothing)
-//				transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, camFollowSpeed * Time.deltaTime);
-//			else
-//				transform.rotation = targetRotation;
-//		}
-//		else
-//		{
-//			speed = Mathf.SmoothDamp (speed, InputController.orbitH * orbitSpeed, ref rotVel, Time.deltaTime);
-//			transform.RotateAround (follow.position, Vector3.up, speed);
-//		}
+		vecDifference = Vector3.Normalize(transform.position - follow.position) * -theOffset.z;
+
+		if (smoothing)
+		{
 		
-		offset = Quaternion.AngleAxis (InputController.orbitH * orbitSpeed * Time.deltaTime, Vector3.up) * offset;
-		transform.position = follow.position + offset; 
-		transform.LookAt(follow.position); //transform.rotation = Quaternion.LookRotation(follow.position - transform.position); 
+			targetPos = Vector3.Lerp (transform.position, follow.position + vecDifference, camFollowSpeed * Time.deltaTime);
+			targetPos.y = Mathf.Lerp (targetPos.y, follow.position.y + theOffset.y, 5.0f * Time.deltaTime);
+		}
+		else
+		{
+			targetPos = follow.position + vecDifference;
+			targetPos.y = follow.position.y + theOffset.y;
+		}
+		
+		transform.position = targetPos;
+
+		//Smoothly rotate towards the target point.
+		targetRotation = Quaternion.LookRotation(follow.position - transform.position);
+		
+		if (smoothing)
+		{
+			transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, camFollowSpeed * Time.deltaTime);
+		}
+		else
+		{
+			transform.rotation = targetRotation;
+		}
+		
+		speed = Mathf.SmoothDamp (speed, InputController.orbitH * 5, ref rotVel, Time.deltaTime);
+		transform.RotateAround (follow.position, Vector3.up, speed);
+
 		
 		
 

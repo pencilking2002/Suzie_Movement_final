@@ -120,7 +120,7 @@ public class RomanCharController : MonoBehaviour {
 			}
 			else
 			{
-				rb.velocity = Vector3.Lerp(rb.velocity, new Vector3(0, rb.velocity.y, 0), 5 * Time.deltaTime);
+				rb.velocity = Vector3.Lerp(rb.velocity, new Vector3(0, rb.velocity.y, 0), 2 * Time.deltaTime);
 			}
 			
 			// Apply Z Force if the character is jumping but is not falling

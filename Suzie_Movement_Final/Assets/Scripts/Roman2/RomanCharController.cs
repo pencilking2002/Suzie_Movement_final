@@ -134,8 +134,6 @@ public class RomanCharController : MonoBehaviour {
 					rb.AddForce (new Vector3 (0,  -5, 0), ForceMode.Impulse);
 				}
 			}
-			//rb.AddForce (new Vector3 (0, jumpForce, 0), ForceMode.Impulse);
-
 		}
 		
 	}

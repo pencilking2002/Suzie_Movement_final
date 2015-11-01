@@ -11,7 +11,6 @@ public class RomanCameraController : MonoBehaviour {
 	
 	public bool smoothing;					// Will the camera smooth its movement?				
 	public Vector3 theOffset;					// How much to offset the camera from the follow
-	private Vector3 offset;
 	public Transform follow = null;			// Object to follow
 	
 	[Range(0,20)]
@@ -61,8 +60,6 @@ public class RomanCameraController : MonoBehaviour {
 		if (follow == null)
 			follow = GameObject.FindGameObjectWithTag("Follow").transform;
 		
-		//charState = GameObject.FindObjectOfType<RomanCharState>();
-		offset = follow.position + theOffset;
 	}
 	
 	// Update is called once per frame

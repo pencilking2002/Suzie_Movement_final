@@ -7,11 +7,7 @@ public class RomanCharController : MonoBehaviour {
 	//---------------------------------------------------------------------------------------------------------------------------
 	// Public Variables
 	//---------------------------------------------------------------------------------------------------------------------------
-	
-	// Input Events -------------------------------------------------------------
-	public delegate void CharEvent(GameEvents gEvent);
-	public static CharEvent onCharEvent;
-	
+		
 	public float idleRotateSpeed = 10.0f;				// How fast the Squirrel will turn in idle mode
 	public float speedDampTime = 0.05f;
 	public float walkToRunDampTime = 1f;
@@ -41,10 +37,12 @@ public class RomanCharController : MonoBehaviour {
 	private RomanCharState charState;
 	private Animator animator;
 	private Rigidbody rb;
-	private float yRot;				// The value to bfeed into the character's rotation in idle mode
+	private Transform cam;
+		
+	private float yRot;				// The value to feed into the character's rotation in idle mode
 	private float angle;			// used to check which way the character is rotating
-	private float dir;				// Used as a result of the cross product of the player's rotation and the camera's rotation
-	private Transform cam;	
+	private float dir;				// The  result of the cross product of the player's rotation and the camera's rotation
+	
 	
 	private Vector3 moveDirection;
 	private Vector3 moveDirectionRaw;
@@ -55,10 +53,9 @@ public class RomanCharController : MonoBehaviour {
 	private Quaternion camRot;
 	
 	// jumping ----------------------
-
 	private float jumpForce;
-	private float zJumpVelocity = 0.0f;
-	private int facingAwayFromCam = 1; 
+	
+//	private int facingAwayFromCam = 1; 
 	private float forwardSpeed; 			// Temp var for forward speed
 	
 	void Start () 
@@ -83,7 +80,7 @@ public class RomanCharController : MonoBehaviour {
 		animator.SetFloat ("Speed", moveDirection.sqrMagnitude, walkToRunDampTime, Time.deltaTime);
 
 		// Keep track of the character's direction compared to the camera
-		facingAwayFromCam = Vector3.Dot (transform.forward, cam.forward) < 0.0f ? -1 : 1;
+		//facingAwayFromCam = Vector3.Dot (transform.forward, cam.forward) < 0.0f ? -1 : 1;
 
 		TurnCharToCamera();
 		
@@ -92,7 +89,7 @@ public class RomanCharController : MonoBehaviour {
 			if (moveDirectionRaw != Vector3.zero)
 				rb.MoveRotation(Quaternion.Slerp (transform.rotation, Quaternion.LookRotation(moveDirectionRaw), idleRotateSpeed * Time.deltaTime));
 			
-			//rb.velocity = Vector3.zero;
+			rb.velocity = Vector3.zero;
 			rb.angularVelocity = Vector3.zero;
 			
 		}
@@ -168,8 +165,8 @@ public class RomanCharController : MonoBehaviour {
 		if (col.CompareTag("JumpCollider") && rb.velocity.y < 0)
 		{
 			// Test to see if the ground is below the Squirrel. If it is, don't attach the follow
-			if (onCharEvent != null && !Physics.Raycast(transform.position, Vector3.down, 2))
-				onCharEvent(GameEvents.AttachFollow);
+			if (!Physics.Raycast(transform.position, Vector3.down, 2))
+				EventManager.OnCharEvent(GameEvent.AttachFollow);
 		}
 	}
 	
@@ -179,9 +176,8 @@ public class RomanCharController : MonoBehaviour {
 		{
 			animator.SetTrigger("Land");
 			
-			if (onCharEvent != null)
-				onCharEvent(GameEvents.AttachFollow);
-		
+			EventManager.OnCharEvent(GameEvent.AttachFollow);
+			
 		}
 	}
 
@@ -189,32 +185,21 @@ public class RomanCharController : MonoBehaviour {
 	// Events --------------------------------------------------------------------------------------------------------------------------------
 	
 	// Hook on to Input event
-	private void OnEnable () 
-	{ 
-		InputController.onInput += Jump;
-	}
-		
-	private void OnDisable () 
-	{ 
-		InputController.onInput -= Jump;
-	}
+	private void OnEnable () { EventManager.onInputEvent += Jump; }
+	private void OnDisable () { EventManager.onInputEvent -= Jump; }
 
 	
 	// Trigger the jump animation and disable root motion
-	public void Jump (InputController.InputEvent e)
+	public void Jump (GameEvent gameEvent)
 	{
-		if (e == InputController.InputEvent.Jump && (charState.IsIdle() || charState.IsRunning())) 
+		if (gameEvent == GameEvent.Jump && (charState.IsIdle() || charState.IsRunning())) 
 		{	
-			if (onCharEvent != null)
-				onCharEvent(GameEvents.DetachFollow);
-			
-			//print ("runs");
+			EventManager.OnCharEvent(GameEvent.DetachFollow);
 			
 			JumpUpAnim ();
 			rb.AddForce (new Vector3 (0,  maxJumpForce, 0), ForceMode.Impulse);
 			jumpForce = maxJumpForce;
 
-			//print("Jump");
 		}
 	}
 	

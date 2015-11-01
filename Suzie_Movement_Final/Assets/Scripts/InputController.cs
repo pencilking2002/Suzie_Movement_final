@@ -11,28 +11,11 @@ public class InputController : MonoBehaviour {
 	public static InputController Instance;
 	
 	public static float v, h, rawH, rawV, orbitH, orbitV;
-
-	
-	// Input Events -------------------------------------------------------------
-	public delegate void InputAction(InputEvent inputEvent);
-	public static InputAction onInput;
 	
 	//public delegate void ControllerDebugAction(ControllerDebugger.Axis axisEvent, ControllerDebugger.State state);
 	//public static ControllerDebugAction onControllerDebug;
 	
-	// Enum to use for chcking input events
-	public enum InputEvent										
-	{
-		Jump,
-		RecenterCam,
-		CamBehind,
-		OrbitCamera,
-		faceOppositeDirection,
-		StopRunning,
-		StartRunning,
-		StopTurnRunning,
-		StartTurnRunning
-	}
+	
 	
 	//[HideInInspector]
 	//public float jumpKeyHoldDuration = 0.0f;
@@ -70,36 +53,30 @@ public class InputController : MonoBehaviour {
 		// Player Movement
 		//----------------------------------------------------------------------------------------------------------------------
 
-		if (onInput == null)
+		if (EventManager.onInputEvent == null)
 			return;
 
 		// Start running
 		if (inputDevice.LeftStickY.WasPressed) 
 		{
-			onInput (InputEvent.StartRunning);
+			EventManager.OnInputEvent(GameEvent.StartRunning);
 		}
 
 		// Stop running
 		if (inputDevice.LeftStickY.WasReleased) 
 		{
-			onInput (InputEvent.StopRunning);
+			EventManager.OnInputEvent (GameEvent.StopRunning);
 			//print ("LeftStickY was released");
 		}
 
 		//----------------------------------------------------------------------------------------------------------------------
 		// Jumping
 		//----------------------------------------------------------------------------------------------------------------------
-
-		// Time how long
-//		if (inputDevice.Action4.IsPressed)
-//		{
-//			jumpKeyHoldDuration += Time.deltaTime;
-//		}
 		
 		// if pressed Y or pressed Space
 		if (inputDevice.Action4.WasPressed)
 		{
-			onInput(InputEvent.Jump);
+			EventManager.OnInputEvent(GameEvent.Jump);
 			jumpIsPressed = true;	
 		}
 
@@ -115,8 +92,7 @@ public class InputController : MonoBehaviour {
 		
 		if (inputDevice.RightBumper.WasReleased)
 		{
-			if (onInput != null)
-				onInput (InputEvent.RecenterCam);	
+			EventManager.OnInputEvent(GameEvent.RecenterCam);	
 		}
 		
 		//----------------------------------------------------------------------------------------------------------------------
@@ -125,15 +101,12 @@ public class InputController : MonoBehaviour {
 		
 		if (inputDevice.RightStickX.IsPressed)
 		{
-			if (onInput != null)
-				onInput (InputEvent.OrbitCamera);
+			EventManager.OnInputEvent(GameEvent.OrbitCamera);
 		}
 		
-
 		if (inputDevice.RightStickX.WasReleased) 
 		{
-			if (onInput != null)
-				onInput (InputEvent.CamBehind);
+			EventManager.OnInputEvent(GameEvent.CamBehind);
 		}
 
 

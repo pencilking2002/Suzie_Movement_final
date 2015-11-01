@@ -41,15 +41,15 @@ public class FollowPlayer : MonoBehaviour {
 	}
 	
 	
-	private void OnEnable() { RomanCharController.onCharEvent += AttachFollow; }
-	private void OnDisable() { RomanCharController.onCharEvent -= AttachFollow; }
+	private void OnEnable() { EventManager.onCharEvent += AttachFollow; }
+	private void OnDisable() { EventManager.onCharEvent -= AttachFollow; }
 	
-	private void AttachFollow (GameEvents gEvent)
+	private void AttachFollow (GameEvent gEvent)
 	{
-		if (gEvent == GameEvents.AttachFollow)
+		if (gEvent == GameEvent.AttachFollow)
 			Attach = true;
 		
-		else if (gEvent == GameEvents.DetachFollow)
+		else if (gEvent == GameEvent.DetachFollow)
 			Attach = false;
 	}
 

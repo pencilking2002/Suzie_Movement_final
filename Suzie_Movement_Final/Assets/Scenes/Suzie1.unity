@@ -800,6 +800,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   offset: {x: 0, y: 0, z: 0}
   speed: 2
+  Attach: 1
 --- !u!4 &517959654
 Transform:
   m_ObjectHideFlags: 0
@@ -2649,6 +2650,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   offset: {x: 0, y: 2.5999999, z: 0}
   speed: 4
+  Attach: 1
 --- !u!1 &2095017285
 GameObject:
   m_ObjectHideFlags: 0

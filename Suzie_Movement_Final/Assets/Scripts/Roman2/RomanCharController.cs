@@ -9,7 +9,7 @@ public class RomanCharController : MonoBehaviour {
 	//---------------------------------------------------------------------------------------------------------------------------
 	
 	// Input Events -------------------------------------------------------------
-	public delegate void CharEvent(RomanCameraController.CamState camState);
+	public delegate void CharEvent(GameEvents gEvent);
 	public static CharEvent onCharEvent;
 	
 	public float idleRotateSpeed = 10.0f;				// How fast the Squirrel will turn in idle mode
@@ -33,9 +33,6 @@ public class RomanCharController : MonoBehaviour {
 	public float idleJumpForwardSpeed = 10f;
 	[Range(0,400)]
 	public float runningJumpForwardSpeed = 10f;
-	
-	public float jumpTimer = 1.0f; 		// used to add force to the jump for a defaul amount of time
-	private float startJumpTime;
 	
 	//---------------------------------------------------------------------------------------------------------------------------
 	//	Private Variables
@@ -77,6 +74,8 @@ public class RomanCharController : MonoBehaviour {
 	
 	private void FixedUpdate ()
 	{
+		if (charState.IsClimbing())
+			return;
 
 		moveDirection = new Vector3(InputController.h, 0, InputController.v);
 		moveDirectionRaw = new Vector3(InputController.rawH, 0, InputController.rawV);
@@ -115,14 +114,13 @@ public class RomanCharController : MonoBehaviour {
 				vel.y = rb.velocity.y;
 				rb.velocity = vel;
 				
-				//rb.velocity = transform.forward * forwardSpeed * moveDirectionRaw.sqrMagnitude * Time.fixedTime;
-				//rb.MovePosition(transform.position + transform.forward * forwardSpeed * moveDirectionRaw.sqrMagnitude * Time.fixedTime);
 			}
 			else
 			{
 				rb.velocity = Vector3.Lerp(rb.velocity, new Vector3(0, rb.velocity.y, 0), 2 * Time.deltaTime);
 			}
-
+		
+			 
 			// Aadd a force downwards if the player releases the jump button
 			// when the character is jumping up
 			if (InputController.jumpReleased)
@@ -140,6 +138,9 @@ public class RomanCharController : MonoBehaviour {
 	
 	private void OnAnimatorMove ()
 	{
+		if (charState.IsClimbing())
+			return;
+			
 		if (charState.IsRunning() && moveDirectionRaw != Vector3.zero)
 		{		
 			transform.rotation = Quaternion.Slerp (transform.rotation, Quaternion.LookRotation(moveDirectionRaw), runRotateSpeed * Time.fixedDeltaTime);
@@ -161,18 +162,29 @@ public class RomanCharController : MonoBehaviour {
 		moveDirectionRaw = camRot * moveDirectionRaw;
 		//moveDirection = camRot * moveDirection;
 	}
-
+	
+	private void OnTriggerEnter (Collider col)
+	{
+		if (col.CompareTag("JumpCollider") && rb.velocity.y < 0)
+		{
+			// Test to see if the ground is below the Squirrel. If it is, don't attach the follow
+			if (onCharEvent != null && !Physics.Raycast(transform.position, Vector3.down, 2))
+				onCharEvent(GameEvents.AttachFollow);
+		}
+	}
+	
 	private void OnCollisionStay (Collision coll)
 	{
 		if (charState.IsFalling() && Vector3.Dot(coll.contacts[0].normal, Vector3.up) > 0.5f )
 		{
-			//print ("should land");
 			animator.SetTrigger("Land");
-			//print ("player Y velocity " + rb.velocity.y);
+			
+			if (onCharEvent != null)
+				onCharEvent(GameEvents.AttachFollow);
+		
 		}
 	}
 
-	
 
 	// Events --------------------------------------------------------------------------------------------------------------------------------
 	
@@ -193,7 +205,11 @@ public class RomanCharController : MonoBehaviour {
 	{
 		if (e == InputController.InputEvent.Jump && (charState.IsIdle() || charState.IsRunning())) 
 		{	
-			startJumpTime = Time.time;
+			if (onCharEvent != null)
+				onCharEvent(GameEvents.DetachFollow);
+			
+			//print ("runs");
+			
 			JumpUpAnim ();
 			rb.AddForce (new Vector3 (0,  maxJumpForce, 0), ForceMode.Impulse);
 			jumpForce = maxJumpForce;

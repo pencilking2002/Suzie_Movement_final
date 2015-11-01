@@ -115,6 +115,12 @@ public class RomanCharState : MonoBehaviour {
 	{
 		return state == State.IdleFalling || state == State.RunningFalling;
 	}
+	
+	public bool IsClimbing()
+	{
+		return state == State.Climbing;
+	}
+	
 
 
 	

@@ -31,8 +31,6 @@ public class RomanCameraController : MonoBehaviour {
 	private Vector3 targetPos = Vector3.zero;
 	
 	private Vector3 vel;       					// velocity needed for smooth damping the cam's position
-	//private RomanCharController charController;	
-	//private RomanCharState charState;
 	
 	private Quaternion targetRotation;
 	private Vector3 vecDifference;
@@ -48,8 +46,7 @@ public class RomanCameraController : MonoBehaviour {
 		Free,
 		Target,
 		TurnRunning,
-		Behind,
-		StoreJumpPoint
+		Behind
 	}
 	
 	[HideInInspector]
@@ -102,29 +99,19 @@ public class RomanCameraController : MonoBehaviour {
 		speed = Mathf.SmoothDamp (speed, InputController.orbitH * 5, ref rotVel, Time.deltaTime);
 		transform.RotateAround (follow.position, Vector3.up, speed);
 
-		
-		
-
 	}
 	
-	private void OnEnable ()
-	{
-		RomanCharController.onCharEvent += SetState;
-		//RomanCharController.onCharEvent += StoreJumpPoint;
-	}
-	
-	private void OnDisable ()
-	{
-		RomanCharController.onCharEvent -= SetState;
-		//RomanCharController.onCharEvent -= StoreJumpPoint;
-
-	}
-
-//	private void StoreJumpPoint(CamState e)
+//	private void OnEnable ()
 //	{
-//		if (e == CamState.StoreJumpPoint)
-//			yJumpPoint = follow.position.y; 
+//		RomanCharController.onCharEvent += SetState;
 //	}
+//	
+//	private void OnDisable ()
+//	{
+//		RomanCharController.onCharEvent -= SetState;
+//
+//	}
+
 
 	private void SetState (CamState s)
 	{

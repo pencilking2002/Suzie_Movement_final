@@ -1,6 +1,12 @@
 using UnityEngine;
 using System.Collections;
 
+public enum GameEvents
+{
+	AttachFollow,
+	DetachFollow
+}
+
 public class GameManager : MonoBehaviour {
 	
 	public static GameManager Instance;

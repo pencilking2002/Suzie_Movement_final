@@ -57,16 +57,28 @@ public class InputController : MonoBehaviour {
 			return;
 
 		// Start running
-		if (inputDevice.LeftStickY.WasPressed) 
+		if (inputDevice.LeftStick.WasPressed) 
 		{
 			EventManager.OnInputEvent(GameEvent.StartRunning);
 		}
 
 		// Stop running
-		if (inputDevice.LeftStickY.WasReleased) 
+		if (inputDevice.LeftStick.WasReleased) 
 		{
+			//EventManager.OnInputEvent (GameEvent.StopSprinting);
 			EventManager.OnInputEvent (GameEvent.StopRunning);
 			//print ("LeftStickY was released");
+		}
+
+	
+		if (inputDevice.LeftTrigger.WasPressed)
+		{
+			EventManager.OnInputEvent (GameEvent.StartSprinting);
+		}
+		else if (inputDevice.LeftTrigger.WasReleased)
+		{
+			EventManager.OnInputEvent (GameEvent.StopSprinting);
+			print ("Stop running");
 		}
 
 		//----------------------------------------------------------------------------------------------------------------------

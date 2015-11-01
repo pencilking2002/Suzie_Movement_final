@@ -33,13 +33,12 @@ public class FollowPlayer : MonoBehaviour {
 	{
 		targetPos = player.position + offset;
 
-		if (!Attach)
+		if (!Attach || charState.IsRunning())
 		    targetPos.y = transform.position.y;
 		
 		transform.position = Vector3.SmoothDamp(transform.position, targetPos, ref vel, speed * Time.deltaTime);
 
 	}
-	
 	
 	private void OnEnable() { EventManager.onCharEvent += AttachFollow; }
 	private void OnDisable() { EventManager.onCharEvent -= AttachFollow; }

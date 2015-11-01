@@ -89,9 +89,9 @@ public class RomanCharController : MonoBehaviour {
 			if (moveDirectionRaw != Vector3.zero)
 				rb.MoveRotation(Quaternion.Slerp (transform.rotation, Quaternion.LookRotation(moveDirectionRaw), idleRotateSpeed * Time.deltaTime));
 			
-			rb.velocity = Vector3.zero;
+			//rb.velocity = Vector3.zero;
 			rb.angularVelocity = Vector3.zero;
-			
+
 		}
 		
 		// Stop moving on the X and Z plane when landing
@@ -175,7 +175,6 @@ public class RomanCharController : MonoBehaviour {
 		if (charState.IsFalling() && Vector3.Dot(coll.contacts[0].normal, Vector3.up) > 0.5f )
 		{
 			animator.SetTrigger("Land");
-			
 			EventManager.OnCharEvent(GameEvent.AttachFollow);
 			
 		}
@@ -185,10 +184,38 @@ public class RomanCharController : MonoBehaviour {
 	// Events --------------------------------------------------------------------------------------------------------------------------------
 	
 	// Hook on to Input event
-	private void OnEnable () { EventManager.onInputEvent += Jump; }
-	private void OnDisable () { EventManager.onInputEvent -= Jump; }
+	private void OnEnable () 
+	{ 
+		EventManager.onInputEvent += Jump;
+		EventManager.onInputEvent += Sprint;
+	}
+	private void OnDisable () 
+	{ 
+		EventManager.onInputEvent -= Jump;
+		EventManager.onInputEvent -= Sprint;
+	}
 
-	
+	private void Sprint(GameEvent gameEvent)
+	{
+		if (!charState.IsRunning())
+		    return;
+
+		if (gameEvent == GameEvent.StartSprinting)
+		{
+			animator.ResetTrigger("StartSprinting");
+			animator.SetTrigger ("StartSprinting");
+
+		}
+		else if (gameEvent == GameEvent.StopSprinting)
+		{
+			// Unity bug where trigger gets stuck so we reset it
+			animator.ResetTrigger("StopSprinting");
+			animator.SetTrigger ("StopSprinting");
+
+		}
+
+	}
+
 	// Trigger the jump animation and disable root motion
 	public void Jump (GameEvent gameEvent)
 	{
@@ -232,6 +259,16 @@ public class RomanCharController : MonoBehaviour {
 	private void ResetJumpForce ()
 	{
 		jumpForce = maxJumpForce;
+	}
+
+	public void RunStateLogic ()
+	{
+		if (charState.IsIdle())
+		{
+			// temp fix for Triggersnt resetting
+			animator.ResetTrigger("StopSprinting");
+			animator.ResetTrigger("StopSprinting");
+		}
 	}
 	
 	

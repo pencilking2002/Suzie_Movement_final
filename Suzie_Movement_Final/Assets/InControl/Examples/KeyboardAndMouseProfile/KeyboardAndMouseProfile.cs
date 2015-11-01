@@ -26,7 +26,7 @@ namespace KeyboardAndMouseExample
 				new InputControlMapping {
 					Handle = "Fire - Mouse",
 					Target = InputControlType.Action1,
-					Source = MouseButton0
+					Source = KeyCodeButton( KeyCode.Space )
 				},
 				new InputControlMapping {
 					Handle = "Fire - Keyboard",

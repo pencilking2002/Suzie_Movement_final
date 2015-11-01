@@ -843,6 +843,7 @@ Camera:
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
+  m_TargetEye: 3
   m_HDR: 0
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
@@ -873,7 +874,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   smoothing: 0
-  theOffset: {x: 0, y: 1.5, z: -5}
+  theOffset: {x: 0, y: 1, z: -3.75}
   follow: {fileID: 2086329366}
   camFollowSpeed: 16.2999992
   orbitSpeed: 160
@@ -1985,7 +1986,7 @@ MonoBehaviour:
   maxRunningRotation: 90
   runRotateSpeed: 10
   runSpeed: 1.10000002
-  maxJumpForce: 18
+  maxJumpForce: 15
   jumpForceDeclineSpeed: .310000002
   jumpTurnSpeed: 24.1000004
   idleJumpForwardSpeed: 129
@@ -2339,6 +2340,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 2086329366}
   - 114: {fileID: 2086329367}
+  - 114: {fileID: 2086329368}
   m_Layer: 0
   m_Name: Follow
   m_TagString: Follow
@@ -2369,7 +2371,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e34c6b2ec7d284c4a826508917aebf51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  offset: {x: 0, y: 2.5999999, z: 0}
+  offset: {x: 0, y: 1.60000002, z: 0}
+  speed: 6
+  Attach: 1
+--- !u!114 &2086329368
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2086329365}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e34c6b2ec7d284c4a826508917aebf51, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  offset: {x: 0, y: 1.61000001, z: 0}
   speed: 6
   Attach: 1
 --- !u!1 &2095017285

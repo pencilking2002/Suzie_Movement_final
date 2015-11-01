@@ -331,24 +331,12 @@ ModelImporter:
     bakeSimulation: 0
     optimizeGameObjects: 0
     motionNodeName: 
-    animationImportErrors: 
-    animationImportWarnings: 'MuscleClip ''AllJumpingAnimationsPack01'' conversion
-      warning: ''SkeletonJoints/EditingMesh6:UpperTorso/EditingMesh6:Spine1'' is between
-      humanoid transforms and has rotation animation. This might lower retargeting
-      quality.
-
-
-      MuscleClip ''AllJumpingAnimationsPack01'' conversion warning: ''SkeletonJoints/EditingMesh6:UpperTorso/EditingMesh6:Spine1/EditingMesh6:Spine2/EditingMesh6:Head''
-      is between humanoid transforms and has rotation animation. This might lower
-      retargeting quality.
-
-
-      MuscleClip ''AllJumpingAnimationsPack01'' conversion warning: ''SkeletonJoints/EditingMesh6:UpperTorso/EditingMesh6:Spine1/EditingMesh6:Spine2/EditingMesh6:Head/EditingMesh6:Head1''
-      is between humanoid transforms and has rotation animation. This might lower
-      retargeting quality.
+    animationImportErrors: 'MuscleClip ''AllJumpingAnimationsPack01'' conversion failed:
+      Required human bone ''Hips'' not found
 
 
 '
+    animationImportWarnings: 
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
     animationCompression: 3
@@ -1726,7 +1714,7 @@ ModelImporter:
     normalImportMode: 0
     tangentImportMode: 1
   importAnimation: 1
-  copyAvatar: 0
+  copyAvatar: 1
   humanDescription:
     human:
     - boneName: SkeletonJoints
@@ -1801,7 +1789,7 @@ ModelImporter:
         value: {x: 0, y: 0, z: 0}
         length: 0
         modified: 0
-    - boneName: EditingMesh6:Head2
+    - boneName: EditingMesh6:Head
       humanName: Neck
       limit:
         min: {x: 0, y: 0, z: 0}
@@ -1809,7 +1797,7 @@ ModelImporter:
         value: {x: 0, y: 0, z: 0}
         length: 0
         modified: 0
-    - boneName: EditingMesh6:HairJoint2
+    - boneName: EditingMesh6:Head1
       humanName: Head
       limit:
         min: {x: 0, y: 0, z: 0}
@@ -1891,14 +1879,6 @@ ModelImporter:
         modified: 0
     - boneName: EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightToeBase
       humanName: RightToes
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: EditingMesh6:HairJoint3
-      humanName: RightEye
       limit:
         min: {x: 0, y: 0, z: 0}
         max: {x: 0, y: 0, z: 0}
@@ -2098,54 +2078,54 @@ ModelImporter:
         length: 0
         modified: 0
     skeleton:
-    - name: AllJumpingAnimationsPack01(Clone)
+    - name: SuzieTPoseTail(Clone)
       position: {x: 0, y: 0, z: 0}
       rotation: {x: 0, y: 0, z: 0, w: 1}
       scale: {x: 1, y: 1, z: 1}
       transformModified: 1
-    - name: Suzie_Ctrl_Reference
+    - name: SuzieControlRig
       position: {x: 0, y: 0, z: 0}
       rotation: {x: 0, y: 0, z: 0, w: 1}
       scale: {x: 1, y: 1, z: 1}
       transformModified: 1
     - name: Suzie_Ctrl_ChestEndEffector
-      position: {x: -.0288710445, y: .696951985, z: .078452751}
-      rotation: {x: .148532435, y: -.115056939, z: .0354585908, w: .98155117}
+      position: {x: 1.59025194e-06, y: .696698427, z: -.0162612572}
+      rotation: {x: -5.6378513e-17, y: 1.09861517e-16, z: 1.14877572e-18, w: 1}
       scale: {x: 1, y: 1, z: 1}
       transformModified: 1
     - name: Suzie_Ctrl_ChestOriginEffector
-      position: {x: -.00207455619, y: .420237333, z: .00341179245}
-      rotation: {x: .108694665, y: -.0435407124, z: .0351997614, w: .992497206}
+      position: {x: 1.58946375e-06, y: .408609986, z: -.0193415638}
+      rotation: {x: 3.12250226e-17, y: 5.37759811e-17, z: 5.60795302e-17, w: 1}
       scale: {x: 1, y: 1, z: 1}
       transformModified: 1
     - name: Suzie_Ctrl_HeadEffector
-      position: {x: -.0344324, y: .736448944, z: .10092365}
-      rotation: {x: .0923580229, y: -.0248826463, z: .0379189178, w: .994692445}
+      position: {x: 1.58946375e-06, y: .740698099, z: -.00400414225}
+      rotation: {x: 3.08171921e-16, y: -5.55111512e-17, z: -1.66533454e-16, w: 1}
       scale: {x: 1, y: 1, z: 1}
       transformModified: 1
     - name: Suzie_Ctrl_Hips
-      position: {x: -.000760273833, y: .347535551, z: -.0105206463}
-      rotation: {x: .089346841, y: -.000793137529, z: .00884120818, w: .99596101}
+      position: {x: 8.6685742e-07, y: .33457762, z: -.0201116335}
+      rotation: {x: -2.71238942e-08, y: 2.2524071e-05, z: -4.6460259e-06, w: 1}
       scale: {x: 1, y: 1, z: 1}
       transformModified: 1
     - name: Suzie_Ctrl_LeftUpLeg
       position: {x: -.101590008, y: -.0411728099, z: .00110271934}
-      rotation: {x: -.692517579, y: .0079093026, z: .0189347267, w: .721109092}
+      rotation: {x: -.00874484237, y: .000378857716, z: -1.19851247e-05, w: .999961734}
       scale: {x: 1, y: 1, z: 1}
       transformModified: 1
     - name: Suzie_Ctrl_LeftLeg
       position: {x: -.00802887883, y: -.144756794, z: .000980303274}
-      rotation: {x: .570743442, y: -.0240321439, z: -.0123683233, w: .820683479}
+      rotation: {x: .0259417091, y: -.000826751755, z: 3.48080539e-05, w: .999663115}
       scale: {x: 1, y: 1, z: 1}
       transformModified: 1
     - name: Suzie_Ctrl_LeftFoot
       position: {x: -.0023386383, y: -.0943555012, z: .00452170381}
-      rotation: {x: .441884071, y: .00138308585, z: -.029236963, w: .896594524}
+      rotation: {x: -.0171987899, y: .000425555801, z: -1.51945133e-05, w: .999852002}
       scale: {x: 1, y: 1, z: 1}
       transformModified: 1
     - name: Suzie_Ctrl_LeftToeBase
       position: {x: .019851407, y: -.0413027182, z: .102777481}
-      rotation: {x: -8.34963814e-08, y: 3.00622054e-31, z: -1.22464712e-16, w: 1}
+      rotation: {x: 2.23654683e-32, y: -0, z: -1.22464685e-16, w: 1}
       scale: {x: 1, y: 1, z: 1}
       transformModified: 1
     - name: Suzie_Ctrl_LeftFootExtraFinger1
@@ -2155,723 +2135,823 @@ ModelImporter:
       transformModified: 1
     - name: Suzie_Ctrl_RightUpLeg
       position: {x: .101590008, y: -.0411728099, z: -7.11607936e-05}
-      rotation: {x: .207141399, y: .00526573276, z: -.0300588254, w: .977835}
+      rotation: {x: -.00112707762, y: -4.87906618e-05, z: 4.83460099e-06, w: .999999404}
       scale: {x: 1, y: 1, z: 1}
       transformModified: 1
     - name: Suzie_Ctrl_RightLeg
       position: {x: .00802887883, y: -.144756809, z: .0018431854}
-      rotation: {x: .0480545014, y: .00304630073, z: .00204882491, w: .998837948}
+      rotation: {x: .00658318633, y: .00016139081, z: -4.22154608e-06, w: .999978304}
       scale: {x: 1, y: 1, z: 1}
       transformModified: 1
     - name: Suzie_Ctrl_RightFoot
       position: {x: .0023386383, y: -.0943557546, z: .00246189348}
-      rotation: {x: -.0234532282, y: -.00398326293, z: .0205371492, w: .999506056}
+      rotation: {x: -.00545610208, y: -.000135126582, z: 4.01660373e-06, w: .999985099}
       scale: {x: 1, y: 1, z: 1}
       transformModified: 1
     - name: Suzie_Ctrl_RightToeBase
       position: {x: -.0198511891, y: -.0413070284, z: .102944382}
-      rotation: {x: -.400292456, y: 1.60337095e-07, z: 5.88815006e-08, w: .916387439}
+      rotation: {x: 2.23654683e-32, y: -0, z: -1.22464685e-16, w: 1}
       scale: {x: 1, y: 1, z: 1}
       transformModified: 1
     - name: Suzie_Ctrl_RightFootExtraFinger1
       position: {x: -.00843609776, y: -.000684852595, z: .044938352}
-      rotation: {x: -.203600675, y: -5.87317963e-08, z: -4.20304929e-08, w: .979054034}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
       scale: {x: 1, y: 1, z: 1}
       transformModified: 1
     - name: Suzie_Ctrl_Spine
       position: {x: 5.2939558e-25, y: .0740323588, z: .000770077691}
-      rotation: {x: .0192221235, y: -.0403936766, z: .0300867353, w: .998545825}
+      rotation: {x: 2.71238942e-08, y: -2.2524071e-05, z: 4.6460259e-06, w: 1}
       scale: {x: 1, y: 1, z: 1}
       transformModified: 1
     - name: Suzie_Ctrl_Spine1
       position: {x: -5.2939558e-25, y: .0863710418, z: .000898420811}
-      rotation: {x: .0190282874, y: -.0365555063, z: .0026812139, w: .999146879}
+      rotation: {x: -1.24032729e-16, y: -8.15300512e-17, z: 5.4654073e-17, w: 1}
       scale: {x: 1, y: 1, z: 1}
       transformModified: 1
     - name: Suzie_Ctrl_Spine2
       position: {x: -5.2939558e-25, y: .0987098292, z: .00102677103}
-      rotation: {x: .0192755237, y: -.0363127925, z: .003991873, w: .999146581}
+      rotation: {x: -1.73472348e-18, y: 5.49307583e-17, z: 5.60855388e-17, w: 1}
       scale: {x: 1, y: 1, z: 1}
       transformModified: 1
     - name: Suzie_Ctrl_LeftShoulder
       position: {x: -.0267114807, y: .103007585, z: .00140367739}
-      rotation: {x: -4.50570177e-08, y: 6.38069793e-08, z: -1.20387142e-07, w: 1}
+      rotation: {x: 6.50521303e-19, y: -5.17952198e-37, z: -7.9621097e-19, w: 1}
       scale: {x: 1, y: 1, z: 1}
       transformModified: 1
     - name: Suzie_Ctrl_LeftArm
       position: {x: -.0526473038, y: -.0159398653, z: .000497124158}
-      rotation: {x: .47711876, y: -.503526032, z: .34636113, w: .631548226}
+      rotation: {x: -2.76254714e-16, y: -5.30039337e-17, z: -4.16333634e-17, w: 1}
       scale: {x: 1, y: 1, z: 1}
       transformModified: 1
     - name: Suzie_Ctrl_LeftForeArm
       position: {x: -.0690052658, y: -.00115043635, z: -.0143523356}
-      rotation: {x: -.0590837114, y: .496539831, z: .0351581946, w: .865286767}
+      rotation: {x: 5.52943108e-17, y: -1.60529684e-17, z: -1.04083409e-17, w: 1}
       scale: {x: 1, y: 1, z: 1}
       transformModified: 1
     - name: Suzie_Ctrl_LeftHand
       position: {x: -.142029077, y: .00543655362, z: .00585917477}
-      rotation: {x: -9.7173313e-08, y: 5.1408631e-07, z: -6.38709651e-07, w: 1}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
       scale: {x: 1, y: 1, z: 1}
       transformModified: 1
     - name: Suzie_Ctrl_LeftHandIndex1
       position: {x: -.0796496943, y: -.00939147919, z: .0164382532}
-      rotation: {x: .000899539154, y: .00152619695, z: .502473652, w: .864590704}
+      rotation: {x: -3.40005801e-16, y: -4.16333634e-17, z: -6.07153217e-18, w: 1}
       scale: {x: 1, y: 1, z: 1}
       transformModified: 1
     - name: Suzie_Ctrl_LeftHandIndex2
       position: {x: -.0182002261, y: -.00423461897, z: .00285974494}
-      rotation: {x: -.00171580014, y: 8.06677107e-08, z: .502469063, w: .864593506}
+      rotation: {x: .00176262471, y: .000364391279, z: .0120946895, w: .999925256}
       scale: {x: 1, y: 1, z: 1}
       transformModified: 1
     - name: Suzie_Ctrl_LeftHandIndex3
       position: {x: -.0177034754, y: -.00365989679, z: .00269028894}
-      rotation: {x: 3.52748975e-05, y: 2.90901835e-06, z: .502471745, w: .864593625}
+      rotation: {x: 4.33680869e-19, y: 2.77555756e-17, z: -1.74014449e-17, w: 1}
       scale: {x: 1, y: 1, z: 1}
       transformModified: 1
     - name: Suzie_Ctrl_LeftHandIndex4
       position: {x: -.0132475663, y: .000654220581, z: .00135357142}
-      rotation: {x: -5.87229954e-09, y: 2.08057234e-08, z: -6.752893e-08, w: 1}
+      rotation: {x: -5.76795556e-17, y: 7.63278329e-17, z: 6.54858112e-17, w: 1}
       scale: {x: 1, y: 1, z: 1}
       transformModified: 1
     - name: Suzie_Ctrl_LeftHandMiddle1
       position: {x: -.0797444135, y: -.0132630151, z: .000633850112}
-      rotation: {x: -1.03527702e-06, y: -2.15429736e-06, z: .540630996, w: .841259837}
+      rotation: {x: -1.08420217e-19, y: 1.73472348e-18, z: -5.79031723e-18, w: 1}
       scale: {x: 1, y: 1, z: 1}
       transformModified: 1
     - name: Suzie_Ctrl_LeftHandMiddle2
       position: {x: -.0211970136, y: -.00308425887, z: -.00025667905}
-      rotation: {x: 3.34376796e-06, y: -4.11132362e-07, z: .540592909, w: .841284394}
+      rotation: {x: -1.21105383e-16, y: -1.56125113e-17, z: -1.08801382e-17, w: 1}
       scale: {x: 1, y: 1, z: 1}
       transformModified: 1
     - name: Suzie_Ctrl_LeftHandMiddle3
       position: {x: -.022898674, y: -.00334350578, z: .000219101901}
-      rotation: {x: 4.91213143e-07, y: -3.63248972e-07, z: .540592909, w: .841284335}
+      rotation: {x: -3.44938921e-16, y: -1.34441069e-17, z: -6.64243237e-18, w: 1}
       scale: {x: 1, y: 1, z: 1}
       transformModified: 1
     - name: Suzie_Ctrl_LeftHandMiddle4
       position: {x: -.0159443654, y: -.00182052609, z: 7.1544644e-05}
-      rotation: {x: 1.89673521e-08, y: 2.1656914e-09, z: 5.34503215e-08, w: 1}
+      rotation: {x: -2.23454068e-16, y: -4.33680869e-19, z: -2.46063071e-19, w: 1}
       scale: {x: 1, y: 1, z: 1}
       transformModified: 1
     - name: Suzie_Ctrl_LeftHandRing1
       position: {x: -.0755849034, y: -.0142844385, z: -.0171960611}
-      rotation: {x: 5.37579472e-05, y: .000175398061, z: .560935438, w: .827859521}
+      rotation: {x: 3.46944695e-18, y: -4.81482486e-35, z: -1.38777878e-17, w: 1}
       scale: {x: 1, y: 1, z: 1}
       transformModified: 1
     - name: Suzie_Ctrl_LeftHandRing2
       position: {x: -.0195776746, y: -.00453224173, z: -.00359857082}
-      rotation: {x: -.000183517637, y: -1.51262002e-05, z: .560936272, w: .827859044}
+      rotation: {x: 3.46944695e-18, y: -1.38777878e-17, z: -8.23993651e-18, w: 1}
       scale: {x: 1, y: 1, z: 1}
       transformModified: 1
     - name: Suzie_Ctrl_LeftHandRing3
       position: {x: -.0207398981, y: -.0048175049, z: -.0033535813}
-      rotation: {x: 5.55406388e-08, y: -3.41735387e-07, z: .560935855, w: .827859282}
+      rotation: {x: 1.14491749e-16, y: 2.77555756e-17, z: -1.17527515e-16, w: 1}
       scale: {x: 1, y: 1, z: 1}
       transformModified: 1
     - name: Suzie_Ctrl_LeftHandRing4
       position: {x: -.0144664003, y: -.00397865288, z: -.00229796884}
-      rotation: {x: -1.72685937e-08, y: -4.16087573e-08, z: 3.01761389e-08, w: 1}
+      rotation: {x: 1.31838984e-16, y: 3.0303304e-33, z: 2.29850861e-17, w: 1}
       scale: {x: 1, y: 1, z: 1}
       transformModified: 1
     - name: Suzie_Ctrl_LeftHandThumb1
       position: {x: -.0298571009, y: -.00758033758, z: .0169186946}
-      rotation: {x: .08929234, y: -.206216976, z: -.0515540242, w: .973058939}
+      rotation: {x: 1.38777878e-17, y: 1.04083409e-17, z: -6.9388939e-17, w: 1}
       scale: {x: 1, y: 1, z: 1}
       transformModified: 1
     - name: Suzie_Ctrl_LeftHandThumb2
       position: {x: -.0238856878, y: -.00606422406, z: .0135349557}
-      rotation: {x: .0892963633, y: -.206221819, z: -.0515557155, w: .973057389}
+      rotation: {x: -1.94289029e-16, y: 3.46944695e-18, z: 1.11022302e-16, w: 1}
       scale: {x: 1, y: 1, z: 1}
       transformModified: 1
     - name: Suzie_Ctrl_LeftHandThumb3
       position: {x: -.0239964295, y: -.00823219307, z: .0120616723}
-      rotation: {x: -5.08972455e-08, y: -3.18822551e-08, z: -4.21862456e-09, w: 1}
+      rotation: {x: 3.74700271e-16, y: 1.90819582e-17, z: -7.15001492e-33, w: 1}
       scale: {x: 1, y: 1, z: 1}
       transformModified: 1
     - name: Suzie_Ctrl_LeftHandThumb4
       position: {x: -.0201841723, y: -.00376838678, z: .00849951245}
-      rotation: {x: 2.28983499e-16, y: -8.50014503e-17, z: -9.71445147e-17, w: 1}
+      rotation: {x: 3.40005801e-16, y: -3.98986399e-17, z: -1.2490009e-16, w: 1}
       scale: {x: 1, y: 1, z: 1}
       transformModified: 1
     - name: Suzie_Ctrl_Neck
       position: {x: 9.86076109e-34, y: .111048505, z: .00115511648}
-      rotation: {x: -.0269037057, y: .0461554751, z: -.00373801263, w: .998564899}
+      rotation: {x: 2.77555756e-17, y: -1.05085111e-16, z: -3.58199778e-17, w: 1}
       scale: {x: 1, y: 1, z: 1}
       transformModified: 1
     - name: Suzie_Ctrl_Head
       position: {x: 5.2939558e-25, y: .0359587073, z: .0122571131}
-      rotation: {x: -.0268984418, y: .0462901667, z: -.00124685327, w: .998565018}
+      rotation: {x: 3.08171921e-16, y: 5.55111512e-17, z: -5.55111512e-17, w: 1}
       scale: {x: 1, y: 1, z: 1}
       transformModified: 1
     - name: Suzie_Ctrl_RightShoulder
       position: {x: .0267114807, y: .103007585, z: .000906553236}
-      rotation: {x: -3.97141164e-08, y: 2.74165082e-08, z: -3.13423136e-08, w: 1}
+      rotation: {x: -6.50521303e-19, y: -5.17952198e-37, z: 7.9621097e-19, w: 1}
       scale: {x: 1, y: 1, z: 1}
       transformModified: 1
     - name: Suzie_Ctrl_RightArm
       position: {x: .0526473038, y: -.0159398653, z: -.000497124158}
-      rotation: {x: -.208435938, y: -.370674342, z: -.448619395, w: .786063373}
+      rotation: {x: 4.95371973e-16, y: 2.35839384e-17, z: -8.97719399e-17, w: 1}
       scale: {x: 1, y: 1, z: 1}
       transformModified: 1
     - name: Suzie_Ctrl_RightForeArm
       position: {x: .069144927, y: -.000523757946, z: -.0121122999}
-      rotation: {x: -.0590869039, y: -.496540189, z: -.0351580679, w: .86528635}
+      rotation: {x: 1.51788304e-18, y: -1.36880524e-18, z: 1.38777878e-17, w: 1}
       scale: {x: 1, y: 1, z: 1}
       transformModified: 1
     - name: Suzie_Ctrl_RightHand
       position: {x: .141782373, y: .00986885093, z: .00489943754}
-      rotation: {x: -9.05019419e-08, y: -2.07264691e-07, z: -6.35477022e-07, w: 1}
+      rotation: {x: -1.23259516e-32, y: 6.12323426e-17, z: 0, w: 1}
       scale: {x: 1, y: 1, z: 1}
       transformModified: 1
     - name: Suzie_Ctrl_RightHandIndex1
       position: {x: .0862458199, y: -.00713066105, z: .0186823681}
-      rotation: {x: .000360194157, y: -.000943237625, z: -.565865457, w: .824496984}
+      rotation: {x: 8.67361738e-18, y: -2.77555756e-17, z: 2.19876201e-16, w: 1}
       scale: {x: 1, y: 1, z: 1}
       transformModified: 1
     - name: Suzie_Ctrl_RightHandIndex2
       position: {x: .0165702812, y: -.00308349612, z: .00291007501}
-      rotation: {x: -.00100866531, y: -1.54989766e-06, z: -.565861046, w: .824500084}
+      rotation: {x: .00634412328, y: -.000615826109, z: -.0424925946, w: .999076486}
       scale: {x: 1, y: 1, z: 1}
       transformModified: 1
     - name: Suzie_Ctrl_RightHandIndex3
       position: {x: .0160572045, y: -.00155868533, z: .00241992227}
-      rotation: {x: -1.41514522e-06, y: -1.77055858e-06, z: -.565862954, w: .824499309}
+      rotation: {x: 8.87690529e-18, y: 2.08166817e-17, z: -2.20980732e-16, w: 1}
       scale: {x: 1, y: 1, z: 1}
       transformModified: 1
     - name: Suzie_Ctrl_RightHandIndex4
       position: {x: .0104694366, y: 3.73840317e-06, z: .001293106}
-      rotation: {x: -3.37082682e-08, y: -7.56417151e-08, z: 2.13369642e-08, w: 1}
+      rotation: {x: -1.35525272e-20, y: 1.38777878e-17, z: 8.47032947e-21, w: 1}
       scale: {x: 1, y: 1, z: 1}
       transformModified: 1
     - name: Suzie_Ctrl_RightHandMiddle1
       position: {x: .0820929483, y: -.01165123, z: .00257358304}
-      rotation: {x: -1.0232894e-07, y: -6.78404604e-06, z: -.586700082, w: .80980432}
+      rotation: {x: -3.25260652e-19, y: -3.46944695e-18, z: 3.82858892e-18, w: 1}
       scale: {x: 1, y: 1, z: 1}
       transformModified: 1
     - name: Suzie_Ctrl_RightHandMiddle2
       position: {x: .0225154106, y: -.00191276544, z: -.000444765086}
-      rotation: {x: -3.71638225e-06, y: -1.28676209e-06, z: -.586609602, w: .809869826}
+      rotation: {x: 1.38464793e-05, y: -1.14327645e-06, z: -.00118475629, w: .999999285}
       scale: {x: 1, y: 1, z: 1}
       transformModified: 1
     - name: Suzie_Ctrl_RightHandMiddle3
       position: {x: .0214084629, y: -.00176765444, z: .000251910678}
-      rotation: {x: -1.07122696e-06, y: -1.97080772e-06, z: -.586608171, w: .809870899}
+      rotation: {x: 4.66206934e-18, y: -3.46944695e-18, z: 4.42815272e-16, w: 1}
       scale: {x: 1, y: 1, z: 1}
       transformModified: 1
     - name: Suzie_Ctrl_RightHandMiddle4
       position: {x: .0150527572, y: .000805892923, z: -.000346388813}
-      rotation: {x: 7.42803877e-07, y: -1.38966669e-07, z: -7.70640952e-07, w: 1}
+      rotation: {x: -7.58941521e-19, y: 1.73472348e-18, z: 1.2675001e-17, w: 1}
       scale: {x: 1, y: 1, z: 1}
       transformModified: 1
     - name: Suzie_Ctrl_RightHandRing1
       position: {x: .0772425234, y: -.0135950465, z: -.0162927099}
-      rotation: {x: -.000913227617, y: .00120022881, z: -.592246294, w: .805755556}
+      rotation: {x: -8.67361738e-19, y: -6.9388939e-18, z: 3.25260652e-18, w: 1}
       scale: {x: 1, y: 1, z: 1}
       transformModified: 1
     - name: Suzie_Ctrl_RightHandRing2
       position: {x: .0203203205, y: -.00476417551, z: -.00130361551}
-      rotation: {x: .000785575947, y: -3.17903105e-05, z: -.59224534, w: .805757344}
+      rotation: {x: -2.26273114e-05, y: 5.28221062e-06, z: -.000477203721, w: .999999881}
       scale: {x: 1, y: 1, z: 1}
       transformModified: 1
     - name: Suzie_Ctrl_RightHandRing3
       position: {x: .0201581959, y: -.00470581045, z: -.00100791932}
-      rotation: {x: -.000517183158, y: -3.92427501e-05, z: -.592245698, w: .805757225}
+      rotation: {x: 8.67361738e-19, y: -1.38777878e-17, z: -2.247009e-16, w: 1}
       scale: {x: 1, y: 1, z: 1}
       transformModified: 1
     - name: Suzie_Ctrl_RightHandRing4
       position: {x: .0136935422, y: .00081779476, z: -.00164687156}
-      rotation: {x: -3.49931462e-08, y: -3.39134161e-08, z: -4.22592201e-08, w: 1}
+      rotation: {x: -3.90312782e-18, y: 2.77555756e-17, z: -1.2468325e-18, w: 1}
       scale: {x: 1, y: 1, z: 1}
       transformModified: 1
     - name: Suzie_Ctrl_RightHandThumb1
       position: {x: .030218944, y: -.00488601672, z: .0172483064}
-      rotation: {x: .0502135195, y: .284260303, z: -.0300844684, w: .956958532}
+      rotation: {x: 1.80411242e-16, y: -9.54097912e-17, z: -9.71445147e-17, w: 1}
       scale: {x: 1, y: 1, z: 1}
       transformModified: 1
     - name: Suzie_Ctrl_RightHandThumb2
       position: {x: .0241751466, y: -.00390876783, z: .0137986466}
-      rotation: {x: .26784718, y: .618566751, z: .154643625, w: .722300828}
+      rotation: {x: -8.32667268e-17, y: 7.80625564e-17, z: -2.77555756e-17, w: 1}
       scale: {x: 1, y: 1, z: 1}
       transformModified: 1
     - name: Suzie_Ctrl_RightHandThumb3
       position: {x: .0235410295, y: -.00554618845, z: .0123196123}
-      rotation: {x: -.118976653, y: -.274763882, z: -.0686922893, w: .951646388}
+      rotation: {x: -5.20417043e-18, y: -4.02239006e-17, z: 1.04083409e-17, w: 1}
       scale: {x: 1, y: 1, z: 1}
       transformModified: 1
     - name: Suzie_Ctrl_RightHandThumb4
       position: {x: .0210086443, y: -.000830841018, z: .00767968642}
-      rotation: {x: -6.08071531e-08, y: 4.08722975e-08, z: 7.49623936e-08, w: 1}
+      rotation: {x: -9.02056208e-17, y: 2.71592644e-17, z: -1.73472348e-17, w: 1}
       scale: {x: 1, y: 1, z: 1}
       transformModified: 1
     - name: Suzie_Ctrl_HipsEffector
-      position: {x: -2.93636313e-05, y: .306934685, z: -.0173401367}
-      rotation: {x: .089346841, y: -.000793137529, z: .00884120818, w: .99596101}
+      position: {x: 5.14984094e-07, y: .293404818, z: -.019595854}
+      rotation: {x: -2.71238942e-08, y: 2.2524071e-05, z: -4.6460259e-06, w: 1}
       scale: {x: 1, y: 1, z: 1}
       transformModified: 1
     - name: Suzie_Ctrl_LeftAnkleEffector
-      position: {x: -.101644084, y: .181461081, z: .141782522}
-      rotation: {x: .380500317, y: 4.29746265e-08, z: 6.14203657e-08, w: .924780846}
+      position: {x: -.111959539, y: .0542331673, z: -.0142141581}
+      rotation: {x: 9.02056208e-17, y: 8.32667268e-17, z: 1.31838984e-16, w: 1}
       scale: {x: 1, y: 1, z: 1}
       transformModified: 1
     - name: Suzie_Ctrl_LeftElbowEffector
-      position: {x: -.103252143, y: .714048266, z: -.00512092095}
-      rotation: {x: .247877359, y: -.321882248, z: .545828581, w: .732816339}
+      position: {x: -.148362458, y: .679608166, z: -.0298679061}
+      rotation: {x: 5.49690501e-17, y: -1.6042804e-17, z: -6.9388939e-18, w: 1}
       scale: {x: 1, y: 1, z: 1}
       transformModified: 1
     - name: Suzie_Ctrl_LeftFootEffector
-      position: {x: -.0817926675, y: .0797874033, z: .185732558}
-      rotation: {x: .380500197, y: 4.47034871e-08, z: 4.84287632e-08, w: .924780846}
+      position: {x: -.0921081305, y: .01293045, z: .0885633081}
+      rotation: {x: 2.23654683e-32, y: -0, z: -1.22464685e-16, w: 1}
       scale: {x: 1, y: 1, z: 1}
       transformModified: 1
     - name: Suzie_Ctrl_LeftFootExtraFingerEffector
-      position: {x: -.073356472, y: .0476110205, z: .217244014}
-      rotation: {x: .380500197, y: 4.47034694e-08, z: 4.84287632e-08, w: .924780846}
+      position: {x: -.0836719424, y: .0122475429, z: .133594692}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
       scale: {x: 1, y: 1, z: 1}
       transformModified: 1
     - name: Suzie_Ctrl_LeftHandIndexEffector
-      position: {x: -.114609562, y: .554054618, z: -.13560912}
-      rotation: {x: .323945969, y: .245066613, z: -.72813642, w: .552104056}
+      position: {x: -.419107616, y: .667650998, z: -.000656286138}
+      rotation: {x: .00176262471, y: .000364391279, z: .0120946895, w: .999925256}
       scale: {x: 1, y: 1, z: 1}
       transformModified: 1
     - name: Suzie_Ctrl_LeftHandMiddleEffector
-      position: {x: -.107292563, y: .573721766, z: -.14629887}
-      rotation: {x: .353855878, y: .199589312, z: -.647759795, w: .644482255}
+      position: {x: -.43017599, y: .66353339, z: -.0233409144}
+      rotation: {x: -2.23508278e-16, y: 4.33680869e-19, z: -2.45639555e-19, w: 1}
       scale: {x: 1, y: 1, z: 1}
       transformModified: 1
     - name: Suzie_Ctrl_LeftHandRingEffector
-      position: {x: -.108062997, y: .598158538, z: -.16092965}
-      rotation: {x: .367485195, y: .173221812, z: -.59897548, w: .690055966}
+      position: {x: -.420760423, y: .657431841, z: -.0504549108}
+      rotation: {x: 1.31838984e-16, y: 3.0303304e-33, z: 2.29850861e-17, w: 1}
       scale: {x: 1, y: 1, z: 1}
       transformModified: 1
     - name: Suzie_Ctrl_LeftHandThumbEffector
-      position: {x: -.143663555, y: .553420007, z: -.185266554}
-      rotation: {x: .600221336, y: -.462037474, z: .370729536, w: .537415445}
+      position: {x: -.388314933, y: .659399569, z: .0270061027}
+      rotation: {x: 2.70616862e-16, y: -7.89299182e-17, z: -1.38777878e-16, w: 1}
       scale: {x: 1, y: 1, z: 1}
       transformModified: 1
     - name: Suzie_Ctrl_LeftHipEffector
-      position: {x: -.101603478, y: .305055529, z: -.0170835666}
-      rotation: {x: -.625376642, y: -.000509029021, z: .0253911261, w: .77990967}
+      position: {x: -.101589471, y: .293405741, z: -.0190043356}
+      rotation: {x: -.00874486752, y: .000401421537, z: -1.64340127e-05, w: .999961674}
       scale: {x: 1, y: 1, z: 1}
       transformModified: 1
     - name: Suzie_Ctrl_LeftKneeEffector
-      position: {x: -.104012899, y: .274346262, z: .124588981}
-      rotation: {x: -.0674913973, y: -.0124036865, z: .026511576, w: .997290432}
+      position: {x: -.109621301, y: .148688495, z: -.0154860755}
+      rotation: {x: .0171987936, y: -.000425555743, z: 1.51945214e-05, w: .999852002}
       scale: {x: 1, y: 1, z: 1}
       transformModified: 1
     - name: Suzie_Ctrl_LeftShoulderEffector
-      position: {x: -.104435407, y: .678720355, z: .0558674373}
-      rotation: {x: -.540124893, y: .601428509, z: -.342470706, w: -.478813857}
+      position: {x: -.0793571919, y: .680758595, z: -.0155155705}
+      rotation: {x: -2.25730892e-16, y: -1.05540305e-17, z: -2.60208521e-17, w: 1}
       scale: {x: 1, y: 1, z: 1}
       transformModified: 1
     - name: Suzie_Ctrl_LeftWristEffector
-      position: {x: -.137616754, y: .620433092, z: -.106567629}
-      rotation: {x: .24787724, y: -.321881711, z: .545828223, w: .732816875}
+      position: {x: -.290391535, y: .685044706, z: -.0240087304}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
       scale: {x: 1, y: 1, z: 1}
       transformModified: 1
     - name: Suzie_Ctrl_RightAnkleEffector
-      position: {x: .101558015, y: .113632999, z: -.155860648}
-      rotation: {x: .317226619, y: -5.2857505e-08, z: 8.33618685e-08, w: .948349774}
+      position: {x: .111957759, y: .0542744733, z: -.0165859535}
+      rotation: {x: 3.03576608e-17, y: 9.71445147e-17, z: -2.94908023e-33, w: 1}
       scale: {x: 1, y: 1, z: 1}
       transformModified: 1
     - name: Suzie_Ctrl_RightElbowEffector
-      position: {x: .0708984733, y: .627913475, z: .127447382}
-      rotation: {x: .295969814, y: .698792994, z: .464455247, w: -.456477344}
+      position: {x: .1485053, y: .68023479, z: -.0291192438}
+      rotation: {x: -1.10371781e-16, y: -2.15485182e-18, z: 6.9388939e-18, w: 1}
       scale: {x: 1, y: 1, z: 1}
       transformModified: 1
     - name: Suzie_Ctrl_RightFootEffector
-      position: {x: .081706807, y: .0186996162, z: -.0984890237}
-      rotation: {x: -.0889148191, y: 5.96046448e-08, z: 1.63912787e-07, w: .996039271}
+      position: {x: .0921065658, y: .0129674431, z: .086358428}
+      rotation: {x: 2.23654683e-32, y: -0, z: -1.22464685e-16, w: 1}
       scale: {x: 1, y: 1, z: 1}
       transformModified: 1
     - name: Suzie_Ctrl_RightFootExtraFingerEffector
-      position: {x: .0732707083, y: .0259853099, z: -.0541399196}
-      rotation: {x: -.289846629, y: -4.08491942e-08, z: 1.34883976e-07, w: .957073092}
+      position: {x: .0836704746, y: .0122825904, z: .131296784}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
       scale: {x: 1, y: 1, z: 1}
       transformModified: 1
     - name: Suzie_Ctrl_RightHandIndexEffector
-      position: {x: -.0409737378, y: .646155298, z: .3063761}
-      rotation: {x: -.74832803, y: .12614195, z: .336541265, w: .557524264}
+      position: {x: .419396043, y: .676040947, z: .0010839121}
+      rotation: {x: .00634412281, y: -.000615825993, z: -.0424925908, w: .999076486}
       scale: {x: 1, y: 1, z: 1}
       transformModified: 1
     - name: Suzie_Ctrl_RightHandMiddleEffector
-      position: {x: -.0350052379, y: .621634066, z: .296990752}
-      rotation: {x: -.755764961, y: .068757005, z: .293082029, w: .581545115}
+      position: {x: .431354851, y: .675491571, z: -.0221854113}
+      rotation: {x: 1.38464793e-05, y: -1.14327656e-06, z: -.00118475629, w: .999999285}
       scale: {x: 1, y: 1, z: 1}
       transformModified: 1
     - name: Suzie_Ctrl_RightHandRingEffector
-      position: {x: -.021504892, y: .60228008, z: .293958843}
-      rotation: {x: -.756627977, y: .0526507348, z: .281468809, w: .587807178}
+      position: {x: .421698511, y: .66782403, z: -.0444711}
+      rotation: {x: -2.26273114e-05, y: 5.28221062e-06, z: -.000477203721, w: .999999881}
       scale: {x: 1, y: 1, z: 1}
       transformModified: 1
     - name: Suzie_Ctrl_RightHandThumbEffector
-      position: {x: .0020068537, y: .607924581, z: .330333591}
-      rotation: {x: .153206587, y: -.340901881, z: -.339697659, w: .863086998}
+      position: {x: .389231414, y: .674931884, z: .026826445}
+      rotation: {x: -4.33680869e-17, y: 2.55329612e-17, z: -2.08166817e-17, w: 1}
       scale: {x: 1, y: 1, z: 1}
       transformModified: 1
     - name: Suzie_Ctrl_RightHipEffector
-      position: {x: .101544753, y: .30881384, z: -.0175967086}
-      rotation: {x: .293648511, y: .00898595061, z: -.0206574053, w: .955648005}
+      position: {x: .101590499, y: .293403894, z: -.0201873705}
+      rotation: {x: -.00112710486, y: -2.62613667e-05, z: 2.13965421e-07, w: .999999404}
       scale: {x: 1, y: 1, z: 1}
       transformModified: 1
     - name: Suzie_Ctrl_RightKneeEffector
-      position: {x: .103095479, y: .187835231, z: -.0974979177}
-      rotation: {x: .339311808, y: .0102923829, z: -.0182127189, w: .94044131}
+      position: {x: .109619349, y: .14865151, z: -.0180174541}
+      rotation: {x: .00545610208, y: .000135126582, z: -4.01660418e-06, w: .999985099}
       scale: {x: 1, y: 1, z: 1}
       transformModified: 1
     - name: Suzie_Ctrl_RightShoulderEffector
-      position: {x: .0500020683, y: .684790611, z: .092002511}
-      rotation: {x: -.0230743065, y: -.395034164, z: -.491509348, w: .775779724}
+      position: {x: .0793603733, y: .680758595, z: -.017006943}
+      rotation: {x: 2.24104589e-16, y: 1.1698372e-17, z: -4.94396191e-17, w: 1}
       scale: {x: 1, y: 1, z: 1}
       transformModified: 1
     - name: Suzie_Ctrl_RightWristEffector
-      position: {x: .0195308402, y: .634827614, z: .259875506}
-      rotation: {x: .295969516, y: .698793173, z: .464455575, w: -.456476867}
+      position: {x: .290287673, y: .69010365, z: -.0242198054}
+      rotation: {x: -1.23259516e-32, y: 6.12323426e-17, z: 0, w: 1}
       scale: {x: 1, y: 1, z: 1}
       transformModified: 1
     - name: SuzieMesh
       position: {x: 0, y: 0, z: 0}
       rotation: {x: 0, y: 0, z: 0, w: 1}
-      scale: {x: .99999994, y: .99999994, z: .99999994}
+      scale: {x: 1, y: 1, z: 1}
       transformModified: 1
     - name: SkeletonJoints
-      position: {x: -.000760283961, y: .347535551, z: -.010520651}
-      rotation: {x: 0, y: 0, z: -4.09272671e-10, w: 1}
-      scale: {x: .99999994, y: .999999821, z: .99999994}
+      position: {x: 8.83865823e-07, y: .33457762, z: -.0201116335}
+      rotation: {x: 1.04647416e-10, y: 2.2524071e-05, z: -4.6460259e-06, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: EditingMesh6:TailControl
+      position: {x: 4.78347374e-06, y: -.00227249647, z: -.125337541}
+      rotation: {x: -.0248492453, y: -.70668596, z: .0248546936, w: .706653893}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: EditingMesh6:TailControl2
+      position: {x: -.0688205734, y: 0, z: -9.00138604e-18}
+      rotation: {x: 1.48660381e-15, y: -1.69352512e-16, z: -.0351459906, w: .999382198}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: EditingMesh6:TailControl 1
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: EditingMesh6:TailControl3
+      position: {x: -.112687968, y: 5.3290704e-17, z: 7.07812031e-17}
+      rotation: {x: -1.5294515e-15, y: -7.89535954e-18, z: .00515443366, w: .999986708}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: EditingMesh6:TailControl 2
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: EditingMesh6:TailControl4
+      position: {x: -.245647475, y: -1.06581404e-15, z: 1.14845968e-16}
+      rotation: {x: -4.83319688e-18, y: 2.03116251e-16, z: -.0301290955, w: .999546051}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: EditingMesh6:TailControl 3
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: EditingMesh6:TailControl5
+      position: {x: -.228192955, y: 3.55271347e-16, z: 3.33669902e-17}
+      rotation: {x: -7.20620361e-17, y: -2.24143923e-16, z: .0360806473, w: .999348879}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: EditingMesh6:TailControl 4
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: EditingMesh6:TailControl6
+      position: {x: -.170973375, y: -2.13162816e-16, z: 8.32878299e-17}
+      rotation: {x: 1.56120825e-16, y: 1.2301846e-16, z: -.00391552504, w: .999992371}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: EditingMesh6:TailControl 5
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: -.00428444939, y: -.0109095052, z: -4.67444333e-05, w: .999931335}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: EditingMesh6:TailControl7
+      position: {x: -.176014021, y: 1.8651746e-15, z: 4.43902042e-17}
+      rotation: {x: -.00508670416, y: -.70708847, z: -.00508670416, w: .70708847}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: EditingMesh6:TailControl 6
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: .407714128, y: .407714128, z: .407714128}
       transformModified: 1
     - name: EditingMesh6:UpperTorso
-      position: {x: -2.17710063e-08, y: .0740323588, z: .00077007775}
-      rotation: {x: .00520073948, y: -5.43955159e-12, z: -1.0459047e-09, w: .99998647}
-      scale: {x: 1.00000024, y: 1.00000048, z: 1.00000036}
+      position: {x: 2.64972918e-12, y: .0740323588, z: .000770074141}
+      rotation: {x: .00520072598, y: -2.24996038e-05, z: 4.7631047e-06, w: .99998647}
+      scale: {x: 1, y: 1, z: 1}
       transformModified: 1
     - name: EditingMesh6:Spine1
-      position: {x: 2.59703925e-09, y: .0863757432, z: -4.81113101e-11}
-      rotation: {x: 1.16415322e-08, y: -1.1625767e-08, z: 1.57620039e-09, w: 1}
-      scale: {x: 1, y: 1, z: 1.00000012}
+      position: {x: 1.85859887e-15, y: .0863757133, z: 1.49233417e-10}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
       transformModified: 1
     - name: EditingMesh6:Spine2
-      position: {x: 9.26500932e-10, y: .098715134, z: -2.33578545e-10}
-      rotation: {x: 9.31322464e-10, y: 2.31909905e-08, z: -8.97285357e-09, w: 1}
-      scale: {x: 1.00000012, y: 1, z: .99999994}
+      position: {x: 2.12411575e-15, y: .0987151712, z: -2.75669182e-10}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
       transformModified: 1
     - name: EditingMesh6:Head
-      position: {x: -4.77035833e-08, y: .111054495, z: 5.36408518e-09}
-      rotation: {x: -.00520075206, y: 3.02737141e-11, z: 5.82068838e-09, w: .99998647}
-      scale: {x: .999999702, y: .999999583, z: .999999642}
+      position: {x: 2.38962817e-15, y: .11105451, z: -6.58576471e-10}
+      rotation: {x: -.00520074647, y: 0, z: -0, w: .99998647}
+      scale: {x: 1, y: 1, z: 1}
       transformModified: 1
     - name: EditingMesh6:Head1
-      position: {x: 8.03335443e-09, y: .035958644, z: .0122572267}
-      rotation: {x: 1.1641534e-08, y: -1.4551917e-08, z: 5.82076609e-09, w: 1}
-      scale: {x: 1.00000012, y: 1.00000024, z: 1.00000024}
+      position: {x: 3.81497541e-15, y: .0359587073, z: .0122571131}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: HairControlNurbs
+      position: {x: 1.83384512e-16, y: .156262934, z: .00121793186}
+      rotation: {x: -.231638804, y: .375094056, z: -.471616894, w: .763691962}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: EditingMesh6:group2
+      position: {x: -.052888196, y: -3.5527136e-17, z: 0}
+      rotation: {x: -.305978209, y: .595912874, z: .438675135, w: .59902364}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: EditingMesh6:nurbsCircle1
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: EditingMesh6:group3
+      position: {x: -.0569558404, y: -1.42108544e-16, z: 5.3290704e-17}
+      rotation: {x: -.29722169, y: -.373990119, z: .431775272, w: .765088737}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: EditingMesh6:nurbsCircle1 1
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: EditingMesh6:group4
+      position: {x: -.0772391483, y: -7.1054272e-17, z: 8.881784e-18}
+      rotation: {x: .429885954, y: .638373077, z: -.356642306, w: .529607534}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: EditingMesh6:nurbsCircle1 2
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
       transformModified: 1
     - name: EditingMesh6:Head2
       position: {x: 7.92390306e-18, y: .109350644, z: .00605557021}
-      rotation: {x: 1.77635684e-15, y: -8.8817842e-16, z: 2.22044605e-16, w: 1}
-      scale: {x: 1, y: 1, z: 1.00000012}
+      rotation: {x: -8.67361738e-19, y: 0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
       transformModified: 1
     - name: EditingMesh6:HairJoint1_base_
-      position: {x: 1.02140514e-16, y: .0469122864, z: -.00483763823}
-      rotation: {x: -.231638864, y: .375094056, z: -.471616924, w: .763691962}
-      scale: {x: 1.00000012, y: 1.00000012, z: 1}
+      position: {x: 1.04406227e-16, y: .0469122864, z: -.00483763823}
+      rotation: {x: -.231638804, y: .375094056, z: -.471616894, w: .763691962}
+      scale: {x: 1, y: 1, z: 1}
       transformModified: 1
     - name: EditingMesh6:HairJoint2
-      position: {x: -.052888196, y: -1.42108544e-16, z: 9.76996256e-17}
-      rotation: {x: -.305978239, y: .595912874, z: .438675165, w: .5990237}
-      scale: {x: .999999821, y: 1.00000012, z: .999999762}
+      position: {x: -.052888196, y: 7.1054272e-17, z: 1.17683634e-16}
+      rotation: {x: -.305978209, y: .595912874, z: .438675135, w: .59902364}
+      scale: {x: 1, y: 1, z: 1}
       transformModified: 1
     - name: EditingMesh6:HairJoint3
-      position: {x: -.0569558404, y: -2.84217088e-16, z: 8.88178367e-17}
-      rotation: {x: -.29722172, y: -.373990178, z: .431775361, w: .765088737}
-      scale: {x: .999999881, y: .999999583, z: .999999881}
+      position: {x: -.0569558404, y: -2.84217088e-16, z: -3.5527136e-17}
+      rotation: {x: -.29722169, y: -.373990119, z: .431775272, w: .765088737}
+      scale: {x: 1, y: 1, z: 1}
       transformModified: 1
     - name: EditingMesh6:HairJoint4_end_
-      position: {x: -.0772391483, y: 7.1054272e-17, z: 2.6645352e-17}
-      rotation: {x: .429885983, y: .638373077, z: -.356642306, w: .529607475}
-      scale: {x: 1.00000048, y: 1, z: 1.00000048}
+      position: {x: -.0772391483, y: -1.42108544e-16, z: -1.19904078e-16}
+      rotation: {x: .429885954, y: .638373077, z: -.356642306, w: .529607534}
+      scale: {x: 1, y: 1, z: 1}
       transformModified: 1
     - name: EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftShoulder
-      position: {x: -.0267114677, y: .103016593, z: .000332183205}
-      rotation: {x: .571367264, y: -.418740302, z: .564240336, w: .424062461}
-      scale: {x: 1.00000024, y: 1.00000024, z: 1.0000006}
+      position: {x: -.0267114807, y: .103016615, z: .000332183321}
+      rotation: {x: .571367264, y: -.418740243, z: .564240336, w: .424062431}
+      scale: {x: 1.0000006, y: 1.00000036, z: 1.00000072}
       transformModified: 1
     - name: EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftArm
-      position: {x: -3.47544327e-09, y: .0550096631, z: -5.7937104e-08}
-      rotation: {x: .131890252, y: .194702521, z: -.0683539808, w: -.969548106}
-      scale: {x: 1.00000024, y: .99999994, z: .999999344}
+      position: {x: -3.33496203e-10, y: .0550096631, z: -1.91508356e-08}
+      rotation: {x: -.131893516, y: -.194704309, z: .0683427975, w: .969548166}
+      scale: {x: .999999881, y: .999999881, z: .999999821}
       transformModified: 1
     - name: EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftForeArm
-      position: {x: -2.77729768e-08, y: .0704914927, z: -5.65267229e-08}
-      rotation: {x: -.0429733247, y: .00725184381, z: -.0639200509, w: .997003019}
-      scale: {x: .999999702, y: .999999642, z: .999999762}
+      position: {x: -9.03303832e-09, y: .070491381, z: -1.6061918e-08}
+      rotation: {x: -.0429725312, y: .00725187268, z: -.063919358, w: .997003078}
+      scale: {x: .999999821, y: .999999881, z: .999999821}
       transformModified: 1
     - name: EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHand
-      position: {x: -8.53032418e-08, y: .142253846, z: -2.19801315e-08}
-      rotation: {x: -.0813777372, y: -.275562793, z: -.0100549748, w: -.957779586}
-      scale: {x: 1.00000083, y: 1.00000048, z: .999999881}
+      position: {x: -4.58005589e-09, y: .142253786, z: -6.99937663e-09}
+      rotation: {x: .081378296, y: .275562823, z: .0100549459, w: .957779586}
+      scale: {x: 1.00000036, y: 1.00000012, z: .999999881}
       transformModified: 1
     - name: EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHandThumb1
-      position: {x: .0163232721, y: .0306827594, z: .00522165606}
-      rotation: {x: .0666712075, y: -.0099079581, z: -.291215897, w: .95427984}
-      scale: {x: .999999642, y: .999999285, z: .999999821}
+      position: {x: .0163233075, y: .0306827817, z: .00522164861}
+      rotation: {x: .0666719973, y: -.00990819652, z: -.291216075, w: .95427978}
+      scale: {x: .999999702, y: .999999762, z: .99999994}
       transformModified: 1
     - name: EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHandThumb2
-      position: {x: .000951530004, y: .0280996189, z: 1.15749943e-08}
-      rotation: {x: .0301800668, y: -.000628978014, z: .0105120242, w: .999489069}
-      scale: {x: .999999821, y: 1.00000012, z: 1}
+      position: {x: .000951550086, y: .0280996468, z: -4.34382574e-09}
+      rotation: {x: .0301786251, y: -.000629126967, z: .010510846, w: .999489069}
+      scale: {x: 1.00000012, y: 1.00000012, z: 1}
       transformModified: 1
     - name: EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHandThumb3
-      position: {x: -4.19808457e-05, y: .0280905552, z: -4.29216449e-08}
-      rotation: {x: -.0385235362, y: .000640928687, z: -.00866453256, w: .999219954}
-      scale: {x: 1.00000024, y: 1.00000024, z: 1.00000012}
+      position: {x: -4.19780772e-05, y: .0280905552, z: -3.24857936e-08}
+      rotation: {x: -.0385234058, y: .000640898768, z: -.00866402499, w: .999220014}
+      scale: {x: 1.00000012, y: 1, z: 1.00000012}
       transformModified: 1
     - name: EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHandThumb4
-      position: {x: -.000909596507, y: .022203939, z: -3.78937948e-08}
+      position: {x: -.000909586321, y: .0222039558, z: -4.94461325e-08}
       rotation: {x: 0, y: 0, z: 0, w: 1}
-      scale: {x: .999999821, y: .99999994, z: .999999762}
+      scale: {x: 1, y: 1, z: 1}
       transformModified: 1
     - name: EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHandIndex1
-      position: {x: .0167563688, y: .0801304206, z: -.00090649171}
-      rotation: {x: .0448750593, y: -.00311234524, z: -.0691179782, w: .996593833}
-      scale: {x: .999999225, y: .999998868, z: .99999994}
+      position: {x: .0167563837, y: .0801303908, z: -.000906448637}
+      rotation: {x: .0448748916, y: -.00311227911, z: -.06911809, w: .996593833}
+      scale: {x: .999999404, y: .999999642, z: .999999762}
       transformModified: 1
     - name: EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHandIndex2
-      position: {x: 3.74327974e-05, y: .0189038776, z: -2.92234201e-08}
-      rotation: {x: -.0123999985, y: 0, z: -7.45057918e-08, w: .99992311}
-      scale: {x: 1.00000083, y: 1.00000131, z: 1.00000083}
+      position: {x: 3.74491283e-05, y: .0189038869, z: -2.07681641e-08}
+      rotation: {x: -.00029392197, y: 5.64265656e-06, z: .0017223584, w: .99999851}
+      scale: {x: 1.0000006, y: 1.00000036, z: 1.0000006}
       transformModified: 1
     - name: EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHandIndex3
-      position: {x: 2.36429423e-05, y: .0182768665, z: 1.52828665e-08}
-      rotation: {x: -.0372002758, y: .000149875894, z: -.00208561146, w: .999305665}
-      scale: {x: .999999106, y: .999999285, z: .999999583}
+      position: {x: 2.3651648e-05, y: .0182769299, z: 2.99609368e-08}
+      rotation: {x: -.03720228, y: .000149875865, z: -.00208477653, w: .999305606}
+      scale: {x: .999999166, y: .999999583, z: .999999225}
       transformModified: 1
     - name: EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHandIndex4
-      position: {x: -6.11054056e-05, y: .0133324629, z: 1.80315585e-08}
-      rotation: {x: 2.98023224e-08, y: 2.98023224e-08, z: -2.98023224e-08, w: 1}
-      scale: {x: 1.00000012, y: 1, z: .999999881}
+      position: {x: -6.11096621e-05, y: .0133324312, z: 1.79802093e-08}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1.00000024, y: 1.00000012, z: 1.00000012}
       transformModified: 1
     - name: EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHandMiddle1
-      position: {x: .0005617672, y: .0808386952, z: .000511299411}
-      rotation: {x: -.00835522823, y: -3.43918728e-05, z: .00411821809, w: .999956608}
-      scale: {x: .999999404, y: .999999344, z: 1}
+      position: {x: .000561793742, y: .080838725, z: .00051132933}
+      rotation: {x: -.00835513975, y: -3.44093969e-05, z: .00411817245, w: .999956608}
+      scale: {x: .999999821, y: .99999994, z: .999999881}
       transformModified: 1
     - name: EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHandMiddle2
-      position: {x: -2.9998333e-05, y: .0214217342, z: -4.16099013e-08}
-      rotation: {x: .0018422599, y: .000575303915, z: -.00942984037, w: .999953747}
-      scale: {x: .999999881, y: 1.00000024, z: .99999994}
+      position: {x: -3.00033498e-05, y: .0214217342, z: -4.46463524e-08}
+      rotation: {x: .00184216816, y: .000575274287, z: -.00942981243, w: .999953687}
+      scale: {x: .999999821, y: .999999821, z: 1.00000024}
       transformModified: 1
     - name: EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHandMiddle3
-      position: {x: 2.02986939e-05, y: .0231425334, z: -4.59401095e-09}
-      rotation: {x: -.0158465784, y: -5.96046377e-08, z: -2.98023188e-08, w: .999874532}
-      scale: {x: 1.00000072, y: 1.00000036, z: 1.00000048}
+      position: {x: 2.02758056e-05, y: .0231425092, z: 1.37536968e-08}
+      rotation: {x: -.0158465728, y: 0, z: -0, w: .999874473}
+      scale: {x: 1.00000072, y: 1.00000048, z: 1.0000006}
       transformModified: 1
     - name: EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHandMiddle4
-      position: {x: 9.70118344e-06, y: .016048098, z: -2.93800451e-08}
-      rotation: {x: 1.49011559e-08, y: 0, z: 8.94069387e-08, w: 1}
-      scale: {x: 1.00000048, y: 1.00000024, z: 1.00000048}
+      position: {x: 9.72774706e-06, y: .016048111, z: -3.66245949e-08}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1.00000012, y: .999999881, z: 1}
       transformModified: 1
     - name: EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHandRing1
-      position: {x: -.0173181891, y: .0768938512, z: -.000485845638}
-      rotation: {x: .0172588658, y: .0018868742, z: .0768082812, w: .996894717}
-      scale: {x: .999999821, y: .999999344, z: 1.0000006}
+      position: {x: -.0173181929, y: .0768938363, z: -.000485832134}
+      rotation: {x: .0172588322, y: .00188693334, z: .0768069774, w: .996894777}
+      scale: {x: 1, y: .999999642, z: 1.00000036}
       transformModified: 1
     - name: EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHandRing2
-      position: {x: -3.37686979e-05, y: .0204150714, z: -3.18290745e-08}
-      rotation: {x: .00202307082, y: .000469028892, z: -.00854395237, w: .999961376}
-      scale: {x: .999999881, y: 1.00000095, z: .999998689}
+      position: {x: -3.3780696e-05, y: .0204150695, z: -2.98805034e-08}
+      rotation: {x: .00202299189, y: .000469088496, z: -.00854394026, w: .999961376}
+      scale: {x: 1, y: 1.00000012, z: .999999583}
       transformModified: 1
     - name: EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHandRing3
-      position: {x: 3.99037854e-05, y: .0215544999, z: 3.02842835e-08}
-      rotation: {x: .0199214499, y: 1.49011598e-07, z: 0, w: .999801576}
-      scale: {x: 1.00000012, y: .999999344, z: 1.00000191}
+      position: {x: 3.98994453e-05, y: .0215545036, z: 3.17570716e-08}
+      rotation: {x: .0199214537, y: 0, z: -0, w: .999801576}
+      scale: {x: .99999994, y: 1.00000024, z: 1.00000048}
       transformModified: 1
     - name: EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHandRing4
-      position: {x: -6.10058123e-06, y: .0151785016, z: -1.283267e-08}
-      rotation: {x: 2.98023153e-08, y: -5.96046306e-08, z: 0, w: 1}
-      scale: {x: 1, y: .999999821, z: .999999583}
+      position: {x: -6.09871631e-06, y: .0151785016, z: -1.46367283e-08}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: .999999881}
       transformModified: 1
     - name: EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightShoulder
-      position: {x: .0267114677, y: .103011437, z: -.000164914411}
-      rotation: {x: .566075325, y: .422683865, z: -.569631815, w: .420019865}
-      scale: {x: .999999821, y: 1.00000012, z: .999999821}
+      position: {x: .0267114807, y: .103011444, z: -.000164914018}
+      rotation: {x: -.566075385, y: -.422683895, z: .569631755, w: -.420019835}
+      scale: {x: 1.00000012, y: 1, z: 1}
       transformModified: 1
     - name: EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightArm
-      position: {x: 1.25471127e-08, y: .0550097264, z: -1.33354137e-08}
-      rotation: {x: -.139287934, y: .0967042819, z: -.0543684401, w: .984017909}
-      scale: {x: 1.00000024, y: .999999702, z: .99999994}
+      position: {x: 2.27592944e-10, y: .0550096743, z: -1.59906115e-08}
+      rotation: {x: -.139286593, y: .0967025161, z: -.0543799847, w: .984017611}
+      scale: {x: 1, y: 1, z: .999999881}
       transformModified: 1
     - name: EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightForeArm
-      position: {x: -5.10731013e-08, y: .0701997578, z: -5.59780275e-08}
-      rotation: {x: -.0367834121, y: -.00498367846, z: .0677719116, w: .997010112}
-      scale: {x: .999999642, y: 1.00000012, z: .999999881}
+      position: {x: -1.42164707e-08, y: .0701997429, z: -3.23595515e-08}
+      rotation: {x: -.0367834158, y: -.00498366402, z: .0677721873, w: .997010112}
+      scale: {x: .99999994, y: 1, z: 1.00000012}
       transformModified: 1
     - name: EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHand
-      position: {x: 2.75319412e-08, y: .142209873, z: -4.42756409e-08}
-      rotation: {x: .078200832, y: -.213883728, z: -.00692549348, w: .973699391}
-      scale: {x: 1.00000048, y: 1.00000048, z: 1.00000012}
+      position: {x: -2.62431055e-08, y: .142209828, z: -4.84331366e-08}
+      rotation: {x: .0782009438, y: -.213883802, z: -.00692558195, w: .973699331}
+      scale: {x: 1.00000024, y: 1.00000024, z: 1.00000012}
       transformModified: 1
     - name: EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHandThumb1
-      position: {x: -.0160584599, y: .0309485327, z: .00434439909}
-      rotation: {x: .0711314827, y: .0122854244, z: .295580328, w: .95258683}
-      scale: {x: 1.00000024, y: 1.00000012, z: 1.0000006}
+      position: {x: -.0160584897, y: .0309485812, z: .00434438931}
+      rotation: {x: .0711318031, y: .0122855846, z: .295580924, w: .952586651}
+      scale: {x: .99999994, y: 1.00000012, z: 1.00000036}
       transformModified: 1
     - name: EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHandThumb2
-      position: {x: -.000549915363, y: .028103672, z: -3.16832534e-08}
-      rotation: {x: .0274890363, y: .000881701708, z: -.029923588, w: .99917376}
-      scale: {x: 1, y: .999999523, z: .999999702}
+      position: {x: -.000549911463, y: .0281036627, z: -3.62705173e-08}
+      rotation: {x: .0274889916, y: .00088165066, z: -.0299236439, w: .99917376}
+      scale: {x: .99999994, y: .999999762, z: .999999583}
       transformModified: 1
     - name: EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHandThumb3
-      position: {x: -.000756102847, y: .0271319319, z: 4.02657879e-10}
-      rotation: {x: -.0350508653, y: -.000959276804, z: .0276593622, w: .999002218}
-      scale: {x: 1, y: 1.00000012, z: 1.00000048}
+      position: {x: -.00075609528, y: .0271319244, z: -3.65419606e-09}
+      rotation: {x: -.0350511223, y: -.000959098106, z: .0276587233, w: .999002218}
+      scale: {x: 1.00000024, y: 1.00000024, z: 1.0000006}
       transformModified: 1
     - name: EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHandThumb4
-      position: {x: .00130597898, y: .0223455969, z: 1.88284428e-08}
-      rotation: {x: 1.49011576e-08, y: -2.98023153e-08, z: 1.49011584e-07, w: 1}
-      scale: {x: .99999994, y: .999999881, z: .999999881}
+      position: {x: .00130599586, y: .0223455802, z: 3.03089571e-08}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: .999999881}
       transformModified: 1
     - name: EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHandIndex1
-      position: {x: -.0174535811, y: .0867933631, z: -.000706820749}
-      rotation: {x: .0402115434, y: .00269064307, z: .0667093396, w: .996958196}
-      scale: {x: .999999523, y: .999999106, z: 1}
+      position: {x: -.0174536183, y: .0867933556, z: -.000706835068}
+      rotation: {x: .040211536, y: .00269067124, z: .0667093769, w: .996958196}
+      scale: {x: .999999821, y: .999999881, z: 1}
       transformModified: 1
     - name: EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHandIndex2
-      position: {x: -5.21561487e-05, y: .0171040203, z: 6.08007582e-08}
-      rotation: {x: -.041360762, y: 4.02331307e-06, z: .000119030461, w: .999144256}
-      scale: {x: 1.00000095, y: 1.00000095, z: 1.00000083}
+      position: {x: -5.21773291e-05, y: .0171040334, z: 5.11145366e-08}
+      rotation: {x: -.0024453972, y: -.000431797962, z: -.00930563267, w: .999953628}
+      scale: {x: 1.00000072, y: 1.0000006, z: 1.00000095}
       transformModified: 1
     - name: EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHandIndex3
-      position: {x: 7.10110226e-06, y: .0163131636, z: -4.64928185e-08}
-      rotation: {x: -.0411072262, y: -2.04443877e-05, z: .000334873708, w: .999154687}
-      scale: {x: .999999762, y: 1.00000036, z: .999999523}
+      position: {x: 7.13474265e-06, y: .0163131449, z: 7.50529772e-09}
+      rotation: {x: -.0411006697, y: -2.05039923e-05, z: .000334754499, w: .999154985}
+      scale: {x: .999999642, y: .999999583, z: .999999523}
       transformModified: 1
     - name: EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHandIndex4
-      position: {x: 4.50644075e-05, y: .0105488934, z: 6.62567672e-08}
-      rotation: {x: 1.49011612e-08, y: 0, z: 7.4505806e-08, w: 1}
-      scale: {x: 1.00000036, y: 1.00000024, z: 1.00000024}
+      position: {x: 4.50527223e-05, y: .0105488896, z: 2.10755697e-08}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
       transformModified: 1
     - name: EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHandMiddle1
-      position: {x: -.000716021692, y: .0829486921, z: .000791799917}
-      rotation: {x: -.028093474, y: .000369489222, z: -.0131463269, w: .999518812}
-      scale: {x: 1.0000006, y: 1.00000012, z: 1.00000131}
+      position: {x: -.000716020179, y: .0829487219, z: .000791812374}
+      rotation: {x: -.0280935112, y: .000369503512, z: -.0131462999, w: .999518812}
+      scale: {x: 1.0000006, y: 1.00000048, z: 1.00000083}
       transformModified: 1
     - name: EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHandMiddle2
-      position: {x: 5.95510501e-05, y: .0226007979, z: -3.25128937e-08}
-      rotation: {x: .00220291293, y: -.00144794572, z: .0125043374, w: .999918342}
-      scale: {x: .999998927, y: .999999702, z: .999998212}
+      position: {x: 5.95564416e-05, y: .0226007961, z: -2.56374495e-08}
+      rotation: {x: .00336011406, y: -.00142880902, z: .01225066, w: .999918282}
+      scale: {x: .999999106, y: .999999404, z: .999998987}
       transformModified: 1
     - name: EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHandMiddle3
-      position: {x: -7.60800976e-05, y: .0214826558, z: 2.52631605e-08}
-      rotation: {x: -.0400966071, y: 3.65972483e-05, z: .000991895678, w: .999195397}
-      scale: {x: 1.00000095, y: 1.00000012, z: 1.00000131}
+      position: {x: -7.60896219e-05, y: .0214826316, z: 3.82485261e-08}
+      rotation: {x: -.040095102, y: 3.67164575e-05, z: .000992193702, w: .999195397}
+      scale: {x: 1.00000036, y: 1.00000012, z: 1.00000012}
       transformModified: 1
     - name: EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHandMiddle4
-      position: {x: 1.65218989e-05, y: .0150782894, z: -2.5799288e-08}
-      rotation: {x: -1.49011594e-08, y: 1.04308114e-07, z: 8.94069601e-08, w: 1}
-      scale: {x: .999999523, y: .999999642, z: .999999642}
+      position: {x: 1.65169567e-05, y: .0150782848, z: -5.01364958e-08}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: .999999762, y: .999999762, z: .999999881}
       transformModified: 1
     - name: EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHandRing1
-      position: {x: .0181695912, y: .0780132338, z: -.000697234122}
-      rotation: {x: -.0382759161, y: .0019642415, z: .0512115546, w: -.997952163}
-      scale: {x: 1, y: .999999464, z: 1.00000072}
+      position: {x: .0181695782, y: .0780132189, z: -.000697230455}
+      rotation: {x: .038275972, y: -.00196419493, z: -.0512115695, w: .997952163}
+      scale: {x: 1.00000012, y: .999999762, z: 1.00000024}
       transformModified: 1
     - name: EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHandRing2
-      position: {x: -1.36339222e-05, y: .0209119935, z: 1.03587325e-08}
-      rotation: {x: .00103896845, y: -.000321537227, z: .00552885188, w: .999984145}
-      scale: {x: 1, y: 1.0000006, z: .999999166}
+      position: {x: -1.36679801e-05, y: .0209120046, z: -9.94757965e-09}
+      rotation: {x: .00150490529, y: -.000317441416, z: .0054241363, w: .999984145}
+      scale: {x: 1.00000012, y: 1.00000012, z: 1.00000024}
       transformModified: 1
     - name: EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHandRing3
-      position: {x: -6.62265811e-05, y: .0207245983, z: 2.11385114e-08}
-      rotation: {x: .0361446701, y: .00014632933, z: -.00339934067, w: -.999340773}
-      scale: {x: .999999583, y: 1.00000048, z: 1.0000006}
+      position: {x: -6.62435195e-05, y: .020724576, z: 5.60852236e-08}
+      rotation: {x: -.0361442156, y: -.000146180333, z: .0034002203, w: .999340773}
+      scale: {x: .999999523, y: 1.00000024, z: .999999762}
       transformModified: 1
     - name: EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHandRing4
-      position: {x: 7.99106492e-05, y: .0138162114, z: 1.45687284e-08}
-      rotation: {x: 5.96046306e-08, y: 4.47034729e-08, z: -7.45057918e-08, w: 1}
-      scale: {x: 1.00000036, y: .999999881, z: .999999762}
+      position: {x: 7.99273184e-05, y: .0138162132, z: 2.0325357e-09}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1.00000036, y: 1.00000012, z: 1}
       transformModified: 1
     - name: EditingMesh6:LeftLeg
-      position: {x: -.101590008, y: -.0411728173, z: .00110271876}
-      rotation: {x: -9.3853836e-05, y: .00338467746, z: .999610603, w: .0276995841}
-      scale: {x: .99999994, y: 1.00000024, z: 1}
+      position: {x: -.101590008, y: -.0411728173, z: .00110272167}
+      rotation: {x: 4.2806565e-05, y: .0121451495, z: .999542236, w: .0277084205}
+      scale: {x: .999999821, y: 1, z: 1}
       transformModified: 1
     - name: EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftLeg
-      position: {x: 3.98624422e-09, y: .144982815, z: 1.7656145e-08}
-      rotation: {x: .0205465704, y: .00031473214, z: .0153130367, w: .999671638}
-      scale: {x: 1.00000119, y: 1, z: 1.00000107}
+      position: {x: 6.85574175e-09, y: .144982472, z: 5.04588327e-09}
+      rotation: {x: -.00543081528, y: .000101684564, z: .0153414644, w: .999867558}
+      scale: {x: 1.00000119, y: 1, z: 1.00000036}
       transformModified: 1
     - name: EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftFoot
-      position: {x: -2.02961403e-09, y: .094492808, z: -3.56047636e-09}
-      rotation: {x: .542203665, y: -.0855762213, z: .0556335524, w: .834024429}
-      scale: {x: .999999225, y: .999999285, z: 1.00000095}
+      position: {x: -1.56334135e-09, y: .0944927931, z: -3.87930355e-09}
+      rotation: {x: .556482017, y: -.086528115, z: .0541416705, w: .824566185}
+      scale: {x: .999999106, y: .999999821, z: 1.00000048}
       transformModified: 1
     - name: EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftToeBase
-      position: {x: 1.42003689e-08, y: .112530909, z: -2.85746804e-08}
-      rotation: {x: .17923598, y: -.00177165843, z: -.00972404983, w: .983756423}
-      scale: {x: 1.00000095, y: 1, z: 1.0000006}
+      position: {x: 1.05086722e-08, y: .11253088, z: -6.03102634e-08}
+      rotation: {x: .179236025, y: -.0017716717, z: -.00972401444, w: .983756483}
+      scale: {x: 1.00000083, y: 1.0000006, z: 1.00000048}
       transformModified: 1
     - name: EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftToe_End
-      position: {x: 1.193286e-08, y: .0458198525, z: -1.47542947e-08}
-      rotation: {x: -1.1920929e-07, y: 1.11758709e-08, z: 7.4505806e-09, w: 1}
-      scale: {x: 1, y: .999999881, z: 1}
+      position: {x: 7.83373988e-09, y: .0458198376, z: -2.43865674e-08}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
       transformModified: 1
     - name: EditingMesh6:RightLeg
-      position: {x: .101590022, y: -.041172795, z: -7.11607936e-05}
-      rotation: {x: .000176523332, y: .00636371365, z: .999596119, w: -.0276975762}
-      scale: {x: .999999881, y: .999999881, z: 1.00000012}
+      position: {x: .101590008, y: -.0411727987, z: -7.11596076e-05}
+      rotation: {x: .000151430431, y: .00797236431, z: .999584436, w: -.0277020596}
+      scale: {x: 1, y: .99999994, z: 1.00000024}
       transformModified: 1
     - name: EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightLeg
-      position: {x: 2.33895486e-10, y: .144991338, z: 9.80924564e-10}
-      rotation: {x: .00667375699, y: -.000102215461, z: -.015313698, w: .999860525}
-      scale: {x: 1.00000131, y: 1.00000024, z: 1.00000072}
+      position: {x: -1.04535647e-09, y: .144991159, z: -2.41538145e-09}
+      rotation: {x: -.00112945866, y: 1.00602419e-05, z: -.0153166, w: .999882102}
+      scale: {x: 1.00000095, y: 1, z: 1.00000024}
       transformModified: 1
     - name: EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightFoot
-      position: {x: -6.20313578e-09, y: .0944169536, z: -3.06565107e-10}
-      rotation: {x: .551333666, y: .0841041952, z: -.0559930801, w: .828144014}
-      scale: {x: 1.0000006, y: 1.00000012, z: 1.00000012}
+      position: {x: 4.23561852e-09, y: .094416976, z: -2.05174078e-09}
+      rotation: {x: .556454003, y: .0844509155, z: -.0554688089, w: .824712217}
+      scale: {x: 1.00000083, y: .999999881, z: 1.00000048}
       transformModified: 1
     - name: EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightToeBase
-      position: {x: -1.13644782e-08, y: .112684906, z: 7.3488728e-08}
-      rotation: {x: .179014578, y: .00154060102, z: .00846686121, w: .983808815}
-      scale: {x: .999997973, y: .999998629, z: .999999821}
+      position: {x: -8.42536885e-09, y: .112684861, z: 6.79838195e-08}
+      rotation: {x: .179014862, y: .00154064072, z: .00846687052, w: .983808756}
+      scale: {x: .999998391, y: .999999464, z: .999999523}
       transformModified: 1
     - name: EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightToe_End
-      position: {x: 1.36036526e-09, y: .0457284823, z: -6.61358568e-09}
-      rotation: {x: 5.96046377e-08, y: 2.60770285e-08, z: 2.235174e-08, w: 1}
-      scale: {x: .999999762, y: .999999881, z: .999999702}
+      position: {x: 4.54218307e-09, y: .0457284674, z: -1.80086932e-08}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
       transformModified: 1
     - name: EditingMesh6:TailBase
       position: {x: 4.78347374e-06, y: -.00227249647, z: -.125337541}
-      rotation: {x: -.0248492472, y: -.70668596, z: .0248546917, w: .706653893}
-      scale: {x: .999999821, y: 1, z: 1}
+      rotation: {x: -.0248492453, y: -.70668596, z: .0248546936, w: .706653893}
+      scale: {x: 1, y: 1, z: 1}
       transformModified: 1
     - name: EditingMesh6:TailJoint2
-      position: {x: -.0688205659, y: 3.54350126e-11, z: -1.31006311e-16}
-      rotation: {x: 0, y: 1.55234261e-08, z: -.0351459943, w: .999382198}
-      scale: {x: 1.00000024, y: 1, z: 1.00000012}
+      position: {x: -.0688205734, y: -4.82728527e-12, z: -1.14738885e-16}
+      rotation: {x: 0, y: 0, z: -.0351459906, w: .999382198}
+      scale: {x: 1, y: 1, z: 1}
       transformModified: 1
     - name: EditingMesh6:TailJoint3
-      position: {x: -.11268796, y: 1.63854347e-11, z: -8.99280653e-17}
-      rotation: {x: 2.92925462e-09, y: -6.54743104e-08, z: .00515445368, w: .999986708}
+      position: {x: -.112687968, y: -7.90414869e-12, z: 2.12163026e-17}
+      rotation: {x: 0, y: 0, z: .00515443366, w: .999986708}
       scale: {x: 1, y: 1, z: 1}
       transformModified: 1
     - name: EditingMesh6:TailJoint4
-      position: {x: -.245647475, y: -9.55574439e-11, z: -1.58761887e-16}
-      rotation: {x: -3.72529074e-09, y: 6.86050114e-08, z: -.0301290918, w: .999546051}
-      scale: {x: .999999642, y: .999999762, z: .99999994}
+      position: {x: -.245647475, y: -1.7231442e-11, z: -3.27630127e-17}
+      rotation: {x: 0, y: 0, z: -.0301290955, w: .999546051}
+      scale: {x: 1, y: 1, z: 1}
       transformModified: 1
     - name: EditingMesh6:TailJoint5
-      position: {x: -.22819294, y: -4.67481678e-11, z: -3.35287351e-16}
-      rotation: {x: 3.7252903e-09, y: -4.09927452e-08, z: .03608061, w: .999348879}
-      scale: {x: 1, y: 1.00000012, z: 1}
+      position: {x: -.228192955, y: -1.60056499e-11, z: 1.11182153e-16}
+      rotation: {x: 0, y: 0, z: .0360806473, w: .999348879}
+      scale: {x: 1, y: 1, z: 1}
       transformModified: 1
     - name: EditingMesh6:TailJoint6
-      position: {x: -.170973375, y: -3.45708878e-11, z: 1.77635673e-16}
-      rotation: {x: -.00432713516, y: -.0108926548, z: -.00396199524, w: .999923468}
-      scale: {x: .999999702, y: .999999881, z: .99999994}
+      position: {x: -.170973375, y: -1.19927531e-11, z: -5.16132115e-17}
+      rotation: {x: -.00432713283, y: -.0108926455, z: -.00396199943, w: .999923468}
+      scale: {x: 1, y: 1, z: 1}
       transformModified: 1
     - name: EditingMesh6:TailJoint7_end_
-      position: {x: -.176014021, y: 2.33214198e-10, z: 3.54161125e-16}
-      rotation: {x: .00508669578, y: .70708853, z: .00508669391, w: -.70708853}
-      scale: {x: .999999523, y: 1, z: 1.00000012}
+      position: {x: -.176014021, y: -1.23407768e-11, z: -1.05853104e-13}
+      rotation: {x: -.00508670416, y: -.70708847, z: -.00508670416, w: .70708847}
+      scale: {x: 1, y: 1, z: 1}
       transformModified: 1
     armTwist: .5
     foreArmTwist: .5
@@ -2881,7 +2961,8 @@ ModelImporter:
     legStretch: .0500000007
     feetSpacing: 0
     rootMotionBoneName: 
-  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  lastHumanDescriptionAvatarSource: {fileID: 9000000, guid: b74ded025c4324ff1b8000e01073ea5b,
+    type: 3}
   animationType: 3
   additionalBone: 0
   userData: 

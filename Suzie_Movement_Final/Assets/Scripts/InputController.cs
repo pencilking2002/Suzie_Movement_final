@@ -74,13 +74,13 @@ public class InputController : MonoBehaviour {
 		//----------------------------------------------------------------------------------------------------------------------
 		
 		// if pressed Y or pressed Space
-		if (inputDevice.Action4.WasPressed)
+		if (inputDevice.Action1.WasPressed)
 		{
 			EventManager.OnInputEvent(GameEvent.Jump);
 			jumpIsPressed = true;	
 		}
 
-		if (inputDevice.Action4.WasReleased)
+		if (inputDevice.Action1.WasReleased)
 		{
 			jumpIsPressed = false;
 			jumpReleased = true;

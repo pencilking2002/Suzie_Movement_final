@@ -9,24 +9,16 @@ public class InputController : MonoBehaviour {
 	//---------------------------------------------------------------------------------------------------------------------------
 	
 	public static InputController Instance;
-	
 	public static float v, h, rawH, rawV, orbitH, orbitV;
-	
-	//public delegate void ControllerDebugAction(ControllerDebugger.Axis axisEvent, ControllerDebugger.State state);
-	//public static ControllerDebugAction onControllerDebug;
-	
-	
-	
-	//[HideInInspector]
-	//public float jumpKeyHoldDuration = 0.0f;
+	public static bool jumpReleased = false;
 	
 	
 	//---------------------------------------------------------------------------------------------------------------------------
 	// Priate Variables
 	//---------------------------------------------------------------------------------------------------------------------------
+	
 	private InputDevice inputDevice;
-	public static bool jumpIsPressed = false;
-	public static bool jumpReleased = false;
+	private bool canSprint = false;
 
 	private void Awake ()
 	{
@@ -56,30 +48,45 @@ public class InputController : MonoBehaviour {
 		if (EventManager.onInputEvent == null)
 			return;
 
-		// Start running
-		if (inputDevice.LeftStick.WasPressed) 
-		{
-			EventManager.OnInputEvent(GameEvent.StartRunning);
-		}
-
-		// Stop running
-		if (inputDevice.LeftStick.WasReleased) 
-		{
-			//EventManager.OnInputEvent (GameEvent.StopSprinting);
-			EventManager.OnInputEvent (GameEvent.StopRunning);
-			//print ("LeftStickY was released");
-		}
-
-	
+		// Running ------------------------------------------------
 		if (inputDevice.LeftTrigger.WasPressed)
 		{
-			EventManager.OnInputEvent (GameEvent.StartSprinting);
+			EventManager.OnInputEvent(GameEvent.StartSprinting);
+			print ("hold shift");
 		}
-		else if (inputDevice.LeftTrigger.WasReleased)
+		
+		if (inputDevice.LeftTrigger.WasReleased)
 		{
-			EventManager.OnInputEvent (GameEvent.StopSprinting);
-			print ("Stop running");
+			EventManager.OnInputEvent(GameEvent.StopSprinting);
+			print ("release shift");
 		}
+		
+		
+//		if (inputDevice.LeftStick.IsPressed && inputDevice.LeftTrigger.IsPressed) 
+//		{
+//			EventManager.OnInputEvent(GameEvent.StartSprinting);
+//			print ("Should sprint");
+//		}
+		
+//		else if (inputDevice.LeftStick.WasReleased) 
+//		{
+//			EventManager.OnInputEvent (GameEvent.StopRunning);
+//		}
+		
+	
+		// Sprinting ------------------------------------------------
+		// Can the Squirrel sprint?
+//		canSprint = inputDevice.LeftTrigger.IsPressed || Input.GetKey (KeyCode.LeftShift);
+		
+//		if (inputDevice.LeftTrigger.WasPressed)
+//		{
+//			EventManager.OnInputEvent (GameEvent.StartSprinting);
+//		}
+//		else if (inputDevice.LeftTrigger.WasReleased)
+//		{
+//			EventManager.OnInputEvent (GameEvent.StopSprinting);
+//			print ("Stop running");
+//		}
 
 		//----------------------------------------------------------------------------------------------------------------------
 		// Jumping
@@ -89,12 +96,12 @@ public class InputController : MonoBehaviour {
 		if (inputDevice.Action1.WasPressed)
 		{
 			EventManager.OnInputEvent(GameEvent.Jump);
-			jumpIsPressed = true;	
+			//jumpIsPressed = true;	
 		}
 
 		if (inputDevice.Action1.WasReleased)
 		{
-			jumpIsPressed = false;
+			//jumpIsPressed = false;
 			jumpReleased = true;
 		}
 

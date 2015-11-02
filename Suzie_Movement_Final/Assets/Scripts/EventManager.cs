@@ -18,7 +18,8 @@ public enum GameEvent
 	StopTurnRunning,
 	StartTurnRunning,
 	StartSprinting,
-	StopSprinting
+	StopSprinting,
+	SetSprintSpeed
 }
 
 

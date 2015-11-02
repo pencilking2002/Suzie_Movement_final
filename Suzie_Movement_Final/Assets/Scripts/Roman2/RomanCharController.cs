@@ -57,6 +57,7 @@ public class RomanCharController : MonoBehaviour {
 	
 //	private int facingAwayFromCam = 1; 
 	private float forwardSpeed; 			// Temp var for forward speed
+	private bool holdShift = false;
 	
 	void Start () 
 	{
@@ -76,9 +77,25 @@ public class RomanCharController : MonoBehaviour {
 
 		moveDirection = new Vector3(InputController.h, 0, InputController.v);
 		moveDirectionRaw = new Vector3(InputController.rawH, 0, InputController.rawV);
+		
+		float speed = Mathf.Clamp01(moveDirection.sqrMagnitude);
+		
+		// if holding sprint modifier key go straight into sprint mode
+		if (holdShift && speed > 0)
+			animator.SetFloat ("Speed", speed + 2);
+		
+		// Else go into run
+		else
+			animator.SetFloat ("Speed", speed, walkToRunDampTime, Time.deltaTime);
+		
+		if (charState.IsRunning() && !holdShift)
+		{
+			speed = Mathf.Clamp01(speed);
+		}
+			
 	
-		animator.SetFloat ("Speed", moveDirection.sqrMagnitude, walkToRunDampTime, Time.deltaTime);
-
+		
+		//print (animator.GetFloat("Speed"));
 		// Keep track of the character's direction compared to the camera
 		//facingAwayFromCam = Vector3.Dot (transform.forward, cam.forward) < 0.0f ? -1 : 1;
 
@@ -197,21 +214,13 @@ public class RomanCharController : MonoBehaviour {
 
 	private void Sprint(GameEvent gameEvent)
 	{
-		if (!charState.IsRunning())
-		    return;
-
 		if (gameEvent == GameEvent.StartSprinting)
 		{
-			animator.ResetTrigger("StartSprinting");
-			animator.SetTrigger ("StartSprinting");
-
+			holdShift = true;
 		}
 		else if (gameEvent == GameEvent.StopSprinting)
 		{
-			// Unity bug where trigger gets stuck so we reset it
-			animator.ResetTrigger("StopSprinting");
-			animator.SetTrigger ("StopSprinting");
-
+			holdShift = false;
 		}
 
 	}
@@ -266,8 +275,8 @@ public class RomanCharController : MonoBehaviour {
 		if (charState.IsIdle())
 		{
 			// temp fix for Triggersnt resetting
-			animator.ResetTrigger("StopSprinting");
-			animator.ResetTrigger("StopSprinting");
+			//animator.ResetTrigger("StopSprinting");
+			//animator.ResetTrigger("StopSprinting");
 		}
 	}
 	

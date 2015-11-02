@@ -130,12 +130,12 @@ namespace KeyboardAndMouseExample
 					Scale = 1.0f
 				},
 				new InputControlMapping {
-					Handle = "Zoom Out",
+					Handle = "Sprint",
 					Target = InputControlType.LeftTrigger,
-					Source = MouseScrollWheel,
-					SourceRange = InputRange.ZeroToPositiveInfinity,
-					Raw = true,
-					Scale = 1.0f
+					Source = KeyCodeButton( KeyCode.LeftShift )
+					//SourceRange = InputRange.ZeroToPositiveInfinity,
+					//Raw = true,
+					//Scale = 1.0f
 				}
 			};
 		}

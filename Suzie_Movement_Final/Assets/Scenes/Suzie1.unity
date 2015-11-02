@@ -154,6 +154,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 546976c5531434f2eaa361910533923c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  debug: 0
 --- !u!4 &55812880
 Transform:
   m_ObjectHideFlags: 0
@@ -787,6 +788,8 @@ GameObject:
   - 81: {fileID: 518505461}
   - 114: {fileID: 518505466}
   - 114: {fileID: 518505467}
+  - 114: {fileID: 518505468}
+  - 114: {fileID: 518505469}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -872,6 +875,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9749fd79bad084c1787f42a591724270, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fisheye: {fileID: 518505468}
   smoothing: 0
   theOffset: {x: 0, y: 1, z: -3.75}
   follow: {fileID: 2086329366}
@@ -900,6 +904,32 @@ MonoBehaviour:
     size: .00999999978
     orthographic: 0
     sceneViewIndex: 0
+--- !u!114 &518505468
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 518505460}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4739c22ef73ad62488fe344c8fe9addd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  strengthX: 0
+  strengthY: 0
+  fishEyeShader: {fileID: 4800000, guid: 874ceab4425f64bccb1d14032f4452b1, type: 3}
+--- !u!114 &518505469
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 518505460}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b193b7cfb79a449b68f6ad6d3c9a9c5b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fisheye: {fileID: 0}
 --- !u!1 &565086904
 GameObject:
   m_ObjectHideFlags: 0

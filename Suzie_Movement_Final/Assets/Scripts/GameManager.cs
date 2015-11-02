@@ -5,7 +5,7 @@ using System.Collections;
 public class GameManager : MonoBehaviour {
 	
 	public static GameManager Instance;
-	public static bool debug = true;			// Toggle debug mode
+	public bool debug = false;			// Toggle debug mode
 
 	// debug
 	private RomanCharState charStateScript;
@@ -24,7 +24,7 @@ public class GameManager : MonoBehaviour {
 	
 	private void OnGUI ()
 	{
-		if (GameManager.debug)
+		if (debug)
 		{
 			GUI.Button(new Rect(Screen.width - 150, 30, 170, 50), "Squirrel State: " + charStateScript.GetState());
 			GUI.Button(new Rect(Screen.width - 150, 100, 170, 50), "Cam State: " + camScript.state.ToString());

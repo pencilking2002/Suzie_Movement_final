@@ -66,6 +66,7 @@ public class RomanCharController : MonoBehaviour {
 		rb = GetComponent<Rigidbody>();
 		cam = Camera.main.transform;
 		
+		
 		jumpForce = maxJumpForce;
 	}
 
@@ -78,20 +79,14 @@ public class RomanCharController : MonoBehaviour {
 		moveDirection = new Vector3(InputController.h, 0, InputController.v);
 		moveDirectionRaw = new Vector3(InputController.rawH, 0, InputController.rawV);
 		
-		float speed = Mathf.Clamp01(moveDirection.sqrMagnitude);
+		float speed = Mathf.Clamp01(moveDirectionRaw.sqrMagnitude);
 		
-		// if holding sprint modifier key go straight into sprint mode
+		// if holding sprint modifier key and pressing LeftStick go straight into sprint mode without damping
 		if (holdShift && speed > 0)
 			animator.SetFloat ("Speed", speed + 2);
 		
-		// Else go into run
-		else
-			animator.SetFloat ("Speed", speed, walkToRunDampTime, Time.deltaTime);
-		
-		if (charState.IsRunning() && !holdShift)
-		{
-			speed = Mathf.Clamp01(speed);
-		}
+		else // Else go into run
+			animator.SetFloat ("Speed", Mathf.Clamp01(speed), walkToRunDampTime, Time.deltaTime);
 			
 	
 		
@@ -152,9 +147,9 @@ public class RomanCharController : MonoBehaviour {
 	
 	private void OnAnimatorMove ()
 	{
-		if (charState.IsClimbing())
-			return;
-			
+//		if (charState.IsClimbing())
+//			return;
+//			
 		if (charState.IsRunning() && moveDirectionRaw != Vector3.zero)
 		{		
 			transform.rotation = Quaternion.Slerp (transform.rotation, Quaternion.LookRotation(moveDirectionRaw), runRotateSpeed * Time.fixedDeltaTime);

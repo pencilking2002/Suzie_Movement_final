@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
 using System.Collections;
-
 // Camera used for 3rd person follow. Smoothing is optinal
 public class RomanCameraController : MonoBehaviour {
 	
@@ -8,7 +7,7 @@ public class RomanCameraController : MonoBehaviour {
 	//---------------------------------------------------------------------------------------------------------------------------
 	// Public Variables
 	//---------------------------------------------------------------------------------------------------------------------------	
-	
+	public UnityStandardAssets.ImageEffects.Fisheye fisheye;
 	public bool smoothing;					// Will the camera smooth its movement?				
 	public Vector3 theOffset;					// How much to offset the camera from the follow
 	public Transform follow = null;			// Object to follow
@@ -36,7 +35,7 @@ public class RomanCameraController : MonoBehaviour {
 	
 	private float speed;
 	private float rotVel;
-
+	
 	//---------------------------------------------------------------------------------------------------------------------------
 	// Private Methods
 	//---------------------------------------------------------------------------------------------------------------------------	
@@ -60,7 +59,6 @@ public class RomanCameraController : MonoBehaviour {
 
 		if (follow == null)
 			follow = GameObject.FindGameObjectWithTag("Follow").transform;
-	
 	}
 	
 	// Update is called once per frame
@@ -96,25 +94,36 @@ public class RomanCameraController : MonoBehaviour {
 		
 		speed = Mathf.SmoothDamp (speed, InputController.orbitH * 5, ref rotVel, Time.deltaTime);
 		transform.RotateAround (follow.position, Vector3.up, speed);
+		
+//		if (wideAngle)
+//		{
+//			fisheye.strengthX = Mathf.Lerp (fisheye.strengthX, 0.6f, Time.deltaTime);
+//			fisheye.strengthY = Mathf.Lerp (fisheye.strengthY, 0.6f, Time.deltaTime);
+//		}
+//		
+//		else 
+//		{
+//			if (fisheye.strengthX < 0.1f)
+//			{
+//				fisheye.strengthX = 0;
+//				fisheye.strengthY = 0;
+//				fisheye.enabled = false;
+//				return;
+//			}
+//				
+//			fisheye.strengthX = Mathf.Lerp (fisheye.strengthX, 0, Time.deltaTime);
+//			fisheye.strengthY = Mathf.Lerp (fisheye.strengthY, 0, Time.deltaTime);
+			
+			
+//		}
 
 	}
 	
-//	private void OnEnable ()
-//	{
-//		RomanCharController.onCharEvent += SetState;
-//	}
-//	
-//	private void OnDisable ()
-//	{
-//		RomanCharController.onCharEvent -= SetState;
-//
-//	}
-
-
 	private void SetState (CamState s)
 	{
 		state = s;
 	}
+	
 	
 }
 

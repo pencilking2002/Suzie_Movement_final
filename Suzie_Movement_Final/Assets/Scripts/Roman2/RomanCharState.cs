@@ -21,6 +21,7 @@ public class RomanCharState : MonoBehaviour {
 		InCombat,
 		InAir,
 		Pivoting,
+		Sprinting
 	}
 	
 	//---------------------------------------------------------------------------------------------------------------------------
@@ -49,6 +50,13 @@ public class RomanCharState : MonoBehaviour {
 
 	public void SetState (State _state)
 	{
+		// If previous state is sprinting, fire StopSprinting event
+		if (IsSprinting())
+		{
+			EventManager.OnCharEvent(GameEvent.StopSprinting);
+			print("Stop sprinting");
+		}
+
 		state = _state;
 		
 		if (_state == State.Idle)
@@ -56,6 +64,14 @@ public class RomanCharState : MonoBehaviour {
 			rb.velocity = Vector3.zero;
 			landedFirstTime = true;
 		}
+
+		if (_state == State.Sprinting)
+		{
+			EventManager.OnCharEvent(GameEvent.StartSprinting);
+			print ("Start sprinting");
+		}
+
+
 	}
 	
 	public State GetState ()
@@ -82,7 +98,12 @@ public class RomanCharState : MonoBehaviour {
 	
 	public bool IsRunning ()
 	{
-		return state == State.Running;
+		return state == State.Running || state == State.Sprinting;
+	}
+
+	public bool IsSprinting ()
+	{
+		return state == State.Sprinting;
 	}
 
 	public bool IsJumping()

@@ -209,11 +209,11 @@ public class RomanCharController : MonoBehaviour {
 
 	private void Sprint(GameEvent gameEvent)
 	{
-		if (gameEvent == GameEvent.StartSprinting)
+		if (gameEvent == GameEvent.SprintModifierDown)
 		{
 			holdShift = true;
 		}
-		else if (gameEvent == GameEvent.StopSprinting)
+		else if (gameEvent == GameEvent.SprintModifierUp)
 		{
 			holdShift = false;
 		}
@@ -263,16 +263,6 @@ public class RomanCharController : MonoBehaviour {
 	private void ResetJumpForce ()
 	{
 		jumpForce = maxJumpForce;
-	}
-
-	public void RunStateLogic ()
-	{
-		if (charState.IsIdle())
-		{
-			// temp fix for Triggersnt resetting
-			//animator.ResetTrigger("StopSprinting");
-			//animator.ResetTrigger("StopSprinting");
-		}
 	}
 	
 	

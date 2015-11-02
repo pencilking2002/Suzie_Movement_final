@@ -48,45 +48,18 @@ public class InputController : MonoBehaviour {
 		if (EventManager.onInputEvent == null)
 			return;
 
-		// Running ------------------------------------------------
+		// Sprinting ------------------------------------------------
 		if (inputDevice.LeftTrigger.WasPressed)
 		{
-			EventManager.OnInputEvent(GameEvent.StartSprinting);
-			print ("hold shift");
+			EventManager.OnInputEvent(GameEvent.SprintModifierDown);
+//			print ("hold shift");
 		}
 		
 		if (inputDevice.LeftTrigger.WasReleased)
 		{
-			EventManager.OnInputEvent(GameEvent.StopSprinting);
-			print ("release shift");
+			EventManager.OnInputEvent(GameEvent.SprintModifierUp);
+//			print ("release shift");
 		}
-		
-		
-//		if (inputDevice.LeftStick.IsPressed && inputDevice.LeftTrigger.IsPressed) 
-//		{
-//			EventManager.OnInputEvent(GameEvent.StartSprinting);
-//			print ("Should sprint");
-//		}
-		
-//		else if (inputDevice.LeftStick.WasReleased) 
-//		{
-//			EventManager.OnInputEvent (GameEvent.StopRunning);
-//		}
-		
-	
-		// Sprinting ------------------------------------------------
-		// Can the Squirrel sprint?
-//		canSprint = inputDevice.LeftTrigger.IsPressed || Input.GetKey (KeyCode.LeftShift);
-		
-//		if (inputDevice.LeftTrigger.WasPressed)
-//		{
-//			EventManager.OnInputEvent (GameEvent.StartSprinting);
-//		}
-//		else if (inputDevice.LeftTrigger.WasReleased)
-//		{
-//			EventManager.OnInputEvent (GameEvent.StopSprinting);
-//			print ("Stop running");
-//		}
 
 		//----------------------------------------------------------------------------------------------------------------------
 		// Jumping

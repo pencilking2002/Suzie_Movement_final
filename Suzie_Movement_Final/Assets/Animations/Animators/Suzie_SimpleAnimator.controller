@@ -162,6 +162,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterState: 7
   AnimationStateEvent: 0
+--- !u!114 &11414572
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 423503dd4513a4facafc4f2e9d32cd03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  characterState: 0
+  AnimationStateEvent: 0
 --- !u!114 &11415780
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -373,7 +386,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 423503dd4513a4facafc4f2e9d32cd03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  characterState: 8
+  characterState: 12
   AnimationStateEvent: 0
 --- !u!114 &11466100
 MonoBehaviour:

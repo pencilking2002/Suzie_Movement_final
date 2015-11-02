@@ -93,29 +93,7 @@ public class RomanCameraController : MonoBehaviour {
 		}
 		
 		speed = Mathf.SmoothDamp (speed, InputController.orbitH * 5, ref rotVel, Time.deltaTime);
-		transform.RotateAround (follow.position, Vector3.up, speed);
-		
-//		if (wideAngle)
-//		{
-//			fisheye.strengthX = Mathf.Lerp (fisheye.strengthX, 0.6f, Time.deltaTime);
-//			fisheye.strengthY = Mathf.Lerp (fisheye.strengthY, 0.6f, Time.deltaTime);
-//		}
-//		
-//		else 
-//		{
-//			if (fisheye.strengthX < 0.1f)
-//			{
-//				fisheye.strengthX = 0;
-//				fisheye.strengthY = 0;
-//				fisheye.enabled = false;
-//				return;
-//			}
-//				
-//			fisheye.strengthX = Mathf.Lerp (fisheye.strengthX, 0, Time.deltaTime);
-//			fisheye.strengthY = Mathf.Lerp (fisheye.strengthY, 0, Time.deltaTime);
-			
-			
-//		}
+		transform.RotateAround (follow.position, Vector3.up, speed);	
 
 	}
 	

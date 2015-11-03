@@ -3,33 +3,36 @@ using System.Collections;
 
 public enum GameEvent
 {
-	// Camera/follow object
+	// Player follow object attaching and detaching
 	AttachFollow,
 	DetachFollow,
 	
-	//Input
+	//Input ------------
 	Jump,
 	RecenterCam,
 	CamBehind,
 	OrbitCamera,
 	faceOppositeDirection,
-	
+
+	// Running ------------
 	StopRunning,
 	StartRunning,
 	StopTurnRunning,
 	StartTurnRunning,
-	
+
+	// Sprinting ------------
 	SprintModifierDown,
 	SprintModifierUp,
 	StartSprinting,
 	StopSprinting,
-	
+
+	// Climbing ------------
 	StartEdgeClimbing,
 	StopEdgeClimbing,
-	StartClimbingOverEdge
+	StartClimbingOverEdge,
+	StartWallClimbing
 	
 }
-
 
 public class EventManager : MonoBehaviour 
 {

@@ -13,7 +13,7 @@ public class RomanCharState : MonoBehaviour {
 		Landing,
 		IdleJumping,
 		RunningJumping,
-		Climbing,
+		WallClimbing,
 		Swimming,
 		IdleFalling,
 		RunningFalling,
@@ -22,7 +22,8 @@ public class RomanCharState : MonoBehaviour {
 		InAir,
 		Pivoting,
 		Sprinting,
-		ClimbingOverEdge
+		ClimbingOverEdge,
+		EdgeClimbing,
 	}
 	
 	//---------------------------------------------------------------------------------------------------------------------------
@@ -141,11 +142,21 @@ public class RomanCharState : MonoBehaviour {
 	
 	
 	// Climbing ----------------------------------------------------
-	
-	public bool IsClimbing()
+
+	public bool IsClimbing ()
 	{
-		return state == State.Climbing;
+		return state == State.WallClimbing ||  state == State.EdgeClimbing;
 	}
+
+	public bool IsWallClimbing()
+	{
+		return state == State.WallClimbing;
+	}
+	public bool IsEdgeClimbing()
+	{
+		return state == State.EdgeClimbing;
+	}
+
 	
 	public bool IsClimbingOverEdge()
 	{
@@ -154,18 +165,20 @@ public class RomanCharState : MonoBehaviour {
 	
 	// Events ------------------------------------------------------
 	
-	private void OnEnable () { EventManager.onCharEvent += Event_SetState; }
-	private void OnDisable () { EventManager.onCharEvent -= Event_SetState; }
-	
+//	private void OnEnable () { EventManager.onCharEvent += Event_SetState; }
+//	private void OnDisable () { EventManager.onCharEvent -= Event_SetState; }
+//	
 	/// <summary>
 	/// Set a state through an event
 	/// </summary>
 	/// <param name="gameEvent">Game event.</param>
-	private void Event_SetState (GameEvent gameEvent)
-	{
-		if (gameEvent == GameEvent.StartEdgeClimbing)
-			SetState(State.Climbing);
-	}
+//	private void Event_SetState (GameEvent gameEvent)
+//	{
+//		if (gameEvent == GameEvent.StartEdgeClimbing)
+//		{
+//			SetState(State.EdgeClimbing);
+//		}
+//	}
 	
 
 	

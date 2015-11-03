@@ -3,6 +3,8 @@ using System.Collections;
 
 public class ClimbController : MonoBehaviour 
 {
+	public float climbSpeed = 10.0f;
+
 	private Rigidbody rb;
 	private RomanCharState charState;
 	private Animator animator;
@@ -22,23 +24,36 @@ public class ClimbController : MonoBehaviour
 	
 	private void Update ()
 	{
-//		if (currentClimbCollider != null)
-//		{
-//			if (currentClimbCollider.CompareTag("EdgeClimbCollider")
-//			{
-//				
-//			}
-//		}
-		
+		if (charState.IsEdgeClimbing())
+		{
+			//transform.rotation = Quaternion.FromToRotation(
+			//transform.position = new Vector3(transform.position.x, transform.position.y, startClimbSpot.position.z);
+		}
+	}
+
+	private void FixedUpdate ()
+	{	
+		//print (InputController.h * 10);
+		if (charState.IsEdgeClimbing())
+		{
+			rb.velocity = new Vector3(InputController.h * climbSpeed, rb.velocity.y, rb.velocity.z);
+
+			if (InputController.h != 0)
+				animator.SetBool ("EdgeClimbSideWays", true);
+			else 
+				animator.SetBool ("EdgeClimbSideWays", false);
+		}
 	}
 	 
 	private void OnTriggerEnter(Collider collider)
 	{
 		if (collider.gameObject.CompareTag("EdgeClimbCollider"))
 		{
-			EventManager.OnCharEvent(GameEvent.StartEdgeClimbing);
 			this.enabled = true;
-			
+
+			EventManager.OnCharEvent(GameEvent.StartEdgeClimbing);
+			animator.SetTrigger("EdgeClimb");
+
 			currentClimbCollider = collider;			
 			startClimbSpot = collider.transform.GetChild(0);
 			climbPos = new Vector3 (transform.position.x, startClimbSpot.position.y, startClimbSpot.position.z);
@@ -50,18 +65,23 @@ public class ClimbController : MonoBehaviour
 			rb.velocity = Vector3.zero;
 			rb.angularVelocity = Vector3.zero;
 			
-			animator.SetTrigger("EdgeClimb");
+
 		}
 	}
+
+	private void OnTriggerExit ()
+	{
+		JumpOff( GameEvent.Jump);
+	}
 	
-	private void OnEnable () { EventManager.onInputEvent += JumpDownFromClimb; }
-	private void OnDisable () { EventManager.onInputEvent -= JumpDownFromClimb; }
+	private void OnEnable () { EventManager.onInputEvent += JumpOff; }
+	private void OnDisable () { EventManager.onInputEvent -= JumpOff; }
 	
 	/// <summary>
 	/// Stop climbing and jump down
 	/// </summary>
 	/// <param name="gameEvent">Game event.</param>
-	private void JumpDownFromClimb(GameEvent gameEvent)
+	private void JumpOff(GameEvent gameEvent)
 	{
 		if (gameEvent == GameEvent.Jump && charState.IsClimbing())
 		{

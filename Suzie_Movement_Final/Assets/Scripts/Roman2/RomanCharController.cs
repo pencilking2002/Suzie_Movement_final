@@ -73,9 +73,6 @@ public class RomanCharController : MonoBehaviour {
 	
 	private void FixedUpdate ()
 	{
-		if (charState.IsClimbing())
-			return;
-
 		moveDirection = new Vector3(InputController.h, 0, InputController.v);
 		moveDirectionRaw = new Vector3(InputController.rawH, 0, InputController.rawV);
 		
@@ -147,9 +144,6 @@ public class RomanCharController : MonoBehaviour {
 	
 	private void OnAnimatorMove ()
 	{
-//		if (charState.IsClimbing())
-//			return;
-//			
 		if (charState.IsRunning() && moveDirectionRaw != Vector3.zero)
 		{		
 			transform.rotation = Quaternion.Slerp (transform.rotation, Quaternion.LookRotation(moveDirectionRaw), runRotateSpeed * Time.fixedDeltaTime);
@@ -209,14 +203,14 @@ public class RomanCharController : MonoBehaviour {
 		EventManager.onCharEvent += Disable;
 	}
 	
-	private void Disable (GameEvent gameEvent)
+	private void Disable (GameEvent gameEvent)       
 	{
-		if (gameEvent == GameEvent.StartEdgeClimbing)
+		if (gameEvent == GameEvent.StartEdgeClimbing || gameEvent == GameEvent.StartWallClimbing)
 		{
 			this.enabled = false;
 		}
 		
-		if (gameEvent == GameEvent.StopEdgeClimbing)
+		if (gameEvent == GameEvent.StopEdgeClimbing || gameEvent == GameEvent.StartWallClimbing)
 		{
 			this.enabled = true;
 		}

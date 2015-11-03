@@ -200,13 +200,28 @@ public class RomanCharController : MonoBehaviour {
 	{ 
 		EventManager.onInputEvent += Jump;
 		EventManager.onInputEvent += Sprint;
+		EventManager.onCharEvent += Disable;
 	}
 	private void OnDisable () 
 	{ 
 		EventManager.onInputEvent -= Jump;
 		EventManager.onInputEvent -= Sprint;
+		EventManager.onCharEvent += Disable;
 	}
-
+	
+	private void Disable (GameEvent gameEvent)
+	{
+		if (gameEvent == GameEvent.StartEdgeClimbing)
+		{
+			this.enabled = false;
+		}
+		
+		if (gameEvent == GameEvent.StopEdgeClimbing)
+		{
+			this.enabled = true;
+		}
+	}
+	
 	private void Sprint(GameEvent gameEvent)
 	{
 		if (gameEvent == GameEvent.SprintModifierDown)

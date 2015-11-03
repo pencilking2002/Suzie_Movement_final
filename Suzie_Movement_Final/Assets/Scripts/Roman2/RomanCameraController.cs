@@ -7,7 +7,6 @@ public class RomanCameraController : MonoBehaviour {
 	//---------------------------------------------------------------------------------------------------------------------------
 	// Public Variables
 	//---------------------------------------------------------------------------------------------------------------------------	
-	public UnityStandardAssets.ImageEffects.Fisheye fisheye;
 	public bool smoothing;					// Will the camera smooth its movement?				
 	public Vector3 theOffset;					// How much to offset the camera from the follow
 	public Transform follow = null;			// Object to follow
@@ -15,9 +14,6 @@ public class RomanCameraController : MonoBehaviour {
 	[Range(0,20)]
 	public float camFollowSpeed = 10.0f;
 	//public float camLookAtSpeed = 10.0f;	// How fast the camera lerps to look at the follow
-
-//	[HideInInspector]
-//	public float yJumpPoint;
 
 	[Range(0,200)]
 	public float orbitSpeed = 10.0f;
@@ -56,7 +52,6 @@ public class RomanCameraController : MonoBehaviour {
 	// Use this for initialization
 	private void Start () 
 	{
-
 		if (follow == null)
 			follow = GameObject.FindGameObjectWithTag("Follow").transform;
 	}
@@ -68,7 +63,6 @@ public class RomanCameraController : MonoBehaviour {
 
 		if (smoothing)
 		{
-		
 			targetPos = Vector3.Lerp (transform.position, follow.position + vecDifference, camFollowSpeed * Time.deltaTime);
 			targetPos.y = Mathf.Lerp (targetPos.y, follow.position.y + theOffset.y, 5.0f * Time.deltaTime);
 		}

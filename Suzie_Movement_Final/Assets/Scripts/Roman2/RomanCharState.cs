@@ -21,7 +21,8 @@ public class RomanCharState : MonoBehaviour {
 		InCombat,
 		InAir,
 		Pivoting,
-		Sprinting
+		Sprinting,
+		ClimbingOverEdge
 	}
 	
 	//---------------------------------------------------------------------------------------------------------------------------
@@ -83,7 +84,9 @@ public class RomanCharState : MonoBehaviour {
 	{
 		return state == _state;
 	}
-
+	
+	
+	// Idle ----------------------------------------------------
 	
 	public bool IsIdle ()
 	{
@@ -94,7 +97,9 @@ public class RomanCharState : MonoBehaviour {
 	{
 		return state == State.Idle && InputController.rawH != 0;
 	}
-
+	
+	
+	// Running ----------------------------------------------------
 	
 	public bool IsRunning ()
 	{
@@ -110,7 +115,9 @@ public class RomanCharState : MonoBehaviour {
 	{
 		return (state == State.IdleJumping || state == State.RunningJumping || state == State.IdleFalling || state == State.RunningFalling) && landedFirstTime;
 	}
-
+	
+	
+	// Jumping ----------------------------------------------------
 	
 	public bool IsIdleJumping()
 	{
@@ -122,11 +129,6 @@ public class RomanCharState : MonoBehaviour {
 		return (state == State.RunningJumping || state == State.RunningFalling);
 	}
 
-//	public bool IsRunIdleJumping()
-//	{
-//		return (state == State.IdleJumping || state == State.RunningJumping);
-//	}
-
 	public bool IsLanding()
 	{
 		return state == State.Landing;
@@ -137,12 +139,34 @@ public class RomanCharState : MonoBehaviour {
 		return state == State.IdleFalling || state == State.RunningFalling;
 	}
 	
+	
+	// Climbing ----------------------------------------------------
+	
 	public bool IsClimbing()
 	{
 		return state == State.Climbing;
 	}
 	
-
+	public bool IsClimbingOverEdge()
+	{
+		return state == State.ClimbingOverEdge;
+	}
+	
+	// Events ------------------------------------------------------
+	
+	private void OnEnable () { EventManager.onCharEvent += Event_SetState; }
+	private void OnDisable () { EventManager.onCharEvent -= Event_SetState; }
+	
+	/// <summary>
+	/// Set a state through an event
+	/// </summary>
+	/// <param name="gameEvent">Game event.</param>
+	private void Event_SetState (GameEvent gameEvent)
+	{
+		if (gameEvent == GameEvent.StartEdgeClimbing)
+			SetState(State.Climbing);
+	}
+	
 
 	
 	

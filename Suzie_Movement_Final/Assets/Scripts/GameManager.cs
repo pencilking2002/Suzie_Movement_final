@@ -28,6 +28,11 @@ public class GameManager : MonoBehaviour {
 		{
 			GUI.Button(new Rect(Screen.width - 150, 30, 170, 50), "Squirrel State: " + charStateScript.GetState());
 			GUI.Button(new Rect(Screen.width - 150, 100, 170, 50), "Cam State: " + camScript.state.ToString());
+			
+			if (GUI.Button(new Rect(Screen.width - 150, 140, 170, 50), "Spawn at Cliff "))
+			{
+				GameObject.FindGameObjectWithTag("Player").transform.position = GameObject.FindGameObjectWithTag("CliffSpawnSpot").transform.position;
+			}
 		}
 	}
 	

@@ -60,6 +60,11 @@ public class InputController : MonoBehaviour {
 			EventManager.OnInputEvent(GameEvent.SprintModifierUp);
 //			print ("release shift");
 		}
+		
+//		if (inputDevice.LeftStickY.WasPressed && rawV == 1)
+//		{
+//			EventManager.OnInputEvent(GameEvent.SprintModifierUp);
+//		}
 
 		//----------------------------------------------------------------------------------------------------------------------
 		// Jumping

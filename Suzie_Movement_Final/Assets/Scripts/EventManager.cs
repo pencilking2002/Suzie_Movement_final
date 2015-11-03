@@ -13,14 +13,21 @@ public enum GameEvent
 	CamBehind,
 	OrbitCamera,
 	faceOppositeDirection,
+	
 	StopRunning,
 	StartRunning,
 	StopTurnRunning,
 	StartTurnRunning,
+	
 	SprintModifierDown,
 	SprintModifierUp,
 	StartSprinting,
-	StopSprinting
+	StopSprinting,
+	
+	StartEdgeClimbing,
+	StopEdgeClimbing,
+	StartClimbingOverEdge
+	
 }
 
 

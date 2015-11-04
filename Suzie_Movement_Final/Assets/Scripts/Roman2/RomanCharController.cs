@@ -15,7 +15,7 @@ public class RomanCharController : MonoBehaviour {
 	public float maxRunningRotation = 20f;
 	
 	public float runRotateSpeed = 10f;
-	public float runSpeed = 10.0f;
+	//public float runSpeed = 10.0f;
 
 	[Header("JUMPING")]
 	[Range(0,100)]
@@ -58,14 +58,14 @@ public class RomanCharController : MonoBehaviour {
 //	private int facingAwayFromCam = 1; 
 	private float forwardSpeed; 			// Temp var for forward speed
 	private bool holdShift = false;
-	
+	public float speed;					// Temp var for locomotion 
+
 	void Start () 
 	{
 		charState = GetComponent<RomanCharState>();
 		animator = GetComponent<Animator>();
 		rb = GetComponent<Rigidbody>();
 		cam = Camera.main.transform;
-		
 		
 		jumpForce = maxJumpForce;
 	}
@@ -76,7 +76,7 @@ public class RomanCharController : MonoBehaviour {
 		moveDirection = new Vector3(InputController.h, 0, InputController.v);
 		moveDirectionRaw = new Vector3(InputController.rawH, 0, InputController.rawV);
 		
-		float speed = Mathf.Clamp01(moveDirectionRaw.sqrMagnitude);
+		speed = Mathf.Clamp01(moveDirectionRaw.sqrMagnitude);
 		
 		// if holding sprint modifier key and pressing LeftStick go straight into sprint mode without damping
 		if (holdShift && speed > 0)
@@ -84,12 +84,6 @@ public class RomanCharController : MonoBehaviour {
 		
 		else // Else go into run
 			animator.SetFloat ("Speed", Mathf.Clamp01(speed), walkToRunDampTime, Time.deltaTime);
-			
-	
-		
-		//print (animator.GetFloat("Speed"));
-		// Keep track of the character's direction compared to the camera
-		//facingAwayFromCam = Vector3.Dot (transform.forward, cam.forward) < 0.0f ? -1 : 1;
 
 		TurnCharToCamera();
 		

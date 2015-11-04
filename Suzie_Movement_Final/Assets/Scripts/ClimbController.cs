@@ -27,7 +27,7 @@ public class ClimbController : MonoBehaviour
 		if (charState.IsEdgeClimbing())
 		{
 			//transform.rotation = Quaternion.FromToRotation(
-			//transform.position = new Vector3(transform.position.x, transform.position.y, startClimbSpot.position.z);
+			transform.position = new Vector3(transform.position.x, transform.position.y, startClimbSpot.position.z);
 		}
 	}
 

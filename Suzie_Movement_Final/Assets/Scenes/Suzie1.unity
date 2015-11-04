@@ -1471,7 +1471,7 @@ BoxCollider:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1271027568}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: ca11c0181a3d4934cb19a9a0c55133e6, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -1638,7 +1638,7 @@ BoxCollider:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1290451713}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: ca11c0181a3d4934cb19a9a0c55133e6, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -2089,6 +2089,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa3963ac3565c4f25af7be3f60f43ca1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  climbSpeed: .829999983
 --- !u!1 &1778799529
 GameObject:
   m_ObjectHideFlags: 0
@@ -2477,7 +2478,7 @@ GameObject:
   - 65: {fileID: 2095017286}
   m_Layer: 10
   m_Name: EdgeClimbCollider
-  m_TagString: ClimbCollider
+  m_TagString: EdgeClimbCollider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

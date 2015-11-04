@@ -45,26 +45,20 @@ public class InputController : MonoBehaviour {
 		// Player Movement
 		//----------------------------------------------------------------------------------------------------------------------
 
-		if (EventManager.onInputEvent == null)
-			return;
-
 		// Sprinting ------------------------------------------------
 		if (inputDevice.LeftTrigger.WasPressed)
-		{
 			EventManager.OnInputEvent(GameEvent.SprintModifierDown);
-//			print ("hold shift");
-		}
 		
-		if (inputDevice.LeftTrigger.WasReleased)
-		{
+		else if (inputDevice.LeftTrigger.WasReleased)
 			EventManager.OnInputEvent(GameEvent.SprintModifierUp);
-//			print ("release shift");
-		}
+	
 		
-//		if (inputDevice.LeftStickY.WasPressed && rawV == 1)
-//		{
-//			EventManager.OnInputEvent(GameEvent.SprintModifierUp);
-//		}
+		
+		if (inputDevice.LeftStickY.WasPressed && rawV == 1)
+		{
+			EventManager.OnInputEvent(GameEvent.ClimbOverEdge);
+			print ("Event sent: climboveredge");
+		}
 
 		//----------------------------------------------------------------------------------------------------------------------
 		// Jumping
@@ -72,39 +66,30 @@ public class InputController : MonoBehaviour {
 		
 		// if pressed Y or pressed Space
 		if (inputDevice.Action1.WasPressed)
-		{
 			EventManager.OnInputEvent(GameEvent.Jump);
-			//jumpIsPressed = true;	
-		}
-
-		if (inputDevice.Action1.WasReleased)
-		{
-			//jumpIsPressed = false;
+		
+		else if (inputDevice.Action1.WasReleased)
 			jumpReleased = true;
-		}
+
 
 		//----------------------------------------------------------------------------------------------------------------------
 		// Recenter Camera
 		//----------------------------------------------------------------------------------------------------------------------
 		
 		if (inputDevice.RightBumper.WasReleased)
-		{
 			EventManager.OnInputEvent(GameEvent.RecenterCam);	
-		}
+		
 		
 		//----------------------------------------------------------------------------------------------------------------------
 		// Camera Orbiting
 		//----------------------------------------------------------------------------------------------------------------------
 		
-		if (inputDevice.RightStickX.IsPressed)
-		{
-			EventManager.OnInputEvent(GameEvent.OrbitCamera);
-		}
+//		if (inputDevice.RightStickX.IsPressed)
+//			EventManager.OnInputEvent(GameEvent.OrbitCamera);
+//		
+//		else if (inputDevice.RightStickX.WasReleased) 
+//			EventManager.OnInputEvent(GameEvent.CamBehind);
 		
-		if (inputDevice.RightStickX.WasReleased) 
-		{
-			EventManager.OnInputEvent(GameEvent.CamBehind);
-		}
 
 
 	}

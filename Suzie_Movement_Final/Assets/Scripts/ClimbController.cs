@@ -31,17 +31,16 @@ public class ClimbController : MonoBehaviour
 		}
 	}
 
-	private void FixedUpdate ()
+	private void OnTriggerStay (Collider coll)
 	{	
 		//print (InputController.h * 10);
 		if (charState.IsEdgeClimbing())
 		{
 			rb.velocity = new Vector3(InputController.h * climbSpeed, rb.velocity.y, rb.velocity.z);
-
-			if (InputController.h != 0)
-				animator.SetBool ("EdgeClimbSideWays", true);
-			else 
-				animator.SetBool ("EdgeClimbSideWays", false);
+//			transform.rotation = Quaternion.FromToRotation(coll.cont
+			animator.SetBool ("EdgeClimbSideWays", InputController.h != 0);
+			animator.SetInteger("HorEdgeClimbDir", (int) InputController.rawH);
+		
 		}
 	}
 	 
@@ -50,10 +49,10 @@ public class ClimbController : MonoBehaviour
 		if (collider.gameObject.CompareTag("EdgeClimbCollider"))
 		{
 			this.enabled = true;
-
-			EventManager.OnCharEvent(GameEvent.StartEdgeClimbing);
 			animator.SetTrigger("EdgeClimb");
-
+			
+			EventManager.OnCharEvent(GameEvent.StartEdgeClimbing);
+			
 			currentClimbCollider = collider;			
 			startClimbSpot = collider.transform.GetChild(0);
 			climbPos = new Vector3 (transform.position.x, startClimbSpot.position.y, startClimbSpot.position.z);
@@ -71,12 +70,27 @@ public class ClimbController : MonoBehaviour
 
 	private void OnTriggerExit ()
 	{
-		JumpOff( GameEvent.Jump);
+		JumpOff(GameEvent.Jump);
 	}
 	
-	private void OnEnable () { EventManager.onInputEvent += JumpOff; }
-	private void OnDisable () { EventManager.onInputEvent -= JumpOff; }
+	private void OnEnable () 
+	{ 
+		EventManager.onInputEvent += JumpOff;
+		EventManager.onInputEvent += ClimbOverEdge; 
+	}
+	private void OnDisable () 
+	{ 
+		EventManager.onInputEvent -= JumpOff;
+		EventManager.onInputEvent -= ClimbOverEdge;  
+	}
 	
+	private void ClimbOverEdge(GameEvent gameEvent)
+	{
+		if (gameEvent == GameEvent.ClimbOverEdge && charState.IsEdgeClimbing())
+		{
+			animator.SetTrigger("ClimbOverEdge");
+		}
+	}
 	/// <summary>
 	/// Stop climbing and jump down
 	/// </summary>

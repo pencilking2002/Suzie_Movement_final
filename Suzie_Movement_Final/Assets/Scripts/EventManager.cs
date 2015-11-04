@@ -30,7 +30,8 @@ public enum GameEvent
 	StartEdgeClimbing,
 	StopEdgeClimbing,
 	StartClimbingOverEdge,
-	StartWallClimbing
+	StartWallClimbing,
+	ClimbOverEdge
 	
 }
 

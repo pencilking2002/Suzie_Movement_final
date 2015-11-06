@@ -29,13 +29,13 @@ public class ClimbController : MonoBehaviour
 	
 	private void Update ()
 	{
-		if (charState.IsEdgeClimbing())
-		{
-			//transform.rotation = Quaternion.FromToRotation(
-//			transform.position = new Vector3(transform.position.x, transform.position.y, startClimbSpot.position.z);
-			Debug.DrawRay(contactPoint.point, contactPoint.normal * 3, Color.red);
-			//print("Stay");
-		}
+//		if (charState.IsEdgeClimbing())
+//		{
+//			//transform.rotation = Quaternion.FromToRotation(
+////			transform.position = new Vector3(transform.position.x, transform.position.y, startClimbSpot.position.z);
+//			Debug.DrawRay(contactPoint.point, contactPoint.normal * 3, Color.red);
+//			//print("Stay");
+//		}
 	}
 	
 	private void OnCollisionStay (Collision col)
@@ -44,7 +44,7 @@ public class ClimbController : MonoBehaviour
 		if (charState.IsEdgeClimbing())
 		{
 		
-//			rb.velocity = new Vector3(InputController.h * climbSpeed, rb.velocity.y, rb.velocity.z);
+			rb.velocity = new Vector3(InputController.h * climbSpeed * Time.deltaTime, rb.velocity.y, rb.velocity.z);
 //			//			transform.rotation = Quaternion.FromToRotation(coll.cont
 //			animator.SetBool ("EdgeClimbSideWays", InputController.h != 0);
 //			animator.SetInteger("HorEdgeClimbDir", (int) InputController.rawH);
@@ -62,8 +62,7 @@ public class ClimbController : MonoBehaviour
 	{
 		if (col.gameObject.CompareTag("EdgeClimbCollider") && charState.IsJumping())
 		{
-			this.enabled = true;
-			rb.isKinematic = true;
+			SetupClimbing(true);
 			
 			animator.SetTrigger("EdgeClimb");
 			print ("Edge climb");
@@ -78,21 +77,35 @@ public class ClimbController : MonoBehaviour
 			transform.position = climbPos - transform.forward / climbSpotZOffset;
 			
 			// Set the rotation of the character
-			//Vector3 contactPointRot = Quaternion.FromToRotation(transform.forward, -col.contacts[0].normal).eulerAngles;
 			Vector3 contactPointRot = Quaternion.LookRotation(-col.contacts[0].normal, Vector3.up).eulerAngles;
 			transform.eulerAngles = new Vector3(transform.eulerAngles.x, contactPointRot.y, transform.eulerAngles.z);
 			
-			rb.useGravity = false;
+			
 			rb.velocity = Vector3.zero;
 			rb.angularVelocity = Vector3.zero;
 			
 			currentClimbCollision = col;
 			contactPoint = col.contacts[0];
 			
-			
 		}
 	}
 	
+	/// <summary>
+	/// Enable this script and setup the rigidbody for climbing
+	/// </summary>
+	/// <param name="setup">If set to <c>true</c> setup.</param>
+	private void SetupClimbing (bool setup)
+	{
+		this.enabled = setup;
+		rb.isKinematic = setup;
+		rb.useGravity = !setup;
+	}
+	
+	/// <summary>
+	/// Gets the height of the collider.
+	/// </summary>
+	/// <returns>The collider height.</returns>
+	/// <param name="collider">Collider.</param>
 	private float GetColliderHeight (Collider collider)
 	{
 		return collider.transform.localScale.y * collider.bounds.size.y;
@@ -114,13 +127,6 @@ public class ClimbController : MonoBehaviour
 		EventManager.onInputEvent -= ClimbOverEdge;  
 	}
 	
-	private void ClimbOverEdge(GameEvent gameEvent)
-	{
-		if (gameEvent == GameEvent.ClimbOverEdge && charState.IsEdgeClimbing())
-		{
-			animator.SetTrigger("ClimbOverEdge");
-		}
-	}
 	/// <summary>
 	/// Stop climbing and jump down
 	/// </summary>
@@ -130,13 +136,24 @@ public class ClimbController : MonoBehaviour
 		if (gameEvent == GameEvent.Jump && charState.IsClimbing())
 		{
 			EventManager.OnCharEvent(GameEvent.StopEdgeClimbing);
-			animator.SetTrigger("StopClimbing");
-			rb.useGravity = true;
-			print ("Stop climbing");
 			
-			rb.isKinematic = false;
-			this.enabled = false;
+			animator.SetTrigger("StopClimbing");
+			
+			SetupClimbing(false);
 			
 		}
 	}
+	
+	/// <summary>
+	/// Trigger the climb over edge animation
+	/// </summary>
+	/// <param name="gameEvent">Game event.</param>
+	private void ClimbOverEdge(GameEvent gameEvent)
+	{
+		if (gameEvent == GameEvent.ClimbOverEdge && charState.IsEdgeClimbing())
+		{
+			animator.SetTrigger("ClimbOverEdge");
+		}
+	}
+	
 }

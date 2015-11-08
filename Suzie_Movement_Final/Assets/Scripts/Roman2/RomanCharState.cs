@@ -65,7 +65,7 @@ public class RomanCharState : MonoBehaviour {
 		{
 			rb.velocity = Vector3.zero;
 			landedFirstTime = true;
-			print ("run speed: " + GetComponent<RomanCharController>().speed);
+//			print ("run speed: " + GetComponent<RomanCharController>().speed);
 		}
 
 		if (_state == State.Sprinting)

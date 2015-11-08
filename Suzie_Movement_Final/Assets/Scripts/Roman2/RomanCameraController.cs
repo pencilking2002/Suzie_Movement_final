@@ -21,7 +21,6 @@ public class RomanCameraController : MonoBehaviour {
 	// Private Variables
 	//---------------------------------------------------------------------------------------------------------------------------	
 
-//	private Vector3 origOffset;					// reference the original offset value
 	private Vector3 targetPos = Vector3.zero;
 	
 	private Vector3 vel;       					// velocity needed for smooth damping the cam's position

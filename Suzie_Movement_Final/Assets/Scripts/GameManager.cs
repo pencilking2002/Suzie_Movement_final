@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour {
 	// debug
 	private RomanCharState charStateScript;
 	private RomanCameraController camScript;
+	private ClimbDetector climbDetector;
 
 	private void Awake ()
 	{
@@ -18,6 +19,7 @@ public class GameManager : MonoBehaviour {
 
 		charStateScript = GameObject.FindObjectOfType<RomanCharState> ();
 		camScript = GameObject.FindObjectOfType<RomanCameraController> ();
+		climbDetector = GameObject.FindObjectOfType<ClimbDetector> ();
 	}
 
 	#if UNITY_EDITOR
@@ -27,7 +29,7 @@ public class GameManager : MonoBehaviour {
 		if (debug)
 		{
 			GUI.Button(new Rect(Screen.width - 150, 30, 170, 50), "Squirrel State: " + charStateScript.GetState());
-			GUI.Button(new Rect(Screen.width - 150, 100, 170, 50), "Cam State: " + camScript.state.ToString());
+			GUI.Button(new Rect(Screen.width - 150, 100, 170, 50), "climb collider detected " + climbDetector.climbColliderDetected);
 			
 			if (GUI.Button(new Rect(Screen.width - 150, 140, 170, 50), "Spawn at Cliff "))
 			{

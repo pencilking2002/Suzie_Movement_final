@@ -32,6 +32,17 @@ public class Util : MonoBehaviour {
 		yield return new WaitForSeconds(delay);
 		method ();
 	}
+	
+	/// <summary>
+	///Get the Vector that represents the top center point of a collider
+	/// </summary>
+	/// <returns>The collider top point.</returns>
+	/// <param name="collider">Collider.</param>
+	static public Vector3 GetColliderTopPoint (Collider collider)
+	{
+		float height = collider.bounds.extents.y;
+		return new Vector3(collider.transform.position.x, collider.transform.position.y + height, collider.transform.position.z);
+	}
 
 
 

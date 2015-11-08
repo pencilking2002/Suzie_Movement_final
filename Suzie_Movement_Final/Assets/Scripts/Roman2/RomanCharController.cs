@@ -38,6 +38,7 @@ public class RomanCharController : MonoBehaviour {
 	private Animator animator;
 	private Rigidbody rb;
 	private Transform cam;
+	private ClimbDetector climbDetector;
 		
 	private float yRot;				// The value to feed into the character's rotation in idle mode
 	private float angle;			// used to check which way the character is rotating
@@ -66,7 +67,7 @@ public class RomanCharController : MonoBehaviour {
 		animator = GetComponent<Animator>();
 		rb = GetComponent<Rigidbody>();
 		cam = Camera.main.transform;
-		
+		climbDetector = GetComponent<ClimbDetector>();
 		jumpForce = maxJumpForce;
 	}
 
@@ -176,6 +177,7 @@ public class RomanCharController : MonoBehaviour {
 		{
 			animator.SetTrigger("Land");
 			EventManager.OnCharEvent(GameEvent.AttachFollow);
+			EventManager.OnCharEvent(GameEvent.Land);
 			
 		}
 	}
@@ -188,25 +190,32 @@ public class RomanCharController : MonoBehaviour {
 	{ 
 		EventManager.onInputEvent += Jump;
 		EventManager.onInputEvent += Sprint;
+		
+		EventManager.onCharEvent += Enable;
 		EventManager.onCharEvent += Disable;
 	}
 	private void OnDisable () 
 	{ 
 		EventManager.onInputEvent -= Jump;
 		EventManager.onInputEvent -= Sprint;
-		EventManager.onCharEvent += Disable;
+		
+//		EventManager.onInputEvent -= Enable;
+		EventManager.onCharEvent -= Disable;
+	}
+	
+	private void Enable (GameEvent gameEvent)
+	{
+		if (gameEvent == GameEvent.Land)
+		{
+			this.enabled = true;
+		}
 	}
 	
 	private void Disable (GameEvent gameEvent)       
 	{
-		if (gameEvent == GameEvent.StartEdgeClimbing || gameEvent == GameEvent.StartWallClimbing)
+		if (gameEvent == GameEvent.StartClimbing)
 		{
 			this.enabled = false;
-		}
-		
-		if (gameEvent == GameEvent.StopEdgeClimbing || gameEvent == GameEvent.StartWallClimbing)
-		{
-			this.enabled = true;
 		}
 	}
 	
@@ -229,6 +238,8 @@ public class RomanCharController : MonoBehaviour {
 		if (gameEvent == GameEvent.Jump && (charState.IsIdle() || charState.IsRunning())) 
 		{	
 			EventManager.OnCharEvent(GameEvent.DetachFollow);
+			EventManager.OnCharEvent(GameEvent.Jump);
+			
 			
 			JumpUpAnim ();
 			rb.AddForce (new Vector3 (0,  maxJumpForce, 0), ForceMode.Impulse);

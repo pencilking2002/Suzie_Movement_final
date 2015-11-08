@@ -54,10 +54,14 @@ public class InputController : MonoBehaviour {
 	
 		
 		
-		if (inputDevice.LeftStickY.WasPressed && rawV == 1)
+		if (inputDevice.LeftStickY.WasPressed)
 		{
-			EventManager.OnInputEvent(GameEvent.ClimbOverEdge);
-			print ("Event sent: climboveredge");
+			if (rawV == 1)
+				EventManager.OnInputEvent(GameEvent.ClimbOverEdge);
+				
+			else if (rawV == -1)
+				EventManager.OnInputEvent(GameEvent.StopClimbing);
+//			print ("Event sent: climboveredge");
 		}
 
 		//----------------------------------------------------------------------------------------------------------------------

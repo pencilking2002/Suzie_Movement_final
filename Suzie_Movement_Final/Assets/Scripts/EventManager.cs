@@ -31,7 +31,14 @@ public enum GameEvent
 	StopEdgeClimbing,
 	StartClimbingOverEdge,
 	StartWallClimbing,
-	ClimbOverEdge
+	ClimbOverEdge,
+	
+	Land,
+	ResetJumpOff,
+	ClimbColliderDetected,
+	StopWallClimbing,
+	StopClimbing,
+	StartClimbing
 	
 }
 
@@ -49,6 +56,11 @@ public class EventManager : MonoBehaviour
 	public delegate void InputAction(GameEvent gameEvent);
 	public static InputAction onInputEvent;
 	
+	//---------------------------------------------------------------------------------------------------------------------------
+	// Climb Detection events 
+	//---------------------------------------------------------------------------------------------------------------------------
+	public delegate void DetectAction(GameEvent gameEvent, RaycastHit hit);
+	public static DetectAction onDetectEvent;
 
 	public static void OnCharEvent (GameEvent gameEvent)
 	{
@@ -60,5 +72,11 @@ public class EventManager : MonoBehaviour
 	{
 		if (onInputEvent != null)
 			onInputEvent(gameEvent);
+	}
+	
+	public static void OnDetectEvent (GameEvent gameEvent, RaycastHit hit)
+	{
+		if (onDetectEvent != null)
+			onDetectEvent(gameEvent, hit);
 	}
 }

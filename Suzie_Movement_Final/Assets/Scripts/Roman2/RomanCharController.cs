@@ -161,16 +161,6 @@ public class RomanCharController : MonoBehaviour {
 		//moveDirection = camRot * moveDirection;
 	}
 	
-	private void OnTriggerEnter (Collider col)
-	{
-		if (col.CompareTag("JumpCollider") && rb.velocity.y < 0)
-		{
-			// Test to see if the ground is below the Squirrel. If it is, don't attach the follow
-			if (!Physics.Raycast(transform.position, Vector3.down, 2))
-				EventManager.OnCharEvent(GameEvent.AttachFollow);
-		}
-	}
-	
 	private void OnCollisionStay (Collision coll)
 	{
 		if (charState.IsFalling() && Vector3.Dot(coll.contacts[0].normal, Vector3.up) > 0.5f )

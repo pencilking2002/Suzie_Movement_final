@@ -353,7 +353,7 @@ Transform:
   - {fileID: 1043921003}
   - {fileID: 1380232037}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
 --- !u!1 &166326128
 GameObject:
   m_ObjectHideFlags: 0
@@ -423,7 +423,7 @@ RectTransform:
   m_Children:
   - {fileID: 1941473788}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 4
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
@@ -991,7 +991,7 @@ Transform:
   m_Children:
   - {fileID: 1947162909}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 0
 --- !u!114 &518505466
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1004,7 +1004,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   smoothing: 0
-  theOffset: {x: 0, y: .25999999, z: -3.75}
+  theOffset: {x: 0, y: .25999999, z: -3.8499999}
   follow: {fileID: 2086329366}
   camFollowSpeed: 16.2999992
   orbitSpeed: 160
@@ -1656,7 +1656,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 465690, guid: 178ddc6b4425848ef9730a8bb314f783, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 2.37140179
+      value: 2.37140203
       objectReference: {fileID: 0}
     - target: {fileID: 465690, guid: 178ddc6b4425848ef9730a8bb314f783, type: 2}
       propertyPath: m_LocalPosition.y
@@ -1664,7 +1664,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 465690, guid: 178ddc6b4425848ef9730a8bb314f783, type: 2}
       propertyPath: m_LocalPosition.z
-      value: .399916649
+      value: .39991641
       objectReference: {fileID: 0}
     - target: {fileID: 465690, guid: 178ddc6b4425848ef9730a8bb314f783, type: 2}
       propertyPath: m_LocalRotation.x
@@ -1684,7 +1684,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 465690, guid: 178ddc6b4425848ef9730a8bb314f783, type: 2}
       propertyPath: m_RootOrder
-      value: 5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 128798, guid: 178ddc6b4425848ef9730a8bb314f783, type: 2}
       propertyPath: m_Name
@@ -2062,7 +2062,7 @@ GameObject:
   - 33: {fileID: 1419323223}
   - 23: {fileID: 1419323222}
   - 64: {fileID: 1419323221}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Cylinder (1)
   m_TagString: EdgeClimbCollider
   m_Icon: {fileID: 0}
@@ -2429,6 +2429,17 @@ MonoBehaviour:
   speed: 1
   gravity: 5
   threshold: .00700000022
+--- !u!114 &1756476990
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1756476980}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 896fc74f7e12b45daa1af4d8e5c86f94, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1778799529
 GameObject:
   m_ObjectHideFlags: 0
@@ -2505,7 +2516,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 441980, guid: ed72e9928348a4677b9e8e6fbe6a2df9, type: 2}
       propertyPath: m_RootOrder
-      value: 12
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 489356, guid: ed72e9928348a4677b9e8e6fbe6a2df9, type: 2}
       propertyPath: m_LocalPosition.y
@@ -2628,7 +2639,7 @@ GameObject:
   - 64: {fileID: 1946443629}
   m_Layer: 9
   m_Name: Cylinder (1)
-  m_TagString: Untagged
+  m_TagString: ClimbCollider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2688,7 +2699,7 @@ Transform:
   m_Children:
   - {fileID: 1419323220}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 3
 --- !u!1 &1947162908
 GameObject:
   m_ObjectHideFlags: 0
@@ -2700,7 +2711,7 @@ GameObject:
   - 33: {fileID: 1947162912}
   - 65: {fileID: 1947162911}
   - 23: {fileID: 1947162910}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: JumpCollider
   m_TagString: JumpCollider
   m_Icon: {fileID: 0}
@@ -2714,8 +2725,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1947162908}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: .0599999987, y: -.810000002, z: 3.06999993}
-  m_LocalScale: {x: 2.08656716, y: .309182733, z: 6.70743322}
+  m_LocalPosition: {x: .0599999987, y: -1.11199999, z: 3.07599998}
+  m_LocalScale: {x: 2.08656716, y: .462930143, z: 6.6947279}
   m_Children: []
   m_Father: {fileID: 518505465}
   m_RootOrder: 0
@@ -2863,7 +2874,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
 --- !u!114 &2086329367
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3025,7 +3036,7 @@ Transform:
   m_Children:
   - {fileID: 205000766}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 2
 --- !u!1 &2144735318
 GameObject:
   m_ObjectHideFlags: 0

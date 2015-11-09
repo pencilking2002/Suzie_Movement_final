@@ -5,8 +5,18 @@ public class ClimbController : MonoBehaviour
 {
 	[Range(-5.0f,5.0f)]
 	public float climbSpotYOffset = 1.0f;
+	
 	[Range(-5.0f,5.0f)]
 	public float climbSpotZOffset = 1.0f;
+	
+	// the speed to move the game object
+	public float speed = 6.0f;
+	
+	// Gravity pulling the player into the climb collider
+	public float gravity = 50.0f;
+	
+	// The threshold, to discard some of the normal value variations
+	public float threshold = 0.009f;
 	
 	private Animator animator;
 	private CapsuleCollider capsuleCollider;
@@ -19,10 +29,7 @@ public class ClimbController : MonoBehaviour
 	private Vector3 climbPos;
 	private int layerMask = 1 << 9;
 	
-	//the speed to move the game object
-	public float speed = 6.0f;
-	//the gravity
-	public float gravity = 50.0f;
+	
 	
 	//the direction to move the character
 	private Vector3 moveDirection = Vector3.zero;
@@ -34,8 +41,7 @@ public class ClimbController : MonoBehaviour
 	
 	//a class to store the previous normal value
 	private Vector3 oldNormal;
-	//the threshold, to discard some of the normal value variations
-	public float threshold = 0.009f;
+	
 	
 	
 	private void Start ()
@@ -49,69 +55,38 @@ public class ClimbController : MonoBehaviour
 	
 	private void Update ()
 	{
-		if (charState.IsEdgeClimbing())
+		if (charState.IsEdgeClimbing() && InputController.h != 0)
 		{
-			//cast a ray from the current game object position downward, relative to the current game object orientation
-			//ray = new Ray(transform.position, transform.forward);  
-			
+		 	
 			Debug.DrawRay(transform.position, transform.forward * 0.5f, Color.red);
 			
 			//if the ray has hit something
 			if(Physics.Raycast(transform.position, transform.forward, out hit, 0.5f, layerMask))//cast the ray 5 units at the specified direction  
 			{  
-//				if (hit.collider.gameObject.layer != 9)
-//					return;
-					
+	
 				//if the current goTransform.up.y value has passed the threshold test
 				if(oldNormal.z >= transform.forward.z + threshold || oldNormal.z <= transform.forward.z - threshold)
 				{
-					//set the up vector to match the normal of the ray's collision
-					//transform.forward = -hit.normal;
+					//smoothly match the player's forward with the inverse of the normal
 					transform.forward = Vector3.Lerp (transform.forward, -hit.normal, 10 * Time.deltaTime);
 				}
 				//store the current hit.normal inside the oldNormal
 				oldNormal = -hit.normal;
-				
-//				if ( Vector3.Angle(-hit.normal, oldNormal) > 3)
-//					transform.forward = -hit.normal; //transform.forward = Vector3.Lerp (transform.forward, -hit.normal, 10 * Time.deltaTime);	
-				 
-//				if ( Vector3.Angle(-hit.normal, oldNormal) > 10)
-//					transform.forward = Vector3.Lerp (transform.forward, -hit.normal, 10 * Time.deltaTime);	
-				
-//				oldNormal = -hit.normal;
+
 			} 
 			else
 			{
 				StopClimbing(GameEvent.StopClimbing);
 			} 
 			
-//			//move the game object based on keyboard input
-//			moveDirection = new Vector3(InputController.h, 0, 0);
-//			
-//			//apply the speed to move the game object
-//			moveDirection *= speed;
-//			
-//			//apply the movement relative to the attached game object orientation
-//			moveDirection = transform.TransformDirection(moveDirection);
-//			
-			// Apply gravity downward, relative to the containing game object orientation
-//			moveDirection.z += gravity * transform.forward.z *  Time.deltaTime;
-//			moveDirection.y = 0;
-//			
-//			print (moveDirection);
-			//moveDirection = new Vector3(transform.right.x * InputController.h * speed, 0, transform.forward.z * gravity) * Time.deltaTime;
-			
 			moveDirection = new Vector3(InputController.h * speed, 0, gravity)  * Time.deltaTime; 
 			moveDirection = transform.TransformDirection(moveDirection);
-			
-			if (InputController.h != 0)
-			{
-				animator.SetInteger ("HorEdgeClimbDir", (int) InputController.rawH);
+	
+			animator.SetInteger ("HorEdgeClimbDir", (int) InputController.rawH);
+				
+			if (cController.enabled)
 				cController.Move(moveDirection);
-			}
-			
-			
-			//transform.Translate(moveDirection * Time.deltaTime);
+	
 		}
 	}
 	
@@ -164,7 +139,6 @@ public class ClimbController : MonoBehaviour
 			print ("Stop climbing");
 			rb.isKinematic = false;
 			animator.SetTrigger("StopClimbing");
-			
 			cController.enabled = false;
 			this.enabled = false;
 			

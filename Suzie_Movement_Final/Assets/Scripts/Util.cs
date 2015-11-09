@@ -44,6 +44,25 @@ public class Util : MonoBehaviour {
 		return new Vector3(collider.transform.position.x, collider.transform.position.y + height, collider.transform.position.z);
 	}
 
+	/// <summary>
+	/// Used to enable MonoBehavior scripts
+	/// </summary>
+	/// <param name="script">Reference to the script to disable</param>
+	/// <param name="enable">If set to <c>true</c> enable.</param>
+	static public void EnableScript (MonoBehaviour script)
+	{
+		script.enabled = true;	
+	}
+
+	/// <summary>
+	/// Used to disable MonoBehavior scripts
+	/// </summary>
+	/// <param name="script">Reference to the script to disable</param>
+	/// <param name="enable">If set to <c>true</c> enable.</param>
+	static public void DisableScript (MonoBehaviour script)
+	{
+		script.enabled = false;	
+	}
 
 
 }

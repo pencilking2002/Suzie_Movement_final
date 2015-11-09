@@ -9,7 +9,43 @@ public class InputController : MonoBehaviour {
 	//---------------------------------------------------------------------------------------------------------------------------
 	
 	public static InputController Instance;
-	public static float v, h, rawH, rawV, orbitH, orbitV;
+	public static float v, h, orbitV, orbitH, rawV, rawH;
+
+	// Fix values coming in from InControl. 
+	// For whatever reason the values aren't raw when using the controller
+//	public static float rawV
+//	{
+//		get { return _rawV; }
+//		set 
+//		{
+//			if (value < 0)
+//				_rawV = -1;
+//
+//			else if (value > 0)
+//			    _rawV = 1;
+//
+//			else
+//				_rawV = 0;
+//
+//		}
+//	}
+//
+//	public static float rawH
+//	{
+//		get { return _rawH; }
+//		set 
+//		{
+//			if (value < 0)
+//				_rawH = -1;
+//			
+//			else if (value > 0)
+//				_rawH = 1;
+//
+//			else
+//				_rawH = 0;
+//		}
+//	}
+
 	public static bool jumpReleased = false;
 	
 	
@@ -19,6 +55,7 @@ public class InputController : MonoBehaviour {
 	
 	private InputDevice inputDevice;
 	private bool canSprint = false;
+	private static float _rawV, _rawH;
 
 	private void Awake ()
 	{
@@ -33,11 +70,12 @@ public class InputController : MonoBehaviour {
 		
 		h = Input.GetAxis ("Horizontal");
 		v = Input.GetAxis ("Vertical");
-		
-		rawH = Input.GetAxisRaw("Horizontal");
-		rawV = Input.GetAxisRaw("Vertical");
-		
+//		h = inputDevice.LeftStickX.Value;
+//		v = inputDevice.LeftStickY.Value;
 
+		rawH = inputDevice.LeftStickX.RawValue;
+		rawV = inputDevice.LeftStickY.RawValue;
+		
 		orbitH = inputDevice.RightStickX;
 		orbitV = inputDevice.RightStickY;
 
@@ -52,15 +90,19 @@ public class InputController : MonoBehaviour {
 		else if (inputDevice.LeftTrigger.WasReleased)
 			EventManager.OnInputEvent(GameEvent.SprintModifierUp);
 	
-		
-		
+
 		if (inputDevice.LeftStickY.WasPressed)
 		{
 			if (rawV == 1)
+			{
 				EventManager.OnInputEvent(GameEvent.ClimbOverEdge);
-				
+			}
 			else if (rawV == -1)
+			{
+	//			print ("InputController: stop climbing " + rawV);
 				EventManager.OnInputEvent(GameEvent.StopClimbing);
+
+			}
 //			print ("Event sent: climboveredge");
 		}
 

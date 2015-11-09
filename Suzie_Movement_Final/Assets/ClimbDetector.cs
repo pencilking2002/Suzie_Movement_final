@@ -3,11 +3,13 @@ using System.Collections;
 
 public class ClimbDetector : MonoBehaviour {
 	
-	public PhysicMaterial wallPhysMaterial;
-	public PhysicMaterial groundPhysMaterial;
+//	public PhysicMaterial wallPhysMaterial;
+//	public PhysicMaterial groundPhysMaterial;
 	
 	[HideInInspector]
 	public bool climbColliderDetected;
+	public float rayLength = 2.0f;			// How long the raycast to look for climbable objects should be
+
 	private RomanCharState charState;
 	private CapsuleCollider cCollider;
 	private Ray ray;
@@ -26,15 +28,13 @@ public class ClimbDetector : MonoBehaviour {
 	
 	private void Update ()
 	{
-		Debug.DrawRay(transform.position + raycastOffset,  transform.forward * 2, Color.red); 
+		Debug.DrawRay(transform.position + raycastOffset,  transform.forward * rayLength, Color.red); 
 		
-		if (Physics.Raycast (transform.position + raycastOffset, transform.forward, out hit, 2, layerMask))
+		if (Physics.Raycast (transform.position + raycastOffset, transform.forward, out hit, rayLength, layerMask))
 		{
 			
 			EventManager.OnDetectEvent(GameEvent.ClimbColliderDetected, hit);
-			print ("event sent");
-			
-			this.enabled = false;
+			Util.DisableScript(this);
 
 		}
 	
@@ -53,10 +53,10 @@ public class ClimbDetector : MonoBehaviour {
 	private void Disable (GameEvent gameEvent)
 	{
 		if (gameEvent == GameEvent.Jump)
-			this.enabled = true;
+			Util.EnableScript(this); 
 		
 		else if (gameEvent == GameEvent.Land)
-			this.enabled = false;
+			Util.DisableScript(this); 
 	}
 	
 //	private void OnCollisionEnter (Collision col)

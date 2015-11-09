@@ -82,7 +82,10 @@ public class ClimbController : MonoBehaviour
 			moveDirection = new Vector3(InputController.h * speed, 0, gravity)  * Time.deltaTime; 
 			moveDirection = transform.TransformDirection(moveDirection);
 	
-			animator.SetInteger ("HorEdgeClimbDir", (int) InputController.rawH);
+			animator.SetFloat("HorEdgeClimbDir", InputController.h);
+
+			print ("Climb controller: " + InputController.rawH);
+			print ("Climb controller: " + InputController.h);
 				
 			if (cController.enabled)
 				cController.Move(moveDirection);
@@ -136,19 +139,19 @@ public class ClimbController : MonoBehaviour
 	{
 		if (gEvent == GameEvent.StopClimbing && charState.IsClimbing())
 		{
-			print ("Stop climbing");
+			print ("Climb Collider: Stop climbing");
 			rb.isKinematic = false;
 			animator.SetTrigger("StopClimbing");
 			cController.enabled = false;
-			this.enabled = false;
-			
+			//this.enabled = false;
+			Util.DisableScript(this);
 		}
 	}
 	
 	// EVENTS -----------------------------------------------------------
 	private void OnEnable () 
 	{ 
-		print ("runs");
+//		print ("runs");
 		EventManager.onInputEvent += StopClimbing;
 		EventManager.onDetectEvent += InitEdgeClimb;
 		//EventManager.onInputEvent += ClimbOverEdge;

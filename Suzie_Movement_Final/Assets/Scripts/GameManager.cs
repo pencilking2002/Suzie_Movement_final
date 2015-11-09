@@ -29,12 +29,14 @@ public class GameManager : MonoBehaviour {
 		if (debug)
 		{
 			GUI.Button(new Rect(Screen.width - 150, 30, 170, 50), "Squirrel State: " + charStateScript.GetState());
-			GUI.Button(new Rect(Screen.width - 150, 100, 170, 50), "climb collider detected " + climbDetector.climbColliderDetected);
+			GUI.Button(new Rect(Screen.width - 150, 70, 170, 50), "climb collider detected " + climbDetector.climbColliderDetected);
 			
-			if (GUI.Button(new Rect(Screen.width - 150, 140, 170, 50), "Spawn at Cliff "))
+			if (GUI.Button(new Rect(Screen.width - 150, 120, 170, 50), "Spawn at Cliff "))
 			{
 				GameObject.FindGameObjectWithTag("Player").transform.position = GameObject.FindGameObjectWithTag("CliffSpawnSpot").transform.position;
 			}
+
+			GUI.Button(new Rect(Screen.width - 150, 160, 170, 50), "CamState: " + camScript.state);
 		}
 	}
 	

@@ -8,14 +8,7 @@ public class FollowPlayer : MonoBehaviour {
 	
 	//private bool attach = true;
 	public bool Attach = true;
-//	{
-//		get { return attach; }
-//		set
-//		{
-//			speed = value == true ? 12.0f : 6.0f;
-//			attach = value;
-//		} 
-//	}
+
 	private Vector3 vel;
 	private Vector3 targetPos;
 	private Transform player;
@@ -37,6 +30,7 @@ public class FollowPlayer : MonoBehaviour {
 		    targetPos.y = transform.position.y;
 		
 		transform.position = Vector3.SmoothDamp(transform.position, targetPos, ref vel, speed * Time.deltaTime);
+		transform.eulerAngles = player.eulerAngles;
 
 	}
 	

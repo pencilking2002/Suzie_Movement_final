@@ -5,11 +5,13 @@ public class FollowPlayer : MonoBehaviour {
 
 	public Vector3 offset;
 	public float speed = 10.0f;
-	
+	public float climbSpeed = 20.0f;
+
 	//private bool attach = true;
 	public bool Attach = true;
 
 	private Vector3 vel;
+	private Vector3 rotVel;
 	private Vector3 targetPos;
 	private Transform player;
 	private RomanCharState charState;
@@ -28,9 +30,12 @@ public class FollowPlayer : MonoBehaviour {
 
 		if (!Attach || charState.IsRunning())
 		    targetPos.y = transform.position.y;
-		
-		transform.position = Vector3.SmoothDamp(transform.position, targetPos, ref vel, speed * Time.deltaTime);
-		transform.eulerAngles = player.eulerAngles;
+
+		float theSpeed = charState.IsClimbing() ? climbSpeed : speed;
+
+		transform.position = Vector3.SmoothDamp(transform.position, targetPos, ref vel, theSpeed * Time.deltaTime);
+		transform.eulerAngles = Vector3.SmoothDamp(transform.eulerAngles, player.eulerAngles, ref rotVel, theSpeed * Time.deltaTime);
+		//transform.eulerAngles = player.eulerAngles;
 
 	}
 	

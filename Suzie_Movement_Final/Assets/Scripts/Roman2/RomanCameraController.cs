@@ -20,9 +20,9 @@ public class RomanCameraController : MonoBehaviour {
 	[Range(0,200)]
 	public float orbitSpeed = 10.0f;
 
-	// climbing ------------------------------------------------------
+	// climbing -----------------------------------------------------
+	public bool climbSmoothing;
 	public float climbSpeedSmooth = 5.0f;
-
 	//---------------------------------------------------------------------------------------------------------------------------
 	// Private Variables
 	//---------------------------------------------------------------------------------------------------------------------------	
@@ -102,15 +102,18 @@ public class RomanCameraController : MonoBehaviour {
 			case CamState.Climbing:
 				
 				targetPos = follow.position + follow.forward * theOffset.z;
-				if (smoothing)
+				if (climbSmoothing)
 				{
 					transform.position = Vector3.SmoothDamp (transform.position, targetPos, ref vel, climbSpeedSmooth * Time.deltaTime);
 					transform.eulerAngles = Vector3.SmoothDamp (transform.eulerAngles, follow.eulerAngles, ref vel, climbSpeedSmooth * Time.deltaTime);
 				}
 				else
 				{
+
 					transform.position = targetPos;
-					transform.eulerAngles = follow.eulerAngles;
+					transform.rotation = follow.rotation;
+					//speed = Mathf.SmoothDamp (speed, InputController.orbitH * 5, ref rotVel, Time.deltaTime);
+					//transform.RotateAround (follow.position, Vector3.up, speed);
 				}
 			
 				break;

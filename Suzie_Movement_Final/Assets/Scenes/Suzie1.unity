@@ -1012,6 +1012,7 @@ MonoBehaviour:
   player: {fileID: 0}
   camFollowSpeed: 16.2999992
   orbitSpeed: 160
+  climbSmoothing: 0
   climbSpeedSmooth: 5
   state: 0
 --- !u!114 &518505467
@@ -2958,6 +2959,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   offset: {x: 0, y: 1.91999996, z: 0}
   speed: 6
+  climbSpeed: 20
   Attach: 1
 --- !u!1 &2095017285
 GameObject:

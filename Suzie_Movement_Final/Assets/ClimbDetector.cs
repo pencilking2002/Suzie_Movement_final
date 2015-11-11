@@ -35,7 +35,6 @@ public class ClimbDetector : MonoBehaviour {
 			
 			EventManager.OnDetectEvent(GameEvent.ClimbColliderDetected, hit);
 			Util.DisableScript(this);
-
 		}
 	
 	}

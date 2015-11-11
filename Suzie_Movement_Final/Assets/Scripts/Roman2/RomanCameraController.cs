@@ -96,6 +96,7 @@ public class RomanCameraController : MonoBehaviour {
 				}
 				
 				speed = Mathf.SmoothDamp (speed, InputController.orbitH * 5, ref rotVel, Time.deltaTime);
+
 				transform.RotateAround (follow.position, Vector3.up, speed);
 				break;
 
@@ -109,7 +110,6 @@ public class RomanCameraController : MonoBehaviour {
 				}
 				else
 				{
-
 					transform.position = targetPos;
 					transform.rotation = follow.rotation;
 					//speed = Mathf.SmoothDamp (speed, InputController.orbitH * 5, ref rotVel, Time.deltaTime);

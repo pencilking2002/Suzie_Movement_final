@@ -55,7 +55,7 @@ public class ClimbController : MonoBehaviour
 	
 	private void Update ()
 	{
-		if (charState.IsEdgeClimbing() && InputController.h != 0)
+		if (charState.IsEdgeClimbing())
 		{
 		 	
 			Debug.DrawRay(transform.position, transform.forward * 0.5f, Color.red);
@@ -83,10 +83,8 @@ public class ClimbController : MonoBehaviour
 			moveDirection = transform.TransformDirection(moveDirection);
 	
 			animator.SetFloat("HorEdgeClimbDir", InputController.h);
+			print (InputController.h);
 
-			print ("Climb controller: " + InputController.rawH);
-			print ("Climb controller: " + InputController.h);
-				
 			if (cController.enabled)
 				cController.Move(moveDirection);
 	
@@ -97,6 +95,7 @@ public class ClimbController : MonoBehaviour
 	{
 		if (gameEvent == GameEvent.ClimbColliderDetected)
 		{
+			InputController.h = 0;
 			this.enabled = true;
 			cController.enabled = true;
 			EventManager.OnCharEvent(GameEvent.StartClimbing);

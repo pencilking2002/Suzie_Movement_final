@@ -83,7 +83,7 @@ public class ClimbController : MonoBehaviour
 			moveDirection = transform.TransformDirection(moveDirection);
 	
 			animator.SetFloat("HorEdgeClimbDir", InputController.h);
-			print (InputController.h);
+			//print (InputController.h);
 
 			if (cController.enabled)
 				cController.Move(moveDirection);
@@ -138,7 +138,7 @@ public class ClimbController : MonoBehaviour
 	{
 		if (gEvent == GameEvent.StopClimbing && charState.IsClimbing())
 		{
-			print ("Climb Collider: Stop climbing");
+			//print ("Climb Collider: Stop climbing");
 			rb.isKinematic = false;
 			animator.SetTrigger("StopClimbing");
 			cController.enabled = false;

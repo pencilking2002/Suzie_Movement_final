@@ -22,6 +22,7 @@ public class RomanCameraController : MonoBehaviour {
 
 	// climbing -----------------------------------------------------
 	public bool climbSmoothing;
+	public float climbTransSmootherVel;
 	public float climbSpeedSmooth = 5.0f;
 	//---------------------------------------------------------------------------------------------------------------------------
 	// Private Variables
@@ -44,6 +45,7 @@ public class RomanCameraController : MonoBehaviour {
 	public enum CamState
 	{
 		Free,
+		ClimbingTransition,
 		Climbing
 	}
 	
@@ -102,21 +104,45 @@ public class RomanCameraController : MonoBehaviour {
 
 			case CamState.Climbing:
 				
+				Vector3 targetRot;
+				climbSpeedSmooth = Mathf.SmoothDamp(climbSpeedSmooth, 5, ref climbTransSmootherVel, Time.deltaTime);
+
+				// use LerpAngle to prevent the camera from rotating the wrong way	
+				targetRot.x = Mathf.LerpAngle(transform.eulerAngles.x, follow.eulerAngles.x, climbSpeedSmooth * Time.deltaTime);
+				targetRot.y = Mathf.LerpAngle(transform.eulerAngles.y, follow.eulerAngles.y, climbSpeedSmooth * Time.deltaTime);
+				targetRot.z = Mathf.LerpAngle(transform.eulerAngles.z, follow.eulerAngles.z, climbSpeedSmooth * Time.deltaTime);
+				
 				targetPos = follow.position + follow.forward * theOffset.z;
-				if (climbSmoothing)
-				{
-					transform.position = Vector3.SmoothDamp (transform.position, targetPos, ref vel, climbSpeedSmooth * Time.deltaTime);
-					transform.eulerAngles = Vector3.SmoothDamp (transform.eulerAngles, follow.eulerAngles, ref vel, climbSpeedSmooth * Time.deltaTime);
-				}
-				else
-				{
-					transform.position = targetPos;
-					transform.rotation = follow.rotation;
-					//speed = Mathf.SmoothDamp (speed, InputController.orbitH * 5, ref rotVel, Time.deltaTime);
-					//transform.RotateAround (follow.position, Vector3.up, speed);
-				}
-			
+				
+				transform.position = Vector3.Lerp (transform.position, targetPos, climbSpeedSmooth * Time.deltaTime);				
+				transform.eulerAngles = targetRot;
+
+//				if (Vector3.Distance(transform.eulerAngles, follow.eulerAngles) < 0.08f)
+//				{
+//					print ("ready to climb");
+//					//SetState(CamState.Climbing);
+//				}
+				
 				break;
+
+//			case CamState.Climbing:
+//				
+//				targetPos = follow.position + follow.forward * theOffset.z;
+//
+//				if (climbSmoothing)
+//				{
+//					transform.position = Vector3.SmoothDamp (transform.position, targetPos, ref vel, climbSpeedSmooth * Time.deltaTime);
+//					transform.eulerAngles = Vector3.SmoothDamp (transform.eulerAngles, follow.eulerAngles, ref vel, climbSpeedSmooth * Time.deltaTime);
+//				}
+//				else
+//				{
+//					transform.position = targetPos;
+//					transform.rotation = follow.rotation;
+//					//speed = Mathf.SmoothDamp (speed, InputController.orbitH * 5, ref rotVel, Time.deltaTime);
+//					//transform.RotateAround (follow.position, Vector3.up, speed);
+//				}
+//			
+//				break;
 		}
 
 	}
@@ -142,6 +168,7 @@ public class RomanCameraController : MonoBehaviour {
 	{
 		if (gEvent == GameEvent.StartClimbing)
 		{
+			print ("cam: start climbing");
 			SetState(CamState.Climbing);
 		}
 		

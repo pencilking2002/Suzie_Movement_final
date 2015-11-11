@@ -1014,7 +1014,8 @@ MonoBehaviour:
   camFollowSpeed: 16.2999992
   orbitSpeed: 160
   climbSmoothing: 0
-  climbSpeedSmooth: 5
+  climbTransSmootherVel: 0
+  climbSpeedSmooth: 0
   state: 0
 --- !u!114 &518505467
 MonoBehaviour:

@@ -37,6 +37,16 @@ public class GameManager : MonoBehaviour {
 			}
 
 			GUI.Button(new Rect(Screen.width - 150, 160, 170, 50), "CamState: " + camScript.state);
+
+			if (GUI.Button(new Rect(Screen.width - 150, 200, 170, 50), "Quit"))
+			{
+				Application.Quit();
+			}
+
+			if (GUI.Button(new Rect(Screen.width - 150, 250, 170, 50), "Restart"))
+			{
+				Application.LoadLevel(Application.loadedLevel);
+			}
 		}
 	}
 	

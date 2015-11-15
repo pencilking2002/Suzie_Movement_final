@@ -38,7 +38,8 @@ public enum GameEvent
 	ClimbColliderDetected,
 	StopWallClimbing,
 	StopClimbing,
-	StartClimbing
+	StartClimbing,
+	IsIdle
 	
 }
 

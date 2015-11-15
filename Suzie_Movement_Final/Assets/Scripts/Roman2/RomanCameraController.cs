@@ -144,7 +144,7 @@ public class RomanCameraController : MonoBehaviour {
 			SetState(CamState.Climbing);
 		}
 		
-		if (gEvent == GameEvent.Land)
+		if (gEvent == GameEvent.Land || gEvent == GameEvent.IsIdle)
 		{
 			print ("camer: stop climbing");
 			SetState(CamState.Free);

@@ -39,6 +39,7 @@ public class RomanCharController : MonoBehaviour {
 	private Rigidbody rb;
 	private Transform cam;
 	private ClimbDetector climbDetector;
+	private CharacterController cController;
 		
 	private float yRot;				// The value to feed into the character's rotation in idle mode
 	private float angle;			// used to check which way the character is rotating
@@ -69,6 +70,7 @@ public class RomanCharController : MonoBehaviour {
 		cam = Camera.main.transform;
 		climbDetector = GetComponent<ClimbDetector>();
 		jumpForce = maxJumpForce;
+		cController = GetComponent<CharacterController>();
 	}
 
 	
@@ -85,7 +87,7 @@ public class RomanCharController : MonoBehaviour {
 		
 		else // Else go into run
 			animator.SetFloat ("Speed", Mathf.Clamp01(speed), walkToRunDampTime, Time.deltaTime);
-
+		
 		TurnCharToCamera();
 		
 		if (charState.IsIdle())
@@ -195,9 +197,11 @@ public class RomanCharController : MonoBehaviour {
 	
 	private void Enable (GameEvent gameEvent)
 	{
-		if (gameEvent == GameEvent.Land)
+		if (gameEvent == GameEvent.Land || gameEvent == GameEvent.IsIdle)
 		{
 			this.enabled = true;
+			cController.enabled = false;
+			rb.isKinematic = false;
 		}
 	}
 	

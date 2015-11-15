@@ -87,8 +87,9 @@ public class ClimbController : MonoBehaviour
 
 			if (cController.enabled)
 				cController.Move(moveDirection);
-	
 		}
+	
+		
 	}
 	
 	private void InitEdgeClimb (GameEvent gameEvent, RaycastHit hit)
@@ -147,12 +148,25 @@ public class ClimbController : MonoBehaviour
 		}
 	}
 	
+	/// <summary>
+	/// Trigger the climb over edge animation
+	/// </summary>
+	/// <param name="gameEvent">Game event.</param>
+	private void ClimbOverEdge(GameEvent gameEvent)
+	{
+		if (gameEvent == GameEvent.ClimbOverEdge && charState.IsClimbing())
+		{
+			animator.SetTrigger("ClimbOverEdge");
+		}
+	}
+	
 	// EVENTS -----------------------------------------------------------
 	private void OnEnable () 
 	{ 
 //		print ("runs");
 		EventManager.onInputEvent += StopClimbing;
 		EventManager.onDetectEvent += InitEdgeClimb;
+		EventManager.onInputEvent += ClimbOverEdge;
 		//EventManager.onInputEvent += ClimbOverEdge;
 	}
 	private void OnDisable () 

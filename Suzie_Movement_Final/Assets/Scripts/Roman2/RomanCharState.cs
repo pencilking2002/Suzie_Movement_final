@@ -63,6 +63,7 @@ public class RomanCharState : MonoBehaviour {
 		
 		if (_state == State.Idle)
 		{
+			EventManager.OnCharEvent(GameEvent.IsIdle);
 			rb.velocity = Vector3.zero;
 			landedFirstTime = true;
 //			print ("run speed: " + GetComponent<RomanCharController>().speed);

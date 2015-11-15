@@ -11,12 +11,17 @@ public class ClimbOverEdge : MonoBehaviour {
 	
 	private RomanCharState charState;
 	private Animator animator;
+	private float tweenDuration;
 	
 	private void Start ()
 	{
 		charState = GetComponent<RomanCharState>();
 		animator = GetComponent<Animator>();
 		
+		// Calculate the climbing tween's duration
+		tweenDuration = tween.groupList[0].endTime - tween.groupList[0].startTime;
+		
+		print (tweenDuration);
 		if (tween == null)
 			Debug.LogError("tween not defined");
 			
@@ -51,7 +56,7 @@ public class ClimbOverEdge : MonoBehaviour {
 	
 	private void ClimbOverEdgeMove(GameEvent gEvent)
 	{
-		if(gEvent == GameEvent.ClimbOverEdge && charState.IsClimbing())
+		if(charState.IsClimbing() && gEvent == GameEvent.ClimbOverEdge)
 		{
 			path.transform.parent = null;
 			//path.transform.eulerAngles = path.transform.eulerAngles;
@@ -60,7 +65,8 @@ public class ClimbOverEdge : MonoBehaviour {
 				path.transform.parent = transform;
 				path.transform.localPosition = Vector3.zero;
 				tween.enabled = false;
-			}, 2.5f);
+				
+			}, tweenDuration);
 		}
 	}
 }

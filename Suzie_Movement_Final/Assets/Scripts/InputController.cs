@@ -47,7 +47,7 @@ public class InputController : MonoBehaviour {
 //	}
 
 	public static bool jumpReleased = false;
-	
+	private RomanCharState charState;
 	
 	//---------------------------------------------------------------------------------------------------------------------------
 	// Priate Variables
@@ -62,6 +62,7 @@ public class InputController : MonoBehaviour {
 		if (Instance == null)
 			Instance = this;
 		//inputDevice = InputManager.ActiveDevice;
+		charState = GameObject.FindObjectOfType<RomanCharState>();
 	}
 	
 	private void Update ()
@@ -91,12 +92,14 @@ public class InputController : MonoBehaviour {
 			EventManager.OnInputEvent(GameEvent.SprintModifierUp);
 	
 
-		if (inputDevice.LeftStickY.WasPressed)
+		if (charState.IsClimbing() || inputDevice.LeftStickY.WasPressed)
 		{
+			
 			if (rawV == 1)
 			{
 				EventManager.OnInputEvent(GameEvent.ClimbOverEdge);
 			}
+			// TODO - doesnt work with controller
 			else if (rawV == -1)
 			{
 	//			print ("InputController: stop climbing " + rawV);

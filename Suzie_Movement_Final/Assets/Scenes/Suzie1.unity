@@ -1086,6 +1086,8 @@ MonoBehaviour:
   player: {fileID: 0}
   camFollowSpeed: 16.2999992
   orbitSpeed: 160
+  xOrbitLimit: 50
+  yOrbitLimit: 25
   climbSmoothing: 0
   climbTransSmootherVel: 0
   climbSpeedSmooth: 0

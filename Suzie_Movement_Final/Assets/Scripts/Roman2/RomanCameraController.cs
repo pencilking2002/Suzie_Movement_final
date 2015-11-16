@@ -19,7 +19,12 @@ public class RomanCameraController : MonoBehaviour {
 
 	[Range(0,200)]
 	public float orbitSpeed = 10.0f;
-
+	
+	[Range(0,50)]
+	public float xOrbitLimit = 50;
+	[Range(0,50)]
+	public float yOrbitLimit = 50;
+	
 	// climbing -----------------------------------------------------
 	public bool climbSmoothing;
 	public float climbTransSmootherVel;
@@ -35,8 +40,12 @@ public class RomanCameraController : MonoBehaviour {
 	private Quaternion targetRotation;
 	private Vector3 vecDifference;
 	
-	private float speed;
+	private float xSpeed;
+	private float ySpeed;
+	private float y,x;
+	
 	private float rotVel;
+	private Vector3 initialAngle;
 	
 	//---------------------------------------------------------------------------------------------------------------------------
 	// Private Methods
@@ -62,6 +71,8 @@ public class RomanCameraController : MonoBehaviour {
 
 		if (player == null)
 			player = GameObject.FindGameObjectWithTag("Player").transform;
+			
+		initialAngle = transform.forward;
 	}
 	
 	// Update is called once per frame
@@ -80,26 +91,58 @@ public class RomanCameraController : MonoBehaviour {
 				else
 				{
 					targetPos = follow.position + vecDifference;
+				
+				if (targetPos.y < follow.position.y + theOffset.y)
 					targetPos.y = follow.position.y + theOffset.y;
 				}
 				
+				xSpeed = Mathf.SmoothDamp (xSpeed, InputController.orbitH * 5, ref rotVel, Time.deltaTime);
+				ySpeed = Mathf.SmoothDamp (ySpeed, InputController.orbitV * 5, ref rotVel, Time.deltaTime);
+				
 				transform.position = targetPos;
-
-				//Smoothly rotate towards the target point.
-				targetRotation = Quaternion.LookRotation(follow.position - transform.position);
 				
-				if (smoothing)
+				if (follow.position - transform.position  != Vector3.zero)
+					transform.rotation = Quaternion.LookRotation(player.position - transform.position);
+				
+				transform.forward = follow.position - transform.position;
+				
+				// Clamp Vertical camera movement --------------
+				if (initialAngle.x + ySpeed < -yOrbitLimit) 
 				{
-					transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, camFollowSpeed * Time.deltaTime);
-				}
-				else
-				{
-					transform.rotation = targetRotation;
+					ySpeed = -yOrbitLimit - initialAngle.x;
+					initialAngle.x = -yOrbitLimit;                 
 				}
 				
-				speed = Mathf.SmoothDamp (speed, InputController.orbitH * 5, ref rotVel, Time.deltaTime);
-
-				transform.RotateAround (follow.position, Vector3.up, speed);
+				else if (initialAngle.x + ySpeed > yOrbitLimit) 
+				{
+					ySpeed = yOrbitLimit - initialAngle.x;
+					initialAngle.x = yOrbitLimit;
+				}
+				else 
+					initialAngle.x += ySpeed;
+				
+				
+				// Clamp horizontal camera movement --------------
+//				x = xSpeed;
+//				
+//				if (initialAngle.y + xSpeed < -xOrbitLimit) 
+//				{
+//					xSpeed = -xOrbitLimit - initialAngle.y;
+//					initialAngle.y = -xOrbitLimit;                 
+//				}
+//				
+//				else if (initialAngle.y + xSpeed > xOrbitLimit) 
+//				{
+//					xSpeed = xOrbitLimit - initialAngle.y;
+//					initialAngle.y = xOrbitLimit;
+//				}
+//				else 
+//					initialAngle.y += xSpeed;
+//				
+				
+				transform.RotateAround (follow.position, Vector3.up, xSpeed);
+				transform.RotateAround (follow.position, transform.right, -ySpeed);	
+				
 				break;
 
 			case CamState.Climbing:
@@ -117,6 +160,14 @@ public class RomanCameraController : MonoBehaviour {
 				break;
 		}
 
+	}
+	
+	private float ClampAngle (float angle, float min, float max) {
+		if (angle < -360)
+			angle += 360;
+		if (angle > 360)
+			angle -= 360;
+		return Mathf.Clamp (angle, min, max);
 	}
 	
 	private void SetState (CamState s)

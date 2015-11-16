@@ -12,8 +12,8 @@ public class CamAttach : MonoBehaviour {
 		rb = GetComponent<Rigidbody>();
 	}
 	
-	private void OnTriggerEnter (Collider col) { Attach(col); }
-	private void OnTriggerExit (Collider col) { Attach(col); }
+	private void OnTriggerStay (Collider col) { Attach(col); }
+	//private void OnTriggerExit (Collider col) { Attach(col); }
 	
 	private void Attach(Collider col)
 	{

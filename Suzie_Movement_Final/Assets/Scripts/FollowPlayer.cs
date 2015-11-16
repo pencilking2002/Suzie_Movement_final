@@ -73,7 +73,7 @@ public class FollowPlayer : MonoBehaviour {
 	
 	private void AttachFollow (GameEvent gEvent)
 	{
-		if (gEvent == GameEvent.AttachFollow || gEvent == GameEvent.StartClimbing || gEvent == GameEvent.StopClimbing)
+		if (gEvent == GameEvent.AttachFollow || gEvent == GameEvent.StartClimbing || gEvent == GameEvent.StopClimbing || gEvent == GameEvent.Land)
 			Attach = true;
 		
 		else if (gEvent == GameEvent.DetachFollow )

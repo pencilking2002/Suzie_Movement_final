@@ -92,8 +92,21 @@ public class RomanCameraController : MonoBehaviour {
 				{
 					targetPos = follow.position + vecDifference;
 				
-				if (targetPos.y < follow.position.y + theOffset.y)
-					targetPos.y = follow.position.y + theOffset.y;
+//				if (targetPos.y < follow.position.y || targetPos.y > follow.position.y + theOffset.y)
+//					targetPos.y = follow.position.y + theOffset.y;
+					
+					// Fix for higher places than the groun
+					if (targetPos.y < follow.position.y /*|| targetPos.y > follow.position.y + theOffset.y/*/)
+					{
+						targetPos.y = Mathf.Lerp (targetPos.y, follow.position.y + theOffset.y, 10 * Time.deltaTime);
+					}
+				
+				
+//
+//					if (Vector3.Distance(targetPos, follow.position) > theOffset.y)
+//					{
+//						print (Vector3.Distance(targetPos, follow.position));
+//					}
 				}
 				
 				xSpeed = Mathf.SmoothDamp (xSpeed, InputController.orbitH * 5, ref rotVel, Time.deltaTime);
@@ -107,19 +120,20 @@ public class RomanCameraController : MonoBehaviour {
 				transform.forward = follow.position - transform.position;
 				
 				// Clamp Vertical camera movement --------------
-				if (initialAngle.x + ySpeed < -yOrbitLimit) 
+				y = ySpeed;
+				if (initialAngle.x + y < -yOrbitLimit) 
 				{
-					ySpeed = -yOrbitLimit - initialAngle.x;
+					y = -yOrbitLimit - initialAngle.x;
 					initialAngle.x = -yOrbitLimit;                 
 				}
 				
-				else if (initialAngle.x + ySpeed > yOrbitLimit) 
+				else if (initialAngle.x + y > yOrbitLimit) 
 				{
-					ySpeed = yOrbitLimit - initialAngle.x;
+					y = yOrbitLimit - initialAngle.x;
 					initialAngle.x = yOrbitLimit;
 				}
 				else 
-					initialAngle.x += ySpeed;
+					initialAngle.x += y;
 				
 				
 				// Clamp horizontal camera movement --------------
@@ -141,7 +155,7 @@ public class RomanCameraController : MonoBehaviour {
 //				
 				
 				transform.RotateAround (follow.position, Vector3.up, xSpeed);
-				transform.RotateAround (follow.position, transform.right, -ySpeed);	
+				transform.RotateAround (follow.position, transform.right, -y);	
 				
 				break;
 

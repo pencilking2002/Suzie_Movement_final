@@ -196,7 +196,7 @@ public class RomanCharController : MonoBehaviour {
 		EventManager.onInputEvent -= Jump;
 		EventManager.onInputEvent -= Sprint;
 		
-//		EventManager.onInputEvent -= Enable;
+		//EventManager.onCharEvent -= Enable;
 		EventManager.onCharEvent -= Disable;
 	}
 	

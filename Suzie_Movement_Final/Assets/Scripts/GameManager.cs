@@ -14,12 +14,20 @@ public class GameManager : MonoBehaviour {
 
 	private void Awake ()
 	{
+		EventManager.onCharEvent = null;
+		EventManager.onInputEvent = null;
+		EventManager.onDetectEvent = null;
+		
 		if (Instance == null)
 			Instance = this;
 
 		charStateScript = GameObject.FindObjectOfType<RomanCharState> ();
 		camScript = GameObject.FindObjectOfType<RomanCameraController> ();
 		climbDetector = GameObject.FindObjectOfType<ClimbDetector> ();
+	
+	//	private void OnLevelWasLoaded()
+	//	{
+	//	}
 	}
 
 	#if UNITY_EDITOR
@@ -51,5 +59,5 @@ public class GameManager : MonoBehaviour {
 	}
 	
 	#endif
-
+	
 }

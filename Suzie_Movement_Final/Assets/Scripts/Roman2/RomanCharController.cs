@@ -100,19 +100,23 @@ public class RomanCharController : MonoBehaviour {
 
 		}
 		
+		
+//		if (charState.IsFalling())
+//		{
+//			
+//			print ("Falling");
+//		}
+		
 		// Stop moving on the X and Z plane when landing
 		if (charState.IsLanding())
 		{
 			rb.velocity = Vector3.zero;
-			EventManager.OnCharEvent(GameEvent.AttachFollow);
+			//EventManager.OnCharEvent(GameEvent.AttachFollow);
 			
 		}
 
 		else if (charState.IsJumping ())
-		{
-			if (charState.IsFalling())
-				EventManager.OnCharEvent(GameEvent.AttachFollow);
-			
+		{	
 			
 			if (moveDirectionRaw != Vector3.zero)
 			{
@@ -176,6 +180,8 @@ public class RomanCharController : MonoBehaviour {
 		if (charState.IsFalling() && Vector3.Dot(coll.contacts[0].normal, Vector3.up) > 0.5f )
 		{
 			animator.SetTrigger("Land");
+			EventManager.OnCharEvent(GameEvent.AttachFollow);
+			EventManager.OnCharEvent(GameEvent.Land);
 		}
 	}
 

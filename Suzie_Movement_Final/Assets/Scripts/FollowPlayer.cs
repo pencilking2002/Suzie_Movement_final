@@ -9,7 +9,10 @@ public class FollowPlayer : MonoBehaviour {
 
 	//private bool attach = true;
 	public bool Attach = true;
-
+	
+	[HideInInspector]
+	public bool atPlayerPos = false;
+	
 	private Vector3 vel;
 	private Vector3 rotVel;
 	private Vector3 targetPos;
@@ -38,7 +41,7 @@ public class FollowPlayer : MonoBehaviour {
 
 		// If the follow is not supposed to be attached to player
 		// retain existing y position (don't bounce)
-		if (charState.IsJumping() || charState.IsRunning())
+		if (!Attach && charState.IsJumping() || charState.IsRunning())
 			targetPos.y = transform.position.y;
 
 		if (charState.IsClimbing())
@@ -48,7 +51,13 @@ public class FollowPlayer : MonoBehaviour {
 			theSpeed = speed;
 		
 		transform.position = Vector3.SmoothDamp(transform.position, targetPos, ref vel, theSpeed * Time.deltaTime);
-
+		
+		// Keep track of the Follow's state
+		if (Vector3.Distance(transform.position, targetPos) < 0.05f)
+			atPlayerPos = true;
+		else 
+			atPlayerPos = false;
+				
 		//transform.eulerAngles = Vector3.SmoothDamp(transform.eulerAngles, player.eulerAngles, ref rotVel, theSpeed * Time.deltaTime);
 		//targetRot.x = Mathf.SmoothDampAngle(transform.eulerAngles.x, player.eulerAngles.x, ref climbSpeedSmoothVel, theSpeed * Time.deltaTime);
 		targetRot.y = Mathf.SmoothDampAngle(transform.eulerAngles.y, player.eulerAngles.y, ref climbSpeedSmoothVel, theSpeed * Time.deltaTime);

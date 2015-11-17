@@ -12,6 +12,7 @@ public class RomanCameraController : MonoBehaviour {
 
 	public Transform follow = null;			// Object to follow
 	public Transform player = null;			// Object to follow
+	public FollowPlayer followScript;
 
 	[Range(0,20)]
 	public float camFollowSpeed = 10.0f;
@@ -55,7 +56,8 @@ public class RomanCameraController : MonoBehaviour {
 	{
 		Free,
 		ClimbingTransition,
-		Climbing
+		Climbing,
+		Reset
 	}
 	
 	[HideInInspector]
@@ -68,11 +70,13 @@ public class RomanCameraController : MonoBehaviour {
 	{
 		if (follow == null)
 			follow = GameObject.FindGameObjectWithTag("Follow").transform;
+		
+		followScript = follow.GetComponent<FollowPlayer>();
 
 		if (player == null)
 			player = GameObject.FindGameObjectWithTag("Player").transform;
-			
-		initialAngle = transform.forward;
+	
+		
 	}
 	
 	// Update is called once per frame
@@ -91,22 +95,9 @@ public class RomanCameraController : MonoBehaviour {
 				else
 				{
 					targetPos = follow.position + vecDifference;
-				
-//				if (targetPos.y < follow.position.y || targetPos.y > follow.position.y + theOffset.y)
-//					targetPos.y = follow.position.y + theOffset.y;
 					
-					// Fix for higher places than the groun
-					if (targetPos.y < follow.position.y /*|| targetPos.y > follow.position.y + theOffset.y/*/)
-					{
-						targetPos.y = Mathf.Lerp (targetPos.y, follow.position.y + theOffset.y, 10 * Time.deltaTime);
-					}
-				
-				
-//
-//					if (Vector3.Distance(targetPos, follow.position) > theOffset.y)
-//					{
-//						print (Vector3.Distance(targetPos, follow.position));
-//					}
+					if (!followScript.atPlayerPos)
+						targetPos.y = follow.position.y + theOffset.y;
 				}
 				
 				xSpeed = Mathf.SmoothDamp (xSpeed, InputController.orbitH * 5, ref rotVel, Time.deltaTime);
@@ -114,7 +105,7 @@ public class RomanCameraController : MonoBehaviour {
 				
 				transform.position = targetPos;
 				
-				if (follow.position - transform.position  != Vector3.zero)
+				if (follow.position - transform.position != Vector3.zero)
 					transform.rotation = Quaternion.LookRotation(player.position - transform.position);
 				
 				transform.forward = follow.position - transform.position;
@@ -155,8 +146,8 @@ public class RomanCameraController : MonoBehaviour {
 //				
 				
 				transform.RotateAround (follow.position, Vector3.up, xSpeed);
-				transform.RotateAround (follow.position, transform.right, -y);	
-				
+				//transform.RotateAround (follow.position, transform.right, -y);	
+				//transform.LookAt (follow);
 				break;
 
 			case CamState.Climbing:
@@ -172,6 +163,16 @@ public class RomanCameraController : MonoBehaviour {
 				transform.position = Vector3.SmoothDamp(transform.position, targetPos, ref vel, Time.deltaTime);
 			
 				break;
+			// Reset the camera to be above the player.
+			// This needs ot happen whenever the player lands
+			case CamState.Reset:
+					
+				vecDifference = Vector3.Normalize(transform.position - follow.position) * -theOffset.z;
+				targetPos = follow.position + vecDifference;
+				targetPos.y = follow.position.y + theOffset.y;
+				transform.position = targetPos;	
+				
+			break;
 		}
 
 	}
@@ -187,6 +188,11 @@ public class RomanCameraController : MonoBehaviour {
 	private void SetState (CamState s)
 	{
 		state = s;
+	}
+	
+	private CamState GetState()
+	{
+		return state;
 	}
 	
 	private void OnEnable ()
@@ -209,10 +215,32 @@ public class RomanCameraController : MonoBehaviour {
 			SetState(CamState.Climbing);
 		}
 		
-		if (gEvent == GameEvent.Land || gEvent == GameEvent.IsIdle)
+		if (gEvent == GameEvent.Land /*gEvent == GameEvent.IsIdle*/)
 		{
-			print ("camer: stop climbing");
-			SetState(CamState.Free);
+//			
+			SetState (CamState.Free);
+			initialAngle = transform.forward;
+//			
+//			vecDifference = Vector3.Normalize(transform.position - follow.position) * -theOffset.z;
+//			targetPos = follow.position + vecDifference;
+//			targetPos.y = follow.position.y + theOffset.y;	
+//			
+//			LeanTween.move(gameObject, targetPos, 2)
+//			.setEase(LeanTweenType.easeOutSine)	
+//			
+//			.setOnUpdate((float val) => {
+//				//transform.LookAt(follow);
+//						
+//			
+//				transform.forward = follow.position - transform.position;
+//			})
+//			
+//			.setOnComplete(() => {
+//				print ("land");
+//				initialAngle = transform.forward;
+//				SetState(CamState.Free);
+				
+//			});
 		}
 	}
 }

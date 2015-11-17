@@ -11,6 +11,8 @@ public class GameManager : MonoBehaviour {
 	private RomanCharState charStateScript;
 	private RomanCameraController camScript;
 	private ClimbDetector climbDetector;
+	private FollowPlayer follow;
+	
 
 	private void Awake ()
 	{
@@ -24,10 +26,8 @@ public class GameManager : MonoBehaviour {
 		charStateScript = GameObject.FindObjectOfType<RomanCharState> ();
 		camScript = GameObject.FindObjectOfType<RomanCameraController> ();
 		climbDetector = GameObject.FindObjectOfType<ClimbDetector> ();
+		follow = GameObject.FindObjectOfType<FollowPlayer>();
 	
-	//	private void OnLevelWasLoaded()
-	//	{
-	//	}
 	}
 
 	#if UNITY_EDITOR
@@ -55,6 +55,8 @@ public class GameManager : MonoBehaviour {
 			{
 				Application.LoadLevel(Application.loadedLevel);
 			}
+			
+			GUI.Button(new Rect(Screen.width - 150, 300, 170, 50), "At player pos: " + follow.atPlayerPos);
 		}
 	}
 	

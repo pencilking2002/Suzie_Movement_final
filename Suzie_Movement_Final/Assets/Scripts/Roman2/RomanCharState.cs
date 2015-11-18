@@ -52,8 +52,7 @@ public class RomanCharState : MonoBehaviour {
 
 	public void SetState (State _state)
 	{
-		state = _state;
-
+	
 		// If previous state is sprinting, fire StopSprinting event
 		if (IsSprinting())
 		{
@@ -77,6 +76,8 @@ public class RomanCharState : MonoBehaviour {
 			EventManager.OnCharEvent(GameEvent.StartRunning);
 			//print ("start running");
 		}
+		
+		state = _state;
 
 
 	}

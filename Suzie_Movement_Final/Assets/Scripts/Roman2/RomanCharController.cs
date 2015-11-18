@@ -40,6 +40,7 @@ public class RomanCharController : MonoBehaviour {
 	private Transform cam;
 	private ClimbDetector climbDetector;
 	private CharacterController cController;
+	private CapsuleCollider cCollider;
 		
 	private float yRot;				// The value to feed into the character's rotation in idle mode
 	private float angle;			// used to check which way the character is rotating
@@ -71,6 +72,7 @@ public class RomanCharController : MonoBehaviour {
 		climbDetector = GetComponent<ClimbDetector>();
 		jumpForce = maxJumpForce;
 		cController = GetComponent<CharacterController>();
+		cCollider = GetComponent<CapsuleCollider>();
 	}
 
 	
@@ -205,18 +207,20 @@ public class RomanCharController : MonoBehaviour {
 	private void OnEnable () 
 	{ 
 		EventManager.onInputEvent += Jump;
-		EventManager.onInputEvent += Sprint;
+		EventManager.onInputEvent += SprintModifierDown;
 		
 		EventManager.onCharEvent += Enable;
 		EventManager.onCharEvent += Disable;
+		EventManager.onCharEvent += Sprint;
 	}
 	private void OnDisable () 
 	{ 
 		EventManager.onInputEvent -= Jump;
-		EventManager.onInputEvent -= Sprint;
+		EventManager.onInputEvent -= SprintModifierDown;
 		
 		//EventManager.onCharEvent -= Enable;
 		EventManager.onCharEvent -= Disable;
+		EventManager.onCharEvent -= Sprint;
 	}
 	
 	private void Enable (GameEvent gameEvent)
@@ -237,7 +241,7 @@ public class RomanCharController : MonoBehaviour {
 		}
 	}
 	
-	private void Sprint(GameEvent gameEvent)
+	private void SprintModifierDown(GameEvent gameEvent)
 	{
 		if (gameEvent == GameEvent.SprintModifierDown)
 		{
@@ -247,7 +251,22 @@ public class RomanCharController : MonoBehaviour {
 		{
 			holdShift = false;
 		}
-
+	}
+	
+	// Handle the collider size and position change when starting/stopping sprinting
+	private void Sprint (GameEvent gEvent)
+	{
+		if(gEvent == GameEvent.StartSprinting)
+		{
+			cCollider.direction = 2;
+			cCollider.center = new Vector3(cCollider.center.x, 0.26f, cCollider.center.z);
+		}
+		
+		else if(gEvent == GameEvent.StopSprinting)
+		{
+			cCollider.direction = 1;
+			cCollider.center = new Vector3(cCollider.center.x, 0.47f, cCollider.center.z);
+		}
 	}
 
 	// Trigger the jump animation and disable root motion

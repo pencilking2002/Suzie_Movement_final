@@ -306,7 +306,7 @@ public class RomanCameraController : MonoBehaviour {
 			SetState(CamState.Climbing);
 		}
 		
-		if (gEvent == GameEvent.Land ||gEvent == GameEvent.FinishClimbOver)
+		if (gEvent == GameEvent.Land || gEvent == GameEvent.FinishClimbOver)
 		{
 
 			SetState (CamState.Reset);

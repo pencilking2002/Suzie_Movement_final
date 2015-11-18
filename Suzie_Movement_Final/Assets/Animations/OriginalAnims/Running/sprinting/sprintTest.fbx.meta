@@ -154,12 +154,13 @@ ModelImporter:
     bakeSimulation: 0
     optimizeGameObjects: 0
     motionNodeName: 
-    animationImportErrors: 'MuscleClip ''sprintTest'' conversion failed: Required
-      human bone ''Hips'' not found
+    animationImportErrors: 
+    animationImportWarnings: 'MuscleClip ''sprintTest'' conversion warning: ''SkeletonJoints/EditingMesh6:UpperTorso/EditingMesh6:Spine1''
+      is between humanoid transforms and has rotation animation. This might lower
+      retargeting quality.
 
 
 '
-    animationImportWarnings: 
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
     animationCompression: 3
@@ -176,7 +177,7 @@ ModelImporter:
       lastFrame: 34
       wrapMode: 0
       orientationOffsetY: 0
-      level: 0
+      level: -.25
       cycleOffset: 0
       loop: 0
       loopTime: 1

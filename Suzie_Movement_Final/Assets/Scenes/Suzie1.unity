@@ -154,7 +154,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 546976c5531434f2eaa361910533923c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  debug: 1
+  debug: 0
 --- !u!4 &55812880
 Transform:
   m_ObjectHideFlags: 0
@@ -830,7 +830,7 @@ GameObject:
   - 4: {fileID: 394793981}
   - 114: {fileID: 394793982}
   m_Layer: 0
-  m_Name: Util
+  m_Name: RSUtil
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -856,7 +856,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 394793980}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c5ed01fe771a947fab852142d4ebbd75, type: 3}
+  m_Script: {fileID: 11500000, guid: decc0b865310f4be0b3141c22cbd2e0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &425774132
@@ -1526,7 +1526,7 @@ MeshRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 784024151}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 0
   m_Materials:
@@ -1552,7 +1552,7 @@ BoxCollider:
   m_GameObject: {fileID: 784024151}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -3707,7 +3707,7 @@ MeshRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1942398367}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 0
   m_Materials:
@@ -3733,7 +3733,7 @@ BoxCollider:
   m_GameObject: {fileID: 1942398367}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}

@@ -29,6 +29,7 @@ public class RomanCharController : MonoBehaviour {
 	public float idleJumpForwardSpeed = 10f;
 	[Range(0,400)]
 	public float runningJumpForwardSpeed = 10f;
+	public float lastframeY;
 	
 	//---------------------------------------------------------------------------------------------------------------------------
 	//	Private Variables
@@ -75,9 +76,15 @@ public class RomanCharController : MonoBehaviour {
 		cCollider = GetComponent<CapsuleCollider>();
 	}
 
+	private void Update ()
+	{
+		Vector3 _startPos = transform.position +  new Vector3(0, 0.3f, 0);
+		Debug.DrawLine (_startPos, _startPos + new Vector3(0, -0.5f,0), Color.red);
+	}
 	
 	private void FixedUpdate ()
 	{
+		
 		moveDirection = new Vector3(InputController.h, 0, InputController.v);
 		moveDirectionRaw = new Vector3(InputController.rawH, 0, InputController.rawV);
 		
@@ -182,13 +189,14 @@ public class RomanCharController : MonoBehaviour {
 		}
 	}
 
-	private void OnCollisionExit (Collision coll)
+	private void OnCollisionExit ()
 	{
-
-		if ((charState.IsRunning() || charState.IsIdle()) && rb.velocity.y < 0 && !Physics.Raycast (transform.position, Vector3.down, 0.1f))
+		Vector3 startPos = transform.position + new Vector3(0, 0.3f, 0);
+		if ((charState.IsRunning() || charState.IsIdle()) && rb.velocity.y < 0 && !Physics.Raycast (startPos, Vector3.down, 0.5f))
 		{
-			print ("ground collision exit");
+			//print ("ground collision exit");
 			animator.SetTrigger ("Falling");
+			//
 		}
 
 	}
@@ -252,7 +260,7 @@ public class RomanCharController : MonoBehaviour {
 		if(gEvent == GameEvent.StartSprinting)
 		{
 			cCollider.direction = 2;
-			cCollider.center = new Vector3(cCollider.center.x, 0.26f, cCollider.center.z);
+			cCollider.center = new Vector3(cCollider.center.x, 0.3f, cCollider.center.z);
 		}
 		
 		else if(gEvent == GameEvent.StopSprinting)

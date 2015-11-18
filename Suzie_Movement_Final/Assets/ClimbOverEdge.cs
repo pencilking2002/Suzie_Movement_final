@@ -65,6 +65,7 @@ public class ClimbOverEdge : MonoBehaviour {
 	{
 		if(charState.IsClimbing() && gEvent == GameEvent.ClimbOverEdge)
 		{
+			animator.SetTrigger("ClimbOverEdge");
 			EnableTween(true);
 
 			path.transform.parent = null;

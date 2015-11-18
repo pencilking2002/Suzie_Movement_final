@@ -39,8 +39,9 @@ public class RomanCameraController : MonoBehaviour {
 
 	private Vector3 targetPos = Vector3.zero;
 	
-	private Vector3 vel;       					// velocity needed for smooth damping the cam's position
-	
+	private Vector3 vel;       					// Used for smooth damping the cam's position
+	private Vector3 resetVel; 					// Used for resting RESET mode for smooth damping the cam's position
+
 	private Quaternion targetRotation;
 	private Vector3 vecDifference;
 	
@@ -49,10 +50,8 @@ public class RomanCameraController : MonoBehaviour {
 	private float y,x;
 	
 	private float rotVel;
+
 	private Vector3 initialAngle;
-	private bool beyondThreshold = false;
-	private bool canRotate = true;
-	private bool reseting = false;
 
 	//---------------------------------------------------------------------------------------------------------------------------
 	// Private Methods
@@ -96,10 +95,7 @@ public class RomanCameraController : MonoBehaviour {
 		switch (state)
 		{
 			case CamState.Free:
-			//print("free");
-				//beyondThreshold = (transform.position.y < follow.position.y || transform.position.y > follow.position.y + theOffset.y) ? true : false;
-				
-				
+							
 				vecDifference = Vector3.Normalize(transform.position - follow.position) * -theOffset.z;
 
 				if (smoothing)
@@ -109,49 +105,15 @@ public class RomanCameraController : MonoBehaviour {
 				}
 				else
 				{
-					//print(Vector3.Distance(initialAngle, transform.forward));
 					targetPos = follow.position + vecDifference;
-
-//					if (beyondThreshold)
-//					{
-//						targetPos.y = Mathf.Lerp(targetPos.y, follow.position.y + theOffset.y, 10 * Time.deltaTime);
-//						print ("Reset cam pos");
-//							//print ("height damping");
-//					}
-					
-//					if (InputController.orbitV == 0)
-//					{
-//						if (targetPos.y < follow.position.y)
-//						{
-//							targetPos.y = Mathf.Lerp(targetPos.y, follow.position.y, 20 * Time.deltaTime);	
-//						}
-//						else if (targetPos.y > follow.position.y + theOffset.y)
-//						{
-//						targetPos.y = Mathf.Lerp(targetPos.y, follow.position.y + theOffset.y, 20 * Time.deltaTime);
-//						}
-//					}
-
-					//float threshold = Vector3.Distance(initialAngle, transform.forward);
-
-		
-					//targetPos.y = Mathf.Lerp (targetPos.y, follow.position.y + theOffset.y, 20 * Time.deltaTime);
-					
-					//print (Vector3.Distance(initialAngle, transform.forward));
-//					
-//					if (Vector3.Distance(initialAngle, transform.forward) < 24.5f)
-//						reseting = false;
-			
-				//targetPos.y = Mathf.Clamp(targetPos.y, follow.position.y, follow.position.y + theOffset.y);
-				transform.position = targetPos;
-			}
+					transform.position = targetPos;
+				}
 				
 				xSpeed = Mathf.SmoothDamp (xSpeed, InputController.orbitH * 5, ref rotVel, Time.deltaTime);
 				ySpeed = Mathf.SmoothDamp (ySpeed, InputController.orbitV * 5, ref rotVel, Time.deltaTime);
-				
-				
-				
-				if (follow.position - transform.position != Vector3.zero)
-					transform.rotation = Quaternion.LookRotation(follow.position - transform.position);
+
+//				if (follow.position - transform.position != Vector3.zero)
+//					transform.rotation = Quaternion.LookRotation(follow.position - transform.position);
 				
 				transform.forward = follow.position - transform.position;
 				
@@ -171,64 +133,10 @@ public class RomanCameraController : MonoBehaviour {
 				else 
 					initialAngle.x += y;
 				
-				
-				// Clamp horizontal camera movement --------------
-//				x = xSpeed;
-//				
-//				if (initialAngle.y + xSpeed < -xOrbitLimit) 
-//				{
-//					xSpeed = -xOrbitLimit - initialAngle.y;
-//					initialAngle.y = -xOrbitLimit;                 
-//				}
-//				
-//				else if (initialAngle.y + xSpeed > xOrbitLimit) 
-//				{
-//					xSpeed = xOrbitLimit - initialAngle.y;
-//					initialAngle.y = xOrbitLimit;
-//				}
-//				else 
-//					initialAngle.y += xSpeed;
-//				
-				
 				transform.RotateAround (follow.position, Vector3.up, xSpeed);
-				
-//				Debug.DrawLine(player.position, new Vector3(follow.position.x, follow.position.y + theOffset.y, follow.position.z), Color.red);
-//				
-//				if (transform.position.y >= player.position.y && transform.position.y <= follow.position.y + theOffset.y)
-				//if (transform.eulerAngles.x > 0 && transform.eulerAngles.x < 30)
-				
-				//if (!reseting)
-					transform.RotateAround (follow.position, transform.right, -y);
+				transform.RotateAround (follow.position, transform.right, -y);
+				transform.LookAt (follow);
 
-//				float maxHeight = follow.position.y + theOffset.y;
-//				if (transform.position.y > maxHeight)
-//				{
-//					float height = transform.position.y - follow.position.y;
-//
-//					float radius = Vector3.Distance (follow.position, transform.position);
-//					//float newZ = follow.position.z - Mathf.Sqrt(radius * radius - height * height);
-//					//newZ = Mathf.Clamp01(newZ) * -theOffset.z;
-//					
-//					print ("radius and newZ: " + radius + " " + newZ); 
-//					transform.position = new Vector3(transform.position.x, maxHeight, newZ);
-//
-//					print (Vector3.Distance(follow.position, transform.position));
-//				}
-				
-				//else
-				
-//				Vector3 clampedRot = new Vector3(transform.eulerAngles.x, Mathf.Clamp (transform.eulerAngles.y, 1, 30), transform.eulerAngles.z);
-//				transform.eulerAngles = clampedRot;
-//				print (transform.eulerAngles.y);
-
-				//print (transform.eulerAngles.x);
-//				else if (transform.position.y < player.position.y)
-//					transform.position = new Vector3(transform.position.x, player.position.y, transform.position.z);
-//				
-//				else if (transform.position.y > follow.position.y + theOffset.y)
-//					transform.position = new Vector3(transform.position.x, follow.position.y + theOffset.y, transform.position.z);
-
-				//transform.LookAt (follow);
 				break;
 
 			case CamState.Climbing:
@@ -242,62 +150,53 @@ public class RomanCameraController : MonoBehaviour {
 				
 				targetPos = follow.position + follow.forward * theOffset.z;
 				transform.position = Vector3.SmoothDamp(transform.position, targetPos, ref vel, Time.deltaTime);
-			
+				
 				break;
+
 			// Reset the camera to be above the player.
 			// This needs ot happen whenever the player lands
+			// While reseting, the player can't rotate the camera on the Axis (up and down)
 			case CamState.Reset:
-					
+				
+				xSpeed = Mathf.SmoothDamp (xSpeed, InputController.orbitH * 5, ref rotVel, Time.deltaTime);
+
 				vecDifference = Vector3.Normalize(transform.position - follow.position) * -theOffset.z;
 				targetPos = follow.position + vecDifference;
 				targetPos.y = follow.position.y + theOffset.y;
-				transform.position = Vector3.Lerp (transform.position, targetPos, 10 * Time.deltaTime);
+				
+				//transform.position = Vector3.Lerp (transform.position, targetPos, 10 * Time.deltaTime);
+				transform.position = Vector3.SmoothDamp(transform.position, targetPos, ref resetVel, 20 * Time.deltaTime);
+				
 
-//			if (follow.position - transform.position != Vector3.zero)
-//				transform.rotation = Quaternion.LookRotation(follow.position - transform.position);
+				// Once the follow object catches up to the player go into FREE mode
+				if (Vector3.Distance(transform.position, targetPos) < 0.02f) //if (followScript.followAtPlayerPos)
+					SetState(CamState.Free);
+
+				transform.RotateAround (follow.position, Vector3.up, xSpeed);
 				transform.LookAt (follow);
-
-			if (followScript.followAtPlayerPos)//if (Vector3.Distance(transform.position, targetPos) < 0.05f)
-				SetState(CamState.Free);
-
-			break;
+				break;
 		}
 
 	}
 	
-	private float ClampAngle (float angle, float min, float max) {
-		if (angle < -360)
-			angle += 360;
-		if (angle > 360)
-			angle -= 360;
-		return Mathf.Clamp (angle, min, max);
-	}
-	
-	private void SetState (CamState s)
-	{
-		state = s;
-	}
-	
-	private CamState GetState()
-	{
-		return state;
-	}
+//	private float ClampAngle (float angle, float min, float max) {
+//		if (angle < -360)
+//			angle += 360;
+//		if (angle > 360)
+//			angle -= 360;
+//		return Mathf.Clamp (angle, min, max);
+//	}
 	
 	private void OnEnable ()
 	{
 		EventManager.onCharEvent += SetCameraMode;
-		EventManager.onCharEvent += ResetCam;
-//		EventManager.onInputEvent += SetCameraMode;
 	}
 	
 	private void OnDisable()
 	{
 		EventManager.onCharEvent -= SetCameraMode;
-		EventManager.onCharEvent -= ResetCam;
-
-//		EventManager.onInputEvent -= SetCameraMode;
 	}
-	
+
 	private void SetCameraMode (GameEvent gEvent)
 	{
 		if (gEvent == GameEvent.StartClimbing)
@@ -311,71 +210,14 @@ public class RomanCameraController : MonoBehaviour {
 
 			SetState (CamState.Reset);
 			print("cam land");
-
-
-
-//			vecDifference = Vector3.Normalize(transform.position - follow.position) * -theOffset.z;
-//			targetPos = follow.position + vecDifference;
-//			targetPos.y = follow.position.y + theOffset.y;	
-//			
-	//		LeanTween.value(gameObject, (float val) => {
-
-
-//				vecDifference = Vector3.Normalize(transform.position - follow.position) * -theOffset.z;
-//				//vecDifference.y = follow.position.y + theOffset.y;
-//				transform.position = vecDifference;
-//
-//				//transform.LookAt(follow);
-//										
-//				},
-//				
-//				1, 2, 2f)
-//
-//				.setEase(LeanTweenType.easeOutSine)	
-			
-//			.setOnUpdate((float val) => {
-//				transform.LookAt(follow);
-//				transform.position = follow.position.y + theOffset.y;
-//						
-//			
-////				transform.forward = follow.position - transform.position;
-//			})
-////			
-//			.setOnComplete(() => {
-////				print ("land");
-//				initialAngle = follow.forward;
-//				SetState(CamState.Free);
-//				
-//			});
-		//	initialAngle = transform.forward;
-//			print("reset");
-//			reseting = true;
 		}
 	}
 
-	private void ResetCam (GameEvent gEvent)
-	{
-//		if (gEvent == GameEvent.ResetCam)
-//			targetPos.y = follow.position.y + theOffset.y;
-	}
+	// Get/Set cam state
+	private void SetState (CamState s) { state = s; }
+	private CamState GetState() { return state; }
 
-//	private void OnTriggerEnter (Collider col)
-//	{
-//		if (col.gameObject.layer == 12)
-//		{
-//			canMove = false;
-//			print("cant move");
-//		}
-//	}
-//
-//	private void OnTriggerExit (Collider col)
-//	{
-//		if (col.gameObject.layer == 12)
-//		{
-//			canMove = true;
-//			print("can move");
-//		}
-//	}
+
 }
 
 

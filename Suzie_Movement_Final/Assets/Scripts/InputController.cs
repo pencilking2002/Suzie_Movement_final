@@ -92,7 +92,7 @@ public class InputController : MonoBehaviour {
 			EventManager.OnInputEvent(GameEvent.SprintModifierUp);
 	
 
-		if (charState.IsClimbing() || inputDevice.LeftStickY.WasPressed)
+		if (charState.IsEdgeClimbing() || inputDevice.LeftStickY.WasPressed)
 		{
 			
 			if (rawV == 1)

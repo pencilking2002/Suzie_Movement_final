@@ -69,7 +69,7 @@ public class ClimbOverEdge : MonoBehaviour {
 
 			path.transform.parent = null;
 
-			Util.Instance.DelayedAction(() => {
+			RSUtil.Instance.DelayedAction(() => {
 				path.transform.parent = transform;
 				path.transform.localPosition = Vector3.zero;
 				EnableTween(false);

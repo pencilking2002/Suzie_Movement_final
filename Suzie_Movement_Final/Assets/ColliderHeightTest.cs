@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 public class ColliderHeightTest : MonoBehaviour {
@@ -9,7 +9,7 @@ public class ColliderHeightTest : MonoBehaviour {
 	void Start ()
 	{
 		col = GetComponent<Collider>();
-		topPoint = Util.GetColliderTopPoint(col);
+		topPoint = RSUtil.GetColliderTopPoint(col);
 	}
 	
 	void Update ()

@@ -118,7 +118,7 @@ public class ClimbController : MonoBehaviour
 	{
 		// Get the top point of the collider
 		parentCol = hit.collider.GetComponentInParent<Collider>();
-		topPoint = Util.GetColliderTopPoint(parentCol);
+		topPoint = RSUtil.GetColliderTopPoint(parentCol);
 		
 		// Set the position of the character
 		climbPos = new Vector3 (hit.point.x, topPoint.y + climbSpotYOffset, hit.point.z);
@@ -144,7 +144,7 @@ public class ClimbController : MonoBehaviour
 			animator.SetTrigger("StopClimbing");
 			cController.enabled = false;
 			//this.enabled = false;
-			Util.DisableScript(this);
+			RSUtil.DisableScript(this);
 		}
 	}
 	

@@ -102,13 +102,6 @@ public class RomanCharController : MonoBehaviour {
 
 		}
 		
-		
-//		if (charState.IsFalling())
-//		{
-//			
-//			print ("Falling");
-//		}
-		
 		// Stop moving on the X and Z plane when landing
 		if (charState.IsLanding())
 		{

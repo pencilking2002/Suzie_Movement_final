@@ -34,7 +34,7 @@ public class ClimbDetector : MonoBehaviour {
 		{
 			
 			EventManager.OnDetectEvent(GameEvent.ClimbColliderDetected, hit);
-			Util.DisableScript(this);
+			RSUtil.DisableScript(this);
 		}
 	
 	}
@@ -52,10 +52,10 @@ public class ClimbDetector : MonoBehaviour {
 	private void Disable (GameEvent gameEvent)
 	{
 		if (gameEvent == GameEvent.Jump)
-			Util.EnableScript(this); 
+			RSUtil.EnableScript(this); 
 		
 		else if (gameEvent == GameEvent.Land)
-			Util.DisableScript(this); 
+			RSUtil.DisableScript(this); 
 	}
 	
 //	private void OnCollisionEnter (Collision col)

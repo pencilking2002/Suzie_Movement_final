@@ -2,9 +2,9 @@
 using System.Collections;
 using System;
 
-public class Util : MonoBehaviour {
+public class RSUtil : MonoBehaviour {
 	
-	public static Util Instance;
+	public static RSUtil Instance;
 	
 	private void Awake ()
 	{

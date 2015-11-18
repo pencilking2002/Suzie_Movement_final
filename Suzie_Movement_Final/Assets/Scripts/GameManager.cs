@@ -56,7 +56,7 @@ public class GameManager : MonoBehaviour {
 				Application.LoadLevel(Application.loadedLevel);
 			}
 			
-			GUI.Button(new Rect(Screen.width - 150, 300, 170, 50), "At player pos: " + follow.atPlayerPos);
+			GUI.Button(new Rect(Screen.width - 150, 300, 170, 50), "At player pos: " + follow.followAtPlayerPos);
 		}
 	}
 	

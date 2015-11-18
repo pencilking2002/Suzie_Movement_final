@@ -6,22 +6,41 @@ using System.Collections;
 public class CamAttach : MonoBehaviour {
 
 	private Rigidbody rb;
-	
+	private RomanCharState charState;
+	private Animator animator;
+
+	private int layerMask = 1 << 8;	// Layer mask for camera jump collider
+	public float screenYThreshold = 0.2f;
 	private void Start ()
 	{
 		rb = GetComponent<Rigidbody>();
+		charState = GetComponent<RomanCharState>();
+		animator = GetComponent<Animator>();
 	}
-	
-	private void OnTriggerStay (Collider col) { Attach(col); }
-	//private void OnTriggerExit (Collider col) { Attach(col); }
-	
-	private void Attach(Collider col)
+
+
+	private void Update ()
 	{
-		if (col.gameObject.layer == 20 && rb.velocity.y < 0)
+//		if ()
+//		{
+//			print("velocity less than zero: " + rb.velocity.y);
+//		}
+//		print (Camera.main.WorldToScreenPoint(transform.position).y / Screen.width);
+		if (rb.velocity.y < 0 && !Physics.Raycast (transform.position, Vector3.down, 0.2f) 						// Check if the rigidbody is moving downwards and that that the player is not staninding on a surface
+		    && Camera.main.WorldToScreenPoint(transform.position).y / Screen.width < screenYThreshold &&  		// normalize the screen coordniates and check if the player is below the screen y coordinate threshold
+		    !Physics.Raycast (transform.position, Vector3.down, 2.5f)) 											// Check if there's ground a little more below the player
 		{
-			// Test to see if the ground is below the Squirrel. If it is, don't attach the follow
-			if (!Physics.Raycast(transform.position, Vector3.down, 2))
-				EventManager.OnCharEvent(GameEvent.AttachFollow);
+			EventManager.OnCharEvent(GameEvent.AttachFollow);
+
+//			if (charState.IsIdle() || charState.IsRunning())
+//				animator.SetTrigger ("Falling");
+			//print ("attach cam. rb y velocity: " + rb.velocity.y);
+
+		}
+
+		if (Input.GetMouseButtonDown(0))
+		{
+			print (Input.mousePosition);
 		}
 	}
 }

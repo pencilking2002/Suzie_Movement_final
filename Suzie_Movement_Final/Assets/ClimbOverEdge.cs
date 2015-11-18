@@ -12,21 +12,28 @@ public class ClimbOverEdge : MonoBehaviour {
 	private RomanCharState charState;
 	private Animator animator;
 	private float tweenDuration;
-	
-	private void Start ()
+
+	private void Awake ()
 	{
 		charState = GetComponent<RomanCharState>();
 		animator = GetComponent<Animator>();
-		
+
 		// Calculate the climbing tween's duration
 		tweenDuration = tween.groupList[0].endTime - tween.groupList[0].startTime;
 		
 		print (tweenDuration);
 		if (tween == null)
 			Debug.LogError("tween not defined");
-			
+		
 		if (path == null)
 			Debug.LogError("path not defined");
+
+		// Disable the tween and path at beginning
+		EnableTween(false);
+	}
+
+	private void Start ()
+	{
 	}
 	
 //	private void Update () 
@@ -58,15 +65,25 @@ public class ClimbOverEdge : MonoBehaviour {
 	{
 		if(charState.IsClimbing() && gEvent == GameEvent.ClimbOverEdge)
 		{
+			EnableTween(true);
+
 			path.transform.parent = null;
-			//path.transform.eulerAngles = path.transform.eulerAngles;
-			tween.enabled = true;
+
 			Util.Instance.DelayedAction(() => {
 				path.transform.parent = transform;
 				path.transform.localPosition = Vector3.zero;
-				tween.enabled = false;
-				
+				EnableTween(false);
+
+				EventManager.OnCharEvent(GameEvent.FinishClimbOver);
+			
 			}, tweenDuration);
 		}
+	}
+
+	private void EnableTween(bool enable)
+	{
+		// Enable climbing tween and path
+		tween.enabled = enable;
+		path.gameObject.SetActive(enable);
 	}
 }

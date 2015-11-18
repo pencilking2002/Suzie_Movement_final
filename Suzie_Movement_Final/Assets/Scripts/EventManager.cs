@@ -39,7 +39,9 @@ public enum GameEvent
 	StopWallClimbing,
 	StopClimbing,
 	StartClimbing,
-	IsIdle
+	IsIdle,
+	ResetCam,
+	FinishClimbOver
 	
 }
 

@@ -182,7 +182,20 @@ public class RomanCharController : MonoBehaviour {
 			animator.SetTrigger("Land");
 			EventManager.OnCharEvent(GameEvent.AttachFollow);
 			EventManager.OnCharEvent(GameEvent.Land);
+			//print ("Falling");
+			//print("collider name: " + coll.gameObject.name);
 		}
+	}
+
+	private void OnCollisionExit (Collision coll)
+	{
+
+		if ((charState.IsRunning() || charState.IsIdle()) && rb.velocity.y < 0 && !Physics.Raycast (transform.position, Vector3.down, 0.1f))
+		{
+			print ("ground collision exit");
+			animator.SetTrigger ("Falling");
+		}
+
 	}
 
 
@@ -244,8 +257,7 @@ public class RomanCharController : MonoBehaviour {
 		{	
 			EventManager.OnCharEvent(GameEvent.DetachFollow);
 			EventManager.OnCharEvent(GameEvent.Jump);
-			
-			
+
 			JumpUpAnim ();
 			rb.AddForce (new Vector3 (0,  maxJumpForce, 0), ForceMode.Impulse);
 			jumpForce = maxJumpForce;

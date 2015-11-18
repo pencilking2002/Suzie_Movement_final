@@ -11,7 +11,7 @@ public class FollowPlayer : MonoBehaviour {
 	public bool Attach = true;
 	
 	[HideInInspector]
-	public bool atPlayerPos = false;
+	public bool followAtPlayerPos = false;
 	
 	private Vector3 vel;
 	private Vector3 rotVel;
@@ -24,6 +24,7 @@ public class FollowPlayer : MonoBehaviour {
 	private RomanCharState charState;
 	private float theSpeed;
 	private float climbSpeedSmoothVel;
+	private bool camReset = false;
 	
 	void Awake () 
 	{
@@ -52,11 +53,16 @@ public class FollowPlayer : MonoBehaviour {
 		
 		transform.position = Vector3.SmoothDamp(transform.position, targetPos, ref vel, theSpeed * Time.deltaTime);
 		
-		// Keep track of the Follow's state
+		// Check if the follow object has caught up with the player and that the follow object is above the camera
 		if (Vector3.Distance(transform.position, targetPos) < 0.05f)
-			atPlayerPos = true;
-		else 
-			atPlayerPos = false;
+		{
+			followAtPlayerPos = true;
+			//print("follow object has caught up with player and follow is above the camera");
+		}
+		else
+		{
+			followAtPlayerPos = false;
+		}
 				
 		//transform.eulerAngles = Vector3.SmoothDamp(transform.eulerAngles, player.eulerAngles, ref rotVel, theSpeed * Time.deltaTime);
 		//targetRot.x = Mathf.SmoothDampAngle(transform.eulerAngles.x, player.eulerAngles.x, ref climbSpeedSmoothVel, theSpeed * Time.deltaTime);
@@ -83,10 +89,14 @@ public class FollowPlayer : MonoBehaviour {
 	private void AttachFollow (GameEvent gEvent)
 	{
 		if (gEvent == GameEvent.AttachFollow || gEvent == GameEvent.StartClimbing || gEvent == GameEvent.StopClimbing || gEvent == GameEvent.Land)
+		{
 			Attach = true;
-		
+			//print(gEvent);
+		}
 		else if (gEvent == GameEvent.DetachFollow )
+		{
 			Attach = false;
+		}
 	}
 
 }

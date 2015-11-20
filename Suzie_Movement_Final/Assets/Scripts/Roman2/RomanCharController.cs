@@ -31,6 +31,9 @@ public class RomanCharController : MonoBehaviour {
 	public float runningJumpForwardSpeed = 10f;
 	public float lastframeY;
 	
+	public PhysicMaterial groundMaterial;
+	public PhysicMaterial wallMaterial;
+	
 	//---------------------------------------------------------------------------------------------------------------------------
 	//	Private Variables
 	//---------------------------------------------------------------------------------------------------------------------------	
@@ -171,21 +174,29 @@ public class RomanCharController : MonoBehaviour {
 	/// </summary>
 	private void TurnCharToCamera()
 	{
-		camForward = new Vector3(cam.forward.x, 0, cam.forward.z);
-		camRot = Quaternion.LookRotation(camForward);
-		moveDirectionRaw = camRot * moveDirectionRaw;
-		//moveDirection = camRot * moveDirection;
+//		camForward = new Vector3(cam.forward.x, 0, cam.forward.z);
+//		camRot = Quaternion.LookRotation(camForward);
+//		moveDirectionRaw = camRot * moveDirectionRaw;
+		moveDirectionRaw = Quaternion.LookRotation(new Vector3(cam.forward.x, 0, cam.forward.z)) * moveDirectionRaw;
+	
 	}
 	
+	/// <summary>
+	/// Get the character to perform the landing animation when he/she hits the floor
+	/// the check against IsLanding() is important so that this event only fires once, 
+	/// as opposed to firing multiple times while the character is landing
+	/// </summary>
+	/// <param name="coll">Coll.</param>
 	private void OnCollisionStay (Collision coll)
 	{
-		if (charState.IsFalling() && Vector3.Dot(coll.contacts[0].normal, Vector3.up) > 0.5f )
+		if (charState.IsFalling() && !charState.IsLanding() && Vector3.Dot(coll.contacts[0].normal, Vector3.up) > 0.5f )
 		{
 			animator.SetTrigger("Land");
 			EventManager.OnCharEvent(GameEvent.AttachFollow);
 			EventManager.OnCharEvent(GameEvent.Land);
-			//print ("Falling");
-			//print("collider name: " + coll.gameObject.name);
+			print ("Land");
+			
+			coll.collider.material = groundMaterial;
 		}
 	}
 

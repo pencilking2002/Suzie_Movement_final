@@ -662,7 +662,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!23 &250639927
 MeshRenderer:
@@ -733,7 +733,7 @@ GameObject:
   m_TagString: CliffSpawnSpot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &274864887
 Transform:
@@ -2642,6 +2642,26 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 101438, guid: ed72e9928348a4677b9e8e6fbe6a2df9, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 150774, guid: ed72e9928348a4677b9e8e6fbe6a2df9, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 106782, guid: ed72e9928348a4677b9e8e6fbe6a2df9, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 189598, guid: ed72e9928348a4677b9e8e6fbe6a2df9, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 144956, guid: ed72e9928348a4677b9e8e6fbe6a2df9, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ed72e9928348a4677b9e8e6fbe6a2df9, type: 2}
   m_IsPrefabParent: 0
@@ -2806,7 +2826,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!114 &1392523535
 MonoBehaviour:
@@ -3317,8 +3337,8 @@ MonoBehaviour:
   idleJumpForwardSpeed: 129
   runningJumpForwardSpeed: 258
   lastframeY: 0
-  groundMaterial: {fileID: 0}
-  wallMaterial: {fileID: 0}
+  groundMaterial: {fileID: 13400000, guid: c2815a7ab32e42c4bb42f59caacb8ec1, type: 2}
+  wallMaterial: {fileID: 13400000, guid: ca11c0181a3d4934cb19a9a0c55133e6, type: 2}
   speed: 0
 --- !u!114 &1756476987
 MonoBehaviour:
@@ -3520,6 +3540,26 @@ Prefab:
     - target: {fileID: 106782, guid: ed72e9928348a4677b9e8e6fbe6a2df9, type: 2}
       propertyPath: m_Name
       value: Cliff
+      objectReference: {fileID: 0}
+    - target: {fileID: 150774, guid: ed72e9928348a4677b9e8e6fbe6a2df9, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 106782, guid: ed72e9928348a4677b9e8e6fbe6a2df9, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 144956, guid: ed72e9928348a4677b9e8e6fbe6a2df9, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 189598, guid: ed72e9928348a4677b9e8e6fbe6a2df9, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 101438, guid: ed72e9928348a4677b9e8e6fbe6a2df9, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ed72e9928348a4677b9e8e6fbe6a2df9, type: 2}
@@ -4321,7 +4361,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!224 &2142962019
 RectTransform:
@@ -4411,7 +4451,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &2144735319
 Transform:

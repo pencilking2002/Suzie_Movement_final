@@ -165,7 +165,7 @@ public class RomanCameraController : MonoBehaviour {
 				targetPos.y = follow.position.y + theOffset.y;
 				
 				//transform.position = Vector3.Lerp (transform.position, targetPos, 10 * Time.deltaTime);
-				transform.position = Vector3.SmoothDamp(transform.position, targetPos, ref resetVel, 20 * Time.deltaTime);
+				transform.position = Vector3.SmoothDamp(transform.position, targetPos, ref resetVel, 5 * Time.deltaTime);
 				
 
 				// Once the follow object catches up to the player go into FREE mode

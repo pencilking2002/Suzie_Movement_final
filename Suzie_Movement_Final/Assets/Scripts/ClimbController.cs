@@ -41,9 +41,7 @@ public class ClimbController : MonoBehaviour
 	
 	//a class to store the previous normal value
 	private Vector3 oldNormal;
-	
-	
-	
+
 	private void Start ()
 	{
 		rb = GetComponent<Rigidbody>();
@@ -68,7 +66,7 @@ public class ClimbController : MonoBehaviour
 				if(oldNormal.z >= transform.forward.z + threshold || oldNormal.z <= transform.forward.z - threshold)
 				{
 					//smoothly match the player's forward with the inverse of the normal
-					transform.forward = Vector3.Lerp (transform.forward, -hit.normal, 10 * Time.deltaTime);
+					transform.forward = Vector3.Lerp (transform.forward, -hit.normal, 20 * Time.deltaTime);
 				}
 				//store the current hit.normal inside the oldNormal
 				oldNormal = -hit.normal;

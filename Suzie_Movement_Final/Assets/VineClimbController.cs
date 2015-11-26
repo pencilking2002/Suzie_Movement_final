@@ -2,8 +2,10 @@
 using System.Collections;
 
 public class VineClimbController : MonoBehaviour {
-	
+
+	[HideInInspector]
 	public bool attached;
+
 	private Animator animator;
 	private Rigidbody rb;
 	

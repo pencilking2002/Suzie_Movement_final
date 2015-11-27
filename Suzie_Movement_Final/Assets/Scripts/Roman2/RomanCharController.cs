@@ -220,6 +220,8 @@ public class RomanCharController : MonoBehaviour {
 		EventManager.onCharEvent += Disable;
 		EventManager.onCharEvent += Sprint;
 		EventManager.onCharEvent += CharIdle;
+		EventManager.onCharEvent += CharLanded;
+		
 	}
 	private void OnDisable () 
 	{ 
@@ -230,6 +232,8 @@ public class RomanCharController : MonoBehaviour {
 		EventManager.onCharEvent -= Disable;
 		EventManager.onCharEvent -= Sprint;
 		EventManager.onCharEvent -= CharIdle;
+		EventManager.onCharEvent -= CharLanded;
+		
 	}
 	
 	private void Enable (GameEvent gameEvent)
@@ -325,6 +329,14 @@ public class RomanCharController : MonoBehaviour {
 		if (gEvent == GameEvent.IsIdle)
 		{
 			rb.velocity = Vector3.zero;
+			//OrientCapsuleCollider(true);
+		}
+	}
+	
+	private void CharLanded (GameEvent gEvent)
+	{
+		if (gEvent == GameEvent.Land)
+		{
 			OrientCapsuleCollider(true);
 		}
 	}

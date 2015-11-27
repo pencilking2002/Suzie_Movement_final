@@ -119,7 +119,7 @@ public class RomanCharController : MonoBehaviour {
 		{
 			rb.velocity = Vector3.zero;
 		}
-
+		
 		else if (charState.IsJumping ())
 		{	
 			
@@ -127,9 +127,19 @@ public class RomanCharController : MonoBehaviour {
 			{
 				rb.MoveRotation(Quaternion.Slerp (transform.rotation, Quaternion.LookRotation(moveDirectionRaw), idleRotateSpeed * Time.deltaTime));
 				
+//				if (charState.IsSprintJumping())
+//				{
+//					
+//					//transform.RotateAround(transform.position, transform.right, 20 * Time.deltaTime);
+//					Vector3 newRot = new Vector3(40, transform.localEulerAngles.y, transform.localEulerAngles.z);
+//					transform.localEulerAngles = Vector3.Lerp (transform.localEulerAngles, newRot, 10 * Time.deltaTime);
+//					
+//				}
+				
 				Vector3 vel = transform.forward * forwardSpeed * Mathf.Clamp01(moveDirectionRaw.sqrMagnitude) * Time.deltaTime;
 				vel.y = rb.velocity.y;
 				rb.velocity = vel;
+				
 				
 			}
 			else
@@ -271,18 +281,12 @@ public class RomanCharController : MonoBehaviour {
 	{
 		if(gEvent == GameEvent.StartSprinting)
 		{
-//			cCollider.direction = 2;
-//			cCollider.center = new Vector3(cCollider.center.x, 0.3f, cCollider.center.z);
 			OrientCapsuleCollider(false);
-			
 		}
 		
 		else if(gEvent == GameEvent.StopSprinting)
-		{
-//			cCollider.direction = 1;
-//			cCollider.center = new Vector3(cCollider.center.x, 0.47f, cCollider.center.z);
+		{	
 			OrientCapsuleCollider(true);
-			
 	
 		}
 	}
@@ -338,7 +342,13 @@ public class RomanCharController : MonoBehaviour {
 		if (gEvent == GameEvent.Land)
 		{
 			OrientCapsuleCollider(true);
+			ResetYRotation();
 		}
+	}
+	
+	private void ResetYRotation()
+	{
+		transform.localEulerAngles = new Vector3(0, transform.localEulerAngles.y, transform.localEulerAngles.z);
 	}
 	
 	//---------------------------------------------------------------------------------------------------------------------------

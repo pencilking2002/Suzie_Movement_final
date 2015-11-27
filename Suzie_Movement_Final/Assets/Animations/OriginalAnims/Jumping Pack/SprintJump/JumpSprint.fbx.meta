@@ -547,19 +547,19 @@ ModelImporter:
       - path: SkeletonJoints/EditingMesh6:RightLeg/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightLeg/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightFoot/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightToeBase/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightToe_End
         weight: 0
       - path: SkeletonJoints/EditingMesh6:TailBase
-        weight: 0
+        weight: 1
       - path: SkeletonJoints/EditingMesh6:TailBase/EditingMesh6:TailJoint2
-        weight: 0
+        weight: 1
       - path: SkeletonJoints/EditingMesh6:TailBase/EditingMesh6:TailJoint2/EditingMesh6:TailJoint3
-        weight: 0
+        weight: 1
       - path: SkeletonJoints/EditingMesh6:TailBase/EditingMesh6:TailJoint2/EditingMesh6:TailJoint3/EditingMesh6:TailJoint4
-        weight: 0
+        weight: 1
       - path: SkeletonJoints/EditingMesh6:TailBase/EditingMesh6:TailJoint2/EditingMesh6:TailJoint3/EditingMesh6:TailJoint4/EditingMesh6:TailJoint5
-        weight: 0
+        weight: 1
       - path: SkeletonJoints/EditingMesh6:TailBase/EditingMesh6:TailJoint2/EditingMesh6:TailJoint3/EditingMesh6:TailJoint4/EditingMesh6:TailJoint5/EditingMesh6:TailJoint6
-        weight: 0
+        weight: 1
       - path: SkeletonJoints/EditingMesh6:TailBase/EditingMesh6:TailJoint2/EditingMesh6:TailJoint3/EditingMesh6:TailJoint4/EditingMesh6:TailJoint5/EditingMesh6:TailJoint6/EditingMesh6:TailJoint7_end_
-        weight: 0
+        weight: 1
       - path: SkeletonJoints/EditingMesh6:UpperTorso
         weight: 1
       - path: SkeletonJoints/EditingMesh6:UpperTorso/EditingMesh6:Spine1

@@ -125,6 +125,8 @@ public class RomanCharState : MonoBehaviour {
 		return state == State.Running || state == State.Sprinting;
 	}
 
+	// Jumping ----------------------------------------------------
+	
 	public bool IsJumping()
 	{
 		return (state == State.IdleJumping || 
@@ -138,8 +140,6 @@ public class RomanCharState : MonoBehaviour {
 		        && landedFirstTime;
 	}
 	
-	
-	// Jumping ----------------------------------------------------
 	
 	public bool IsIdleJumping()
 	{

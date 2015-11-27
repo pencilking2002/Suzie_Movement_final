@@ -24,6 +24,9 @@ public class RomanCharState : MonoBehaviour {
 		Sprinting,
 		ClimbingOverEdge,
 		EdgeClimbing,
+		SprintJumping,
+		SprintFalling,
+		SprintLanding
 	}
 	
 	//---------------------------------------------------------------------------------------------------------------------------
@@ -62,9 +65,10 @@ public class RomanCharState : MonoBehaviour {
 
 		if (_state == State.Idle)
 		{
+			if (!landedFirstTime)
+				landedFirstTime = true;
+				
 			EventManager.OnCharEvent(GameEvent.IsIdle);
-			rb.velocity = Vector3.zero;
-			landedFirstTime = true;
 		}
 		else if (_state == State.Sprinting)
 		{
@@ -78,8 +82,6 @@ public class RomanCharState : MonoBehaviour {
 		}
 		
 		state = _state;
-
-
 	}
 	
 	public State GetState ()
@@ -108,19 +110,32 @@ public class RomanCharState : MonoBehaviour {
 	
 	// Running ----------------------------------------------------
 	
+	public bool IsJogging ()
+	{
+		return state == State.Running;
+	}
+	
+	public bool IsSprinting ()
+	{
+		return state == State.Sprinting;
+	}
+	
 	public bool IsRunning ()
 	{
 		return state == State.Running || state == State.Sprinting;
 	}
 
-	public bool IsSprinting ()
-	{
-		return state == State.Sprinting;
-	}
-
 	public bool IsJumping()
 	{
-		return (state == State.IdleJumping || state == State.RunningJumping || state == State.IdleFalling || state == State.RunningFalling) && landedFirstTime;
+		return (state == State.IdleJumping || 
+				state == State.RunningJumping || 
+				state == State.IdleFalling || 
+				state == State.RunningFalling ||
+				
+				state == State.SprintJumping ||
+		        state == State.SprintFalling ||
+		        state == State.SprintLanding) 
+		        && landedFirstTime;
 	}
 	
 	
@@ -138,14 +153,18 @@ public class RomanCharState : MonoBehaviour {
 
 	public bool IsLanding()
 	{
-		return state == State.Landing;
+		return state == State.Landing || state == State.SprintLanding;
 	}
 
 	public bool IsFalling()
 	{
-		return state == State.IdleFalling || state == State.RunningFalling;
+		return state == State.IdleFalling || state == State.RunningFalling || state == State.SprintFalling;
 	}
 	
+	public bool IsSprintJumping ()
+	{
+		return state == State.SprintJumping || state == State.SprintFalling;
+	}
 	
 	// Climbing ----------------------------------------------------
 

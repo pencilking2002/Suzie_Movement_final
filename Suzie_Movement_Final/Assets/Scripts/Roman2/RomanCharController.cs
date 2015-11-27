@@ -24,11 +24,17 @@ public class RomanCharController : MonoBehaviour {
 	public float jumpForceDeclineSpeed = 0.02f;			// How fast the jump force declines when jumping
 	[Range(0,50)]
 	public float jumpTurnSpeed = 20f;
+	
 	// Speed modifier of the character's Z movement wheile jumping
 	[Range(0,400)]
 	public float idleJumpForwardSpeed = 10f;
+	
 	[Range(0,400)]
 	public float runningJumpForwardSpeed = 10f;
+	
+	[Range(0,400)]
+	public float sprintJumpForwardSpeed = 40f;
+	
 	public float lastframeY;
 	
 	public PhysicMaterial groundMaterial;
@@ -50,7 +56,6 @@ public class RomanCharController : MonoBehaviour {
 	private float angle;			// used to check which way the character is rotating
 	private float dir;				// The  result of the cross product of the player's rotation and the camera's rotation
 	
-	
 	private Vector3 moveDirection;
 	private Vector3 moveDirectionRaw;
 	private Quaternion targetRot;		// the target rotation to achieve while in idle or running
@@ -60,9 +65,7 @@ public class RomanCharController : MonoBehaviour {
 	private Quaternion camRot;
 	
 	// jumping ----------------------
-	private float jumpForce;
 	
-//	private int facingAwayFromCam = 1; 
 	private float forwardSpeed; 			// Temp var for forward speed
 	private bool holdShift = false;
 	public float speed;					// Temp var for locomotion 
@@ -74,7 +77,6 @@ public class RomanCharController : MonoBehaviour {
 		rb = GetComponent<Rigidbody>();
 		cam = Camera.main.transform;
 		climbDetector = GetComponent<ClimbDetector>();
-		jumpForce = maxJumpForce;
 		cController = GetComponent<CharacterController>();
 		cCollider = GetComponent<CapsuleCollider>();
 	}
@@ -116,8 +118,6 @@ public class RomanCharController : MonoBehaviour {
 		if (charState.IsLanding())
 		{
 			rb.velocity = Vector3.zero;
-			//EventManager.OnCharEvent(GameEvent.AttachFollow);
-			
 		}
 
 		else if (charState.IsJumping ())
@@ -127,9 +127,6 @@ public class RomanCharController : MonoBehaviour {
 			{
 				rb.MoveRotation(Quaternion.Slerp (transform.rotation, Quaternion.LookRotation(moveDirectionRaw), idleRotateSpeed * Time.deltaTime));
 				
-				// Move the character forward based on Vertical input and weather they are idle jumping or runnign jumping
-				forwardSpeed = charState.IsIdleJumping() ? idleJumpForwardSpeed : runningJumpForwardSpeed;
-
 				Vector3 vel = transform.forward * forwardSpeed * Mathf.Clamp01(moveDirectionRaw.sqrMagnitude) * Time.deltaTime;
 				vel.y = rb.velocity.y;
 				rb.velocity = vel;
@@ -205,9 +202,7 @@ public class RomanCharController : MonoBehaviour {
 		Vector3 startPos = transform.position + new Vector3(0, 0.3f, 0);
 		if ((charState.IsRunning() || charState.IsIdle()) && rb.velocity.y < 0 && !Physics.Raycast (startPos, Vector3.down, 0.5f))
 		{
-			//print ("ground collision exit");
 			animator.SetTrigger ("Falling");
-			//
 		}
 
 	}
@@ -224,6 +219,7 @@ public class RomanCharController : MonoBehaviour {
 		EventManager.onCharEvent += Enable;
 		EventManager.onCharEvent += Disable;
 		EventManager.onCharEvent += Sprint;
+		EventManager.onCharEvent += CharIdle;
 	}
 	private void OnDisable () 
 	{ 
@@ -233,6 +229,7 @@ public class RomanCharController : MonoBehaviour {
 		//EventManager.onCharEvent -= Enable;
 		EventManager.onCharEvent -= Disable;
 		EventManager.onCharEvent -= Sprint;
+		EventManager.onCharEvent -= CharIdle;
 	}
 	
 	private void Enable (GameEvent gameEvent)
@@ -270,14 +267,19 @@ public class RomanCharController : MonoBehaviour {
 	{
 		if(gEvent == GameEvent.StartSprinting)
 		{
-			cCollider.direction = 2;
-			cCollider.center = new Vector3(cCollider.center.x, 0.3f, cCollider.center.z);
+//			cCollider.direction = 2;
+//			cCollider.center = new Vector3(cCollider.center.x, 0.3f, cCollider.center.z);
+			OrientCapsuleCollider(false);
+			
 		}
 		
 		else if(gEvent == GameEvent.StopSprinting)
 		{
-			cCollider.direction = 1;
-			cCollider.center = new Vector3(cCollider.center.x, 0.47f, cCollider.center.z);
+//			cCollider.direction = 1;
+//			cCollider.center = new Vector3(cCollider.center.x, 0.47f, cCollider.center.z);
+			OrientCapsuleCollider(true);
+			
+	
 		}
 	}
 
@@ -288,27 +290,42 @@ public class RomanCharController : MonoBehaviour {
 		{	
 			EventManager.OnCharEvent(GameEvent.DetachFollow);
 			EventManager.OnCharEvent(GameEvent.Jump);
-
-			JumpUpAnim ();
+			
+			//print (charState.GetState ());
+			
+			// Change the forward speed based on what kind of jump it is
+			if (charState.IsIdle())
+			{
+				forwardSpeed = idleJumpForwardSpeed;
+				charState.SetState(RomanCharState.State.IdleJumping);
+				animator.SetTrigger ("IdleJump");
+			}
+			else if (charState.IsJogging())
+			{
+				forwardSpeed = runningJumpForwardSpeed;
+				charState.SetState(RomanCharState.State.RunningJumping);
+				animator.SetTrigger ("RunningJump");
+			}
+			else if (charState.IsSprinting())
+			{
+				forwardSpeed = sprintJumpForwardSpeed;
+				charState.SetState(RomanCharState.State.SprintJumping);
+				animator.SetTrigger ("SprintJump");
+				
+				OrientCapsuleCollider(false);
+			}
+			//JumpUpAnim ();
 			rb.AddForce (new Vector3 (0,  maxJumpForce, 0), ForceMode.Impulse);
-			jumpForce = maxJumpForce;
 
 		}
 	}
-	
-	// Trigger the jump up animation
-	private void JumpUpAnim()
-	{
 
-		if (charState.IsIdle())
+	private void CharIdle (GameEvent gEvent)
+	{
+		if (gEvent == GameEvent.IsIdle)
 		{
-			charState.SetState(RomanCharState.State.IdleJumping);
-			animator.SetTrigger ("IdleJump");
-		}
-		else if (charState.IsRunning())
-		{
-			charState.SetState(RomanCharState.State.RunningJumping);
-			animator.SetTrigger ("RunningJump");
+			rb.velocity = Vector3.zero;
+			OrientCapsuleCollider(true);
 		}
 	}
 	
@@ -321,11 +338,32 @@ public class RomanCharController : MonoBehaviour {
 	{
 		animator.applyRootMotion = apply;
 	}
-
-	private void ResetJumpForce ()
+	
+	/// <summary>
+	/// Orient the capsule collider based on what the character is doing
+	/// So when the character is sprinting or sprint jumping, make the collider
+	/// Horizontal
+	/// </summary>
+	public void OrientCapsuleCollider (bool upright)
 	{
-		jumpForce = maxJumpForce;
+		if (upright)
+		{
+			cCollider.direction = 1;
+			cCollider.center = new Vector3(cCollider.center.x, 0.47f, cCollider.center.z);
+			
+		}
+		else
+		{
+			// Adjust the collider during sprinting
+			cCollider.direction = 2;
+			cCollider.center = new Vector3(cCollider.center.x, 0.3f, cCollider.center.z);
+		}
 	}
+
+//	private void ResetJumpForce ()
+//	{
+//		jumpForce = maxJumpForce;
+//	}
 	
 	
 }

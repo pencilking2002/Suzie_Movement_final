@@ -106,7 +106,6 @@ public class ClimbController3 : MonoBehaviour
 			print ("collision enter. State: " + charState.GetState());
 			// If already climbing, exit out
 			if (climbing)
-			
 				return;
 				
 				

@@ -129,13 +129,13 @@ public class RomanCharController : MonoBehaviour {
 			if (moveDirectionRaw != Vector3.zero)
 			{
 
-				if (charState.IsSprintFalling())
-				{
-					//print (moveDirectionRaw);
-					//transform.forward = Quaternion.AngleAxis(Mathf.Lerp (0, 90, .2f * Time.deltaTime), cam.forward) * transform.forward;
-					moveDirectionRaw = Quaternion.AngleAxis(Mathf.SmoothDamp (0, transform.localEulerAngles.x + 270, ref sprintFallCurveVel, sprintFallDamping * Time.deltaTime), transform.right) * moveDirectionRaw;
-					Debug.DrawRay(transform.position, moveDirectionRaw * 2.0f, Color.black);
-				}
+//				if (charState.IsSprintFalling())
+//				{
+//					//print (moveDirectionRaw);
+//					//transform.forward = Quaternion.AngleAxis(Mathf.Lerp (0, 90, .2f * Time.deltaTime), cam.forward) * transform.forward;
+//					moveDirectionRaw = Quaternion.AngleAxis(Mathf.SmoothDamp (0, transform.localEulerAngles.x + 270, ref sprintFallCurveVel, sprintFallDamping * Time.deltaTime), transform.right) * moveDirectionRaw;
+//					Debug.DrawRay(transform.position, moveDirectionRaw * 2.0f, Color.black);
+//				}
 
 				//rb.MoveRotation(Quaternion.Slerp (transform.rotation, Quaternion.LookRotation(moveDirectionRaw), idleRotateSpeed * Time.deltaTime));
 				rb.rotation = Quaternion.Slerp (transform.rotation, Quaternion.LookRotation(moveDirectionRaw), idleRotateSpeed * Time.deltaTime);

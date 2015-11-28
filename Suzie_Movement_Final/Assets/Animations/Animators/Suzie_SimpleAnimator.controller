@@ -1227,9 +1227,9 @@ AnimatorStateTransition:
   m_Mute: 0
   m_IsExit: 0
   serializedVersion: 3
-  m_TransitionDuration: .138445064
-  m_TransitionOffset: .0276679918
-  m_ExitTime: .228260875
+  m_TransitionDuration: .972990096
+  m_TransitionOffset: .02766799
+  m_ExitTime: .22826086
   m_HasExitTime: 0
   m_HasFixedDuration: 0
   m_InterruptionSource: 0
@@ -2408,10 +2408,10 @@ AnimatorStateMachine:
       first: {fileID: 110702762}
       second: []
     data:
-      first: {fileID: 110767800}
+      first: {fileID: 110797142}
       second: []
     data:
-      first: {fileID: 110797142}
+      first: {fileID: 110767800}
       second: []
     data:
       first: {fileID: 110763942}

@@ -70,6 +70,9 @@ public class RomanCharController : MonoBehaviour {
 	private bool holdShift = false;
 	public float speed;					// Temp var for locomotion 
 
+	private float sprintFallCurveVel;
+	public float sprintFallDamping;
+
 	void Start () 
 	{
 		charState = GetComponent<RomanCharState>();
@@ -122,19 +125,20 @@ public class RomanCharController : MonoBehaviour {
 		
 		else if (charState.IsJumping ())
 		{	
-			
+
 			if (moveDirectionRaw != Vector3.zero)
 			{
-				rb.MoveRotation(Quaternion.Slerp (transform.rotation, Quaternion.LookRotation(moveDirectionRaw), idleRotateSpeed * Time.deltaTime));
-				
-//				if (charState.IsSprintJumping())
-//				{
-//					
-//					//transform.RotateAround(transform.position, transform.right, 20 * Time.deltaTime);
-//					Vector3 newRot = new Vector3(40, transform.localEulerAngles.y, transform.localEulerAngles.z);
-//					transform.localEulerAngles = Vector3.Lerp (transform.localEulerAngles, newRot, 10 * Time.deltaTime);
-//					
-//				}
+
+				if (charState.IsSprintFalling())
+				{
+					//print (moveDirectionRaw);
+					//transform.forward = Quaternion.AngleAxis(Mathf.Lerp (0, 90, .2f * Time.deltaTime), cam.forward) * transform.forward;
+					moveDirectionRaw = Quaternion.AngleAxis(Mathf.SmoothDamp (0, transform.localEulerAngles.x + 270, ref sprintFallCurveVel, sprintFallDamping * Time.deltaTime), transform.right) * moveDirectionRaw;
+					Debug.DrawRay(transform.position, moveDirectionRaw * 2.0f, Color.black);
+				}
+
+				//rb.MoveRotation(Quaternion.Slerp (transform.rotation, Quaternion.LookRotation(moveDirectionRaw), idleRotateSpeed * Time.deltaTime));
+				rb.rotation = Quaternion.Slerp (transform.rotation, Quaternion.LookRotation(moveDirectionRaw), idleRotateSpeed * Time.deltaTime);
 				
 				Vector3 vel = transform.forward * forwardSpeed * Mathf.Clamp01(moveDirectionRaw.sqrMagnitude) * Time.deltaTime;
 				vel.y = rb.velocity.y;
@@ -147,7 +151,7 @@ public class RomanCharController : MonoBehaviour {
 				rb.velocity = Vector3.Lerp(rb.velocity, new Vector3(0, rb.velocity.y, 0), 2 * Time.deltaTime);
 			}
 		
-			 
+
 			// Aadd a force downwards if the player releases the jump button
 			// when the character is jumping up
 			if (InputController.jumpReleased)
@@ -161,6 +165,8 @@ public class RomanCharController : MonoBehaviour {
 			}
 		}
 		
+
+		
 	}
 	
 	private void OnAnimatorMove ()
@@ -170,6 +176,8 @@ public class RomanCharController : MonoBehaviour {
 			transform.rotation = Quaternion.Slerp (transform.rotation, Quaternion.LookRotation(moveDirectionRaw), runRotateSpeed * Time.fixedDeltaTime);
 			animator.ApplyBuiltinRootMotion();
 		}
+		
+	
 	}
 
 

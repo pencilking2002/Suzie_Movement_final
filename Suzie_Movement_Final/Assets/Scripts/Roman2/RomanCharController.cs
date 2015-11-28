@@ -333,7 +333,7 @@ public class RomanCharController : MonoBehaviour {
 		if (gEvent == GameEvent.IsIdle)
 		{
 			rb.velocity = Vector3.zero;
-			//OrientCapsuleCollider(true);
+			OrientCapsuleCollider(true);
 		}
 	}
 	

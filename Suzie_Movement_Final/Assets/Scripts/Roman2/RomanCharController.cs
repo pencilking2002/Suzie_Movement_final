@@ -87,7 +87,7 @@ public class RomanCharController : MonoBehaviour {
 	private void Update ()
 	{
 		Vector3 _startPos = transform.position +  new Vector3(0, 0.3f, 0);
-		Debug.DrawLine (_startPos, _startPos + new Vector3(0, -0.5f,0), Color.red);
+		//Debug.DrawLine (_startPos, _startPos + new Vector3(0, -0.5f,0), Color.red);
 	}
 	
 	private void FixedUpdate ()
@@ -118,10 +118,10 @@ public class RomanCharController : MonoBehaviour {
 		}
 		
 		// Stop moving on the X and Z plane when landing
-		if (charState.IsLanding())
-		{
-			rb.velocity = Vector3.zero;
-		}
+//		if (charState.IsLanding())
+//		{
+//			rb.velocity = Vector3.zero;
+//		}
 		
 		else if (charState.IsJumping ())
 		{	
@@ -209,9 +209,9 @@ public class RomanCharController : MonoBehaviour {
 			animator.SetTrigger("Land");
 			EventManager.OnCharEvent(GameEvent.AttachFollow);
 			EventManager.OnCharEvent(GameEvent.Land);
-			print ("Land");
+			SetPhysicMaterial(coll.collider, true);
+			//print ("Land");
 			
-			coll.collider.material = groundMaterial;
 		}
 	}
 
@@ -342,6 +342,8 @@ public class RomanCharController : MonoBehaviour {
 		{
 			rb.velocity = Vector3.zero;
 			OrientCapsuleCollider(true);
+			SetPhysicMaterial(true);
+			print ("idle");
 		}
 	}
 	
@@ -352,6 +354,36 @@ public class RomanCharController : MonoBehaviour {
 			OrientCapsuleCollider(true);
 			ResetYRotation();
 		}
+	}
+	
+	/// <summary>
+	/// Convinence method to set the physics material of a GameObject's mesh
+	/// Used for setting ground and wall materials
+	/// </summary>
+	/// <param name="ground">If set to <c>true</c> ground.</param>
+	private void SetPhysicMaterial(bool ground)
+	{
+		Vector3 origin = cCollider.bounds.center - cCollider.bounds.extents;
+		
+		Ray ray = new Ray(origin, Vector3.down);
+		RaycastHit hit;
+		
+		Debug.DrawLine (origin, origin + new Vector3(0, -0.1f, 0), Color.green);
+		
+		
+		//Debug.LogError("blah");
+		if (ground && Physics.Raycast (ray, out hit, 0.1f))
+		{
+			print ("is on ground");
+			hit.collider.material = groundMaterial;
+			
+		}
+		                                    		
+	}
+	
+	private void SetPhysicMaterial(Collider col, bool ground)
+	{
+		col.material = ground ? groundMaterial : wallMaterial;
 	}
 	
 	private void ResetYRotation()

@@ -35,8 +35,6 @@ public class RomanCameraController : MonoBehaviour {
 	// Private Variables
 	//---------------------------------------------------------------------------------------------------------------------------
 
-	private RomanCharState charState;
-
 	private Vector3 targetPos = Vector3.zero;
 	
 	private Vector3 vel;       					// Used for smooth damping the cam's position
@@ -66,16 +64,13 @@ public class RomanCameraController : MonoBehaviour {
 	}
 	
 	[HideInInspector]
-
 	public CamState state = CamState.Reset;
 
-	//private RomanCharState charState;
 
 	// Use this for initialization
 	private void Start () 
 	{
 		state = CamState.Reset;
-		charState = GameObject.FindObjectOfType<RomanCharState>();
 
 		if (follow == null)
 			follow = GameObject.FindGameObjectWithTag("Follow").transform;

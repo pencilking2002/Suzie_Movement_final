@@ -10,8 +10,8 @@ public class ClimbDetector : MonoBehaviour {
 	public bool climbColliderDetected;
 	public float rayLength = 2.0f;			// How long the raycast to look for climbable objects should be
 
-	private RomanCharState charState;
-	private CapsuleCollider cCollider;
+//	private RomanCharState charState;
+//	private CapsuleCollider cCollider;
 	private Ray ray;
 	private RaycastHit hit;
 	private float cColliderHeight;
@@ -20,8 +20,8 @@ public class ClimbDetector : MonoBehaviour {
 	
 	private void Start ()
 	{
-		charState = GetComponent<RomanCharState>();
-		cCollider = GetComponent<CapsuleCollider>();
+//		charState = GetComponent<RomanCharState>();
+//		cCollider = GetComponent<CapsuleCollider>();
 //		cColliderHeight = GetColliderHeight(cCollider);
 		this.enabled = false;
 	}

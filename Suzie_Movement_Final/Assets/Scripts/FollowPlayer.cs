@@ -19,18 +19,17 @@ public class FollowPlayer : MonoBehaviour {
 	private Vector3 targetRot;
 
 	private Transform player;
-	private RomanCharController charController;
+//	private RomanCharController charController;
 
 	private RomanCharState charState;
 	private float theSpeed;
 	private float climbSpeedSmoothVel;
-	private bool camReset = false;
 	
 	void Awake () 
 	{
 		player = GameObject.FindGameObjectWithTag("Player").transform;
 		charState = GameObject.FindObjectOfType<RomanCharState>();
-		charController = player.GetComponent<RomanCharController>();
+//		charController = player.GetComponent<RomanCharController>();
 	}
 	
 	// Update is called once per frame

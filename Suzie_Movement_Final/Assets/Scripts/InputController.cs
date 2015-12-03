@@ -54,7 +54,6 @@ public class InputController : MonoBehaviour {
 	//---------------------------------------------------------------------------------------------------------------------------
 	
 	private InputDevice inputDevice;
-	private bool canSprint = false;
 	private static float _rawV, _rawH;
 
 	private void Awake ()

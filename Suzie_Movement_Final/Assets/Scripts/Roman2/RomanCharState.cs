@@ -34,13 +34,7 @@ public class RomanCharState : MonoBehaviour {
 	//---------------------------------------------------------------------------------------------------------------------------
 	
 	private State state = State.InAir;
-	
-	// mechanim
-	//private Animator animator;
-	
-	//private RomanCharController charController;
-	private Rigidbody rb;
-	public static bool landedFirstTime = false;
+	private static bool landedFirstTime = false;
 
 	//---------------------------------------------------------------------------------------------------------------------------
 	// Public Methods
@@ -48,9 +42,7 @@ public class RomanCharState : MonoBehaviour {
 	
 	private void Awake ()
 	{
-		//animator = GetComponent<Animator> ();
-		//charController = GetComponent<RomanCharController>();
-		rb = GetComponent<Rigidbody>();
+
 	}
 
 	public void SetState (State _state)

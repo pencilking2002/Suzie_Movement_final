@@ -19,7 +19,7 @@ public class ClimbController : MonoBehaviour
 	public float threshold = 0.009f;
 	
 	private Animator animator;
-	private CapsuleCollider capsuleCollider;
+//	private CapsuleCollider capsuleCollider;
 	private CharacterController cController;
 	private Rigidbody rb;
 	private RomanCharState charState;
@@ -47,7 +47,7 @@ public class ClimbController : MonoBehaviour
 		rb = GetComponent<Rigidbody>();
 		charState = GetComponent<RomanCharState>();
 		animator = GetComponent<Animator>();
-		capsuleCollider = GetComponent<CapsuleCollider>();
+//		capsuleCollider = GetComponent<CapsuleCollider>();
 		cController = GetComponent<CharacterController>();
 	}
 	

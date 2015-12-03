@@ -13,9 +13,7 @@ public class RomanCharController : MonoBehaviour {
 	public float walkToRunDampTime = 1f;
 
 	public float maxRunningRotation = 20f;
-	
 	public float runRotateSpeed = 10f;
-	//public float runSpeed = 10.0f;
 
 	[Header("JUMPING")]
 	[Range(0,100)]
@@ -34,12 +32,7 @@ public class RomanCharController : MonoBehaviour {
 	
 	[Range(0,400)]
 	public float sprintJumpForwardSpeed = 40f;
-	
-	public float lastframeY;
-	
-	public PhysicMaterial groundMaterial;
-	public PhysicMaterial wallMaterial;
-	
+		
 	//---------------------------------------------------------------------------------------------------------------------------
 	//	Private Variables
 	//---------------------------------------------------------------------------------------------------------------------------	
@@ -48,7 +41,6 @@ public class RomanCharController : MonoBehaviour {
 	private Animator animator;
 	private Rigidbody rb;
 	private Transform cam;
-	private ClimbDetector climbDetector;
 	private CharacterController cController;
 	private CapsuleCollider cCollider;
 		
@@ -56,7 +48,7 @@ public class RomanCharController : MonoBehaviour {
 	private float angle;			// used to check which way the character is rotating
 	private float dir;				// The  result of the cross product of the player's rotation and the camera's rotation
 	
-	private Vector3 moveDirection;
+//	private Vector3 moveDirection;
 	private Vector3 moveDirectionRaw;
 	private Quaternion targetRot;		// the target rotation to achieve while in idle or running
 	
@@ -68,10 +60,7 @@ public class RomanCharController : MonoBehaviour {
 	
 	private float forwardSpeed; 			// Temp var for forward speed
 	private bool holdShift = false;
-	public float speed;					// Temp var for locomotion 
-
-	private float sprintFallCurveVel;
-	public float sprintFallDamping;
+	private float speed;					// Temp var for locomotion 
 
 	void Start () 
 	{
@@ -79,32 +68,46 @@ public class RomanCharController : MonoBehaviour {
 		animator = GetComponent<Animator>();
 		rb = GetComponent<Rigidbody>();
 		cam = Camera.main.transform;
-		climbDetector = GetComponent<ClimbDetector>();
 		cController = GetComponent<CharacterController>();
 		cCollider = GetComponent<CapsuleCollider>();
 	}
 
-	private void Update ()
-	{
-		Vector3 _startPos = transform.position +  new Vector3(0, 0.3f, 0);
-		//Debug.DrawLine (_startPos, _startPos + new Vector3(0, -0.5f,0), Color.red);
-	}
+//	private void Update ()
+//	{
+//		Vector3 _startPos = transform.position +  new Vector3(0, 0.3f, 0);
+//		//Debug.DrawLine (_startPos, _startPos + new Vector3(0, -0.5f,0), Color.red);
+//	}
 	
 	private void FixedUpdate ()
 	{
 		
-		moveDirection = new Vector3(InputController.h, 0, InputController.v);
+//		moveDirection = new Vector3(InputController.h, 0, InputController.v);
 		moveDirectionRaw = new Vector3(InputController.rawH, 0, InputController.rawV);
 		
 		speed = Mathf.Clamp01(moveDirectionRaw.sqrMagnitude);
 		
-		// if holding sprint modifier key and pressing LeftStick go straight into sprint mode without damping
+		/* 
+			if player is pressing the sprint modifier + LeftStick, we go straight into sprint mode without damping
+			
+			--------
+			
+			if we are entering locomotion Blend tree, use a damping value 
+			
+			--------
+
+			When exiting the locomotion state, we want to cancel out the damping so that 
+			the character doesn't linger in the locomotion state after the user has stopped entering input
+		*/		
+		
 		if (holdShift && speed > 0)
 			animator.SetFloat ("Speed", speed + 2);
 		
-		else // Else go into run
+		else if (speed != 0) 
 			animator.SetFloat ("Speed", Mathf.Clamp01(speed), walkToRunDampTime, Time.deltaTime);
 		
+		else 
+			animator.SetFloat ("Speed", 0);
+			
 		TurnCharToCamera();
 		
 		if (charState.IsIdle())
@@ -209,8 +212,8 @@ public class RomanCharController : MonoBehaviour {
 			animator.SetTrigger("Land");
 			EventManager.OnCharEvent(GameEvent.AttachFollow);
 			EventManager.OnCharEvent(GameEvent.Land);
-			SetPhysicMaterial(coll.collider, true);
-			//print ("Land");
+			//SetPhysicMaterial(coll.collider, true);
+			//print ("charcontroller: Land");
 			
 		}
 	}
@@ -277,10 +280,12 @@ public class RomanCharController : MonoBehaviour {
 		if (gameEvent == GameEvent.SprintModifierDown)
 		{
 			holdShift = true;
+			animator.SetBool("SprintModDown", true);
 		}
 		else if (gameEvent == GameEvent.SprintModifierUp)
 		{
 			holdShift = false;
+			animator.SetBool("SprintModDown", false);
 		}
 	}
 	
@@ -342,7 +347,7 @@ public class RomanCharController : MonoBehaviour {
 		{
 			rb.velocity = Vector3.zero;
 			OrientCapsuleCollider(true);
-			SetPhysicMaterial(true);
+			//SetPhysicMaterial(true);
 			print ("idle");
 		}
 	}
@@ -351,39 +356,10 @@ public class RomanCharController : MonoBehaviour {
 	{
 		if (gEvent == GameEvent.Land)
 		{
+			//print ("CHAR LANDING");
 			OrientCapsuleCollider(true);
 			ResetYRotation();
 		}
-	}
-	
-	/// <summary>
-	/// Convinence method to set the physics material of a GameObject's mesh
-	/// Used for setting ground and wall materials
-	/// </summary>
-	/// <param name="ground">If set to <c>true</c> ground.</param>
-	private void SetPhysicMaterial(bool ground)
-	{
-		Vector3 origin = cCollider.bounds.center - cCollider.bounds.extents;
-		
-		Ray ray = new Ray(origin, Vector3.down);
-		RaycastHit hit;
-		
-		Debug.DrawLine (origin, origin + new Vector3(0, -0.1f, 0), Color.green);
-		
-		
-		//Debug.LogError("blah");
-		if (ground && Physics.Raycast (ray, out hit, 0.1f))
-		{
-			print ("is on ground");
-			hit.collider.material = groundMaterial;
-			
-		}
-		                                    		
-	}
-	
-	private void SetPhysicMaterial(Collider col, bool ground)
-	{
-		col.material = ground ? groundMaterial : wallMaterial;
 	}
 	
 	private void ResetYRotation()

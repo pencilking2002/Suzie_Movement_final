@@ -152,6 +152,12 @@ AnimatorController:
     m_DefaultInt: 0
     m_DefaultBool: 0
     m_Controller: {fileID: 9100000}
+  - m_Name: SprintModDown
+    m_Type: 4
+    m_DefaultFloat: 0
+    m_DefaultInt: 0
+    m_DefaultBool: 0
+    m_Controller: {fileID: 9100000}
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Base Layer
@@ -888,6 +894,9 @@ AnimatorStateTransition:
   - m_ConditionMode: 3
     m_ConditionEvent: Speed
     m_EventTreshold: 1.10000002
+  - m_ConditionMode: 1
+    m_ConditionEvent: SprintModDown
+    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 110238716}
   m_Solo: 0
@@ -1389,6 +1398,9 @@ AnimatorStateTransition:
   - m_ConditionMode: 3
     m_ConditionEvent: Speed
     m_EventTreshold: 1.10000002
+  - m_ConditionMode: 1
+    m_ConditionEvent: SprintModDown
+    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 110238716}
   m_Solo: 0
@@ -1895,7 +1907,10 @@ AnimatorStateTransition:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: 
-  m_Conditions: []
+  m_Conditions:
+  - m_ConditionMode: 1
+    m_ConditionEvent: EdgeClimb
+    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 110797142}
   m_DstState: {fileID: 0}
   m_Solo: 0
@@ -2408,13 +2423,13 @@ AnimatorStateMachine:
       first: {fileID: 110702762}
       second: []
     data:
-      first: {fileID: 110797142}
+      first: {fileID: 110763942}
       second: []
     data:
       first: {fileID: 110767800}
       second: []
     data:
-      first: {fileID: 110763942}
+      first: {fileID: 110797142}
       second: []
   m_StateMachineBehaviours: []
   m_AnyStatePosition: {x: 300, y: -132, z: 0}

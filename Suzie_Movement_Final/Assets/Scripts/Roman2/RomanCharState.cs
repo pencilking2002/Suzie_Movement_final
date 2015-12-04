@@ -26,7 +26,8 @@ public class RomanCharState : MonoBehaviour {
 		EdgeClimbing,
 		SprintJumping,
 		SprintFalling,
-		SprintLanding
+		SprintLanding,
+		VineClimbing
 	}
 	
 	//---------------------------------------------------------------------------------------------------------------------------
@@ -168,7 +169,7 @@ public class RomanCharState : MonoBehaviour {
 
 	public bool IsClimbing ()
 	{
-		return state == State.WallClimbing ||  state == State.EdgeClimbing;
+		return state == State.WallClimbing ||  state == State.EdgeClimbing || state == State.VineClimbing;
 	}
 
 	public bool IsWallClimbing()
@@ -180,10 +181,14 @@ public class RomanCharState : MonoBehaviour {
 		return state == State.EdgeClimbing;
 	}
 
-	
 	public bool IsClimbingOverEdge()
 	{
 		return state == State.ClimbingOverEdge;
+	}
+	
+	public bool IsVineClimbing()
+	{
+		return state == State.VineClimbing;
 	}
 	
 	// Events ------------------------------------------------------

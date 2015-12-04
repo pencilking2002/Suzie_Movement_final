@@ -42,10 +42,8 @@ public enum GameEvent
 	IsIdle,
 	ResetCam,
 	FinishClimbOver,
-//	SprintJumping,
-//	SprintFalling,
-//	SprintLanding
-//	
+	StartVineClimbing
+	
 }
 
 public class EventManager : MonoBehaviour 

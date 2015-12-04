@@ -8,7 +8,8 @@ public class GameManager : MonoBehaviour {
 	public bool debug = false;			// Toggle debug mode
 
 	// debug
-	private RomanCharState charStateScript;
+	[HideInInspector]
+	public RomanCharState charState;
 	private RomanCameraController camScript;
 	private ClimbDetector climbDetector;
 	private FollowPlayer follow;
@@ -23,7 +24,7 @@ public class GameManager : MonoBehaviour {
 		if (Instance == null)
 			Instance = this;
 
-		charStateScript = GameObject.FindObjectOfType<RomanCharState> ();
+		charState = GameObject.FindObjectOfType<RomanCharState> ();
 		camScript = GameObject.FindObjectOfType<RomanCameraController> ();
 		climbDetector = GameObject.FindObjectOfType<ClimbDetector> ();
 		follow = GameObject.FindObjectOfType<FollowPlayer>();
@@ -36,27 +37,32 @@ public class GameManager : MonoBehaviour {
 	{
 		if (debug)
 		{
-			GUI.Button(new Rect(Screen.width - 150, 30, 170, 50), "Squirrel State: " + charStateScript.GetState());
-			GUI.Button(new Rect(Screen.width - 150, 70, 170, 50), "climb collider detected " + climbDetector.climbColliderDetected);
+			GUI.Button(new Rect(Screen.width - 150, 30, 170, 30), "Squirrel State: " + charState.GetState());
+			GUI.Button(new Rect(Screen.width - 150, 60, 170, 30), "climb collider detected " + climbDetector.climbColliderDetected);
 			
-			if (GUI.Button(new Rect(Screen.width - 150, 120, 170, 50), "Spawn at Cliff "))
+			if (GUI.Button(new Rect(Screen.width - 150, 90, 170, 30), "Spawn at Cliff "))
 			{
 				GameObject.FindGameObjectWithTag("Player").transform.position = GameObject.FindGameObjectWithTag("CliffSpawnSpot").transform.position;
 			}
 
-			GUI.Button(new Rect(Screen.width - 150, 160, 170, 50), "CamState: " + camScript.state);
+			GUI.Button(new Rect(Screen.width - 150, 120, 170, 30), "CamState: " + camScript.state);
 
-			if (GUI.Button(new Rect(Screen.width - 150, 200, 170, 50), "Quit"))
+			if (GUI.Button(new Rect(Screen.width - 150, 150, 170, 30), "Quit"))
 			{
 				Application.Quit();
 			}
 
-			if (GUI.Button(new Rect(Screen.width - 150, 250, 170, 50), "Restart"))
+			if (GUI.Button(new Rect(Screen.width - 150, 180, 170, 30), "Restart"))
 			{
 				Application.LoadLevel(Application.loadedLevel);
 			}
 			
-			GUI.Button(new Rect(Screen.width - 150, 300, 170, 50), "At player pos: " + follow.followAtPlayerPos);
+			GUI.Button(new Rect(Screen.width - 150, 210, 170, 30), "At player pos: " + follow.followAtPlayerPos);
+			
+			if (GUI.Button(new Rect(Screen.width - 150, 240, 170, 30), "Sprint"))
+			{
+				GameObject.FindGameObjectWithTag("Player").transform.position = GameObject.FindGameObjectWithTag("SprintSpawnSpot").transform.position;
+			}
 		}
 	}
 	

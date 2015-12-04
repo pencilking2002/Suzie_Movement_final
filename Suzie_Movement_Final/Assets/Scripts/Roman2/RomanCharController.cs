@@ -18,6 +18,10 @@ public class RomanCharController : MonoBehaviour {
 	[Header("JUMPING")]
 	[Range(0,100)]
 	public float maxJumpForce = 0.8f;					// Maximum Y force to Apply to Rigidbody when jumping
+	
+	[Range(0,100)]
+	public float sprintJumpForce = 2.0f;				// Y force to Apply to Rigidbody when sprint jumping
+	
 	[Range(0,1)]
 	public float jumpForceDeclineSpeed = 0.02f;			// How fast the jump force declines when jumping
 	[Range(0,50)]
@@ -48,8 +52,7 @@ public class RomanCharController : MonoBehaviour {
 	private float angle;			// used to check which way the character is rotating
 	private float dir;				// The  result of the cross product of the player's rotation and the camera's rotation
 	
-//	private Vector3 moveDirection;
-	private Vector3 moveDirectionRaw;
+	private Vector3 moveDirectionRaw;	// The direction/displacement the character will move in
 	private Quaternion targetRot;		// the target rotation to achieve while in idle or running
 	
 	// Character rotation -------------
@@ -57,11 +60,11 @@ public class RomanCharController : MonoBehaviour {
 	private Quaternion camRot;
 	
 	// jumping ----------------------
-	
 	private float forwardSpeed; 			// Temp var for forward speed
 	private bool holdShift = false;
 	private float speed;					// Temp var for locomotion 
-
+	private Vector3 vel;					// Temp vector for calculating forward velocity while jumping
+		
 	void Start () 
 	{
 		charState = GetComponent<RomanCharState>();
@@ -72,16 +75,10 @@ public class RomanCharController : MonoBehaviour {
 		cCollider = GetComponent<CapsuleCollider>();
 	}
 
-//	private void Update ()
-//	{
-//		Vector3 _startPos = transform.position +  new Vector3(0, 0.3f, 0);
-//		//Debug.DrawLine (_startPos, _startPos + new Vector3(0, -0.5f,0), Color.red);
-//	}
 	
 	private void FixedUpdate ()
 	{
 		
-//		moveDirection = new Vector3(InputController.h, 0, InputController.v);
 		moveDirectionRaw = new Vector3(InputController.rawH, 0, InputController.rawV);
 		
 		speed = Mathf.Clamp01(moveDirectionRaw.sqrMagnitude);
@@ -140,13 +137,12 @@ public class RomanCharController : MonoBehaviour {
 //					Debug.DrawRay(transform.position, moveDirectionRaw * 2.0f, Color.black);
 //				}
 
-				//rb.MoveRotation(Quaternion.Slerp (transform.rotation, Quaternion.LookRotation(moveDirectionRaw), idleRotateSpeed * Time.deltaTime));
-				rb.rotation = Quaternion.Slerp (transform.rotation, Quaternion.LookRotation(moveDirectionRaw), idleRotateSpeed * Time.deltaTime);
+				rb.MoveRotation(Quaternion.Slerp (transform.rotation, Quaternion.LookRotation(moveDirectionRaw), idleRotateSpeed * Time.deltaTime));
+				//rb.rotation = Quaternion.Slerp (transform.rotation, Quaternion.LookRotation(moveDirectionRaw), idleRotateSpeed * Time.deltaTime);
 				
-				Vector3 vel = transform.forward * forwardSpeed * Mathf.Clamp01(moveDirectionRaw.sqrMagnitude) * Time.deltaTime;
+				vel = transform.forward * forwardSpeed * Mathf.Clamp01(moveDirectionRaw.sqrMagnitude) * Time.deltaTime;
 				vel.y = rb.velocity.y;
 				rb.velocity = vel;
-				
 				
 			}
 			else
@@ -155,9 +151,9 @@ public class RomanCharController : MonoBehaviour {
 			}
 		
 
-			// Aadd a force downwards if the player releases the jump button
+			// Add a force downwards if the player releases the jump button
 			// when the character is jumping up
-			if (InputController.jumpReleased)
+			if (InputController.jumpReleased && !charState.IsSprintJumping())
 			{
 				InputController.jumpReleased = false;
 
@@ -211,10 +207,7 @@ public class RomanCharController : MonoBehaviour {
 		{
 			animator.SetTrigger("Land");
 			EventManager.OnCharEvent(GameEvent.AttachFollow);
-			EventManager.OnCharEvent(GameEvent.Land);
-			//SetPhysicMaterial(coll.collider, true);
-			//print ("charcontroller: Land");
-			
+			EventManager.OnCharEvent(GameEvent.Land);			
 		}
 	}
 
@@ -309,6 +302,8 @@ public class RomanCharController : MonoBehaviour {
 	{
 		if (gameEvent == GameEvent.Jump && (charState.IsIdle() || charState.IsRunning())) 
 		{	
+			float force = maxJumpForce;
+			
 			EventManager.OnCharEvent(GameEvent.DetachFollow);
 			EventManager.OnCharEvent(GameEvent.Jump);
 			
@@ -329,6 +324,8 @@ public class RomanCharController : MonoBehaviour {
 			}
 			else if (charState.IsSprinting())
 			{
+				// Override Y jump force to be a constant value when sprinting
+				force = sprintJumpForce;									
 				forwardSpeed = sprintJumpForwardSpeed;
 				charState.SetState(RomanCharState.State.SprintJumping);
 				animator.SetTrigger ("SprintJump");
@@ -336,7 +333,7 @@ public class RomanCharController : MonoBehaviour {
 				OrientCapsuleCollider(false);
 			}
 			//JumpUpAnim ();
-			rb.AddForce (new Vector3 (0,  maxJumpForce, 0), ForceMode.Impulse);
+			rb.AddForce (new Vector3 (0, force, 0), ForceMode.Impulse);
 
 		}
 	}
@@ -398,10 +395,5 @@ public class RomanCharController : MonoBehaviour {
 		}
 	}
 
-//	private void ResetJumpForce ()
-//	{
-//		jumpForce = maxJumpForce;
-//	}
-	
 	
 }

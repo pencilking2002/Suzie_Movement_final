@@ -108,6 +108,11 @@ public class InputController : MonoBehaviour {
 			}
 //			print ("Event sent: climboveredge");
 		}
+		
+		if (charState.IsVineClimbing() && inputDevice.Action1.WasPressed/*rawV == -1 || v < 0*/)
+		{
+			EventManager.OnInputEvent(GameEvent.StopClimbing);			
+		}
 
 		//----------------------------------------------------------------------------------------------------------------------
 		// Jumping

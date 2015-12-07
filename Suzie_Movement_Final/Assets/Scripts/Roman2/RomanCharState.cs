@@ -36,14 +36,16 @@ public class RomanCharState : MonoBehaviour {
 	
 	private State state = State.InAir;
 	private static bool landedFirstTime = false;
-
+	
+	private Rigidbody rb;
+	
 	//---------------------------------------------------------------------------------------------------------------------------
 	// Public Methods
 	//---------------------------------------------------------------------------------------------------------------------------	
 	
 	private void Awake ()
 	{
-
+		rb = GetComponent<Rigidbody>();
 	}
 
 	public void SetState (State _state)
@@ -56,12 +58,15 @@ public class RomanCharState : MonoBehaviour {
 			print("Stop sprinting");
 		}
 
-		if (_state == State.Idle)
+		else if (_state == State.Idle)
 		{
 			if (!landedFirstTime)
 				landedFirstTime = true;
 				
 			EventManager.OnCharEvent(GameEvent.IsIdle);
+			// TODO - Move to another class
+			rb.collisionDetectionMode = CollisionDetectionMode.Discrete; 
+			
 		}
 		else if (_state == State.Sprinting)
 		{
@@ -74,6 +79,9 @@ public class RomanCharState : MonoBehaviour {
 			//print ("start running");
 		}
 		
+		if (_state != State.Idle)
+			rb.collisionDetectionMode = CollisionDetectionMode.Continuous; 	// TODO - Move to another class
+			
 		state = _state;
 	}
 	

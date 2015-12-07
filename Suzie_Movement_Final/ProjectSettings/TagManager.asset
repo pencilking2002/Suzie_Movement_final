@@ -11,6 +11,7 @@ TagManager:
   - CliffSpawnSpot
   - StartClimbSpot
   - SprintSpawnSpot
+  - Vine
   layers:
   - Default
   - TransparentFX

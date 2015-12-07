@@ -63,6 +63,20 @@ public class RSUtil : MonoBehaviour {
 	{
 		script.enabled = false;	
 	}
+	
+	
+	/// <summary>
+	/// ing Pong a value from min to max
+	
+	/// </summary>
+	/// <returns>The pong.</returns>
+	/// <param name="aValue">A value.</param>
+	/// <param name="aMin">A minimum.</param>
+	/// <param name="aMax">A max.</param>
+	static public float PingPong(float val, float aMin, float aMax)
+	{
+		return Mathf.PingPong(val, aMax-aMin) + aMin;
+	}
 
 
 }

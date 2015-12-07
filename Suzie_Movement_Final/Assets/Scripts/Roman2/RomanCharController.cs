@@ -64,7 +64,18 @@ public class RomanCharController : MonoBehaviour {
 	private bool holdShift = false;
 	private float speed;					// Temp var for locomotion 
 	private Vector3 vel;					// Temp vector for calculating forward velocity while jumping
-		
+	
+	// Animator hashes - for optimization
+	int anim_Speed = Animator.StringToHash("Speed");
+	int anim_Falling = Animator.StringToHash("Falling");
+	int anim_Land = Animator.StringToHash("Land");
+	int anim_sprintModDown = Animator.StringToHash("SprintModDown");
+	int anim_idleJump = Animator.StringToHash("IdleJump");
+	int anim_runningJump = Animator.StringToHash("RunningJump");
+	int anim_sprintJump = Animator.StringToHash("SprintJump");
+	
+	
+	
 	void Start () 
 	{
 		charState = GetComponent<RomanCharState>();
@@ -97,13 +108,13 @@ public class RomanCharController : MonoBehaviour {
 		*/		
 		
 		if (holdShift && speed > 0)
-			animator.SetFloat ("Speed", speed + 2);
+			animator.SetFloat (anim_Speed, speed + 2);
 		
 		else if (speed != 0) 
-			animator.SetFloat ("Speed", Mathf.Clamp01(speed), walkToRunDampTime, Time.deltaTime);
+			animator.SetFloat (anim_Speed, Mathf.Clamp01(speed), walkToRunDampTime, Time.deltaTime);
 		
 		else 
-			animator.SetFloat ("Speed", 0);
+			animator.SetFloat (anim_Speed, 0);
 			
 		TurnCharToCamera();
 		
@@ -216,7 +227,7 @@ public class RomanCharController : MonoBehaviour {
 		Vector3 startPos = transform.position + new Vector3(0, 0.3f, 0);
 		if ((charState.IsRunning() || charState.IsIdle()) && rb.velocity.y < 0 && !Physics.Raycast (startPos, Vector3.down, 0.5f))
 		{
-			animator.SetTrigger ("Falling");
+			animator.SetTrigger (anim_Falling);
 		}
 
 	}
@@ -273,12 +284,12 @@ public class RomanCharController : MonoBehaviour {
 		if (gameEvent == GameEvent.SprintModifierDown)
 		{
 			holdShift = true;
-			animator.SetBool("SprintModDown", true);
+			animator.SetBool(anim_sprintModDown, true);
 		}
 		else if (gameEvent == GameEvent.SprintModifierUp)
 		{
 			holdShift = false;
-			animator.SetBool("SprintModDown", false);
+			animator.SetBool(anim_sprintModDown, false);
 		}
 	}
 	
@@ -314,13 +325,13 @@ public class RomanCharController : MonoBehaviour {
 			{
 				forwardSpeed = idleJumpForwardSpeed;
 				charState.SetState(RomanCharState.State.IdleJumping);
-				animator.SetTrigger ("IdleJump");
+				animator.SetTrigger (anim_idleJump);
 			}
 			else if (charState.IsJogging())
 			{
 				forwardSpeed = runningJumpForwardSpeed;
 				charState.SetState(RomanCharState.State.RunningJumping);
-				animator.SetTrigger ("RunningJump");
+				animator.SetTrigger (anim_runningJump);
 			}
 			else if (charState.IsSprinting())
 			{
@@ -328,7 +339,7 @@ public class RomanCharController : MonoBehaviour {
 				force = sprintJumpForce;									
 				forwardSpeed = sprintJumpForwardSpeed;
 				charState.SetState(RomanCharState.State.SprintJumping);
-				animator.SetTrigger ("SprintJump");
+				animator.SetTrigger (anim_sprintJump);
 				
 				OrientCapsuleCollider(false);
 			}
@@ -345,7 +356,7 @@ public class RomanCharController : MonoBehaviour {
 			rb.velocity = Vector3.zero;
 			OrientCapsuleCollider(true);
 			//SetPhysicMaterial(true);
-			print ("idle");
+			//print ("idle");
 		}
 	}
 	

@@ -13,17 +13,17 @@ public class SetState : StateMachineBehaviour {
 	 // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
 	override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) 
 	{
-		if (AnimationStateEvent == StateEvent.Enter)
-		{
+		//if (AnimationStateEvent == StateEvent.Enter)
+		//{
 			animator.GetComponent<RomanCharState>().SetState(characterState);
-		}
+		//}
 	}
 	
 	// OnStateExit is called when a transition ends and the state machine finishes evaluating this state
 	override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) 
 	{
-		if (AnimationStateEvent == StateEvent.Exit)
-			animator.GetComponent<RomanCharState>().SetState(characterState);
+		//if (AnimationStateEvent == StateEvent.Exit)
+			EventManager.OnCharEvent(GameEvent.ExitIdle);
 	}
 
 	// OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks

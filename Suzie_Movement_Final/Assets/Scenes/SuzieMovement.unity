@@ -2510,8 +2510,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 2.56728554, z: 1}
-  m_Center: {x: 0, y: .264858246, z: 0}
+  m_Size: {x: .170165315, y: 2.56728554, z: .129841536}
+  m_Center: {x: -.00325065176, y: .264858007, z: .0254811011}
 --- !u!4 &786569331
 Transform:
   m_ObjectHideFlags: 0
@@ -3695,7 +3695,7 @@ GameObject:
   - 65: {fileID: 1138375836}
   - 23: {fileID: 1138375835}
   m_Layer: 0
-  m_Name: Cube (1)
+  m_Name: Roog
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

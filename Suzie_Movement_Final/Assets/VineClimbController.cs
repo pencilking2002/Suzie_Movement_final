@@ -74,4 +74,27 @@ public class VineClimbController : MonoBehaviour {
 		
 		
 	} 
+	
+	private void OnEnable () 
+	{ 
+		EventManager.onCharEvent += StopVineClimbing;
+	}
+	
+	private void OnDisable () 
+	{ 
+		EventManager.onCharEvent -= StopVineClimbing;
+	}
+	
+	private void StopVineClimbing (GameEvent gEvent)
+	{
+		//if (gEvent == GameEvent.StopVineClimbing && charState.IsVineClimbing())
+//		{
+//			//print ("Climb Collider: Stop climbing");
+//			rb.isKinematic = false;
+//			animator.SetTrigger("StopClimbing");
+//			cController.enabled = false;
+//			//this.enabled = false;
+//			RSUtil.DisableScript(this);
+//		}
+	}
 }

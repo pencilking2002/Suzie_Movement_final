@@ -65,7 +65,7 @@ public class RomanCharState : MonoBehaviour {
 				
 			EventManager.OnCharEvent(GameEvent.IsIdle);
 			// TODO - Move to another class
-			rb.collisionDetectionMode = CollisionDetectionMode.Discrete; 
+//			rb.collisionDetectionMode = CollisionDetectionMode.Discrete; 
 			
 		}
 		else if (_state == State.Sprinting)
@@ -79,8 +79,8 @@ public class RomanCharState : MonoBehaviour {
 			//print ("start running");
 		}
 		
-		if (_state != State.Idle)
-			rb.collisionDetectionMode = CollisionDetectionMode.Continuous; 	// TODO - Move to another class
+//		if (_state != State.Idle)
+//			rb.collisionDetectionMode = CollisionDetectionMode.Continuous; 	// TODO - Move to another class
 			
 		state = _state;
 	}

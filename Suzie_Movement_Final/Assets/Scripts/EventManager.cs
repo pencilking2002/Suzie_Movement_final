@@ -42,7 +42,9 @@ public enum GameEvent
 	IsIdle,
 	ResetCam,
 	FinishClimbOver,
-	StartVineClimbing
+	StartVineClimbing,
+	ExitIdle,
+	StopVineClimbing
 	
 }
 

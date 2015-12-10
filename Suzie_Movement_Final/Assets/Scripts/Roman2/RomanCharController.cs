@@ -108,13 +108,18 @@ public class RomanCharController : MonoBehaviour {
 		*/		
 		
 		if (holdShift && speed > 0)
+		{
 			animator.SetFloat (anim_Speed, speed + 2);
-		
-		else if (speed != 0) 
+		}
+		else if (speed != 0)
+		{ 
 			animator.SetFloat (anim_Speed, Mathf.Clamp01(speed), walkToRunDampTime, Time.deltaTime);
-		
+			//animator.SetFloat(anim_Speed, Mathf.Clamp01(speed));
+		}
 		else 
+		{
 			animator.SetFloat (anim_Speed, 0);
+		}
 			
 		TurnCharToCamera();
 		
@@ -127,12 +132,6 @@ public class RomanCharController : MonoBehaviour {
 			rb.angularVelocity = Vector3.zero;
 
 		}
-		
-		// Stop moving on the X and Z plane when landing
-//		if (charState.IsLanding())
-//		{
-//			rb.velocity = Vector3.zero;
-//		}
 		
 		else if (charState.IsJumping ())
 		{	
@@ -245,6 +244,7 @@ public class RomanCharController : MonoBehaviour {
 		EventManager.onCharEvent += Disable;
 		EventManager.onCharEvent += Sprint;
 		EventManager.onCharEvent += CharIdle;
+		EventManager.onCharEvent += ExitIdle;
 		EventManager.onCharEvent += CharLanded;
 		
 	}
@@ -257,6 +257,7 @@ public class RomanCharController : MonoBehaviour {
 		EventManager.onCharEvent -= Disable;
 		EventManager.onCharEvent -= Sprint;
 		EventManager.onCharEvent -= CharIdle;
+		EventManager.onCharEvent -= ExitIdle;
 		EventManager.onCharEvent -= CharLanded;
 		
 	}
@@ -273,7 +274,7 @@ public class RomanCharController : MonoBehaviour {
 	
 	private void Disable (GameEvent gameEvent)       
 	{
-		if (gameEvent == GameEvent.StartClimbing)
+		if (gameEvent == GameEvent.StartClimbing || gameEvent == GameEvent.StartVineClimbing)
 		{
 			this.enabled = false;
 		}
@@ -353,10 +354,19 @@ public class RomanCharController : MonoBehaviour {
 	{
 		if (gEvent == GameEvent.IsIdle)
 		{
+			rb.collisionDetectionMode = CollisionDetectionMode.Discrete; 
 			rb.velocity = Vector3.zero;
 			OrientCapsuleCollider(true);
 			//SetPhysicMaterial(true);
 			//print ("idle");
+		}
+	}
+	
+	private void ExitIdle (GameEvent gEvent)
+	{
+		if (gEvent == GameEvent.ExitIdle)
+		{
+			rb.collisionDetectionMode = CollisionDetectionMode.Continuous; 
 		}
 	}
 	

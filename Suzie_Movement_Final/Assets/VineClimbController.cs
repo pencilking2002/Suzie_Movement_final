@@ -18,11 +18,14 @@ public class VineClimbController : MonoBehaviour {
 	{
 		if (GameManager.Instance.charState.IsVineClimbing() && vineTransform != null)
 		{
-			animator.MatchTarget(new Vector3 (vineTransform.position.x, transform.position.y, vineTransform.position.z), 
-			transform.rotation, 
-			AvatarTarget.LeftHand, 
-			new MatchTargetWeightMask(Vector3.one, 1f), 0f, 1f);
+//			animator.MatchTarget(new Vector3 (vineTransform.position.x, transform.position.y, vineTransform.position.z), 
+//			transform.rotation, 
+//			AvatarTarget.LeftHand, 
+//			new MatchTargetWeightMask(Vector3.one, 1f), 0f, 1f);
+
+			transform.Translate(new Vector3(0, InputController.v * 10.0f * Time.deltaTime, 0));
 		}
+	
 	}
 	
 	private void OnTriggerEnter (Collider coll)

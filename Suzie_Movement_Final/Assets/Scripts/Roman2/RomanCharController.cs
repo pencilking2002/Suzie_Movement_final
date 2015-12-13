@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using UnityEngine.Events;
 
 public class RomanCharController : MonoBehaviour {
 	
@@ -7,7 +8,7 @@ public class RomanCharController : MonoBehaviour {
 	//---------------------------------------------------------------------------------------------------------------------------
 	// Public Variables
 	//---------------------------------------------------------------------------------------------------------------------------
-		
+
 	public float idleRotateSpeed = 10.0f;				// How fast the Squirrel will turn in idle mode
 	public float speedDampTime = 0.05f;
 	public float walkToRunDampTime = 1f;
@@ -221,6 +222,19 @@ public class RomanCharController : MonoBehaviour {
 		}
 	}
 
+	private void OnCollisionEnter (Collision coll)
+	{
+		if (Vector3.Dot(coll.contacts[0].normal, -transform.forward) > 0.5f)
+		{
+			EventManager.OnCharEvent(GameEvent.WallCollision);
+			Debug.DrawLine(transform.position, coll.contacts[0].normal, Color.red);
+		}
+	}
+
+	/// <summary>
+	/// Force animator to trigger the falling animation 
+	/// on collision exit from a collider that is below the player
+	/// </summary>
 	private void OnCollisionExit ()
 	{
 		Vector3 startPos = transform.position + new Vector3(0, 0.3f, 0);

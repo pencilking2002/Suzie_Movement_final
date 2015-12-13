@@ -54,7 +54,7 @@ public class ClimbDetector : MonoBehaviour {
 		if (gameEvent == GameEvent.Jump)
 			RSUtil.EnableScript(this); 
 		
-		else if (gameEvent == GameEvent.Land)
+		else if (gameEvent == GameEvent.Land || gameEvent == GameEvent.StartVineClimbing)
 			RSUtil.DisableScript(this); 
 	}
 	

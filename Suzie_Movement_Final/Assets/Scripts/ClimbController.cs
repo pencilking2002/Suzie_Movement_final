@@ -144,6 +144,9 @@ public class ClimbController : MonoBehaviour
 			//this.enabled = false;
 			RSUtil.DisableScript(this);
 		}
+
+		if (gEvent == GameEvent.StartVineClimbing)
+			RSUtil.DisableScript(this);
 	}
 
 	
@@ -151,6 +154,7 @@ public class ClimbController : MonoBehaviour
 	private void OnEnable () 
 	{ 
 //		print ("runs");
+		EventManager.onCharEvent += StopClimbing;
 		EventManager.onInputEvent += StopClimbing;
 		EventManager.onDetectEvent += InitEdgeClimb;
 //		EventManager.onInputEvent += ClimbOverEdge;

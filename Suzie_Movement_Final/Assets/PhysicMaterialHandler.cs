@@ -7,7 +7,10 @@ public class PhysicMaterialHandler : MonoBehaviour {
 	
 	public PhysicMaterial groundMaterial;
 	public PhysicMaterial wallMaterial;
-	
+
+	public float groundRayLenth = 0.1f;
+	public float wallRayLength = 0.5f;
+
 	private CapsuleCollider cCollider;
 	private Vector3 origin;
 	private Ray ray;
@@ -20,44 +23,63 @@ public class PhysicMaterialHandler : MonoBehaviour {
 	
 	private void OnEnable () 
 	{ 
-		EventManager.onCharEvent += SetGround;
+		EventManager.onCharEvent += SetPhysicMaterial;
 		
 		//print ("yoo");
 	}
 	
 	private void OnDisable () 
 	{ 
-		EventManager.onCharEvent -= SetGround;
+		EventManager.onCharEvent -= SetPhysicMaterial;
 	}
 	
-	private void SetGround (GameEvent gEvent)
-	{
-		if (gEvent == GameEvent.Land)
-		{
-			print ("Ground material set");
-			SetPhysicMaterial(true);
-			
-		}
-	}
+//	private void SetGround (GameEvent gEvent)
+//	{
+//		if (gEvent == GameEvent.Land)
+//		{
+//			print ("Ground material set");
+//			SetPhysicMaterial(true, new Ray(origin, Vector3.down));
+//		}
+//	}
 	/// <summary>
 	/// Convinence method to set the physics material of a GameObject's mesh
 	/// Used for setting ground and wall materials
 	/// </summary>
 	/// <param name="ground">If set to <c>true</c> ground.</param>
-	private void SetPhysicMaterial(bool ground)
+	private void SetPhysicMaterial(GameEvent gEvent)
 	{
-		origin = cCollider.bounds.center - cCollider.bounds.extents;
-		
-		ray = new Ray(origin, Vector3.down);
-		
-		Debug.DrawLine (origin, origin + new Vector3(0, -0.1f, 0), Color.green);
-		
-		//Debug.LogError("blah");
-		if (ground && Physics.Raycast (ray, out hit, 0.1f))
+		if (gEvent == GameEvent.Land)
 		{
-			print ("is on ground");
-			hit.collider.material = groundMaterial;
+			origin = cCollider.bounds.center - cCollider.bounds.extents;
 			
+			ray = new Ray(origin, Vector3.down);
+			
+			Debug.DrawLine (origin, origin + new Vector3(0, -groundRayLenth, 0), Color.green);
+			
+			//Debug.LogError("blah");
+			if (Physics.Raycast (ray, out hit, groundRayLenth))
+			{
+				print ("is on ground");
+				hit.collider.material = groundMaterial;
+				
+			}
+		}
+		else if (gEvent == GameEvent.WallCollision)
+		{
+			origin = cCollider.bounds.center;
+			
+			ray = new Ray(origin, transform.forward);
+//			
+//			
+//			Debug.LogError("blah");
+			if (Physics.Raycast (ray, out hit, wallRayLength))
+			{
+				Debug.DrawLine (origin, hit.point, Color.green);
+
+				hit.collider.material = wallMaterial;
+				print ("Wall Collision");
+			}
+
 		}
 		
 	}

@@ -3,27 +3,33 @@ using System.Collections;
 
 public class VineClimbController : MonoBehaviour {
 
+	public float vineClimbSpeed = 20.0f;
 	private Animator animator;
 	private Rigidbody rb;
 	private Transform vineTransform = null;
+	private CharacterController cController;
+	private Vector3 vinePos = Vector3.zero;
+	int anim_vineClimbSpeed = Animator.StringToHash("VineClimbSpeed");
 	
 	private void Start ()
 	{
 		animator = GetComponent<Animator>();
 		rb = GetComponent<Rigidbody>();
+		cController = GetComponent<CharacterController>();
 		
 	}
 	
 	private void Update ()
 	{
-		if (GameManager.Instance.charState.IsVineClimbing() && vineTransform != null)
+		if (GameManager.Instance.charState.IsVineClimbing() && vinePos != Vector3.zero)
 		{
-//			animator.MatchTarget(new Vector3 (vineTransform.position.x, transform.position.y, vineTransform.position.z), 
+//			animator.MatchTarget(new Vector3 (vinePos.x, transform.position.y, vinePos.z), 
 //			transform.rotation, 
 //			AvatarTarget.LeftHand, 
 //			new MatchTargetWeightMask(Vector3.one, 1f), 0f, 1f);
 
-			transform.Translate(new Vector3(0, InputController.v * 10.0f * Time.deltaTime, 0));
+			animator.SetFloat(anim_vineClimbSpeed, InputController.v);
+			cController.Move(new Vector3(0, InputController.v * vineClimbSpeed * Time.deltaTime, 0));
 		}
 	
 	}
@@ -37,7 +43,7 @@ public class VineClimbController : MonoBehaviour {
 			
 			// Publish a an event for StartVineClimbing
 			EventManager.OnCharEvent(GameEvent.StartVineClimbing);
-			
+			cController.enabled = true;
 			print ("collision");
 			
 			AttachToVine(coll);
@@ -50,7 +56,7 @@ public class VineClimbController : MonoBehaviour {
 	private void AttachToVine(Collider coll)
 	{
 
-		Vector3 vinePos = coll.transform.parent.position;
+		vinePos = coll.transform.parent.position;
 		VineSwing vine = coll.transform.parent.parent.GetComponent<VineSwing>();
 		
 		//vineTransform = coll.transform.parent;
@@ -60,8 +66,10 @@ public class VineClimbController : MonoBehaviour {
 		transform.SetParent(vine.transform);
 		rb.isKinematic = true;
 //		vine.StopSwinging();
-		
+
+		transform.position = new Vector3(vinePos.x, transform.position.y, vinePos.z);
 		animator.SetTrigger ("VineAttach");
+
 //		rb.detectCollisions = false;
 //		rb.useGravity = false;
 		

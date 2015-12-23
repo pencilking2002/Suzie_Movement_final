@@ -4,10 +4,13 @@ using System.Collections;
 public class VineClimbController : MonoBehaviour {
 
 	public float vineClimbSpeed = 20.0f;
+	public float vineClimbAttachForwardOffset = 0.7f;
+
 	private Animator animator;
 	private Rigidbody rb;
 	private Transform vineTransform = null;
 	private CharacterController cController;
+
 	private Vector3 vinePos = Vector3.zero;
 	int anim_vineClimbSpeed = Animator.StringToHash("VineClimbSpeed");
 	
@@ -23,10 +26,14 @@ public class VineClimbController : MonoBehaviour {
 	{
 		if (GameManager.Instance.charState.IsVineClimbing() && vinePos != Vector3.zero)
 		{
-//			animator.MatchTarget(new Vector3 (vinePos.x, transform.position.y, vinePos.z), 
-//			transform.rotation, 
-//			AvatarTarget.LeftHand, 
-//			new MatchTargetWeightMask(Vector3.one, 1f), 0f, 1f);
+//			print(animator.IsInTransition(0));
+//			if (!animator.IsInTransition(0))
+//			{
+//				animator.MatchTarget(new Vector3 (vinePos.x, transform.position.y, vinePos.z), 
+//				transform.rotation, 
+//				AvatarTarget.LeftHand, 
+//				new MatchTargetWeightMask(Vector3.one, 1f), 0.5f, 1f);
+//			}
 
 			animator.SetFloat(anim_vineClimbSpeed, InputController.v);
 			cController.Move(new Vector3(0, InputController.v * vineClimbSpeed * Time.deltaTime, 0));
@@ -58,54 +65,48 @@ public class VineClimbController : MonoBehaviour {
 
 		vinePos = coll.transform.parent.position;
 		VineSwing vine = coll.transform.parent.parent.GetComponent<VineSwing>();
-		
-		//vineTransform = coll.transform.parent;
-		
-		//transform.position = new Vector3 (vinePos.x, transform.position.y, vinePos.z);
-	
+
+		// Create a point to represent the contact point of the vine, using the player's Y position
+		Vector3 contactPoint = new Vector3(vinePos.x, transform.position.y, vinePos.z);
+
+		// Get the direction from the contact point to the player
+		Vector3 direction = (contactPoint - transform.position).normalized;
+
+		// Calculate the target position by starting with the contact point and traveling to the player's direction
+		Vector3 targetPos = contactPoint - direction * vineClimbAttachForwardOffset;
+
+		transform.rotation = Quaternion.LookRotation(direction, Vector3.up);
+
+//		Debug.DrawRay(transform.position, vecDifference, Color.red);
+
+		transform.position = targetPos;
 		transform.SetParent(vine.transform);
 		rb.isKinematic = true;
-//		vine.StopSwinging();
 
-		transform.position = new Vector3(vinePos.x, transform.position.y, vinePos.z);
 		animator.SetTrigger ("VineAttach");
 
-//		rb.detectCollisions = false;
-//		rb.useGravity = false;
-		
-		//transform.localScale = transform.lossyScale;
-		//gameObject.AddComponent<FixedJoint>();
-		//GetComponent<FixedJoint>().connectedBody = coll.gameObject.GetComponent<Rigidbody>();
-		
-		//rb.constraints = RigidbodyConstraints.None;
-		//rb.centerOfMass = new Vector3(0, 1.1f, 0);
-		
-		//Debug.DrawLine (transform.position, transform.position + new Vector3(0,1,0), Color.white);
-		//Debug.LogError ("Pause");
-		
-		
 	} 
 	
 	private void OnEnable () 
 	{ 
-		EventManager.onCharEvent += StopVineClimbing;
+		EventManager.onInputEvent += StopVineClimbing;
 	}
 	
 	private void OnDisable () 
 	{ 
-		EventManager.onCharEvent -= StopVineClimbing;
+		EventManager.onInputEvent -= StopVineClimbing;
 	}
 	
 	private void StopVineClimbing (GameEvent gEvent)
 	{
-		//if (gEvent == GameEvent.StopVineClimbing && charState.IsVineClimbing())
-//		{
-//			//print ("Climb Collider: Stop climbing");
-//			rb.isKinematic = false;
-//			animator.SetTrigger("StopClimbing");
-//			cController.enabled = false;
-//			//this.enabled = false;
-//			RSUtil.DisableScript(this);
-//		}
+		if (gEvent == GameEvent.StopVineClimbing && GameManager.Instance.charState.IsVineClimbing())
+		{
+			//print ("Climb Collider: Stop climbing");
+			rb.isKinematic = false;
+			animator.SetTrigger("StopClimbing");
+			cController.enabled = false;
+			transform.parent = null;
+			RSUtil.DisableScript(this);
+		}
 	}
 }

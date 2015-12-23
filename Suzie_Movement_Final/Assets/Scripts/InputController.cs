@@ -111,7 +111,8 @@ public class InputController : MonoBehaviour {
 		
 		if (charState.IsVineClimbing() && inputDevice.Action1.WasPressed/*rawV == -1 || v < 0*/)
 		{
-			EventManager.OnInputEvent(GameEvent.StopVineClimbing);			
+			EventManager.OnInputEvent(GameEvent.StopVineClimbing);	
+			//print("stop vine climbing");		
 		}
 
 		//----------------------------------------------------------------------------------------------------------------------

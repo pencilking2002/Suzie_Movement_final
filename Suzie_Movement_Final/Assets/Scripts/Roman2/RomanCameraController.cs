@@ -194,7 +194,7 @@ public class RomanCameraController : MonoBehaviour {
 
 	private void SetCameraMode (GameEvent gEvent)
 	{
-		if (gEvent == GameEvent.StartClimbing)
+		if (gEvent == GameEvent.StartClimbing || gEvent == GameEvent.StartVineClimbing)
 		{
 			print ("cam: start climbing");
 			SetState(CamState.Climbing);

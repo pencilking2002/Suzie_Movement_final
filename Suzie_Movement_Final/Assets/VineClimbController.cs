@@ -4,22 +4,26 @@ using System.Collections;
 public class VineClimbController : MonoBehaviour {
 
 	public float vineClimbSpeed = 20.0f;
-	public float vineClimbAttachForwardOffset = 0.7f;
+	public float vineClimbAttachForwardOffset = 0.7f;	
+	public float maxTimeBeforeCanReattach = 1f;								// The amount of time that has to pass before the character can re-attach on to th vine
 
 	private Animator animator;
 	private Rigidbody rb;
 	private Transform vineTransform = null;
 	private CharacterController cController;
+	private VineSwing vine;
 
 	private Vector3 vinePos = Vector3.zero;
 	int anim_vineClimbSpeed = Animator.StringToHash("VineClimbSpeed");
-	
+
+	private float timeOfDetachment;											// The time of when the player detached from a vine
+
+
 	private void Start ()
 	{
 		animator = GetComponent<Animator>();
 		rb = GetComponent<Rigidbody>();
 		cController = GetComponent<CharacterController>();
-		
 	}
 	
 	private void Update ()
@@ -35,15 +39,25 @@ public class VineClimbController : MonoBehaviour {
 //				new MatchTargetWeightMask(Vector3.one, 1f), 0.5f, 1f);
 //			}
 
+//		 	if (vInput < 0.09f && vInput > -0.09)
+//		 		vInput = 0.0f;
+
 			animator.SetFloat(anim_vineClimbSpeed, InputController.v);
 			cController.Move(new Vector3(0, InputController.v * vineClimbSpeed * Time.deltaTime, 0));
+
+			// TODO - Set the center of of the Rigidbody to be run through the hands so that it rotates around that
+			if (InputController.rawV != 0)
+				rb.MoveRotation(Quaternion.Lerp(rb.rotation, Quaternion.LookRotation(-vine.transform.forward), 1.5f * Time.deltaTime));
+//			print (vInput);
 		}
 	
 	}
 	
 	private void OnTriggerEnter (Collider coll)
 	{
-		if (coll.gameObject.layer == 14 && !GameManager.Instance.charState.IsVineClimbing())
+		if (coll.gameObject.layer == 14 && 
+			!GameManager.Instance.charState.IsVineClimbing() && 
+			Time.time > timeOfDetachment + maxTimeBeforeCanReattach)
 		{
 			// Set the Squirrel to vine climbing state
 			GameManager.Instance.charState.SetState(RomanCharState.State.VineClimbing);
@@ -59,12 +73,22 @@ public class VineClimbController : MonoBehaviour {
 			//transform.position = new Vector3(coll.transform.position.x, transform.position.y - 1f, coll.transform.position.z) + transform.forward * -0.2f;
 		}
 	}
-	
+
+	private void OnTriggerStay()
+	{
+		//print("stay");
+		if (GameManager.Instance.charState.GetState() != RomanCharState.State.VineClimbing && 
+			Time.time > timeOfDetachment + maxTimeBeforeCanReattach)
+		{
+			GameManager.Instance.charState.SetState(RomanCharState.State.VineClimbing);
+		}
+	}
+
 	private void AttachToVine(Collider coll)
 	{
 
 		vinePos = coll.transform.parent.position;
-		VineSwing vine = coll.transform.parent.parent.GetComponent<VineSwing>();
+		vine = coll.transform.parent.parent.GetComponent<VineSwing>();
 
 		// Create a point to represent the contact point of the vine, using the player's Y position
 		Vector3 contactPoint = new Vector3(vinePos.x, transform.position.y, vinePos.z);
@@ -85,22 +109,29 @@ public class VineClimbController : MonoBehaviour {
 
 		animator.SetTrigger ("VineAttach");
 
+		RSUtil.EnableScript(this);
+
 	} 
 	
 	private void OnEnable () 
 	{ 
 		EventManager.onInputEvent += StopVineClimbing;
+		EventManager.onCharEvent += ResetAttachTimer;
 	}
 	
 	private void OnDisable () 
 	{ 
 		EventManager.onInputEvent -= StopVineClimbing;
+		EventManager.onCharEvent -= ResetAttachTimer;
 	}
 	
 	private void StopVineClimbing (GameEvent gEvent)
 	{
 		if (gEvent == GameEvent.StopVineClimbing && GameManager.Instance.charState.IsVineClimbing())
 		{
+			// Record the time when the player detached from the vine
+			timeOfDetachment = Time.time;
+
 			//print ("Climb Collider: Stop climbing");
 			rb.isKinematic = false;
 			animator.SetTrigger("StopClimbing");
@@ -108,5 +139,11 @@ public class VineClimbController : MonoBehaviour {
 			transform.parent = null;
 			RSUtil.DisableScript(this);
 		}
+	}
+
+	private void ResetAttachTimer (GameEvent gEvent)
+	{
+		if (gEvent == GameEvent.Land)
+			timeOfDetachment = 0.0f;
 	}
 }

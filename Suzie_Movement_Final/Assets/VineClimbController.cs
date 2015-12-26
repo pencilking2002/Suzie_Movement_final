@@ -15,6 +15,7 @@ public class VineClimbController : MonoBehaviour {
 
 	private Vector3 vinePos = Vector3.zero;
 	int anim_vineClimbSpeed = Animator.StringToHash("VineClimbSpeed");
+	int anim_vineClimbCurve = Animator.StringToHash("vineClimbCurve");
 
 	private float timeOfDetachment;											// The time of when the player detached from a vine
 
@@ -43,11 +44,13 @@ public class VineClimbController : MonoBehaviour {
 //		 		vInput = 0.0f;
 
 			animator.SetFloat(anim_vineClimbSpeed, InputController.v);
-			cController.Move(new Vector3(0, InputController.v * vineClimbSpeed * Time.deltaTime, 0));
+
+			// Hash ID completely fucks up the character's position and mesh for some reason so we use the regular string method
+			cController.Move(new Vector3(0, InputController.v * vineClimbSpeed * animator.GetFloat("vineClimbCurve") * Time.deltaTime, 0));
 
 			// TODO - Set the center of of the Rigidbody to be run through the hands so that it rotates around that
-			if (InputController.rawV != 0)
-				rb.MoveRotation(Quaternion.Lerp(rb.rotation, Quaternion.LookRotation(-vine.transform.forward), 1.5f * Time.deltaTime));
+			//if (InputController.rawV != 0)
+				//rb.MoveRotation(Quaternion.Lerp(rb.rotation, Quaternion.LookRotation(-vine.transform.forward, Vector3.up), 1.5f * Time.deltaTime));
 //			print (vInput);
 		}
 	

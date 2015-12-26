@@ -7611,7 +7611,7 @@ CharacterController:
   m_SlopeLimit: 45
   m_StepOffset: 0
   m_SkinWidth: 0.01
-  m_MinMoveDistance: 0.01
+  m_MinMoveDistance: 0
   m_Center: {x: 0, y: 0.47, z: 0}
 --- !u!114 &1756476983
 MonoBehaviour:
@@ -7692,7 +7692,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 685dcd60b71c4446f9c1d8d95db152f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  vineClimbSpeed: 1.1
+  vineClimbSpeed: 2
   vineClimbAttachForwardOffset: 0.1
   maxTimeBeforeCanReattach: 0.5
 --- !u!114 &1756476985

@@ -2200,37 +2200,42 @@ ModelImporter:
           serializedVersion: 2
           curve:
           - time: 0
-            value: 1
+            value: 0.9933691
             inSlope: 0
             outSlope: 0
             tangentMode: 0
           - time: 0.00009054877
-            value: 0.2
+            value: 0.19336909
             inSlope: 0
             outSlope: 0
             tangentMode: 0
           - time: 0.20598954
-            value: 1
+            value: 0.9933691
             inSlope: 0
             outSlope: 0
             tangentMode: 0
-          - time: 0.43480918
-            value: 0.2
-            inSlope: 0
-            outSlope: 0
-            tangentMode: 0
+          - time: 0.43008956
+            value: 0.22630309
+            inSlope: -5.486576
+            outSlope: -0.040294126
+            tangentMode: 1
+          - time: 0.44863406
+            value: 0.22735907
+            inSlope: 0.03978761
+            outSlope: 7.363869
+            tangentMode: 1
           - time: 0.7335504
-            value: 1
+            value: 0.9933691
             inSlope: 0
             outSlope: 0
             tangentMode: 0
           - time: 0.9994941
-            value: 0.20087059
+            value: 0.19423968
             inSlope: 0
             outSlope: 0
             tangentMode: 0
           - time: 1
-            value: 1
+            value: 0.9933691
             inSlope: 0
             outSlope: 0
             tangentMode: 0

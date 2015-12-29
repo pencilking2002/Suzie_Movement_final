@@ -27,7 +27,8 @@ public class RomanCharState : MonoBehaviour {
 		SprintJumping,
 		SprintFalling,
 		SprintLanding,
-		VineClimbing
+		VineClimbing,
+		VineAttaching,
 	}
 	
 	//---------------------------------------------------------------------------------------------------------------------------
@@ -196,7 +197,12 @@ public class RomanCharState : MonoBehaviour {
 	
 	public bool IsVineClimbing()
 	{
-		return state == State.VineClimbing;
+		return state == State.VineClimbing || state == State.VineAttaching;
+	}
+
+	public bool IsVineAttaching()
+	{
+		return state == State.VineAttaching;
 	}
 	
 	// Events ------------------------------------------------------

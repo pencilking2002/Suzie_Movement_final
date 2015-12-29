@@ -6,7 +6,7 @@ public class VineClimbController : MonoBehaviour {
 	public float vineClimbSpeed = 20.0f;
 	public float vineClimbAttachForwardOffset = 0.7f;	
 	public float maxTimeBeforeCanReattach = 1f;								// The amount of time that has to pass before the character can re-attach on to th vine
-
+	public Transform vineClimbCenterOfMass = null;
 	private Animator animator;
 	private Rigidbody rb;
 	private Transform vineTransform = null;
@@ -25,6 +25,9 @@ public class VineClimbController : MonoBehaviour {
 		animator = GetComponent<Animator>();
 		rb = GetComponent<Rigidbody>();
 		cController = GetComponent<CharacterController>();
+
+		if (vineClimbCenterOfMass == null)
+			Debug.LogError("center of mass is not defined for vine climb rotation");
 	}
 	
 	private void Update ()
@@ -49,8 +52,11 @@ public class VineClimbController : MonoBehaviour {
 			cController.Move(new Vector3(0, InputController.v * vineClimbSpeed * animator.GetFloat("vineClimbCurve") * Time.deltaTime, 0));
 
 			// TODO - Set the center of of the Rigidbody to be run through the hands so that it rotates around that
-			//if (InputController.rawV != 0)
-				//rb.MoveRotation(Quaternion.Lerp(rb.rotation, Quaternion.LookRotation(-vine.transform.forward, Vector3.up), 1.5f * Time.deltaTime));
+			if (InputController.rawV != 0)
+			{
+				//rb.centerOfMass = vineClimbCenterOfMass.position;
+				rb.MoveRotation(Quaternion.Lerp(rb.rotation, Quaternion.LookRotation(-vine.transform.forward, Vector3.up), 1.5f * Time.deltaTime));
+			}
 //			print (vInput);
 		}
 	
@@ -77,10 +83,11 @@ public class VineClimbController : MonoBehaviour {
 		}
 	}
 
-	private void OnTriggerStay()
+	private void OnTriggerStay(Collider coll)
 	{
 		//print("stay");
-		if (GameManager.Instance.charState.GetState() != RomanCharState.State.VineClimbing && 
+		if (coll.gameObject.layer == 14 &&
+			GameManager.Instance.charState.GetState() != RomanCharState.State.VineClimbing && 
 			Time.time > timeOfDetachment + maxTimeBeforeCanReattach)
 		{
 			GameManager.Instance.charState.SetState(RomanCharState.State.VineClimbing);
@@ -89,27 +96,41 @@ public class VineClimbController : MonoBehaviour {
 
 	private void AttachToVine(Collider coll)
 	{
-
+		
 		vinePos = coll.transform.parent.position;
 		vine = coll.transform.parent.parent.GetComponent<VineSwing>();
+//
+//		// Create a point to represent the contact point of the vine, using the player's Y position
+//		Vector3 contactPoint = new Vector3(vinePos.x, transform.position.y, vinePos.z);
+		Vector3 contactPoint = new Vector3(coll.transform.position.x, vineClimbCenterOfMass.position.y, coll.transform.position.z);
 
-		// Create a point to represent the contact point of the vine, using the player's Y position
-		Vector3 contactPoint = new Vector3(vinePos.x, transform.position.y, vinePos.z);
+//		// Get the direction from the contact point to the player
+		Vector3 direction = (contactPoint - vineClimbCenterOfMass.position);
+		Vector3 nDirection = direction.normalized;
 
-		// Get the direction from the contact point to the player
-		Vector3 direction = (contactPoint - transform.position).normalized;
+		Debug.DrawLine(vineClimbCenterOfMass.position, contactPoint, Color.red);
+		Debug.DrawLine(vineClimbCenterOfMass.position, Vector3.zero, Color.blue);
+		Debug.LogError("Pause");
 
-		// Calculate the target position by starting with the contact point and traveling to the player's direction
-		Vector3 targetPos = contactPoint - direction * vineClimbAttachForwardOffset;
 
-		transform.rotation = Quaternion.LookRotation(direction, Vector3.up);
-
-//		Debug.DrawRay(transform.position, vecDifference, Color.red);
-
-		transform.position = targetPos;
-		transform.SetParent(vine.transform);
+//		// Calculate the target position by starting with the contact point and traveling to the player's direction
+//		Vector3 targetPos = contactPoint - direction * vineClimbAttachForwardOffset;
+//
+//		transform.rotation = Quaternion.LookRotation(direction, Vector3.up);
+//
+////		Debug.DrawRay(transform.position, vecDifference, Color.red);
+//
+//		transform.position = targetPos;
+//		transform.SetParent(vine.transform);
 		rb.isKinematic = true;
 
+		// TODO - experiment
+		//float offset = Vector3.Distance(contactPoint, vineClimbCenterOfMass.position);
+		Vector3 targetPos = transform.position + direction;
+		transform.position = targetPos;
+
+		//transform.rotation = Quaternion.LookRotation(contactPoint - vineClimbCenterOfMass.position, Vector3.up);
+		transform.LookAt(new Vector3(contactPoint.x, transform.position.y, contactPoint.z));
 		animator.SetTrigger ("VineAttach");
 
 		RSUtil.EnableScript(this);
@@ -132,6 +153,7 @@ public class VineClimbController : MonoBehaviour {
 	{
 		if (gEvent == GameEvent.StopVineClimbing && GameManager.Instance.charState.IsVineClimbing())
 		{
+			rb.ResetCenterOfMass();
 			// Record the time when the player detached from the vine
 			timeOfDetachment = Time.time;
 

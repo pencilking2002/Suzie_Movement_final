@@ -38,7 +38,7 @@ public class RomanCharState : MonoBehaviour {
 	private State state = State.InAir;
 	private static bool landedFirstTime = false;
 	
-	private Rigidbody rb;
+//	private Rigidbody rb;
 	
 	//---------------------------------------------------------------------------------------------------------------------------
 	// Public Methods
@@ -46,7 +46,7 @@ public class RomanCharState : MonoBehaviour {
 	
 	private void Awake ()
 	{
-		rb = GetComponent<Rigidbody>();
+//		rb = GetComponent<Rigidbody>();
 	}
 
 	public void SetState (State _state)

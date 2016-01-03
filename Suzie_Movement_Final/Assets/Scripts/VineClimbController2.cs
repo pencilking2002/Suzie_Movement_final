@@ -12,8 +12,8 @@ public class VineClimbController2 : MonoBehaviour {
 
 	private Animator animator;
 	private Rigidbody rb;
-	private Transform vineTransform = null;
-	private CharacterController cController;
+//	private Transform vineTransform = null;
+//	private CharacterController cController;
 //	private VineSwing vine;
 
 	private Transform vine = null;
@@ -23,15 +23,15 @@ public class VineClimbController2 : MonoBehaviour {
 	int anim_vineClimbCurve = Animator.StringToHash("vineClimbCurve");
 
 	private float timeOfDetachment;											// The time of when the player detached from a vine
-	private float normalisedStartTime = 0.1f;
-	private float normalisedEndTime = 0.9f;
+//	private float normalisedStartTime = 0.1f;
+//	private float normalisedEndTime = 0.9f;
 
 
 	private void Start ()
 	{
 		animator = GetComponent<Animator>();
 		rb = GetComponent<Rigidbody>();
-		cController = GetComponent<CharacterController>();
+//		cController = GetComponent<CharacterController>();
 		//RSUtil.DisableScript(this);
 	}
 	

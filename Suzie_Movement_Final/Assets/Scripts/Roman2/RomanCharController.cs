@@ -69,7 +69,7 @@ public class RomanCharController : MonoBehaviour {
 	// Animator hashes - for optimization
 	int anim_Speed = Animator.StringToHash("Speed");
 	int anim_Falling = Animator.StringToHash("Falling");
-	int anim_Land = Animator.StringToHash("Land");
+//	int anim_Land = Animator.StringToHash("Land");
 	int anim_sprintModDown = Animator.StringToHash("SprintModDown");
 	int anim_idleJump = Animator.StringToHash("IdleJump");
 	int anim_runningJump = Animator.StringToHash("RunningJump");

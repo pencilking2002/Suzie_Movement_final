@@ -1,6 +1,6 @@
 using UnityEngine;
 using System.Collections;
-
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour {
 	
@@ -54,7 +54,7 @@ public class GameManager : MonoBehaviour {
 
 			if (GUI.Button(new Rect(Screen.width - 150, 180, 170, 30), "Restart"))
 			{
-				Application.LoadLevel(Application.loadedLevel);
+				SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
 			}
 			
 			GUI.Button(new Rect(Screen.width - 150, 210, 170, 30), "At player pos: " + follow.followAtPlayerPos);

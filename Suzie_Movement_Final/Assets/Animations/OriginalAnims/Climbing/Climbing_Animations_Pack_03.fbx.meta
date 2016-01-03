@@ -1824,7 +1824,7 @@ ModelImporter:
       lastFrame: 322
       wrapMode: 0
       orientationOffsetY: 0
-      level: 0
+      level: -0.1
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
@@ -2171,7 +2171,7 @@ ModelImporter:
         weight: 0
       maskType: 0
       maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 0
+      additiveReferencePoseFrame: 0.96
     - serializedVersion: 16
       name: VineClimbing
       takeName: Take 001
@@ -2179,7 +2179,7 @@ ModelImporter:
       lastFrame: 379
       wrapMode: 0
       orientationOffsetY: 0
-      level: 0.2
+      level: -0.15
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
@@ -2581,7 +2581,7 @@ ModelImporter:
       lastFrame: 322
       wrapMode: 0
       orientationOffsetY: 0
-      level: 0.2
+      level: 0
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0

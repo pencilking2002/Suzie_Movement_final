@@ -1,17 +1,18 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+/*---------------------------------------------------------------------------------------\
+	When the player is jumping, this class looks for a climbing collider on layer 10	 |
+ 	by raycasting in front of the character. A GameEvent.ClimbColliderDetected event     |
+ 	is emmited when a collider is found													 |
+\---------------------------------------------------------------------------------------*/
+
 public class ClimbDetector : MonoBehaviour {
-	
-//	public PhysicMaterial wallPhysMaterial;
-//	public PhysicMaterial groundPhysMaterial;
 	
 	[HideInInspector]
 	public bool climbColliderDetected;
 	public float rayLength = 2.0f;			// How long the raycast to look for climbable objects should be
 
-//	private RomanCharState charState;
-//	private CapsuleCollider cCollider;
 	private Ray ray;
 	private RaycastHit hit;
 	private float cColliderHeight;
@@ -20,10 +21,7 @@ public class ClimbDetector : MonoBehaviour {
 	
 	private void Start ()
 	{
-//		charState = GetComponent<RomanCharState>();
-//		cCollider = GetComponent<CapsuleCollider>();
-//		cColliderHeight = GetColliderHeight(cCollider);
-		this.enabled = false;
+		RSUtil.DisableScript(this);
 	}
 	
 	private void Update ()
@@ -42,14 +40,14 @@ public class ClimbDetector : MonoBehaviour {
 	// Hook on to Input event
 	private void OnEnable () 
 	{ 
-		EventManager.onCharEvent += Disable;
+		EventManager.onCharEvent += ToggleScript;
 	}
 	private void OnDisable () 
 	{ 
 		//EventManager.onCharEvent -= Disable;
 	}
 	
-	private void Disable (GameEvent gameEvent)
+	private void ToggleScript (GameEvent gameEvent)
 	{
 		if (gameEvent == GameEvent.Jump)
 			RSUtil.EnableScript(this); 

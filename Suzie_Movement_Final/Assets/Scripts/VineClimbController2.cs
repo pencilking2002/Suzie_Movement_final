@@ -11,6 +11,7 @@ public class VineClimbController2 : MonoBehaviour {
 
 	private Animator animator;
 	private Rigidbody rb;
+	private ClimbController edgeClimbController;
 
 	private Transform vine = null;
 	private Vector3 vinePos = Vector3.zero;
@@ -18,15 +19,15 @@ public class VineClimbController2 : MonoBehaviour {
 	int anim_vineClimbSpeed = Animator.StringToHash("VineClimbSpeed");
 	int anim_vineClimbCurve = Animator.StringToHash("vineClimbCurve");
 	private bool detached = false;											// Has the character detached from the vine?
-
+	private CharacterController cController;
 	private float timeOfDetachment;											// The time of when the player detached from a vine
-
 
 	private void Start ()
 	{
 		animator = GetComponent<Animator>();
 		rb = GetComponent<Rigidbody>();
-		RSUtil.DisableScript(this);
+		cController = GetComponent<CharacterController>();
+		edgeClimbController = GetComponent<ClimbController>();
 	}
 	
 	private void Update ()
@@ -62,7 +63,6 @@ public class VineClimbController2 : MonoBehaviour {
 	{
 		if (coll.gameObject.layer == 14 && !GameManager.Instance.charState.IsVineClimbing() && !detached)
 		{
-			RSUtil.EnableScript(this);
 			// Set the Squirrel to vine climbing state
 			GameManager.Instance.charState.SetState(RomanCharState.State.VineAttaching);
 			EventManager.OnCharEvent(GameEvent.StartVineClimbing);
@@ -72,7 +72,6 @@ public class VineClimbController2 : MonoBehaviour {
 			// Publish a an event for StartVineClimbing
 			rb.isKinematic = true;
 			animator.SetTrigger ("VineAttach");
-
 		}
 	}
 
@@ -85,6 +84,7 @@ public class VineClimbController2 : MonoBehaviour {
 	private void OnDisable ()
 	{
 		EventManager.onInputEvent -= StopVineClimbing;
+		EventManager.onCharEvent -= ResetDetached;
 	}
 
 
@@ -97,7 +97,6 @@ public class VineClimbController2 : MonoBehaviour {
 			transform.parent = null;
 			rb.isKinematic = false;
 			animator.SetTrigger("StopClimbing");
-			RSUtil.DisableScript(this);
 
 		}
 	}
@@ -107,4 +106,6 @@ public class VineClimbController2 : MonoBehaviour {
 		if (gEvent == GameEvent.Land)
 			detached = false;
 	}
+
+
 }

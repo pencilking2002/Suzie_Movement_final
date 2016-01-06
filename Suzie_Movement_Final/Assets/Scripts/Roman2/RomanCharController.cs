@@ -90,7 +90,10 @@ public class RomanCharController : MonoBehaviour {
 	
 	private void FixedUpdate ()
 	{
-		
+
+		if (charState.IsClimbing())
+			return;
+
 		moveDirectionRaw = new Vector3(InputController.rawH, 0, InputController.rawV);
 		
 		speed = Mathf.Clamp01(moveDirectionRaw.sqrMagnitude);
@@ -109,18 +112,14 @@ public class RomanCharController : MonoBehaviour {
 		*/		
 		
 		if (holdShift && speed > 0)
-		{
 			animator.SetFloat (anim_Speed, speed + 2);
-		}
+	
 		else if (speed != 0)
-		{ 
 			animator.SetFloat (anim_Speed, Mathf.Clamp01(speed), walkToRunDampTime, Time.deltaTime);
-			//animator.SetFloat(anim_Speed, Mathf.Clamp01(speed));
-		}
+		
 		else 
-		{
 			animator.SetFloat (anim_Speed, 0);
-		}
+		
 			
 		TurnCharToCamera();
 		
@@ -255,7 +254,7 @@ public class RomanCharController : MonoBehaviour {
 		EventManager.onInputEvent += SprintModifierDown;
 		
 		EventManager.onCharEvent += Enable;
-		EventManager.onCharEvent += Disable;
+		//EventManager.onCharEvent += Disable;
 		EventManager.onCharEvent += Sprint;
 		EventManager.onCharEvent += CharIdle;
 		EventManager.onCharEvent += ExitIdle;
@@ -267,8 +266,8 @@ public class RomanCharController : MonoBehaviour {
 		EventManager.onInputEvent -= Jump;
 		EventManager.onInputEvent -= SprintModifierDown;
 		
-		//EventManager.onCharEvent -= Enable;
-		EventManager.onCharEvent -= Disable;
+		EventManager.onCharEvent -= Enable;
+		//EventManager.onCharEvent -= Disable;
 		EventManager.onCharEvent -= Sprint;
 		EventManager.onCharEvent -= CharIdle;
 		EventManager.onCharEvent -= ExitIdle;
@@ -280,31 +279,25 @@ public class RomanCharController : MonoBehaviour {
 	{
 		if (gameEvent == GameEvent.Land || gameEvent == GameEvent.IsIdle)
 		{
-			this.enabled = true;
 			cController.enabled = false;
 			rb.isKinematic = false;
 		}
 	}
 	
-	private void Disable (GameEvent gameEvent)       
-	{
-		if (gameEvent == GameEvent.StartClimbing || gameEvent == GameEvent.StartVineClimbing)
-		{
-			this.enabled = false;
-		}
-	}
-	
 	private void SprintModifierDown(GameEvent gameEvent)
 	{
-		if (gameEvent == GameEvent.SprintModifierDown)
+		if (charState.IsRunning())
 		{
-			holdShift = true;
-			animator.SetBool(anim_sprintModDown, true);
-		}
-		else if (gameEvent == GameEvent.SprintModifierUp)
-		{
-			holdShift = false;
-			animator.SetBool(anim_sprintModDown, false);
+			if (gameEvent == GameEvent.SprintModifierDown)
+			{
+				holdShift = true;
+				animator.SetBool(anim_sprintModDown, true);
+			}
+			else if (gameEvent == GameEvent.SprintModifierUp)
+			{
+				holdShift = false;
+				animator.SetBool(anim_sprintModDown, false);
+			}
 		}
 	}
 	

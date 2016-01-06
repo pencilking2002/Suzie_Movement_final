@@ -17,7 +17,9 @@ public class ClimbController : MonoBehaviour
 	
 	// The threshold, to discard some of the normal value variations
 	public float threshold = 0.009f;
-	
+
+	public Transform leftHand;
+
 	private Animator animator;
 	private CharacterController cController;
 	private Rigidbody rb;
@@ -26,7 +28,7 @@ public class ClimbController : MonoBehaviour
 	private Vector3 topPoint;
 	private Collider parentCol;
 	private Vector3 climbPos;
-	private int layerMask = 1 << 9;
+	private int layerMask = 1 << 10;
 	
 	//the direction to move the character
 	private Vector3 moveDirection = Vector3.zero;
@@ -38,6 +40,7 @@ public class ClimbController : MonoBehaviour
 	
 	//a class to store the previous normal value
 	private Vector3 oldNormal;
+	private bool atContactPoint = false;
 
 	private void Start ()
 	{
@@ -52,32 +55,37 @@ public class ClimbController : MonoBehaviour
 		if (charState.IsEdgeClimbing())
 		{
 		 	
-			Debug.DrawRay(transform.position, transform.forward * 0.5f, Color.red);
-			
 			//if the ray has hit something
-			if(Physics.Raycast(transform.position, transform.forward, out hit, 0.5f, layerMask))//cast the ray 5 units at the specified direction  
+			if(Physics.Raycast(leftHand.position, transform.forward, out hit, 0.5f, layerMask))//cast the ray 5 units at the specified direction  
 			{  
-	
-				//if the current goTransform.up.y value has passed the threshold test
+				print("hit");
+				Vector3 hitPoint = new Vector3(hit.point.x, leftHand.position.y, hit.point.z);
+				Debug.DrawLine(leftHand.position, hitPoint, Color.red);
+				print(Vector3.Distance(leftHand.position, hitPoint));
+				gravity = Vector3.Distance(leftHand.position, hitPoint);
+
+				//Debug.LogError("Pause");
+
+//				//if the current goTransform.up.z value has passed the threshold test
 				if(oldNormal.z >= transform.forward.z + threshold || oldNormal.z <= transform.forward.z - threshold)
 				{
 					//smoothly match the player's forward with the inverse of the normal
 					transform.forward = Vector3.Lerp (transform.forward, -hit.normal, 20 * Time.deltaTime);
 				}
-				//store the current hit.normal inside the oldNormal
+//				//store the current hit.normal inside the oldNormal
 				oldNormal = -hit.normal;
+
 
 			} 
 			else
 			{
 				StopClimbing(GameEvent.StopClimbing);
 			} 
-			
+
 			moveDirection = new Vector3(InputController.h * speed, 0, gravity)  * Time.deltaTime; 
 			moveDirection = transform.TransformDirection(moveDirection);
 	
 			animator.SetFloat("HorEdgeClimbDir", InputController.h);
-			//print (InputController.h);
 
 			if (cController.enabled)
 				cController.Move(moveDirection);
@@ -91,7 +99,6 @@ public class ClimbController : MonoBehaviour
 		if (gameEvent == GameEvent.ClimbColliderDetected)
 		{
 			InputController.h = 0;
-			this.enabled = true;
 			cController.enabled = true;
 			EventManager.OnCharEvent(GameEvent.StartClimbing);
 			rb.velocity = Vector3.zero;
@@ -131,16 +138,12 @@ public class ClimbController : MonoBehaviour
 	
 	private void StopClimbing (GameEvent gEvent)
 	{
-		if (gEvent == GameEvent.StopClimbing && charState.IsClimbing())
+		if (gEvent == GameEvent.StopEdgeClimbing && charState.IsClimbing())
 		{
 			rb.isKinematic = false;
 			animator.SetTrigger("StopClimbing");
 			cController.enabled = false;
-			RSUtil.DisableScript(this);
 		}
-
-		if (gEvent == GameEvent.StartVineClimbing)
-			RSUtil.DisableScript(this);
 	}
 
 	
@@ -156,8 +159,9 @@ public class ClimbController : MonoBehaviour
 	}
 	private void OnDisable () 
 	{ 
-		//		EventManager.onInputEvent -= StopClimbing;
-		//		EventManager.onDetectEvent -= InitEdgeClimb;	
+		EventManager.onCharEvent -= StopClimbing;
+		EventManager.onInputEvent -= StopClimbing;
+		EventManager.onDetectEvent -= InitEdgeClimb;	
 		
 		//EventManager.onInputEvent -= ClimbOverEdge;
 	}

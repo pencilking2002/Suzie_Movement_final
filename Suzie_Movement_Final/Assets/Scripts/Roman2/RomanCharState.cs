@@ -178,7 +178,7 @@ public class RomanCharState : MonoBehaviour {
 
 	public bool IsClimbing ()
 	{
-		return state == State.WallClimbing ||  state == State.EdgeClimbing || state == State.VineClimbing;
+		return state == State.WallClimbing || state == State.EdgeClimbing || state == State.VineClimbing;
 	}
 
 	public bool IsWallClimbing()

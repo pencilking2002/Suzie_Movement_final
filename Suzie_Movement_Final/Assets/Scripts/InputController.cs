@@ -11,41 +11,6 @@ public class InputController : MonoBehaviour {
 	public static InputController Instance;
 	public static float v, h, orbitV, orbitH, rawV, rawH;
 
-	// Fix values coming in from InControl. 
-	// For whatever reason the values aren't raw when using the controller
-//	public static float rawV
-//	{
-//		get { return _rawV; }
-//		set 
-//		{
-//			if (value < 0)
-//				_rawV = -1;
-//
-//			else if (value > 0)
-//			    _rawV = 1;
-//
-//			else
-//				_rawV = 0;
-//
-//		}
-//	}
-//
-//	public static float rawH
-//	{
-//		get { return _rawH; }
-//		set 
-//		{
-//			if (value < 0)
-//				_rawH = -1;
-//			
-//			else if (value > 0)
-//				_rawH = 1;
-//
-//			else
-//				_rawH = 0;
-//		}
-//	}
-
 	public static bool jumpReleased = false;
 	private RomanCharState charState;
 	
@@ -103,7 +68,7 @@ public class InputController : MonoBehaviour {
 			else if (rawV == -1 || v < 0)
 			{
 	//			print ("InputController: stop climbing " + rawV);
-				EventManager.OnInputEvent(GameEvent.StopClimbing);
+				EventManager.OnInputEvent(GameEvent.StopEdgeClimbing);
 
 			}
 //			print ("Event sent: climboveredge");

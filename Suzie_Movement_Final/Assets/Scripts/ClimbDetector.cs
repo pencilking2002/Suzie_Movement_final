@@ -18,64 +18,53 @@ public class ClimbDetector : MonoBehaviour {
 	private float cColliderHeight;
 	private int layerMask = 1 << 10;
 	private Vector3 raycastOffset = new Vector3 (0, 1f, 0);
-	
+
+	private bool detached = false;
+
 	private void Start ()
 	{
-		RSUtil.DisableScript(this);
 	}
 	
 	private void Update ()
 	{
-		Debug.DrawRay(transform.position + raycastOffset,  transform.forward * rayLength, Color.red); 
-		
-		if (Physics.Raycast (transform.position + raycastOffset, transform.forward, out hit, rayLength, layerMask))
+		if (GameManager.Instance.charState.IsJumping() && !detached)
 		{
+			Debug.DrawRay(transform.position + raycastOffset,  transform.forward * rayLength, Color.red); 
 			
-			EventManager.OnDetectEvent(GameEvent.ClimbColliderDetected, hit);
-			RSUtil.DisableScript(this);
+			if (Physics.Raycast (transform.position + raycastOffset, transform.forward, out hit, rayLength, layerMask))
+			{
+				EventManager.OnDetectEvent(GameEvent.ClimbColliderDetected, hit);
+				//RSUtil.DisableScript(this);
+			}
 		}
 	
 	}
-	
-	// Hook on to Input event
-	private void OnEnable () 
-	{ 
-		EventManager.onCharEvent += ToggleScript;
-	}
-	private void OnDisable () 
-	{ 
-		//EventManager.onCharEvent -= Disable;
-	}
-	
-	private void ToggleScript (GameEvent gameEvent)
+
+	private void OnEnable()
 	{
-		if (gameEvent == GameEvent.Jump)
-			RSUtil.EnableScript(this); 
-		
-		else if (gameEvent == GameEvent.Land || gameEvent == GameEvent.StartVineClimbing)
-			RSUtil.DisableScript(this); 
+		EventManager.onInputEvent += Detach;
+		EventManager.onCharEvent += Detach;
 	}
-	
-//	private void OnCollisionEnter (Collision col)
-//	{
-//		float dot = Vector3.Dot(col.contacts[0].normal, transform.forward);
-//		print(dot);
-//		if (dot > -0.5f && dot < 0.5f)
-//		{
-//			col.collider.material = groundPhysMaterial;
-//			print ("Ground");
-//		}
-//		else
-//		{
-//			col.collider.material = wallPhysMaterial;
-//			print ("Wall");
-//		}
-//	}
-//	
-//	private void OnCollisionExit (Collision col)
-//	{
-//		col.collider.material = groundPhysMaterial;
-//	}
-	
+
+	private void OnDisable()
+	{
+		EventManager.onInputEvent -= Detach;
+		EventManager.onCharEvent -= Detach;
+	}
+
+	private void Detach (GameEvent gEvent)
+	{
+		
+		if (gEvent == GameEvent.StopEdgeClimbing)
+		{
+			print("climb detector: stop climbing");
+			detached = true;
+		}
+		else if (gEvent == GameEvent.Land)
+		{
+			detached = false;
+		}
+		
+	}
 	
 }

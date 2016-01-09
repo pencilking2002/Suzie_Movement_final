@@ -23,7 +23,9 @@ public class GameManager : MonoBehaviour {
 		
 		if (Instance == null)
 			Instance = this;
-
+		else
+			Destroy(this);
+		
 		charState = GameObject.FindObjectOfType<RomanCharState> ();
 		camScript = GameObject.FindObjectOfType<RomanCameraController> ();
 		climbDetector = GameObject.FindObjectOfType<ClimbDetector> ();

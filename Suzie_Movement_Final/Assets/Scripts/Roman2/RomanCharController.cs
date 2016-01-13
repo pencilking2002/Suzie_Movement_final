@@ -62,7 +62,7 @@ public class RomanCharController : MonoBehaviour {
 	
 	// jumping ----------------------
 	private float forwardSpeed; 			// Temp var for forward speed
-	private bool holdShift = false;
+	//private bool holdShift = false;
 	private float speed;					// Temp var for locomotion 
 	private Vector3 vel;					// Temp vector for calculating forward velocity while jumping
 	
@@ -100,18 +100,14 @@ public class RomanCharController : MonoBehaviour {
 		
 		/* 
 			if player is pressing the sprint modifier + LeftStick, we go straight into sprint mode without damping
-			
-			--------
-			
+			-----------------------------
 			if we are entering locomotion Blend tree, use a damping value 
-			
-			--------
-
+			-----------------------------
 			When exiting the locomotion state, we want to cancel out the damping so that 
 			the character doesn't linger in the locomotion state after the user has stopped entering input
 		*/		
 		
-		if (holdShift && speed > 0)
+		if (animator.GetBool(anim_sprintModDown) && speed > 0)
 			animator.SetFloat (anim_Speed, speed + 2);
 	
 		else if (speed != 0)
@@ -286,16 +282,16 @@ public class RomanCharController : MonoBehaviour {
 	
 	private void SprintModifierDown(GameEvent gameEvent)
 	{
-		if (charState.IsRunning())
+		if (charState.IsRunning() || charState.IsJumping())
 		{
 			if (gameEvent == GameEvent.SprintModifierDown)
 			{
-				holdShift = true;
+				//holdShift = true;
 				animator.SetBool(anim_sprintModDown, true);
 			}
 			else if (gameEvent == GameEvent.SprintModifierUp)
 			{
-				holdShift = false;
+				//holdShift = false;
 				animator.SetBool(anim_sprintModDown, false);
 			}
 		}

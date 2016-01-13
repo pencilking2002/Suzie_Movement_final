@@ -50,11 +50,14 @@ public class InputController : MonoBehaviour {
 
 		// Sprinting ------------------------------------------------
 		if (inputDevice.LeftTrigger.WasPressed)
+		{
 			EventManager.OnInputEvent(GameEvent.SprintModifierDown);
-		
+			print("Shift down");
+		}
 		else if (inputDevice.LeftTrigger.WasReleased)
+		{
 			EventManager.OnInputEvent(GameEvent.SprintModifierUp);
-	
+		}
 
 		if (charState.IsEdgeClimbing() && inputDevice.LeftStickY.WasPressed)
 		{

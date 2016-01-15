@@ -40,7 +40,7 @@ public class ClimbController : MonoBehaviour
 	
 	//a class to store the previous normal value
 	private Vector3 oldNormal;
-	private bool atContactPoint = false;
+	//private bool atContactPoint = false;
 
 	private void Start ()
 	{

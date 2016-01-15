@@ -204,7 +204,7 @@ public class RomanCameraController : MonoBehaviour {
 		{
 
 			SetState (CamState.Reset);
-			print("cam land");
+			//print("cam land");
 		}
 	}
 

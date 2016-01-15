@@ -11,7 +11,7 @@ public class VineClimbController2 : MonoBehaviour {
 
 	private Animator animator;
 	private Rigidbody rb;
-	private ClimbController edgeClimbController;
+	//private ClimbController edgeClimbController;
 
 	private Transform vine = null;
 	private Vector3 vinePos = Vector3.zero;
@@ -19,15 +19,15 @@ public class VineClimbController2 : MonoBehaviour {
 	int anim_vineClimbSpeed = Animator.StringToHash("VineClimbSpeed");
 	int anim_vineClimbCurve = Animator.StringToHash("vineClimbCurve");
 	private bool detached = false;											// Has the character detached from the vine?
-	private CharacterController cController;
+	//private CharacterController cController;
 	private float timeOfDetachment;											// The time of when the player detached from a vine
 
 	private void Start ()
 	{
 		animator = GetComponent<Animator>();
 		rb = GetComponent<Rigidbody>();
-		cController = GetComponent<CharacterController>();
-		edgeClimbController = GetComponent<ClimbController>();
+		//cController = GetComponent<CharacterController>();
+		//edgeClimbController = GetComponent<ClimbController>();
 	}
 	
 	private void Update ()
@@ -97,7 +97,6 @@ public class VineClimbController2 : MonoBehaviour {
 			transform.parent = null;
 			rb.isKinematic = false;
 			animator.SetTrigger("StopClimbing");
-
 		}
 	}
 

@@ -21,7 +21,7 @@ public class ClimbOverEdge : MonoBehaviour {
 		// Calculate the climbing tween's duration
 		tweenDuration = tween.groupList[0].endTime - tween.groupList[0].startTime;
 		
-		print (tweenDuration);
+		//print (tweenDuration);
 		if (tween == null)
 			Debug.LogError("tween not defined");
 		

@@ -75,7 +75,13 @@ public class RomanCharController : MonoBehaviour {
 	int anim_runningJump = Animator.StringToHash("RunningJump");
 	int anim_sprintJump = Animator.StringToHash("SprintJump");
 	
-	
+	void Awake ()
+	{
+		ObjectActivator.Instance.Register(this, new GameEvent[] { 
+			GameEvent.StartVineClimbing, 
+			GameEvent.StartEdgeClimbing
+		}, true);
+	}
 	
 	void Start () 
 	{
@@ -106,16 +112,24 @@ public class RomanCharController : MonoBehaviour {
 			When exiting the locomotion state, we want to cancel out the damping so that 
 			the character doesn't linger in the locomotion state after the user has stopped entering input
 		*/		
-		
+		if (animator.GetBool(anim_sprintModDown))
+		{
+			print("Speed: " + speed);
+		}
+
 		if (animator.GetBool(anim_sprintModDown) && speed > 0)
+		{
 			animator.SetFloat (anim_Speed, speed + 2);
-	
+
+		}
 		else if (speed != 0)
+		{
 			animator.SetFloat (anim_Speed, Mathf.Clamp01(speed), walkToRunDampTime, Time.deltaTime);
-		
-		else 
+		}
+		else
+		{ 
 			animator.SetFloat (anim_Speed, 0);
-		
+		}
 			
 		TurnCharToCamera();
 		

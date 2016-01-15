@@ -80,7 +80,13 @@ public class RomanCharController : MonoBehaviour {
 		ObjectActivator.Instance.Register(this, new GameEvent[] { 
 			GameEvent.StartVineClimbing, 
 			GameEvent.StartEdgeClimbing
+		}, false);
+
+		ObjectActivator.Instance.Register(this, new GameEvent[] { 
+			GameEvent.Land 
 		}, true);
+
+
 	}
 	
 	void Start () 
@@ -114,7 +120,7 @@ public class RomanCharController : MonoBehaviour {
 		*/		
 		if (animator.GetBool(anim_sprintModDown))
 		{
-			print("Speed: " + speed);
+			//print("Speed: " + speed);
 		}
 
 		if (animator.GetBool(anim_sprintModDown) && speed > 0)

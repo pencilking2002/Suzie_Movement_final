@@ -100,7 +100,7 @@ public class ClimbController : MonoBehaviour
 		{
 			InputController.h = 0;
 			cController.enabled = true;
-			EventManager.OnCharEvent(GameEvent.StartClimbing);
+			EventManager.OnCharEvent(GameEvent.StartEdgeClimbing);
 			rb.velocity = Vector3.zero;
 			rb.angularVelocity = Vector3.zero;
 			rb.isKinematic = true;

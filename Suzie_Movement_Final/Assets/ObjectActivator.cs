@@ -75,15 +75,20 @@ public class ObjectActivator : MonoBehaviour {
 	{
 		for (int i = 0; i < componentList.Count; i++)
 		{
-			if (componentList[i].activate && ArrayContains(componentList[i].gEvents, e))
+			if (ArrayContains(componentList[i].gEvents, e))
 			{
-				print(componentList[i].script.GetType() + " Activated");
-				componentList[i].script.enabled = true;
-			}
-			else
-			{
-				print(componentList[i].script.GetType() + " Deactivated");
-				componentList[i].script.enabled = false;
+					
+				if (componentList[i].activate)
+				{
+					print(componentList[i].script.GetType() + " Activated");
+					componentList[i].script.enabled = true;
+				}
+
+				else
+				{
+					print(componentList[i].script.GetType() + " Deactivated");
+					componentList[i].script.enabled = false;
+				}
 			}
 		}
 	}

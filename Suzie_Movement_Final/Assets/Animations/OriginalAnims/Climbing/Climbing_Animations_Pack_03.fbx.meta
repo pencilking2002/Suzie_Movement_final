@@ -2179,17 +2179,17 @@ ModelImporter:
       lastFrame: 379
       wrapMode: 0
       orientationOffsetY: 0
-      level: -0.15
+      level: -1.17
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
       loopTime: 1
       loopBlend: 1
       loopBlendOrientation: 0
-      loopBlendPositionY: 0
+      loopBlendPositionY: 1
       loopBlendPositionXZ: 0
       keepOriginalOrientation: 0
-      keepOriginalPositionY: 1
+      keepOriginalPositionY: 0
       keepOriginalPositionXZ: 0
       heightFromFeet: 0
       mirror: 0
@@ -2241,6 +2241,38 @@ ModelImporter:
             tangentMode: 0
           preInfinity: 2
           postInfinity: 2
+          rotationOrder: 0
+      - name: LeftHandAttachToVine
+        curve:
+          serializedVersion: 2
+          curve:
+          - time: -0.00023955805
+            value: 0.9960331
+            inSlope: 0
+            outSlope: -1.8688182
+            tangentMode: 1
+          - time: 0.11337047
+            value: 0.0027241597
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 1
+          - time: 0.24610859
+            value: 0.9949782
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+          - time: 0.52888256
+            value: 0.007358351
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+          - time: 0.7582198
+            value: 0.98295325
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+          preInfinity: 3
+          postInfinity: 3
           rotationOrder: 0
       events: []
       transformMask:
@@ -2581,17 +2613,17 @@ ModelImporter:
       lastFrame: 322
       wrapMode: 0
       orientationOffsetY: 0
-      level: 0
+      level: -1.17
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
       loopTime: 0
       loopBlend: 0
       loopBlendOrientation: 0
-      loopBlendPositionY: 0
+      loopBlendPositionY: 1
       loopBlendPositionXZ: 0
       keepOriginalOrientation: 0
-      keepOriginalPositionY: 1
+      keepOriginalPositionY: 0
       keepOriginalPositionXZ: 0
       heightFromFeet: 0
       mirror: 0

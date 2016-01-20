@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class ClimbController : MonoBehaviour 
 {
@@ -48,6 +49,14 @@ public class ClimbController : MonoBehaviour
 		charState = GetComponent<RomanCharState>();
 		animator = GetComponent<Animator>();
 		cController = GetComponent<CharacterController>();
+
+		ComponentActivator.Instance.Register(this, new Dictionary<GameEvent, bool> { 
+
+			{ GameEvent.StartEdgeClimbing, true },
+			{ GameEvent.StopEdgeClimbing, false },
+			{ GameEvent.Land, false }
+
+		});
 	}
 	
 	private void Update ()

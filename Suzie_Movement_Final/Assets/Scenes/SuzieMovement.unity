@@ -2390,7 +2390,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 380407083}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aaf05203a35384a81aa15844164ca581, type: 3}
+  m_Script: {fileID: 11500000, guid: 7aa8e73c76ee9471eaa89da2befd6a4c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &394793980
@@ -4862,7 +4862,7 @@ GameObject:
   - 4: {fileID: 859901801}
   m_Layer: 0
   m_Name: EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHand
-  m_TagString: Untagged
+  m_TagString: RightHand
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6850,7 +6850,7 @@ GameObject:
   - 4: {fileID: 1223770706}
   m_Layer: 0
   m_Name: EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHand
-  m_TagString: Untagged
+  m_TagString: LeftHand
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10066,8 +10066,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   vineClimbSpeed: 2
-  vineClimbAttachForwardOffset: 0.1
+  attachForwardSpeed: 40
   maxTimeBeforeCanReattach: 0.5
+  vinePos: {x: 0, y: 0, z: 0}
   vineAttachPoint: {fileID: 1280225197}
 --- !u!114 &1756476985
 MonoBehaviour:

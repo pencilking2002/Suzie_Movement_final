@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 /*---------------------------------------------------------------------------------------\
 	When the player is jumping, this class looks for a climbing collider on layer 10	 |
@@ -23,8 +24,16 @@ public class ClimbDetector : MonoBehaviour {
 
 	private void Start ()
 	{
+		ComponentActivator.Instance.Register(this, new Dictionary<GameEvent, bool> {
+
+			{ GameEvent.Jump, true },
+			{ GameEvent.Land, false },
+			{ GameEvent.StartEdgeClimbing, false },
+			{ GameEvent.StartVineClimbing, false }
+
+		});
 	}
-	
+
 	private void Update ()
 	{
 		if (GameManager.Instance.charState.IsJumping() && !detached)

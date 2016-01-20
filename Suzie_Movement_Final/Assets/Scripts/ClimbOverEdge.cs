@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 using DentedPixel.LTEditor;
 
 public class ClimbOverEdge : MonoBehaviour {
@@ -34,6 +35,13 @@ public class ClimbOverEdge : MonoBehaviour {
 
 	private void Start ()
 	{
+		ComponentActivator.Instance.Register(this, new Dictionary<GameEvent, bool> { 
+
+			{ GameEvent.StartEdgeClimbing, true },
+			{ GameEvent.StopEdgeClimbing, false },
+			{ GameEvent.Land, false }
+
+		});
 	}
 	
 //	private void Update () 

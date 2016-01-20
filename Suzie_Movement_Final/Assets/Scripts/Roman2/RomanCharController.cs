@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine.Events;
 
 public class RomanCharController : MonoBehaviour {
@@ -75,22 +76,19 @@ public class RomanCharController : MonoBehaviour {
 	int anim_runningJump = Animator.StringToHash("RunningJump");
 	int anim_sprintJump = Animator.StringToHash("SprintJump");
 	
-	void Awake ()
+	void Start ()
 	{
-		ObjectActivator.Instance.Register(this, new GameEvent[] { 
-			GameEvent.StartVineClimbing, 
-			GameEvent.StartEdgeClimbing
-		}, false);
+		ComponentActivator.Instance.Register(this, new Dictionary<GameEvent, bool> { 
 
-		ObjectActivator.Instance.Register(this, new GameEvent[] { 
-			GameEvent.Land 
-		}, true);
+			{ GameEvent.Land, true },
+			{ GameEvent.StopVineClimbing, true },
+			{ GameEvent.StopEdgeClimbing, true },
 
+			{ GameEvent.StartVineClimbing, false }, 
+			{ GameEvent.StartEdgeClimbing, false },
 
-	}
-	
-	void Start () 
-	{
+		});
+
 		charState = GetComponent<RomanCharState>();
 		animator = GetComponent<Animator>();
 		rb = GetComponent<Rigidbody>();
@@ -102,9 +100,6 @@ public class RomanCharController : MonoBehaviour {
 	
 	private void FixedUpdate ()
 	{
-
-		if (charState.IsClimbing())
-			return;
 
 		moveDirectionRaw = new Vector3(InputController.rawH, 0, InputController.rawV);
 		
@@ -193,16 +188,23 @@ public class RomanCharController : MonoBehaviour {
 
 		
 	}
-	
+
+	/// <summary>
+	/// handle character rotation during running
+	/// Also, add some force while while sprinting so that the character goes faster
+	/// </summary>
 	private void OnAnimatorMove ()
 	{
+
 		if (charState.IsRunning() && moveDirectionRaw != Vector3.zero)
-		{		
+		{
+			if (charState.IsSprinting())
+				rb.AddRelativeForce(0, 0, 50);
+			
 			transform.rotation = Quaternion.Slerp (transform.rotation, Quaternion.LookRotation(moveDirectionRaw), runRotateSpeed * Time.fixedDeltaTime);
 			animator.ApplyBuiltinRootMotion();
 		}
-		
-	
+
 	}
 
 

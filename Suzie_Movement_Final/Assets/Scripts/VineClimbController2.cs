@@ -1,11 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class VineClimbController2 : MonoBehaviour {
 
 	public float vineClimbSpeed = 20.0f;
-	public float vineClimbAttachForwardOffset = 0.7f;	
+	public float attachForwardSpeed = 40.0f;								// How quickly the character moves towards the vine when they	
 	public float maxTimeBeforeCanReattach = 1f;								// The amount of time that has to pass before the character can re-attach on to th vine
+	public Vector3 vinePos = Vector3.zero;
 
 	public Transform vineAttachPoint = null;
 
@@ -14,7 +16,6 @@ public class VineClimbController2 : MonoBehaviour {
 	//private ClimbController edgeClimbController;
 
 	private Transform vine = null;
-	private Vector3 vinePos = Vector3.zero;
 	private Vector3 distToVine = Vector3.zero;
 	int anim_vineClimbSpeed = Animator.StringToHash("VineClimbSpeed");
 	int anim_vineClimbCurve = Animator.StringToHash("vineClimbCurve");
@@ -28,6 +29,14 @@ public class VineClimbController2 : MonoBehaviour {
 		rb = GetComponent<Rigidbody>();
 		//cController = GetComponent<CharacterController>();
 		//edgeClimbController = GetComponent<ClimbController>();
+
+		ComponentActivator.Instance.Register(this, new Dictionary<GameEvent, bool> { 
+
+			{ GameEvent.StartVineClimbing, true },
+			{ GameEvent.StopVineClimbing, false },
+			{ GameEvent.Land, false },
+
+		});
 	}
 	
 	private void Update ()
@@ -37,16 +46,21 @@ public class VineClimbController2 : MonoBehaviour {
 		{
 			vinePos = new Vector3(vine.position.x, vineAttachPoint.position.y, vine.position.z);
 			distToVine = vinePos - vineAttachPoint.position;
+			transform.position = Vector3.Lerp(transform.position, transform.position + distToVine, attachForwardSpeed * Time.deltaTime);
 
-			transform.position = Vector3.Lerp(transform.position, transform.position + distToVine, 20.0f * Time.deltaTime);
 			Debug.DrawLine(vinePos, vineAttachPoint.position, Color.blue, 1f);
+			//Debug.Break();
 
 		}
 		else if (GameManager.Instance.charState.IsVineClimbing())
 		{
 
-			var targetPosition = new Vector3(vine.position.x, transform.position.y, vine.position.z);
-			transform.position = Vector3.Lerp(transform.position, targetPosition, Time.deltaTime*20);
+			vinePos = new Vector3(vine.position.x, vineAttachPoint.position.y, vine.position.z);
+			distToVine = vinePos - vineAttachPoint.position;
+			transform.position = Vector3.Lerp(transform.position, transform.position + distToVine, attachForwardSpeed * Time.deltaTime);
+
+			//var targetPosition = new Vector3(vine.position.x, transform.position.y, vine.position.z);
+			//transform.position = Vector3.Lerp(transform.position, targetPosition + distToVine, attachForwardSpeed);
 
 			animator.SetFloat(anim_vineClimbSpeed, InputController.v);
 

@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 // Class responsible for changing the PhysicMaterials of the colliders the player interacts with
 //[RequireComponent(typeof(CapsuleCollider))]
@@ -19,6 +20,16 @@ public class PhysicMaterialHandler : MonoBehaviour {
 	private void Start ()
 	{
 		cCollider = GetComponent<CapsuleCollider>();
+
+		ComponentActivator.Instance.Register(this, new Dictionary<GameEvent, bool> { 
+
+			{ GameEvent.StopVineClimbing, true },
+			{ GameEvent.StopEdgeClimbing, true },
+
+			{ GameEvent.StartVineClimbing, false },
+			{ GameEvent.StartEdgeClimbing, false }, 
+
+		});
 	}
 	
 	private void OnEnable () 

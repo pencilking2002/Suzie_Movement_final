@@ -12,6 +12,8 @@ TagManager:
   - StartClimbSpot
   - SprintSpawnSpot
   - Vine
+  - LeftHand
+  - RightHand
   layers:
   - Default
   - TransparentFX

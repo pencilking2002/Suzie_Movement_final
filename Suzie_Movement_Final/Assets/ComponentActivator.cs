@@ -7,13 +7,11 @@ using System.Collections.Generic;
 	and deactivation. Each component that wants to hook in into the ObjectActivator 
 	registers itself using the RegisterDeactivation/RegisterActivation methods and supplies
 	which events it would like to be hooked to
-
 */
 
-public class ObjectActivator : MonoBehaviour {
+public class ComponentActivator : MonoBehaviour {
 
-	public static ObjectActivator Instance;
-
+	public static ComponentActivator Instance;
 	private List<ActivationQueue> componentList = new List<ActivationQueue>();
 
 	//ActivationQueue activationQueue;
@@ -33,9 +31,11 @@ public class ObjectActivator : MonoBehaviour {
 	/// </summary>
 	/// <param name="script">Script.</param>
 	/// <param name="events">Events.</param>
-	public void Register (MonoBehaviour script, GameEvent[] events, bool activate)
+	public void Register (MonoBehaviour script, Dictionary<GameEvent, bool> properties)
 	{
-		componentList.Add(new ActivationQueue(script, events, activate));
+		var obj = new ActivationQueue(script, properties);
+		componentList.Add(obj);
+		
 	} 
 
 	private void OnEnable()
@@ -75,33 +75,22 @@ public class ObjectActivator : MonoBehaviour {
 	{
 		for (int i = 0; i < componentList.Count; i++)
 		{
-			if (ArrayContains(componentList[i].gEvents, e))
+			if (componentList[i].gEvents.ContainsKey(e))
 			{
 					
-				if (componentList[i].activate)
+				if (componentList[i].gEvents[e] == true)
 				{
-					print(componentList[i].script.GetType() + " Activated");
+					//print(componentList[i].script.GetType() + " Activated");
 					componentList[i].script.enabled = true;
 				}
 
 				else
 				{
-					print(componentList[i].script.GetType() + " Deactivated");
+					//print(componentList[i].script.GetType() + " Deactivated");
 					componentList[i].script.enabled = false;
 				}
 			}
 		}
-	}
-
-	private bool ArrayContains(GameEvent[] gEvents, GameEvent e)
-	{
-		for(int i = 0; i < gEvents.Length; i++)
-		{
-			if(gEvents[i] == e)
-				return true;
-		}
-
-		return false;
 	}
 
 }
@@ -112,13 +101,12 @@ public class ObjectActivator : MonoBehaviour {
 public class ActivationQueue
 {
 	public MonoBehaviour script;
-	public GameEvent[] gEvents;
-	public bool activate;
+	public Dictionary<GameEvent, bool> gEvents;
 
-	public ActivationQueue(MonoBehaviour _script, GameEvent[] _gEvents, bool _activate)
+	public ActivationQueue(MonoBehaviour _script, Dictionary<GameEvent, bool> _gEvents)
 	{
 		script = _script;
 		gEvents = _gEvents;
-		activate = _activate;
+	
 	}
 }

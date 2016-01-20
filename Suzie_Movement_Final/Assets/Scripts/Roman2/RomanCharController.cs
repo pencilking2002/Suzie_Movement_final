@@ -362,7 +362,7 @@ public class RomanCharController : MonoBehaviour {
 				force = sprintJumpForce;									
 				forwardSpeed = sprintJumpForwardSpeed;
 				charState.SetState(RomanCharState.State.SprintJumping);
-				animator.SetTrigger (anim_sprintJump);
+				animator.SetBool (anim_sprintJump, true);
 				
 				OrientCapsuleCollider(false);
 			}
@@ -399,6 +399,12 @@ public class RomanCharController : MonoBehaviour {
 			//print ("CHAR LANDING");
 			OrientCapsuleCollider(true);
 			ResetYRotation();
+
+			animator.SetBool (anim_sprintJump, false);					// Reset sprint jump trigger, Sometimes it gets stuck
+
+			if (!charState.IsSprintFalling())
+				animator.SetBool (anim_sprintModDown, false);					// Reset sprint modifer trigger, Sometimes it gets stuck
+
 		}
 	}
 	

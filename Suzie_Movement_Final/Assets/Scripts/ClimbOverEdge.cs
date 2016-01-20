@@ -39,6 +39,7 @@ public class ClimbOverEdge : MonoBehaviour {
 
 			{ GameEvent.StartEdgeClimbing, true },
 			{ GameEvent.StopEdgeClimbing, false },
+			{ GameEvent.FinishClimbOver, false },
 			{ GameEvent.Land, false }
 
 		});

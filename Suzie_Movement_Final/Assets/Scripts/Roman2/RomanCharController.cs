@@ -83,6 +83,7 @@ public class RomanCharController : MonoBehaviour {
 			{ GameEvent.Land, true },
 			{ GameEvent.StopVineClimbing, true },
 			{ GameEvent.StopEdgeClimbing, true },
+			{ GameEvent.FinishClimbOver, true },
 
 			{ GameEvent.StartVineClimbing, false }, 
 			{ GameEvent.StartEdgeClimbing, false },
@@ -113,10 +114,6 @@ public class RomanCharController : MonoBehaviour {
 			When exiting the locomotion state, we want to cancel out the damping so that 
 			the character doesn't linger in the locomotion state after the user has stopped entering input
 		*/		
-		if (animator.GetBool(anim_sprintModDown))
-		{
-			//print("Speed: " + speed);
-		}
 
 		if (animator.GetBool(anim_sprintModDown) && speed > 0)
 		{
@@ -304,7 +301,7 @@ public class RomanCharController : MonoBehaviour {
 	
 	private void SprintModifierDown(GameEvent gameEvent)
 	{
-		if (charState.IsRunning() || charState.IsJumping())
+		if (charState.IsIdle() || charState.IsRunning() || charState.IsJumping())
 		{
 			if (gameEvent == GameEvent.SprintModifierDown)
 			{

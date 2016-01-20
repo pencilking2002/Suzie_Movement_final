@@ -43,6 +43,7 @@ public class ClimbDetector : MonoBehaviour {
 			if (Physics.Raycast (transform.position + raycastOffset, transform.forward, out hit, rayLength, layerMask))
 			{
 				EventManager.OnDetectEvent(GameEvent.ClimbColliderDetected, hit);
+				//EventManager.OnCharEvent(GameEvent.StartEdgeClimbing);
 				//RSUtil.DisableScript(this);
 			}
 		}

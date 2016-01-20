@@ -52,8 +52,10 @@ public class ClimbController : MonoBehaviour
 
 		ComponentActivator.Instance.Register(this, new Dictionary<GameEvent, bool> { 
 
-			{ GameEvent.StartEdgeClimbing, true },
+			//{ GameEvent.StartEdgeClimbing, true },
+			{ GameEvent.ClimbColliderDetected, true},
 			{ GameEvent.StopEdgeClimbing, false },
+			{ GameEvent.FinishClimbOver, false },
 			{ GameEvent.Land, false }
 
 		});

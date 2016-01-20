@@ -2,8 +2,12 @@
 using System.Collections;
 using System.Collections.Generic;
 
-// Class responsible for changing the PhysicMaterials of the colliders the player interacts with
-//[RequireComponent(typeof(CapsuleCollider))]
+/* 
+	Class responsible for changing the PhysicMaterials of the colliders the player interacts with
+	Shoots rays from middle of the bottom and from the bottom of the body. The Rays are cast using 
+	the char's forward direction
+
+*/
 public class PhysicMaterialHandler : MonoBehaviour {
 	
 	public PhysicMaterial groundMaterial;
@@ -13,8 +17,13 @@ public class PhysicMaterialHandler : MonoBehaviour {
 	public float wallRayLength = 0.5f;
 
 	private CapsuleCollider cCollider;
+
+	// Temp raycasting vars
 	private Vector3 origin;
+	private Vector3 bottomOrigin;
 	private Ray ray;
+	private Ray rayFromBottom;
+
 	private RaycastHit hit;
 	
 	private void Start ()
@@ -25,6 +34,7 @@ public class PhysicMaterialHandler : MonoBehaviour {
 
 			{ GameEvent.StopVineClimbing, true },
 			{ GameEvent.StopEdgeClimbing, true },
+			{ GameEvent.IsIdle, true },
 
 			{ GameEvent.StartVineClimbing, false },
 			{ GameEvent.StartEdgeClimbing, false }, 
@@ -43,20 +53,7 @@ public class PhysicMaterialHandler : MonoBehaviour {
 	{ 
 		EventManager.onCharEvent -= SetPhysicMaterial;
 	}
-	
-//	private void SetGround (GameEvent gEvent)
-//	{
-//		if (gEvent == GameEvent.Land)
-//		{
-//			print ("Ground material set");
-//			SetPhysicMaterial(true, new Ray(origin, Vector3.down));
-//		}
-//	}
-	/// <summary>
-	/// Convinence method to set the physics material of a GameObject's mesh
-	/// Used for setting ground and wall materials
-	/// </summary>
-	/// <param name="ground">If set to <c>true</c> ground.</param>
+
 	private void SetPhysicMaterial(GameEvent gEvent)
 	{
 		if (gEvent == GameEvent.Land)
@@ -70,7 +67,7 @@ public class PhysicMaterialHandler : MonoBehaviour {
 			//Debug.LogError("blah");
 			if (Physics.Raycast (ray, out hit, groundRayLenth))
 			{
-				print ("is on ground");
+				//print ("is on ground");
 				hit.collider.material = groundMaterial;
 				
 			}
@@ -78,18 +75,22 @@ public class PhysicMaterialHandler : MonoBehaviour {
 		else if (gEvent == GameEvent.WallCollision)
 		{
 			origin = cCollider.bounds.center;
-			
+			Vector3 bottomOrigin = transform.position;
+
 			ray = new Ray(origin, transform.forward);
-//			
+			rayFromBottom = new Ray(bottomOrigin, transform.forward);
 //			
 //			Debug.LogError("blah");
-			if (Physics.Raycast (ray, out hit, wallRayLength))
+			if (Physics.Raycast (ray, out hit, wallRayLength) || Physics.Raycast (rayFromBottom, out hit, wallRayLength))
 			{
 				Debug.DrawLine (origin, hit.point, Color.green);
+				Debug.DrawLine (bottomOrigin, hit.point, Color.green);
 
 				hit.collider.material = wallMaterial;
-				print ("Wall Collision");
+				//print ("Wall Collision");
+				//Debug.Break();
 			}
+
 
 		}
 		

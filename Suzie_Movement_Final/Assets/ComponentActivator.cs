@@ -42,14 +42,14 @@ public class ComponentActivator : MonoBehaviour {
 	{
 		EventManager.onCharEvent += onChar;
 		//EventManager.onInputEvent += onInput;
-		//EventManager.onDetectEvent += onDetect;
+		EventManager.onDetectEvent += onDetect;
 	}
 
 	private void OnDisable()
 	{
 		EventManager.onCharEvent -= onChar;
 		//EventManager.onInputEvent -= onInput;
-		//EventManager.onDetectEvent -= onDetect;
+		EventManager.onDetectEvent -= onDetect;
 	}
 
 	private void onChar (GameEvent gEvent)
@@ -57,15 +57,15 @@ public class ComponentActivator : MonoBehaviour {
 		ActivationHandler(gEvent);
 	}
 
-	private void onInput (GameEvent gEvent)
-	{
-		ActivationHandler(gEvent);
-	}
-
-//	private void onDetect (GameEvent gEvent)
+//	private void onInput (GameEvent gEvent)
 //	{
 //		ActivationHandler(gEvent);
 //	}
+
+	private void onDetect (GameEvent gEvent, RaycastHit hit)
+	{
+		ActivationHandler(gEvent, hit);
+	}
 
 	/// <summary>
 	/// Activate or deactivate scripts 
@@ -92,6 +92,30 @@ public class ComponentActivator : MonoBehaviour {
 			}
 		}
 	}
+
+	private void ActivationHandler(GameEvent e, RaycastHit hit)
+	{
+		for (int i = 0; i < componentList.Count; i++)
+		{
+			if (componentList[i].gEvents.ContainsKey(e))
+			{
+					
+				if (componentList[i].gEvents[e] == true)
+				{
+					//print(componentList[i].script.GetType() + " Activated");
+					componentList[i].script.enabled = true;
+				}
+
+				else
+				{
+					//print(componentList[i].script.GetType() + " Deactivated");
+					componentList[i].script.enabled = false;
+				}
+			}
+		}
+	}
+
+
 
 }
 

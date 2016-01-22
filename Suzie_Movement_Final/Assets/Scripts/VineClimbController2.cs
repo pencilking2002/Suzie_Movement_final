@@ -34,6 +34,7 @@ public class VineClimbController2 : MonoBehaviour {
 
 			{ GameEvent.StartVineClimbing, true },
 			{ GameEvent.StopVineClimbing, false },
+			{ GameEvent.ClimbOverEdge, false },
 			{ GameEvent.Land, false },
 
 		});
@@ -86,6 +87,12 @@ public class VineClimbController2 : MonoBehaviour {
 			// Publish a an event for StartVineClimbing
 			rb.isKinematic = true;
 			animator.SetTrigger ("VineAttach");
+		}
+
+		if (coll.CompareTag("VineTopExit"))
+		{
+			print("VineClimbController: ClimbOverEdge event sent");
+			EventManager.OnCharEvent(GameEvent.ClimbOverEdge);
 		}
 	}
 

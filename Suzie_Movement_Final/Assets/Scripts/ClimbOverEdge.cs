@@ -7,12 +7,18 @@ public class ClimbOverEdge : MonoBehaviour {
 	
 	public float yClimbOverSpeed = 0.15f;
 	public float zClimbOverSpeed = 0.15f;
-	public LeanTweenVisual tween;
-	public LeanTweenPath path;
+
+	public LeanTweenVisual edgeTween;
+	public LeanTweenVisual vineTween;
+
+	public LeanTweenPath edgePath;
+	public LeanTweenPath vinePath;
 	
 	private RomanCharState charState;
 	private Animator animator;
 	private float tweenDuration;
+
+	private Transform vineMeshBounds;
 
 	private void Awake ()
 	{
@@ -20,17 +26,18 @@ public class ClimbOverEdge : MonoBehaviour {
 		animator = GetComponent<Animator>();
 
 		// Calculate the climbing tween's duration
-		tweenDuration = tween.groupList[0].endTime - tween.groupList[0].startTime;
+		tweenDuration = edgeTween.groupList[0].endTime - edgeTween.groupList[0].startTime;
 		
 		//print (tweenDuration);
-		if (tween == null)
+		if (edgeTween == null)
 			Debug.LogError("tween not defined");
 		
-		if (path == null)
+		if (edgePath == null || vinePath == null)
 			Debug.LogError("path not defined");
 
 		// Disable the tween and path at beginning
-		EnableTween(false);
+		EnableClimbOverTween(edgePath, edgeTween, false);
+		EnableClimbOverTween(vinePath, vineTween, false);
 	}
 
 	private void Start ()
@@ -38,62 +45,86 @@ public class ClimbOverEdge : MonoBehaviour {
 		ComponentActivator.Instance.Register(this, new Dictionary<GameEvent, bool> { 
 
 			{ GameEvent.StartEdgeClimbing, true },
+			{ GameEvent.StartVineClimbing, true },
+
 			{ GameEvent.StopEdgeClimbing, false },
-			{ GameEvent.FinishClimbOver, false },
+			{ GameEvent.StopVineClimbing, false },
 			{ GameEvent.Land, false }
 
 		});
 	}
 	
-//	private void Update () 
-//	{
-////		if (charState.IsClimbingOverEdge())
-////		{
-////			
-////			//Vector3 pos = new Vector3(0, animator.GetFloat("yPositionCurve"), animator.GetFloat("zPositionCurve")) * climbOverSpeed;
-////			//pos = transform.(pos);
-////			//Vector3 pos = new Vector3(transform.up.x, transform.up.y * animator.GetFloat("yPositionCurve") * yClimbOverSpeed, transform.forward.z * animator.GetFloat("zPositionCurve") * zClimbOverSpeed);
-////			Vector3 moveDirection = new Vector3(0, yClimbOverSpeed, zClimbOverSpeed) * Time.deltaTime;
-////			moveDirection = transform.InverseTransformDirection(moveDirection);
-////			
-////			transform.position += moveDirection;
-////		}
-//	}
+	private void Update () 
+	{
+		if (charState.IsVineClimbing() && vineMeshBounds != null)
+		{
+			Vector3 bottomVinePos = vineMeshBounds.center.y + vineMeshBounds.extents.y;
+			if (transform.position.y < bottomVinePos.y)
+			{
+				print("Squirrel is beneath the vine");
+			}
+		}
+	}
 	
 	private void OnEnable()
 	{
 		EventManager.onInputEvent += ClimbOverEdgeMove;
+		EventManager.onCharEvent += ClimbOverEdgeMove;
 	}
 	
 	private void OnDisable()
 	{
 		EventManager.onInputEvent -= ClimbOverEdgeMove;
+		EventManager.onCharEvent -= ClimbOverEdgeMove;
 	}
 	
 	private void ClimbOverEdgeMove(GameEvent gEvent)
 	{
 		if(charState.IsClimbing() && gEvent == GameEvent.ClimbOverEdge)
 		{
-			animator.SetTrigger("ClimbOverEdge");
-			EnableTween(true);
+			LeanTweenPath path = new LeanTweenPath();
+			LeanTweenVisual tween = new LeanTweenVisual();
+
+			if (charState.IsVineClimbing())
+			{
+				tween = vineTween;
+				path = vinePath;
+				print("ClimbOverVine: should start climbing over vine");
+			}
+			else if(charState.IsEdgeClimbing())
+			{
+				tween = edgeTween;
+				path = edgePath;
+			}
+
+			EnableClimbOverTween(path, tween, true);
 
 			path.transform.parent = null;
+			animator.SetTrigger("ClimbOverEdge");
 
 			RSUtil.Instance.DelayedAction(() => {
 				path.transform.parent = transform;
 				path.transform.localPosition = Vector3.zero;
-				EnableTween(false);
-
+				EnableClimbOverTween(path, tween, false);
 				EventManager.OnCharEvent(GameEvent.FinishClimbOver);
 			
 			}, tweenDuration);
+
 		}
 	}
 
-	private void EnableTween(bool enable)
+	private void EnableClimbOverTween(LeanTweenPath _path, LeanTweenVisual _tween, bool enable)
 	{
 		// Enable climbing tween and path
-		tween.enabled = enable;
-		path.gameObject.SetActive(enable);
+		_tween.enabled = enable;
+		_path.gameObject.SetActive(enable);
 	}
+
+	// Set the vine so we can measure the 
+	// character's position against it
+	public void SetVineMeshBounds(Transform _vine)
+	{
+		vineMeshBounds = _vine.GetComponent<MeshFilter>().mesh.bounds;
+	}
+
 }

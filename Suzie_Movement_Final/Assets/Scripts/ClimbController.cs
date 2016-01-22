@@ -15,7 +15,8 @@ public class ClimbController : MonoBehaviour
 	
 	// Gravity pulling the player into the climb collider
 	public float gravity = 50.0f;
-	
+	public float gravityMultiplier = 20.0f;
+
 	// The threshold, to discard some of the normal value variations
 	public float threshold = 0.009f;
 
@@ -52,7 +53,6 @@ public class ClimbController : MonoBehaviour
 
 		ComponentActivator.Instance.Register(this, new Dictionary<GameEvent, bool> { 
 
-			//{ GameEvent.StartEdgeClimbing, true },
 			{ GameEvent.ClimbColliderDetected, true},
 			{ GameEvent.StopEdgeClimbing, false },
 			{ GameEvent.FinishClimbOver, false },
@@ -65,19 +65,22 @@ public class ClimbController : MonoBehaviour
 	{
 		if (charState.IsEdgeClimbing())
 		{
-		 	
-			//if the ray has hit something
-			if(Physics.Raycast(leftHand.position, transform.forward, out hit, 0.5f, layerMask))//cast the ray 5 units at the specified direction  
+		 
+			//cast the ray 5 units at the specified direction  	
+			if(Physics.Raycast(leftHand.position, transform.forward, out hit, 0.5f, layerMask))
 			{  
 				print("hit");
 				Vector3 hitPoint = new Vector3(hit.point.x, leftHand.position.y, hit.point.z);
 				Debug.DrawLine(leftHand.position, hitPoint, Color.red);
+				
 				print(Vector3.Distance(leftHand.position, hitPoint));
 				gravity = Vector3.Distance(leftHand.position, hitPoint);
-
+				//gravity = hitPoint - leftHand.position;
+				//Debug.Break();
+				
 				//Debug.LogError("Pause");
 
-//				//if the current goTransform.up.z value has passed the threshold test
+//				//if the current transform's forward z value has passed the threshold test
 				if(oldNormal.z >= transform.forward.z + threshold || oldNormal.z <= transform.forward.z - threshold)
 				{
 					//smoothly match the player's forward with the inverse of the normal
@@ -93,7 +96,7 @@ public class ClimbController : MonoBehaviour
 				StopClimbing(GameEvent.StopClimbing);
 			} 
 
-			moveDirection = new Vector3(InputController.h * speed, 0, gravity)  * Time.deltaTime; 
+			moveDirection = new Vector3(InputController.h * speed, 0, gravity * gravityMultiplier)  * Time.deltaTime; 
 			moveDirection = transform.TransformDirection(moveDirection);
 	
 			animator.SetFloat("HorEdgeClimbDir", InputController.h);

@@ -129,8 +129,9 @@ public class RomanCharController : MonoBehaviour {
 			animator.SetFloat (anim_Speed, 0);
 		}
 			
-		TurnCharToCamera();
-		
+		//TurnCharToCamera();
+		moveDirectionRaw = Quaternion.LookRotation(new Vector3(cam.forward.x, 0, cam.forward.z)) * moveDirectionRaw;
+
 		if (charState.IsIdle())
 		{
 			if (moveDirectionRaw != Vector3.zero)
@@ -400,7 +401,7 @@ public class RomanCharController : MonoBehaviour {
 			OrientCapsuleCollider(true);
 			ResetYRotation();
 
-			animator.SetBool (anim_sprintJump, false);					// Reset sprint jump trigger, Sometimes it gets stuck
+			animator.SetBool (anim_sprintJump, false);					        // Reset sprint jump trigger, Sometimes it gets stuck
 
 			if (!charState.IsSprintFalling())
 				animator.SetBool (anim_sprintModDown, false);					// Reset sprint modifer trigger, Sometimes it gets stuck

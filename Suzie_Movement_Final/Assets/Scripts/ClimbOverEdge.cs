@@ -58,11 +58,11 @@ public class ClimbOverEdge : MonoBehaviour {
 	{
 		if (charState.IsVineClimbing() && vineMeshBounds != null)
 		{
-			Vector3 bottomVinePos = vineMeshBounds.center.y + vineMeshBounds.extents.y;
-			if (transform.position.y < bottomVinePos.y)
-			{
-				print("Squirrel is beneath the vine");
-			}
+			//Vector3 bottomVinePos = vineMeshBounds.center.y + vineMeshBounds.extents.y;
+//			if (transform.position.y < bottomVinePos.y)
+//			{
+//				print("Squirrel is beneath the vine");
+//			}
 		}
 	}
 	
@@ -124,7 +124,7 @@ public class ClimbOverEdge : MonoBehaviour {
 	// character's position against it
 	public void SetVineMeshBounds(Transform _vine)
 	{
-		vineMeshBounds = _vine.GetComponent<MeshFilter>().mesh.bounds;
+		//vineMeshBounds = _vine.GetComponent<MeshFilter>().mesh.bounds;
 	}
 
 }

@@ -27,7 +27,7 @@ public class GameManager : MonoBehaviour {
 			Destroy(this);
 		
 		charState = GameObject.FindObjectOfType<RomanCharState> ();
-		camScript = GameObject.FindObjectOfType<RomanCameraController> ();
+		//camScript = GameObject.FindObjectOfType<RomanCameraController> ();
 		climbDetector = GameObject.FindObjectOfType<ClimbDetector> ();
 		follow = GameObject.FindObjectOfType<FollowPlayer>();
 	
@@ -47,7 +47,7 @@ public class GameManager : MonoBehaviour {
 				GameObject.FindGameObjectWithTag("Player").transform.position = GameObject.FindGameObjectWithTag("CliffSpawnSpot").transform.position;
 			}
 
-			GUI.Button(new Rect(Screen.width - 150, 120, 170, 30), "CamState: " + camScript.state);
+			//GUI.Button(new Rect(Screen.width - 150, 120, 170, 30), "CamState: " + camScript.state);
 
 			if (GUI.Button(new Rect(Screen.width - 150, 150, 170, 30), "Quit"))
 			{

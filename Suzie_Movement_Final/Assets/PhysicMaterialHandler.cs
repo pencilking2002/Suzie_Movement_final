@@ -58,16 +58,17 @@ public class PhysicMaterialHandler : MonoBehaviour {
 	{
 		if (gEvent == GameEvent.Land)
 		{
-			origin = cCollider.bounds.center - cCollider.bounds.extents;
 			
+			//origin = cCollider.bounds.center - cCollider.bounds.extents;
+			origin = transform.position;
 			ray = new Ray(origin, Vector3.down);
 			
-			Debug.DrawLine (origin, origin + new Vector3(0, -groundRayLenth, 0), Color.green);
-			
+			Debug.DrawLine (origin, origin + new Vector3(0, -groundRayLenth, 0), Color.red);
+			//Debug.Break();
 			//Debug.LogError("blah");
 			if (Physics.Raycast (ray, out hit, groundRayLenth))
 			{
-				//print ("is on ground");
+				print ("is on ground");
 				hit.collider.material = groundMaterial;
 				
 			}

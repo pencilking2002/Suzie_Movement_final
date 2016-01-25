@@ -128,7 +128,9 @@ public class RomanCharController : MonoBehaviour {
 		{ 
 			animator.SetFloat (anim_Speed, 0);
 		}
-			
+
+		print(speed);	
+
 		//TurnCharToCamera();
 		moveDirectionRaw = Quaternion.LookRotation(new Vector3(cam.forward.x, 0, cam.forward.z)) * moveDirectionRaw;
 
@@ -314,6 +316,11 @@ public class RomanCharController : MonoBehaviour {
 				//holdShift = false;
 				animator.SetBool(anim_sprintModDown, false);
 			}
+		}
+
+		else if (charState.IsSprinting() && gameEvent == GameEvent.SprintModifierUp)
+		{
+			animator.SetBool(anim_sprintModDown, false);
 		}
 	}
 	

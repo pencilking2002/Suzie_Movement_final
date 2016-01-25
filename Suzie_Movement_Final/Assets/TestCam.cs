@@ -24,6 +24,7 @@ public class TestCam : MonoBehaviour
 
 	// temp climb vars
 	private Vector3 rightDir;
+	private Vector3 backwardsDir;
 	private Vector3 camDir;
 	private float dot;
 
@@ -76,6 +77,7 @@ public class TestCam : MonoBehaviour
 			if (GameManager.Instance.charState.IsClimbing())
 			{ 
 				rightDir = follow.right * -offset.z;
+				backwardsDir = follow.forward * -offset.z;
 				camDir = transform.position - follow.position;
 				dot = Vector3.Dot(rightDir.normalized, camDir.normalized);
 		
@@ -83,8 +85,10 @@ public class TestCam : MonoBehaviour
 //				Debug.DrawRay(follow.position, camDir, Color.red);
 
 				if (dot > climbXClampThreshold && xSpeed > 0 || dot < -climbXClampThreshold && xSpeed < 0)
-					xSpeed = 0;	
-
+				{
+					xSpeed = 0;
+					//transform.RotateAround(follow.position, Vector3.up, Vector3.Angle(backwardsDir, camDir));
+				}
 			}
 			// Handle camera going exceeding min and max positions
 			if (transform.position.y <= currentMinY - 0.1f)

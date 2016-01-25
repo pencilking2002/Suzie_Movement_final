@@ -6,6 +6,7 @@ using System.Collections;
 public class TestCam : MonoBehaviour 
 {
 	public Vector3 offset = new Vector3(0, 2, 5);
+	public float climbXClampThreshold = 0.7f;
 
 	private Transform follow;
 	private Vector3 targetPosition;
@@ -15,10 +16,17 @@ public class TestCam : MonoBehaviour
 	private float rotVel;
 	private Vector3 initialAngle;
 
+
 	private float currentMaxY;
 	private float currentMinY;
 	private float lastYSpeed;
 	private float lastXSpeed;
+
+	// temp climb vars
+	private Vector3 rightDir;
+	private Vector3 camDir;
+	private float dot;
+
 //	private Vector3 collVel;
 //
 //	public float collRayLength = 2.0f;
@@ -52,15 +60,32 @@ public class TestCam : MonoBehaviour
 			xSpeed = Mathf.SmoothDamp (xSpeed, InputController.orbitH * 5, ref rotVel, Time.deltaTime);
 			ySpeed = Mathf.SmoothDamp (ySpeed, InputController.orbitV * 5, ref rotVel, Time.deltaTime);
 
+
 			// Make the camera follow the Follow GO like its a string attached to it
 			targetPosition = follow.position + Vector3.Normalize(follow.position - transform.position) * -offset.z;
 
+			// climbing 
 
 			transform.position = Vector3.Lerp(transform.position, targetPosition, 20.0f * Time.deltaTime);
 
 			// limit the mouse's Y posiiton. Make sure to invert the Y
 			ySpeed = (transform.position.y <= currentMinY && ySpeed > 0) || (transform.position.y >= currentMaxY && ySpeed < 0) ? 0 : -ySpeed;
+
+			// ============== Climb X clamping =============== //
+
+			if (GameManager.Instance.charState.IsClimbing())
+			{ 
+				rightDir = follow.right * -offset.z;
+				camDir = transform.position - follow.position;
+				dot = Vector3.Dot(rightDir.normalized, camDir.normalized);
 		
+//				Debug.DrawRay(follow.position, rightDir, Color.green);
+//				Debug.DrawRay(follow.position, camDir, Color.red);
+
+				if (dot > climbXClampThreshold && xSpeed > 0 || dot < -climbXClampThreshold && xSpeed < 0)
+					xSpeed = 0;	
+
+			}
 			// Handle camera going exceeding min and max positions
 			if (transform.position.y <= currentMinY - 0.1f)
 				transform.position = Vector3.Lerp(transform.position, new Vector3(transform.position.x, currentMinY, transform.position.z), 10.0f * Time.deltaTime);
@@ -138,8 +163,8 @@ public class TestCam : MonoBehaviour
 //		Gizmos.DrawSphere(new Vector3(transform.position.x, currentMaxY, transform.position.z), 0.2f);
 
 
-        Gizmos.color = Color.green;
-		Gizmos.DrawSphere(transform.position, collRayLength);
+ //       Gizmos.color = Color.green;
+//		Gizmos.DrawSphere(transform.position, collRayLength);
     }
 
 }

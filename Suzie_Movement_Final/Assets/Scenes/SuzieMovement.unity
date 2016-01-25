@@ -1294,7 +1294,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 175089776}
-  m_LocalRotation: {x: 0.0000014305114, y: -0.7071071, z: -0.0000014752146, w: 0.70710653}
+  m_LocalRotation: {x: 0.0000014305112, y: -0.70710707, z: -0.0000014752146, w: 0.7071065}
   m_LocalPosition: {x: 0, y: 0, z: -0}
   m_LocalScale: {x: 0.21206006, y: 0.2120598, z: 0.21206011}
   m_Children:
@@ -3065,7 +3065,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 508973835}
-  m_LocalRotation: {x: 0.47447285, y: -0.5242856, z: 0.47447187, w: 0.5242867}
+  m_LocalRotation: {x: 0.4744729, y: -0.5242856, z: 0.4744719, w: 0.52428675}
   m_LocalPosition: {x: 0.57, y: 2.64, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.25}
   m_Children: []
@@ -3134,7 +3134,6 @@ GameObject:
   - 124: {fileID: 518505462}
   - 81: {fileID: 518505461}
   - 114: {fileID: 518505469}
-  - 54: {fileID: 518505467}
   - 65: {fileID: 518505466}
   m_Layer: 11
   m_Name: Main Camera
@@ -3219,25 +3218,10 @@ BoxCollider:
   m_GameObject: {fileID: 518505460}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!54 &518505467
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 518505460}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 0
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!114 &518505469
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3250,7 +3234,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   offset: {x: 0, y: 1.6, z: 5}
-  collRayLength: 2
+  climbXClampThreshold: 0.7
 --- !u!1 &520948397
 GameObject:
   m_ObjectHideFlags: 0
@@ -5675,7 +5659,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 995823421}
-  m_LocalRotation: {x: 0.0000014305112, y: -0.70710707, z: -0.0000014752146, w: 0.7071065}
+  m_LocalRotation: {x: 0.0000014305114, y: -0.7071071, z: -0.0000014752146, w: 0.70710653}
   m_LocalPosition: {x: 0, y: 0, z: -0}
   m_LocalScale: {x: 0.2120598, y: 0.21205981, z: 0.21205983}
   m_Children:
@@ -10664,7 +10648,6 @@ MonoBehaviour:
   gravity: 50
   gravityMultiplier: 40
   threshold: 0.007
-  leftHand: {fileID: 1634631395}
 --- !u!114 &1756476990
 MonoBehaviour:
   m_ObjectHideFlags: 0

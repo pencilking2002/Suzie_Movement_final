@@ -20,8 +20,8 @@ public class ClimbController : MonoBehaviour
 	// The threshold, to discard some of the normal value variations
 	public float threshold = 0.009f;
 
-	public Transform leftHand;
-
+	//public Transform leftHand;
+	private CapsuleCollider cCollider;
 	private Animator animator;
 	private CharacterController cController;
 	private Rigidbody rb;
@@ -50,7 +50,7 @@ public class ClimbController : MonoBehaviour
 		charState = GetComponent<RomanCharState>();
 		animator = GetComponent<Animator>();
 		cController = GetComponent<CharacterController>();
-
+		cCollider = GetComponent<CapsuleCollider>();
 		ComponentActivator.Instance.Register(this, new Dictionary<GameEvent, bool> { 
 
 			{ GameEvent.ClimbColliderDetected, true},
@@ -67,14 +67,16 @@ public class ClimbController : MonoBehaviour
 		{
 		 
 			//cast the ray 5 units at the specified direction  	
-			if(Physics.Raycast(leftHand.position, transform.forward, out hit, 0.5f, layerMask))
+			if(Physics.Raycast(cCollider.bounds.center, transform.forward, out hit, 0.5f, layerMask))
 			{  
-				print("hit");
-				Vector3 hitPoint = new Vector3(hit.point.x, leftHand.position.y, hit.point.z);
-				Debug.DrawLine(leftHand.position, hitPoint, Color.red);
+				Vector3 center = cCollider.bounds.center;
+
+				//print("hit");
+				Vector3 hitPoint = new Vector3(hit.point.x, center.y, hit.point.z);
+				Debug.DrawLine(center, hitPoint, Color.red);
 				
-				print(Vector3.Distance(leftHand.position, hitPoint));
-				gravity = Vector3.Distance(leftHand.position, hitPoint);
+				//print(Vector3.Distance(leftHand.position, hitPoint));
+				gravity = Vector3.Distance(new Vector3(center.x, center.y, center.z + cCollider.bounds.extents.z), hitPoint);
 				//gravity = hitPoint - leftHand.position;
 				//Debug.Break();
 				
@@ -93,7 +95,7 @@ public class ClimbController : MonoBehaviour
 			} 
 			else
 			{
-				StopClimbing(GameEvent.StopClimbing);
+				StopClimbing(GameEvent.StopEdgeClimbing);
 			} 
 
 			moveDirection = new Vector3(InputController.h * speed, 0, gravity * gravityMultiplier)  * Time.deltaTime; 
@@ -157,6 +159,7 @@ public class ClimbController : MonoBehaviour
 			rb.isKinematic = false;
 			animator.SetTrigger("StopClimbing");
 			cController.enabled = false;
+			print("stop climbing");
 		}
 	}
 

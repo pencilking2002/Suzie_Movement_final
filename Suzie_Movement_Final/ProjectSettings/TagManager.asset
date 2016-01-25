@@ -28,7 +28,7 @@ TagManager:
   - Ground
   - ClimbColliders
   - EdgeClimbColliders
-  - 
+  - MainCamera
   - CamClamp
   - 
   - VineCollider

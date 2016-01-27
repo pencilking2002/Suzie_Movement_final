@@ -66,7 +66,9 @@ public class RomanCharController : MonoBehaviour {
 	//private bool holdShift = false;
 	private float speed;					// Temp var for locomotion 
 	private Vector3 vel;					// Temp vector for calculating forward velocity while jumping
-	
+
+	private VineClimbController2 vineClimbCollider;
+
 	// Animator hashes - for optimization
 	int anim_Speed = Animator.StringToHash("Speed");
 	int anim_Falling = Animator.StringToHash("Falling");
@@ -96,6 +98,7 @@ public class RomanCharController : MonoBehaviour {
 		cam = Camera.main.transform;
 		cController = GetComponent<CharacterController>();
 		cCollider = GetComponent<CapsuleCollider>();
+		vineClimbCollider = GetComponent<VineClimbController2>();
 	}
 
 	
@@ -299,6 +302,7 @@ public class RomanCharController : MonoBehaviour {
 		{
 			cController.enabled = false;
 			rb.isKinematic = false;
+			vineClimbCollider.detached = false;
 		}
 	}
 	

@@ -9,7 +9,7 @@ public class VineClimbController2 : MonoBehaviour {
 	public float attachForwardSpeed = 40.0f;								// How quickly the character moves towards the vine when they	
 	public float maxTimeBeforeCanReattach = 1f;								// The amount of time that has to pass before the character can re-attach on to th vine
 	private Vector3 distToVine = Vector3.zero;
-	private bool detached = false;											// Has the character detached from the vine?
+	[HideInInspector] public bool detached = false;											// Has the character detached from the vine?
 
 	// Points and objects needed for vine climbing operations
 	public Transform vineAttachPoint = null;
@@ -67,11 +67,6 @@ public class VineClimbController2 : MonoBehaviour {
 //				StopVineClimbing(GameEvent.StopVineClimbing);
 //			}
 
-			if (vineClimbOverPoint.position.y > vineTopPointY)
-			{
-				print("Squirrel above collider");
-				EventManager.OnCharEvent(GameEvent.ClimbOverEdge);
-			}
 
 			vinePos = new Vector3(vine.position.x, vineAttachPoint.position.y, vine.position.z);
 			distToVine = vinePos - vineAttachPoint.position;
@@ -85,15 +80,29 @@ public class VineClimbController2 : MonoBehaviour {
 				rb.centerOfMass = vineAttachPoint.position;
 				rb.MoveRotation(Quaternion.Lerp(rb.rotation, Quaternion.LookRotation(-vine.transform.forward, Vector3.up), 1.5f * Time.deltaTime));
 			}
+
+			if (vineClimbOverPoint.position.y > vineTopPointY)
+			{
+				print("Squirrel above collider");
+				EventManager.OnCharEvent(GameEvent.ClimbOverEdge);
+				ResetVineData();
+			}
 		}
 	}
 
 	// Setup the characte for attaching to the vine
 	private void OnTriggerEnter (Collider coll)
 	{
+		//print("blah");
+//		print("Component active" + this.enabled);
+//		print("collider layer: " + coll.gameObject.layer);
+//		print("charState: " + GameManager.Instance.charState.GetState());
+//		print("detached: " + detached);
+
+		//Debug.Break();
 		if (coll.gameObject.layer == 14 && !GameManager.Instance.charState.IsVineClimbing() && !detached)
 		{
-
+			
 			EventManager.OnCharEvent(GameEvent.StartVineClimbing);
 			GameManager.Instance.charState.SetState(RomanCharState.State.VineAttaching);
 
@@ -120,14 +129,15 @@ public class VineClimbController2 : MonoBehaviour {
 
 	private void OnEnable ()
 	{
+		
 		EventManager.onInputEvent += StopVineClimbing;
-		EventManager.onCharEvent += ResetDetached;
+		//EventManager.onCharEvent += ResetDetached;
 	}
 
 	private void OnDisable ()
 	{
 		EventManager.onInputEvent -= StopVineClimbing;
-		EventManager.onCharEvent -= ResetDetached;
+		//EventManager.onCharEvent -= ResetDetached;
 	}
 
 
@@ -135,7 +145,6 @@ public class VineClimbController2 : MonoBehaviour {
 	{
 		if (gEvent == GameEvent.StopVineClimbing && GameManager.Instance.charState.IsVineClimbing())
 		{
-			detached = true;
 			print("stop vine climbing");
 			transform.parent = null;
 			rb.isKinematic = false;
@@ -145,13 +154,15 @@ public class VineClimbController2 : MonoBehaviour {
 		}
 	}
 
-	private void ResetDetached(GameEvent gEvent)
-	{
-		if (gEvent == GameEvent.Land)
-			detached = false;
-	}
+//	private void ResetDetached(GameEvent gEvent)
+//	{
+//		if (gEvent == GameEvent.Land)
+//		{
+//			detached = false;
+//		}
+//	}
 
-	private void ResetVineData()
+	public void ResetVineData()
 	{
 		// Reset all vine variables when char climbs over
 		vine = null;
@@ -159,6 +170,8 @@ public class VineClimbController2 : MonoBehaviour {
 		vineCollider = null;
 		vineTopPointY = 0;
 		vineBottomPointY = 0;
+		detached = true;
+		print("vine data reset");
 }
 
 	void OnDrawGizmos()

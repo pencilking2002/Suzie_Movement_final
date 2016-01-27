@@ -27,21 +27,17 @@ public class TestCam : MonoBehaviour
 	private Vector3 backwardsDir;
 	private Vector3 camDir;
 	private float dot;
+	private Vector3 climbRotVel;
 
-//	private Vector3 collVel;
-//
-//	public float collRayLength = 2.0f;
-//
-//	private LayerMask ignoreCamLayerMask = ~1 << 11;
-//
-//	private Vector3 tempCollisionPos = Vector3.zero;
-//	private bool colliding = false;
-//	private float timeOfCollision;
-//	private float collisionCheckTimer = 3.0f;
 
-	//private Ray[] forwardRay, backwardsRay, rightRay, leftRay, topRay, bottomRay;
-//	private Ray[] rayArr = new Ray[6];
-//	private RaycastHit hit;
+	public enum CamState
+	{
+		Free,
+		ClimbingTransition
+	}
+	
+	[HideInInspector]
+	public CamState state = CamState.Free;
 
 	private void Start ()
 	{
@@ -51,112 +47,101 @@ public class TestCam : MonoBehaviour
 
 	private void LateUpdate()
 	{
-//		if (!colliding)
-//		{
-			// Get the min/max positions the camera should not exceed
-			currentMinY = follow.position.y - offset.y;
-			currentMaxY = follow.position.y + offset.y;
+		switch(state)
+		{
+			case CamState.Free:
 
-			// Get the mouse velocities
-			xSpeed = Mathf.SmoothDamp (xSpeed, InputController.orbitH * 5, ref rotVel, Time.deltaTime);
-			ySpeed = Mathf.SmoothDamp (ySpeed, InputController.orbitV * 5, ref rotVel, Time.deltaTime);
+				// Get the min/max positions the camera should not exceed
+				currentMinY = follow.position.y - offset.y;
+				currentMaxY = follow.position.y + offset.y;
+
+				// Get the mouse velocities
+				xSpeed = Mathf.SmoothDamp (xSpeed, InputController.orbitH * 5, ref rotVel, Time.deltaTime);
+				ySpeed = Mathf.SmoothDamp (ySpeed, InputController.orbitV * 5, ref rotVel, Time.deltaTime);
 
 
-			// Make the camera follow the Follow GO like its a string attached to it
-			targetPosition = follow.position + Vector3.Normalize(follow.position - transform.position) * -offset.z;
+				// Make the camera follow the Follow GO like its a string attached to it
+				targetPosition = follow.position + Vector3.Normalize(follow.position - transform.position) * -offset.z;
 
-			// climbing 
+				// climbing 
 
-			transform.position = Vector3.Lerp(transform.position, targetPosition, 20.0f * Time.deltaTime);
+				transform.position = Vector3.Lerp(transform.position, targetPosition, 20.0f * Time.deltaTime);
 
-			// limit the mouse's Y posiiton. Make sure to invert the Y
-			ySpeed = (transform.position.y <= currentMinY && ySpeed > 0) || (transform.position.y >= currentMaxY && ySpeed < 0) ? 0 : -ySpeed;
+				// limit the mouse's Y posiiton. Make sure to invert the Y
+				ySpeed = (transform.position.y <= currentMinY && ySpeed > 0) || (transform.position.y >= currentMaxY && ySpeed < 0) ? 0 : -ySpeed;
 
-			// ============== Climb X clamping =============== //
+				// ============== Climb X clamping =============== //
 
-			if (GameManager.Instance.charState.IsClimbing())
-			{ 
-				rightDir = follow.right * -offset.z;
-				backwardsDir = follow.forward * -offset.z;
-				camDir = transform.position - follow.position;
-				dot = Vector3.Dot(rightDir.normalized, camDir.normalized);
-		
-//				Debug.DrawRay(follow.position, rightDir, Color.green);
-//				Debug.DrawRay(follow.position, camDir, Color.red);
-
-				if (dot > climbXClampThreshold && xSpeed > 0 || dot < -climbXClampThreshold && xSpeed < 0)
-				{
-					xSpeed = 0;
-					//transform.RotateAround(follow.position, Vector3.up, Vector3.Angle(backwardsDir, camDir));
-				}
-			}
-			// Handle camera going exceeding min and max positions
-			if (transform.position.y <= currentMinY - 0.1f)
-				transform.position = Vector3.Lerp(transform.position, new Vector3(transform.position.x, currentMinY, transform.position.z), 10.0f * Time.deltaTime);
-		
-			else if (transform.position.y >= currentMaxY + 0.1f)
-				transform.position = Vector3.Lerp(transform.position, new Vector3(transform.position.x, currentMaxY, transform.position.z), 10.0f * Time.deltaTime);
-
+				if (GameManager.Instance.charState.IsClimbing())
+				{ 
+					rightDir = follow.right * -offset.z;
+					backwardsDir = follow.forward * -offset.z;
+					camDir = transform.position - follow.position;
+					dot = Vector3.Dot(rightDir.normalized, camDir.normalized);
 			
-//		}
+		//				Debug.DrawRay(follow.position, rightDir, Color.green);
+		//				Debug.DrawRay(follow.position, camDir, Color.red);
 
-		// Rotate the mouse around the X and Y
-		transform.RotateAround (follow.position, transform.right, Mathf.Lerp(lastYSpeed, ySpeed, 20.0f * Time.deltaTime));
-		transform.RotateAround (follow.position, Vector3.up, Mathf.Lerp(lastXSpeed, xSpeed, 20.0f * Time.deltaTime));
-		transform.LookAt (follow);
+					if (dot > climbXClampThreshold && xSpeed > 0 || dot < -climbXClampThreshold && xSpeed < 0)
+					{
+						xSpeed = 0;
+					}
+				}
+				// Handle camera going exceeding min and max positions
+				if (transform.position.y <= currentMinY - 0.1f)
+					transform.position = Vector3.Lerp(transform.position, new Vector3(transform.position.x, currentMinY, transform.position.z), 10.0f * Time.deltaTime);
+			
+				else if (transform.position.y >= currentMaxY + 0.1f)
+					transform.position = Vector3.Lerp(transform.position, new Vector3(transform.position.x, currentMaxY, transform.position.z), 10.0f * Time.deltaTime);
+				
+				// Rotate the mouse around the X and Y
+				transform.RotateAround (follow.position, transform.right, Mathf.Lerp(lastYSpeed, ySpeed, 20.0f * Time.deltaTime));
+				transform.RotateAround (follow.position, Vector3.up, Mathf.Lerp(lastXSpeed, xSpeed, 20.0f * Time.deltaTime));
+				transform.LookAt (follow);
+					 				
+				lastYSpeed = ySpeed;
+				lastXSpeed = xSpeed;
+				break;
 
-//		rayArr[0] = new Ray(transform.position, transform.forward);	  // forwardRay
-//		rayArr[1] = new Ray(transform.position, -transform.forward);	  // backwardsRay
-//		rayArr[2] = new Ray(transform.position, -transform.right);	  // leftRay
-//		rayArr[3] = new Ray(transform.position, transform.right);	  // rightRay
-//		rayArr[4] = new Ray(transform.position, transform.up);        // topRay
-//		rayArr[5] = new Ray(transform.position, -transform.up);       // bottomRay
-//
-//
-//		tempCollisionPos = Vector3.zero;
-//		colliding = false;
-//		for (int i=0; i<rayArr.Length; i++)
-//		{
-//			if (tempCollisionPos == Vector3.zero && Time.time > timeOfCollision + collisionCheckTimer && Physics.Raycast(rayArr[i].origin, rayArr[i].direction, out hit, collRayLength))
-//			{
-//				Debug.DrawRay(rayArr[i].origin, rayArr[i].direction, Color.red);
-//
-//				//colliding = true;
-//				if (hit.collider.gameObject.layer != 8)
-//				{	print ("Colliding with " + hit.collider.name);
-//					tempCollisionPos = transform.position; //tempCollisionPos = hit.point;
-//					colliding = true;
-//					timeOfCollision = Time.time;
-//				}
-//			}
-//		}
-//
-//		if (!colliding)
-//		{
-//			print("not collider");
-//		}
-//		else
-//		{
-//			print("colliding");
-//		}
-//
-//		if (tempCollisionPos != Vector3.zero)
-//			transform.position = Vector3.SmoothDamp(transform.position, tempCollisionPos + Vector3.up * 2.0f, ref collVel, 10.0f * Time.deltaTime);
-	
+			case CamState.ClimbingTransition:
 
+				Vector3 targetPos = follow.position + follow.forward * -offset.z;
+				transform.position = Vector3.SmoothDamp(transform.position, targetPos, ref climbRotVel, 20.0f * Time.deltaTime);
+				transform.LookAt(follow);
 
-		//Collider[] hitCollider = Physics.OverlapSphere(transform.position, 0.5f, ignoreCamLayerMask);
+				if (transform.position.x > targetPos.x - 0.01f && transform.position.x < targetPos.x + 0.01f)
+				{
+					print("finished");
+					SetState(CamState.Free);
+				}
 
-		// loop over each collider
+				break;
+		}
 
-		// If you find one, get the direction
-
-			 				
-		lastYSpeed = ySpeed;
-		lastXSpeed = xSpeed;
 
 	}
 
+	private void OnEnable ()
+	{
+		EventManager.onCharEvent += SetCameraMode;
+	}
+	
+	private void OnDisable()
+	{
+		EventManager.onCharEvent -= SetCameraMode;
+	}
+
+	private void SetCameraMode (GameEvent gEvent)
+	{
+		if (gEvent == GameEvent.StartEdgeClimbing || gEvent == GameEvent.StartVineClimbing)
+		{
+			SetState(CamState.ClimbingTransition);
+		}
+	}
+
+
+	private void SetState (CamState s) { state = s; }
+	private CamState GetState() { return state; }
 
 	void OnDrawGizmosSelected() 
 	{

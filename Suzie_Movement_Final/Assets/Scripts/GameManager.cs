@@ -13,7 +13,7 @@ public class GameManager : MonoBehaviour {
 	private RomanCameraController camScript;
 	private ClimbDetector climbDetector;
 	private FollowPlayer follow;
-	
+	private VineClimbController2 vineClimbCollider;
 
 	private void Awake ()
 	{
@@ -30,7 +30,8 @@ public class GameManager : MonoBehaviour {
 		//camScript = GameObject.FindObjectOfType<RomanCameraController> ();
 		climbDetector = GameObject.FindObjectOfType<ClimbDetector> ();
 		follow = GameObject.FindObjectOfType<FollowPlayer>();
-	
+		vineClimbCollider = GameObject.FindObjectOfType<VineClimbController2>();
+
 	}
 
 	#if UNITY_EDITOR
@@ -70,6 +71,10 @@ public class GameManager : MonoBehaviour {
 			{
 				GameObject.FindGameObjectWithTag("Player").transform.position = GameObject.FindGameObjectWithTag("StartClimbSpot").transform.position;
 			}
+
+			GUI.Button(new Rect(Screen.width - 150, 320, 170, 30), "Detached: " + vineClimbCollider.detached);
+
+
 		}
 	}
 	

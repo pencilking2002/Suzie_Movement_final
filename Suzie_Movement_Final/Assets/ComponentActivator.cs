@@ -41,14 +41,14 @@ public class ComponentActivator : MonoBehaviour {
 	private void OnEnable()
 	{
 		EventManager.onCharEvent += onChar;
-		//EventManager.onInputEvent += onInput;
+		EventManager.onInputEvent += onInput;
 		EventManager.onDetectEvent += onDetect;
 	}
 
 	private void OnDisable()
 	{
 		EventManager.onCharEvent -= onChar;
-		//EventManager.onInputEvent -= onInput;
+		EventManager.onInputEvent -= onInput;
 		EventManager.onDetectEvent -= onDetect;
 	}
 
@@ -57,10 +57,10 @@ public class ComponentActivator : MonoBehaviour {
 		ActivationHandler(gEvent);
 	}
 
-//	private void onInput (GameEvent gEvent)
-//	{
-//		ActivationHandler(gEvent);
-//	}
+	private void onInput (GameEvent gEvent)
+	{
+		ActivationHandler(gEvent);
+	}
 
 	private void onDetect (GameEvent gEvent, RaycastHit hit)
 	{

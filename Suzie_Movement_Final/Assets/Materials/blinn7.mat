@@ -6,11 +6,11 @@ Material:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: EditingMesh6_SuzieAllBonesPaintingWeights11_SuzieFullBeforeBinding_Suzie_Base_Base_with_tail_skull_belt_retopo_lambert20
-  m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
-  m_ShaderKeywords: 
+  m_Name: blinn7
+  m_Shader: {fileID: 4800000, guid: dd496457a855aa341b0d7b7b475a7a3a, type: 3}
+  m_ShaderKeywords: OUTLINES TCP2_BUMP TCP2_ZSMOOTH_ON _NORMALMAP
   m_LightmapFlags: 5
-  m_CustomRenderQueue: -1
+  m_CustomRenderQueue: 2000
   stringTagMap: {}
   m_SavedProperties:
     serializedVersion: 2
@@ -19,14 +19,14 @@ Material:
         first:
           name: _MainTex
         second:
-          m_Texture: {fileID: 0}
+          m_Texture: {fileID: 2800000, guid: eaa632f48057840cb99fef069d04c2a9, type: 3}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
       data:
         first:
           name: _BumpMap
         second:
-          m_Texture: {fileID: 0}
+          m_Texture: {fileID: 2800000, guid: d72892cc68501469cab17d132409fe73, type: 3}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
       data:
@@ -47,7 +47,7 @@ Material:
         first:
           name: _OcclusionMap
         second:
-          m_Texture: {fileID: 0}
+          m_Texture: {fileID: 2800000, guid: 346d0168dafda420288e6b091e6a285f, type: 3}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
       data:
@@ -78,6 +78,13 @@ Material:
           m_Texture: {fileID: 0}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _Ramp
+        second:
+          m_Texture: {fileID: 2800000, guid: a54a836f027df3f4a8d894236589b700, type: 3}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
     m_Floats:
       data:
         first:
@@ -93,6 +100,10 @@ Material:
         second: 0.5
       data:
         first:
+          name: _Shininess
+        second: 0.14
+      data:
+        first:
           name: _Parallax
         second: 0.02
       data:
@@ -102,7 +113,7 @@ Material:
       data:
         first:
           name: _Glossiness
-        second: 0.5
+        second: 0.096
       data:
         first:
           name: _BumpScale
@@ -127,6 +138,38 @@ Material:
         first:
           name: _Metallic
         second: 0
+      data:
+        first:
+          name: _RampThreshold
+        second: 0.762
+      data:
+        first:
+          name: _RampSmooth
+        second: 0.472
+      data:
+        first:
+          name: _Outline
+        second: 0.94
+      data:
+        first:
+          name: _TexLod
+        second: 5
+      data:
+        first:
+          name: _ZSmooth
+        second: 1.63
+      data:
+        first:
+          name: _Offset1
+        second: 0
+      data:
+        first:
+          name: _Offset2
+        second: 0
+      data:
+        first:
+          name: _SpecSmooth
+        second: 0
     m_Colors:
       data:
         first:
@@ -135,4 +178,20 @@ Material:
       data:
         first:
           name: _Color
-        second: {r: 0.561, g: 0.561, b: 0.561, a: 1}
+        second: {r: 1, g: 1, b: 1, a: 1}
+      data:
+        first:
+          name: _SpecColor
+        second: {r: 1, g: 0.8775862, b: 0.47794116, a: 1}
+      data:
+        first:
+          name: _HColor
+        second: {r: 0.97794116, g: 0.9343008, b: 0.81974477, a: 1}
+      data:
+        first:
+          name: _SColor
+        second: {r: 0.28676468, g: 0.12651382, b: 0.12651382, a: 1}
+      data:
+        first:
+          name: _OutlineColor
+        second: {r: 0, g: 0, b: 0, a: 1}

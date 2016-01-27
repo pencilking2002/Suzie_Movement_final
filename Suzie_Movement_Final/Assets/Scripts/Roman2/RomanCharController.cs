@@ -129,7 +129,7 @@ public class RomanCharController : MonoBehaviour {
 			animator.SetFloat (anim_Speed, 0);
 		}
 
-		print(speed);	
+		//print(speed);	
 
 		//TurnCharToCamera();
 		moveDirectionRaw = Quaternion.LookRotation(new Vector3(cam.forward.x, 0, cam.forward.z)) * moveDirectionRaw;

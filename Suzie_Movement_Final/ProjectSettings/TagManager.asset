@@ -16,6 +16,8 @@ TagManager:
   - RightHand
   - VineTopExit
   - VineBottomExit
+  - VineAttachPoint
+  - VineClimbOverPoint
   layers:
   - Default
   - TransparentFX

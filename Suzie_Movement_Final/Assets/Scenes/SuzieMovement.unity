@@ -1294,7 +1294,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 175089776}
-  m_LocalRotation: {x: 0.0000014305112, y: -0.70710707, z: -0.0000014752146, w: 0.7071065}
+  m_LocalRotation: {x: 0.0000014305114, y: -0.7071071, z: -0.0000014752146, w: 0.70710653}
   m_LocalPosition: {x: 0, y: 0, z: -0}
   m_LocalScale: {x: 0.21206006, y: 0.2120598, z: 0.21206011}
   m_Children:
@@ -1303,7 +1303,7 @@ Transform:
   - {fileID: 520948398}
   - {fileID: 1176066932}
   m_Father: {fileID: 1756476981}
-  m_RootOrder: 3
+  m_RootOrder: 4
 --- !u!1 &189927231
 GameObject:
   m_ObjectHideFlags: 0
@@ -2491,46 +2491,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 368229706}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &374190394
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 374190395}
-  - 65: {fileID: 374190396}
-  m_Layer: 0
-  m_Name: VineBottomExit
-  m_TagString: VineBottomExit
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &374190395
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 374190394}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -1.171, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1995938222}
-  m_RootOrder: 3
---- !u!65 &374190396
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 374190394}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 6.991064, y: 0.08176501, z: 4.015841}
-  m_Center: {x: 0.14596471, y: 0.014149547, z: 1.5079191}
 --- !u!1 &380407083
 GameObject:
   m_ObjectHideFlags: 0
@@ -3065,7 +3025,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 508973835}
-  m_LocalRotation: {x: 0.4744729, y: -0.5242856, z: 0.4744719, w: 0.52428675}
+  m_LocalRotation: {x: 0.47447285, y: -0.5242856, z: 0.47447187, w: 0.5242867}
   m_LocalPosition: {x: 0.57, y: 2.64, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.25}
   m_Children: []
@@ -3342,7 +3302,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1756476981}
-  m_RootOrder: 0
+  m_RootOrder: 1
 --- !u!137 &525467702
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 0
@@ -3665,7 +3625,7 @@ Transform:
   - {fileID: 368229707}
   - {fileID: 1715495132}
   m_Father: {fileID: 1995938222}
-  m_RootOrder: 2
+  m_RootOrder: 1
 --- !u!1 &556897666
 GameObject:
   m_ObjectHideFlags: 0
@@ -4951,7 +4911,7 @@ Transform:
   m_LocalScale: {x: 16.63938, y: 0.77246916, z: 21.112316}
   m_Children: []
   m_Father: {fileID: 1995938222}
-  m_RootOrder: 1
+  m_RootOrder: 0
 --- !u!1 &801575254 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 189598, guid: ed72e9928348a4677b9e8e6fbe6a2df9, type: 2}
@@ -5190,46 +5150,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 14
---- !u!1 &850146752
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 850146753}
-  - 65: {fileID: 850146754}
-  m_Layer: 0
-  m_Name: VineTopExit
-  m_TagString: VineTopExit
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &850146753
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 850146752}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.105, z: -0.55}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1995938222}
-  m_RootOrder: 0
---- !u!65 &850146754
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 850146752}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 6.991064, y: 0.08176501, z: 4.8584037}
-  m_Center: {x: 0.14596486, y: 0.014149427, z: 1.929191}
 --- !u!1 &854177506
 GameObject:
   m_ObjectHideFlags: 0
@@ -5659,7 +5579,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 995823421}
-  m_LocalRotation: {x: 0.0000014305114, y: -0.7071071, z: -0.0000014752146, w: 0.70710653}
+  m_LocalRotation: {x: 0.0000014305112, y: -0.70710707, z: -0.0000014752146, w: 0.7071065}
   m_LocalPosition: {x: 0, y: 0, z: -0}
   m_LocalScale: {x: 0.2120598, y: 0.21205981, z: 0.21205983}
   m_Children:
@@ -5668,7 +5588,7 @@ Transform:
   - {fileID: 508973836}
   - {fileID: 2088469870}
   m_Father: {fileID: 1756476981}
-  m_RootOrder: 2
+  m_RootOrder: 3
 --- !u!114 &995823423
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7534,7 +7454,7 @@ Transform:
   - {fileID: 1492151776}
   - {fileID: 1766840909}
   m_Father: {fileID: 1756476981}
-  m_RootOrder: 1
+  m_RootOrder: 2
 --- !u!1 &1249437087
 GameObject:
   m_ObjectHideFlags: 0
@@ -7786,7 +7706,7 @@ GameObject:
   - 23: {fileID: 1280225198}
   m_Layer: 0
   m_Name: vineAttachPoint
-  m_TagString: Untagged
+  m_TagString: VineAttachPoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10463,6 +10383,7 @@ Transform:
   m_LocalPosition: {x: -2.1, y: 2.64, z: -9.4}
   m_LocalScale: {x: 1.2893474, y: 1.2893474, z: 1.2893474}
   m_Children:
+  - {fileID: 1852889061}
   - {fileID: 525467701}
   - {fileID: 1243315590}
   - {fileID: 995823422}
@@ -10568,7 +10489,6 @@ MonoBehaviour:
   vineClimbSpeed: 2
   attachForwardSpeed: 40
   maxTimeBeforeCanReattach: 0.5
-  vinePos: {x: 0, y: 0, z: 0}
   vineAttachPoint: {fileID: 1280225197}
 --- !u!114 &1756476985
 MonoBehaviour:
@@ -11303,6 +11223,33 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ed72e9928348a4677b9e8e6fbe6a2df9, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &1852889060
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1852889061}
+  m_Layer: 0
+  m_Name: vineClimbOverPoint
+  m_TagString: VineClimbOverPoint
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1852889061
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1852889060}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0, y: 0.755, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1756476981}
+  m_RootOrder: 0
 --- !u!1 &1856025517 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 100000, guid: 441f7013fe433458fbab038c3f65d547, type: 3}
@@ -12161,10 +12108,8 @@ Transform:
   m_LocalPosition: {x: 0, y: -3.68, z: 0}
   m_LocalScale: {x: 0.06466292, y: 3.3321273, z: 0.06466292}
   m_Children:
-  - {fileID: 850146753}
   - {fileID: 786569331}
   - {fileID: 545622250}
-  - {fileID: 374190395}
   m_Father: {fileID: 2041802946}
   m_RootOrder: 0
 --- !u!23 &1995938223

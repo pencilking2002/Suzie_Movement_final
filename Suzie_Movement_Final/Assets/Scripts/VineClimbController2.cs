@@ -4,32 +4,37 @@ using System.Collections.Generic;
 
 public class VineClimbController2 : MonoBehaviour {
 
+	// Vars for measuring vine climbing operations
 	public float vineClimbSpeed = 20.0f;
 	public float attachForwardSpeed = 40.0f;								// How quickly the character moves towards the vine when they	
 	public float maxTimeBeforeCanReattach = 1f;								// The amount of time that has to pass before the character can re-attach on to th vine
-	public Vector3 vinePos = Vector3.zero;
+	private Vector3 distToVine = Vector3.zero;
+	private bool detached = false;											// Has the character detached from the vine?
 
+	// Points and objects needed for vine climbing operations
 	public Transform vineAttachPoint = null;
+	private Transform vineClimbOverPoint = null;							// Empty GO inside char mesh that is used to detecting at which point the char should climb over
 
+	private Vector3 vinePos = Vector3.zero;
+	private Transform vine = null;
+	private Collider vineCollider = null;
+	private float vineTopPointY;					// Top point of current vine collider				
+	private float vineBottomPointY;			   	    // Bottom point of current vine collider
 	private Animator animator;
 	private Rigidbody rb;
-	//private ClimbController edgeClimbController;
 
-	private Transform vine = null;
-	private Vector3 distToVine = Vector3.zero;
-	int anim_vineClimbSpeed = Animator.StringToHash("VineClimbSpeed");
-	int anim_vineClimbCurve = Animator.StringToHash("vineClimbCurve");
-	private bool detached = false;											// Has the character detached from the vine?
-	//private CharacterController cController;
-	private float timeOfDetachment;											// The time of when the player detached from a vine
+	// Hashed animator variables
+	private int anim_vineClimbSpeed = Animator.StringToHash("VineClimbSpeed");
+	private int anim_vineClimbCurve = Animator.StringToHash("vineClimbCurve");
 
 	private void Start ()
 	{
 		animator = GetComponent<Animator>();
 		rb = GetComponent<Rigidbody>();
-		//cController = GetComponent<CharacterController>();
-		//edgeClimbController = GetComponent<ClimbController>();
+		vineAttachPoint = GameObject.FindGameObjectWithTag("VineAttachPoint").transform;
+		vineClimbOverPoint = GameObject.FindGameObjectWithTag("VineClimbOverPoint").transform;
 
+		// Register this script's shutdown and activation events
 		ComponentActivator.Instance.Register(this, new Dictionary<GameEvent, bool> { 
 
 			{ GameEvent.StartVineClimbing, true },
@@ -49,19 +54,28 @@ public class VineClimbController2 : MonoBehaviour {
 			distToVine = vinePos - vineAttachPoint.position;
 			transform.position = Vector3.Lerp(transform.position, transform.position + distToVine, attachForwardSpeed * Time.deltaTime);
 
-			Debug.DrawLine(vinePos, vineAttachPoint.position, Color.blue, 1f);
+			//Debug.DrawLine(vinePos, vineAttachPoint.position, Color.blue, 1f);
 			//Debug.Break();
 
 		}
 		else if (GameManager.Instance.charState.IsVineClimbing())
 		{
 
+//			if (transform.position.y < vineBottomPoint.y)
+//			{
+//				print("Squirrel below collider");
+//				StopVineClimbing(GameEvent.StopVineClimbing);
+//			}
+
+			if (vineClimbOverPoint.position.y > vineTopPointY)
+			{
+				print("Squirrel above collider");
+				EventManager.OnCharEvent(GameEvent.ClimbOverEdge);
+			}
+
 			vinePos = new Vector3(vine.position.x, vineAttachPoint.position.y, vine.position.z);
 			distToVine = vinePos - vineAttachPoint.position;
 			transform.position = Vector3.Lerp(transform.position, transform.position + distToVine, attachForwardSpeed * Time.deltaTime);
-
-			//var targetPosition = new Vector3(vine.position.x, transform.position.y, vine.position.z);
-			//transform.position = Vector3.Lerp(transform.position, targetPosition + distToVine, attachForwardSpeed);
 
 			animator.SetFloat(anim_vineClimbSpeed, InputController.v);
 
@@ -74,26 +88,34 @@ public class VineClimbController2 : MonoBehaviour {
 		}
 	}
 
+	// Setup the characte for attaching to the vine
 	private void OnTriggerEnter (Collider coll)
 	{
 		if (coll.gameObject.layer == 14 && !GameManager.Instance.charState.IsVineClimbing() && !detached)
 		{
-			// Set the Squirrel to vine climbing state
-			GameManager.Instance.charState.SetState(RomanCharState.State.VineAttaching);
+
 			EventManager.OnCharEvent(GameEvent.StartVineClimbing);
+			GameManager.Instance.charState.SetState(RomanCharState.State.VineAttaching);
 
 			vine = coll.transform.parent.transform;
+			vineCollider = coll;
 
+			vineTopPointY = vineCollider.bounds.center.y + vineCollider.bounds.extents.y;
+			vineBottomPointY = vineCollider.bounds.center.y - vineCollider.bounds.extents.y;
+
+
+			//print("vine name: " + vine.name);
 			// Publish a an event for StartVineClimbing
 			rb.isKinematic = true;
 			animator.SetTrigger ("VineAttach");
+
 		}
 
-		if (coll.CompareTag("VineTopExit"))
-		{
-			print("VineClimbController: ClimbOverEdge event sent");
-			EventManager.OnCharEvent(GameEvent.ClimbOverEdge);
-		}
+//		if (coll.CompareTag("VineTopExit"))
+//		{
+//			print("VineClimbController: ClimbOverEdge event sent");
+//			EventManager.OnCharEvent(GameEvent.ClimbOverEdge);
+//		}
 	}
 
 	private void OnEnable ()
@@ -118,6 +140,8 @@ public class VineClimbController2 : MonoBehaviour {
 			transform.parent = null;
 			rb.isKinematic = false;
 			animator.SetTrigger("StopClimbing");
+
+			ResetVineData();
 		}
 	}
 
@@ -125,6 +149,34 @@ public class VineClimbController2 : MonoBehaviour {
 	{
 		if (gEvent == GameEvent.Land)
 			detached = false;
+	}
+
+	private void ResetVineData()
+	{
+		// Reset all vine variables when char climbs over
+		vine = null;
+		vinePos = Vector3.zero;
+		vineCollider = null;
+		vineTopPointY = 0;
+		vineBottomPointY = 0;
+}
+
+	void OnDrawGizmos()
+	{
+		if (vine != null)
+		{
+			Bounds bounds = vineCollider.bounds;
+
+			//Gizmos.color = Color.black;
+			//Gizmos.DrawSphere(new Vector3(vine.position.x, bounds.center.y + bounds.extents.y, vine.position.z), 0.2f);
+
+//			Gizmos.color = Color.black;
+//			Gizmos.DrawSphere(new Vector3(vine.position.x, bounds.center.y + bounds.extents.y, vine.position.z), 0.2f);
+//
+//			Gizmos.color = Color.black;
+//			Gizmos.DrawSphere(new Vector3(vine.position.x, bounds.center.y - bounds.extents.y, vine.position.z), 0.2f);
+//		
+		}
 	}
 
 

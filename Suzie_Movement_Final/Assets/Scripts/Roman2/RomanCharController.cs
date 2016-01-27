@@ -16,6 +16,7 @@ public class RomanCharController : MonoBehaviour {
 
 	public float maxRunningRotation = 20f;
 	public float runRotateSpeed = 10f;
+	public float sprintForce = 80.0f;
 
 	[Header("JUMPING")]
 	[Range(0,100)]
@@ -202,7 +203,7 @@ public class RomanCharController : MonoBehaviour {
 		if (charState.IsRunning() && moveDirectionRaw != Vector3.zero)
 		{
 			if (charState.IsSprinting())
-				rb.AddRelativeForce(0, 0, 50);
+				rb.AddRelativeForce(0, 0, sprintForce);
 			
 			transform.rotation = Quaternion.Slerp (transform.rotation, Quaternion.LookRotation(moveDirectionRaw), runRotateSpeed * Time.fixedDeltaTime);
 			animator.ApplyBuiltinRootMotion();

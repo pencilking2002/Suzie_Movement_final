@@ -7580,6 +7580,18 @@ Prefab:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 11401892, guid: 832923ab86e504dc9a8551cfe6e88d9b, type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11475550, guid: 832923ab86e504dc9a8551cfe6e88d9b, type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11411500, guid: 832923ab86e504dc9a8551cfe6e88d9b, type: 2}
+      propertyPath: sprintForce
+      value: 100
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 832923ab86e504dc9a8551cfe6e88d9b, type: 2}
   m_IsPrefabParent: 0
@@ -10642,6 +10654,7 @@ MonoBehaviour:
   walkToRunDampTime: 0.25
   maxRunningRotation: 90
   runRotateSpeed: 10
+  sprintForce: 80
   maxJumpForce: 17
   sprintJumpForce: 15
   jumpForceDeclineSpeed: 0.31

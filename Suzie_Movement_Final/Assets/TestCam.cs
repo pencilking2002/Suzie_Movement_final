@@ -143,10 +143,10 @@ public class TestCam : MonoBehaviour
 	private void SetState (CamState s) { state = s; }
 	private CamState GetState() { return state; }
 
-	void OnDrawGizmosSelected() 
+	void OnDrawGizmos() 
 	{
-//      Gizmos.color = Color.green;
-//		Gizmos.DrawSphere(new Vector3(transform.position.x, currentMinY, transform.position.z), 0.2f);
+        Gizmos.color = Color.green;
+		Gizmos.DrawSphere(new Vector3(transform.position.x, currentMinY, transform.position.z), 0.2f);
 
 //		Gizmos.color = Color.red;
 //		Gizmos.DrawSphere(new Vector3(transform.position.x, currentMaxY, transform.position.z), 0.2f);

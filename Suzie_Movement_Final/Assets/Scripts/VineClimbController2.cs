@@ -183,11 +183,11 @@ public class VineClimbController2 : MonoBehaviour {
 			//Gizmos.color = Color.black;
 			//Gizmos.DrawSphere(new Vector3(vine.position.x, bounds.center.y + bounds.extents.y, vine.position.z), 0.2f);
 
-//			Gizmos.color = Color.black;
-//			Gizmos.DrawSphere(new Vector3(vine.position.x, bounds.center.y + bounds.extents.y, vine.position.z), 0.2f);
-//
-//			Gizmos.color = Color.black;
-//			Gizmos.DrawSphere(new Vector3(vine.position.x, bounds.center.y - bounds.extents.y, vine.position.z), 0.2f);
+			Gizmos.color = Color.green;
+			Gizmos.DrawSphere(new Vector3(vine.position.x, bounds.center.y + bounds.extents.y, vine.position.z), 0.2f);
+
+			Gizmos.color = Color.black;
+			Gizmos.DrawSphere(new Vector3(vine.position.x, bounds.center.y - bounds.extents.y, vine.position.z), 0.2f);
 //		
 		}
 	}

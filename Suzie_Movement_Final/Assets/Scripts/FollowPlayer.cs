@@ -37,15 +37,19 @@ public class FollowPlayer : MonoBehaviour {
 
 		// If the follow is not supposed to be attached to player
 		// retain existing y position (don't bounce)
-		if (/*!Attach && */ charState.IsJumping() || charState.IsLanding() /*|| charState.IsRunning()*/)
+		if (charState.IsJumping() || charState.IsLanding())
+		{
 			targetPos.y = transform.position.y;
-
+			//print("blah");
+		}
 		if (charState.IsClimbing())
+		{
 			_damping = climbSpeed;
-		
+		}
 		else
+		{
 			_damping = damping;
-		
+		}
 		transform.position = Vector3.SmoothDamp(transform.position, targetPos, ref vel, _damping * Time.deltaTime);
 		
 		// Check if the follow object has caught up with the player and that the follow object is above the camera
@@ -74,15 +78,15 @@ public class FollowPlayer : MonoBehaviour {
 	
 	private void AttachFollow (GameEvent gEvent)
 	{
-		if (gEvent == GameEvent.AttachFollow || gEvent == GameEvent.StartClimbing || gEvent == GameEvent.StopClimbing || gEvent == GameEvent.Land)
-		{
-			Attach = true;
-			//print(gEvent);
-		}
-		else if (gEvent == GameEvent.DetachFollow )
-		{
-			Attach = false;
-		}
+//		if (gEvent == GameEvent.AttachFollow || gEvent == GameEvent.StartClimbing || gEvent == GameEvent.StopClimbing || gEvent == GameEvent.Land)
+//		{
+//			Attach = true;
+//			//print(gEvent);
+//		}
+//		else if (gEvent == GameEvent.DetachFollow )
+//		{
+//			Attach = false;
+//		}
 	}
 
 }

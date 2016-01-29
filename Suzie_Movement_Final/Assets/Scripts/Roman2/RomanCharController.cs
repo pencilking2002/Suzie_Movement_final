@@ -196,15 +196,16 @@ public class RomanCharController : MonoBehaviour {
 		}
 
 		//TODO look for ground collision when the char is falling
-		RaycastHit hit;
-		if (charState.IsFalling() && Physics.Raycast(transform.position - new Vector3(0,0.2f,0), Vector3.down, out hit, 0.4f))
-		{
-			Debug.DrawLine(transform.position - new Vector3(0,0.2f,0), transform.position - new Vector3(0,0.2f + 0.4f,0), Color.red);
-			//Debug.Break();	 
-			animator.SetTrigger("Land");
-			EventManager.OnCharEvent(GameEvent.AttachFollow);
-			EventManager.OnCharEvent(GameEvent.Land);				
-		}
+//		RaycastHit hit;
+//		if (charState.IsFalling() && Physics.Raycast(transform.position - new Vector3(0,0.2f,0), Vector3.down, out hit, 0.4f))
+//		{
+//			Debug.DrawLine(transform.position - new Vector3(0,0.2f,0), transform.position - new Vector3(0,0.2f + 0.4f,0), Color.red);
+//			//Debug.Break();	 
+//			animator.SetTrigger("Land");
+//			print("Trigger land");
+//			//EventManager.OnCharEvent(GameEvent.AttachFollow);
+//			EventManager.OnCharEvent(GameEvent.Land);				
+//		}
 		
 
 		

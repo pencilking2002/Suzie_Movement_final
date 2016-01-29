@@ -16,6 +16,7 @@ public class SetState : StateMachineBehaviour {
 		//if (AnimationStateEvent == StateEvent.Enter)
 		//{
 			animator.GetComponent<RomanCharState>().SetState(characterState);
+			//Debug.Log("animator script, set: " + characterState);
 		//}
 	}
 	
@@ -23,7 +24,9 @@ public class SetState : StateMachineBehaviour {
 	override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) 
 	{
 		//if (AnimationStateEvent == StateEvent.Exit)
-			EventManager.OnCharEvent(GameEvent.ExitIdle);
+			//TODO get rid of this in EventManager
+			//EventManager.OnCharEvent(GameEvent.ExitIdle);
+		Debug.Log("exit: " + animator.GetComponent<RomanCharState>().GetState());
 	}
 
 	// OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks

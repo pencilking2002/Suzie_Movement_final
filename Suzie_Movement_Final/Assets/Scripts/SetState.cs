@@ -26,7 +26,18 @@ public class SetState : StateMachineBehaviour {
 		//if (AnimationStateEvent == StateEvent.Exit)
 			//TODO get rid of this in EventManager
 			//EventManager.OnCharEvent(GameEvent.ExitIdle);
-		Debug.Log("exit: " + animator.GetComponent<RomanCharState>().GetState());
+		//Debug.Log("exit: " + animator.GetComponent<RomanCharState>().GetState());
+//		if (animator.GetComponent<RomanCharState>().GetState() == RomanCharState.State.IdleFalling)
+//		{
+//			animator.CrossFade("JumpLanding", 0.3f);
+////			Debug.Log("force Idle");
+//		}
+//		else if (animator.GetComponent<RomanCharState>().GetState() == RomanCharState.State.Landing)
+//		{
+//			Debug.Log("Force Idle");
+//			animator.CrossFade("Idle", 0.3f);
+//			animator.GetComponent<RomanCharState>().SetState(RomanCharState.State.Idle);
+//		}
 	}
 
 	// OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks

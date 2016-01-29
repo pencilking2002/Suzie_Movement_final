@@ -84,6 +84,7 @@ public class PhysicMaterialHandler : MonoBehaviour {
 			{
 				print ("is on ground");
 				hit.collider.material = groundMaterial;
+				GameManager.Instance.charState.SetState(RomanCharState.State.Idle);
 				
 			}
 		}

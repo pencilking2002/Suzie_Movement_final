@@ -5637,7 +5637,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1502112136}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5afb6ef79a8ec4ccd99c2c52dd5c785f, type: 3}
   m_Name: 
@@ -6350,7 +6350,7 @@ Transform:
   m_LocalScale: {x: 27.941946, y: 16.630257, z: 12.770094}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 19
+  m_RootOrder: 20
 --- !u!1001 &1755536302
 Prefab:
   m_ObjectHideFlags: 0

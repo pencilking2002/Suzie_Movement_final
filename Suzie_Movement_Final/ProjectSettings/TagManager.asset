@@ -18,6 +18,13 @@ TagManager:
   - VineBottomExit
   - VineAttachPoint
   - VineClimbOverPoint
+  - Tube
+  - CrystalNut
+  - WallClimb
+  - SpawnSpot1
+  - BoxToRaise1
+  - NoClimbOver
+  - BoxToLower
   layers:
   - Default
   - TransparentFX
@@ -40,8 +47,8 @@ TagManager:
   - 
   - 
   - CamAttach
-  - 
-  - 
+  - Raise
+  - Lower
   - 
   - 
   - 

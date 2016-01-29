@@ -62,7 +62,13 @@ public class TestCam : MonoBehaviour
 
 				// Make the camera follow the Follow GO like its a string attached to it
 				targetPosition = follow.position + Vector3.Normalize(follow.position - transform.position) * -offset.z;
-
+				//targetPosition.y = follow.position.y + offset.y;
+//				//print(ySpeed);
+//				if (ySpeed == 0 && GameManager.Instance.charState.IsRunning())
+//				{
+//					//print("Hello");
+//					targetPosition.y = follow.position.y + offset.y;		
+//				}
 				// climbing 
 
 				transform.position = Vector3.Lerp(transform.position, targetPosition, 20.0f * Time.deltaTime);

@@ -8,6 +8,8 @@ public class ClimbOverEdge : MonoBehaviour {
 	public float yClimbOverSpeed = 0.15f;
 	public float zClimbOverSpeed = 0.15f;
 
+	public bool noClimbOver = false;
+
 	public LeanTweenVisual edgeTween;
 	public LeanTweenVisual vineTween;
 
@@ -80,7 +82,7 @@ public class ClimbOverEdge : MonoBehaviour {
 	
 	private void ClimbOverEdgeMove(GameEvent gEvent)
 	{
-		if(charState.IsClimbing() && gEvent == GameEvent.ClimbOverEdge)
+		if(charState.IsClimbing() && gEvent == GameEvent.ClimbOverEdge && !noClimbOver)
 		{
 			LeanTweenPath path = new LeanTweenPath();
 			LeanTweenVisual tween = new LeanTweenVisual();
@@ -107,7 +109,7 @@ public class ClimbOverEdge : MonoBehaviour {
 				path.transform.localPosition = Vector3.zero;
 				EnableClimbOverTween(path, tween, false);
 				EventManager.OnCharEvent(GameEvent.FinishClimbOver);
-			
+				noClimbOver = false;
 			}, tweenDuration);
 
 		}

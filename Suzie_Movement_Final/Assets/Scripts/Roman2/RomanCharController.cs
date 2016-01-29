@@ -57,7 +57,8 @@ public class RomanCharController : MonoBehaviour {
 	
 	private Vector3 moveDirectionRaw;	// The direction/displacement the character will move in
 	private Quaternion targetRot;		// the target rotation to achieve while in idle or running
-	
+	public bool inTube = false;
+
 	// Character rotation -------------
 	private Vector3 camForward;
 	private Quaternion camRot;
@@ -122,7 +123,6 @@ public class RomanCharController : MonoBehaviour {
 		if (animator.GetBool(anim_sprintModDown) && speed > 0)
 		{
 			animator.SetFloat (anim_Speed, speed + 2);
-
 		}
 		else if (speed != 0)
 		{
@@ -131,6 +131,12 @@ public class RomanCharController : MonoBehaviour {
 		else
 		{ 
 			animator.SetFloat (anim_Speed, 0);
+		}
+
+		if (charState.IsSprinting() && speed == 0 && !inTube)
+		{
+			print("Get out of sprint mode");
+			animator.SetBool(anim_sprintModDown, false);
 		}
 
 		//print(speed);	
@@ -188,6 +194,17 @@ public class RomanCharController : MonoBehaviour {
 				}
 			}
 		}
+
+		//TODO look for ground collision when the char is falling
+		RaycastHit hit;
+		if (charState.IsFalling() && Physics.Raycast(transform.position - new Vector3(0,0.2f,0), Vector3.down, out hit, 0.4f))
+		{
+			Debug.DrawLine(transform.position - new Vector3(0,0.2f,0), transform.position - new Vector3(0,0.2f + 0.4f,0), Color.red);
+			//Debug.Break();	 
+			animator.SetTrigger("Land");
+			EventManager.OnCharEvent(GameEvent.AttachFollow);
+			EventManager.OnCharEvent(GameEvent.Land);				
+		}
 		
 
 		
@@ -199,10 +216,13 @@ public class RomanCharController : MonoBehaviour {
 	/// </summary>
 	private void OnAnimatorMove ()
 	{
-
-		if (charState.IsRunning() && moveDirectionRaw != Vector3.zero)
+		if (speed == 0 && inTube && charState.IsSprinting())
 		{
-			if (charState.IsSprinting())
+		}
+
+		else if (charState.IsRunning() && moveDirectionRaw != Vector3.zero)
+		{
+			if (charState.IsSprinting() && speed != 0)
 				rb.AddRelativeForce(0, 0, sprintForce);
 			
 			transform.rotation = Quaternion.Slerp (transform.rotation, Quaternion.LookRotation(moveDirectionRaw), runRotateSpeed * Time.fixedDeltaTime);
@@ -233,15 +253,15 @@ public class RomanCharController : MonoBehaviour {
 	/// as opposed to firing multiple times while the character is landing
 	/// </summary>
 	/// <param name="coll">Coll.</param>
-	private void OnCollisionStay (Collision coll)
-	{
-		if (charState.IsFalling() && !charState.IsLanding() && Vector3.Dot(coll.contacts[0].normal, Vector3.up) > 0.5f )
-		{
-			animator.SetTrigger("Land");
-			EventManager.OnCharEvent(GameEvent.AttachFollow);
-			EventManager.OnCharEvent(GameEvent.Land);			
-		}
-	}
+//	private void OnCollisionStay (Collision coll)
+//	{
+//		if (charState.IsFalling() && !charState.IsLanding() && Vector3.Dot(coll.contacts[0].normal, Vector3.up) > 0.5f )
+//		{
+//			animator.SetTrigger("Land");
+//			EventManager.OnCharEvent(GameEvent.AttachFollow);
+//			EventManager.OnCharEvent(GameEvent.Land);			
+//		}
+//	}
 
 	private void OnCollisionEnter (Collision coll)
 	{
@@ -274,7 +294,8 @@ public class RomanCharController : MonoBehaviour {
 	{ 
 		EventManager.onInputEvent += Jump;
 		EventManager.onInputEvent += SprintModifierDown;
-		
+		EventManager.onInputEvent += SprintModifierUp;
+
 		EventManager.onCharEvent += Enable;
 		//EventManager.onCharEvent += Disable;
 		EventManager.onCharEvent += Sprint;
@@ -287,7 +308,8 @@ public class RomanCharController : MonoBehaviour {
 	{ 
 		EventManager.onInputEvent -= Jump;
 		EventManager.onInputEvent -= SprintModifierDown;
-		
+		EventManager.onInputEvent -= SprintModifierUp;
+
 		EventManager.onCharEvent -= Enable;
 		//EventManager.onCharEvent -= Disable;
 		EventManager.onCharEvent -= Sprint;
@@ -316,19 +338,16 @@ public class RomanCharController : MonoBehaviour {
 				//holdShift = true;
 				animator.SetBool(anim_sprintModDown, true);
 			}
-			else if (gameEvent == GameEvent.SprintModifierUp)
-			{
-				//holdShift = false;
-				animator.SetBool(anim_sprintModDown, false);
-			}
-		}
-
-		else if (charState.IsSprinting() && gameEvent == GameEvent.SprintModifierUp)
-		{
-			animator.SetBool(anim_sprintModDown, false);
 		}
 	}
-	
+
+	private void SprintModifierUp(GameEvent gEvent)
+	{
+		if (charState.IsSprinting() && gEvent == GameEvent.SprintModifierUp && !inTube)
+		{
+			animator.SetBool(anim_sprintModDown, false);	
+		}
+	}
 	// Handle the collider size and position change when starting/stopping sprinting
 	private void Sprint (GameEvent gEvent)
 	{
@@ -362,12 +381,14 @@ public class RomanCharController : MonoBehaviour {
 				forwardSpeed = idleJumpForwardSpeed;
 				charState.SetState(RomanCharState.State.IdleJumping);
 				animator.SetTrigger (anim_idleJump);
+				rb.AddForce (new Vector3 (0, force, 0), ForceMode.Impulse);
 			}
 			else if (charState.IsJogging())
 			{
 				forwardSpeed = runningJumpForwardSpeed;
 				charState.SetState(RomanCharState.State.RunningJumping);
 				animator.SetTrigger (anim_runningJump);
+				rb.AddForce (new Vector3 (0, force, 0), ForceMode.Impulse);
 			}
 			else if (charState.IsSprinting())
 			{
@@ -378,9 +399,10 @@ public class RomanCharController : MonoBehaviour {
 				animator.SetBool (anim_sprintJump, true);
 				
 				OrientCapsuleCollider(false);
+				rb.AddForce (new Vector3 (0, force, 0), ForceMode.Impulse);
 			}
 			//JumpUpAnim ();
-			rb.AddForce (new Vector3 (0, force, 0), ForceMode.Impulse);
+			//rb.AddForce (new Vector3 (0, force, 0), ForceMode.Impulse);
 
 		}
 	}
@@ -454,6 +476,25 @@ public class RomanCharController : MonoBehaviour {
 			// Adjust the collider during sprinting
 			cCollider.direction = 2;
 			cCollider.center = new Vector3(cCollider.center.x, 0.3f, cCollider.center.z);
+		}
+	}
+
+	private void OnTriggerStay(Collider col)
+	{
+		if (col.CompareTag("Tube") && charState.IsSprinting())
+		{
+			print("enter tube");
+			inTube = true;
+		}
+	}
+
+	private void OnTriggerExit(Collider col)
+	{
+		if (col.CompareTag("Tube") && charState.IsSprinting())
+		{
+			print("exit tube");
+
+			inTube = false;
 		}
 	}
 

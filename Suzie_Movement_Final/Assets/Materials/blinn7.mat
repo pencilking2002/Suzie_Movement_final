@@ -7,8 +7,8 @@ Material:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: blinn7
-  m_Shader: {fileID: 4800000, guid: dd496457a855aa341b0d7b7b475a7a3a, type: 3}
-  m_ShaderKeywords: OUTLINES TCP2_BUMP _NORMALMAP
+  m_Shader: {fileID: 4800000, guid: 24a666c4cf4f5194ba2cdff51c1dc2f0, type: 3}
+  m_ShaderKeywords: OUTLINE_BLENDING TCP2_BUMP TCP2_OUTLINE_CONST_SIZE _NORMALMAP
   m_LightmapFlags: 5
   m_CustomRenderQueue: 2000
   stringTagMap: {}
@@ -149,7 +149,7 @@ Material:
       data:
         first:
           name: _Outline
-        second: 0.44
+        second: 0.16
       data:
         first:
           name: _TexLod
@@ -170,6 +170,14 @@ Material:
         first:
           name: _SpecSmooth
         second: 0
+      data:
+        first:
+          name: _SrcBlendOutline
+        second: 5
+      data:
+        first:
+          name: _DstBlendOutline
+        second: 10
     m_Colors:
       data:
         first:

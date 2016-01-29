@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour {
 	private ClimbDetector climbDetector;
 	private FollowPlayer follow;
 	private VineClimbController2 vineClimbCollider;
+	private RomanCharController charController;
 
 	private void Awake ()
 	{
@@ -31,6 +32,7 @@ public class GameManager : MonoBehaviour {
 		climbDetector = GameObject.FindObjectOfType<ClimbDetector> ();
 		follow = GameObject.FindObjectOfType<FollowPlayer>();
 		vineClimbCollider = GameObject.FindObjectOfType<VineClimbController2>();
+		charController = GameObject.FindObjectOfType<RomanCharController>();
 
 	}
 
@@ -73,6 +75,7 @@ public class GameManager : MonoBehaviour {
 			}
 
 			GUI.Button(new Rect(Screen.width - 150, 320, 170, 30), "Detached: " + vineClimbCollider.detached);
+			GUI.Button(new Rect(Screen.width - 150, 350, 170, 30), "In Tube: " + charController.inTube);
 
 
 		}

@@ -41,7 +41,20 @@ public class PhysicMaterialHandler : MonoBehaviour {
 
 		});
 	}
-	
+
+
+	private void Update ()
+	{
+		// Raycast into the ground and male sure its a ground material
+		origin = transform.position;
+		ray = new Ray(origin, Vector3.down);
+		if ((GameManager.Instance.charState.IsIdle() || GameManager.Instance.charState.IsRunning()) && 
+		    Physics.Raycast (ray, out hit, groundRayLenth) && hit.collider.material != groundMaterial)
+		{
+			hit.collider.material = groundMaterial;
+		}
+	}
+
 	private void OnEnable () 
 	{ 
 		EventManager.onCharEvent += SetPhysicMaterial;
@@ -54,6 +67,7 @@ public class PhysicMaterialHandler : MonoBehaviour {
 		EventManager.onCharEvent -= SetPhysicMaterial;
 	}
 
+	// TODO get rid of land code?
 	private void SetPhysicMaterial(GameEvent gEvent)
 	{
 		if (gEvent == GameEvent.Land)

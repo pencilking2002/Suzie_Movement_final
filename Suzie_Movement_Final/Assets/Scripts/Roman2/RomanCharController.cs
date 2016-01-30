@@ -254,15 +254,15 @@ public class RomanCharController : MonoBehaviour {
 	/// as opposed to firing multiple times while the character is landing
 	/// </summary>
 	/// <param name="coll">Coll.</param>
-	private void OnCollisionStay (Collision coll)
-	{
-		if (charState.IsFalling() && !charState.IsLanding() && Vector3.Dot(coll.contacts[0].normal, Vector3.up) > 0.5f )
-		{
-			animator.SetTrigger("Land");
-			EventManager.OnCharEvent(GameEvent.AttachFollow);
-			EventManager.OnCharEvent(GameEvent.Land);			
-		}
-	}
+//	private void OnCollisionStay (Collision coll)
+//	{
+//		if (charState.IsFalling() && !charState.IsLanding() && Vector3.Dot(coll.contacts[0].normal, Vector3.up) > 0.5f )
+//		{
+//			animator.SetTrigger("Land");
+//			EventManager.OnCharEvent(GameEvent.AttachFollow);
+//			EventManager.OnCharEvent(GameEvent.Land);			
+//		}
+//	}
 
 	private void OnCollisionEnter (Collision coll)
 	{

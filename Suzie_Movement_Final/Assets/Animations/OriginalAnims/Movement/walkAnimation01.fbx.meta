@@ -1,0 +1,1095 @@
+fileFormatVersion: 2
+guid: 7bf3a3d4cde2e4e1e8dca65fba8f4240
+timeCreated: 1454102558
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: EditingMesh6:HairJoint1_base_
+    100002: EditingMesh6:HairJoint2
+    100004: EditingMesh6:HairJoint3
+    100006: EditingMesh6:HairJoint4_end_
+    100008: EditingMesh6:Head
+    100010: EditingMesh6:Head1
+    100012: EditingMesh6:Head2
+    100014: EditingMesh6:LeftLeg
+    100016: EditingMesh6:RightLeg
+    100018: EditingMesh6:Spine1
+    100020: EditingMesh6:Spine2
+    100022: EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftArm
+    100024: EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftFoot
+    100026: EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftForeArm
+    100028: EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHand
+    100030: EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHandIndex1
+    100032: EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHandIndex2
+    100034: EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHandIndex3
+    100036: EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHandIndex4
+    100038: EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHandMiddle1
+    100040: EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHandMiddle2
+    100042: EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHandMiddle3
+    100044: EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHandMiddle4
+    100046: EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHandRing1
+    100048: EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHandRing2
+    100050: EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHandRing3
+    100052: EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHandRing4
+    100054: EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHandThumb1
+    100056: EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHandThumb2
+    100058: EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHandThumb3
+    100060: EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHandThumb4
+    100062: EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftLeg
+    100064: EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftShoulder
+    100066: EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftToe_End
+    100068: EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftToeBase
+    100070: EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightArm
+    100072: EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightFoot
+    100074: EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightForeArm
+    100076: EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHand
+    100078: EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHandIndex1
+    100080: EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHandIndex2
+    100082: EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHandIndex3
+    100084: EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHandIndex4
+    100086: EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHandMiddle1
+    100088: EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHandMiddle2
+    100090: EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHandMiddle3
+    100092: EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHandMiddle4
+    100094: EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHandRing1
+    100096: EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHandRing2
+    100098: EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHandRing3
+    100100: EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHandRing4
+    100102: EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHandThumb1
+    100104: EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHandThumb2
+    100106: EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHandThumb3
+    100108: EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHandThumb4
+    100110: EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightLeg
+    100112: EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightShoulder
+    100114: EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightToe_End
+    100116: EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightToeBase
+    100118: EditingMesh6:TailBase
+    100120: EditingMesh6:TailJoint2
+    100122: EditingMesh6:TailJoint3
+    100124: EditingMesh6:TailJoint4
+    100126: EditingMesh6:TailJoint5
+    100128: EditingMesh6:TailJoint6
+    100130: EditingMesh6:TailJoint7_end_
+    100132: EditingMesh6:UpperTorso
+    100134: SkeletonJoints
+    100136: //RootNode
+    400000: EditingMesh6:HairJoint1_base_
+    400002: EditingMesh6:HairJoint2
+    400004: EditingMesh6:HairJoint3
+    400006: EditingMesh6:HairJoint4_end_
+    400008: EditingMesh6:Head
+    400010: EditingMesh6:Head1
+    400012: EditingMesh6:Head2
+    400014: EditingMesh6:LeftLeg
+    400016: EditingMesh6:RightLeg
+    400018: EditingMesh6:Spine1
+    400020: EditingMesh6:Spine2
+    400022: EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftArm
+    400024: EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftFoot
+    400026: EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftForeArm
+    400028: EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHand
+    400030: EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHandIndex1
+    400032: EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHandIndex2
+    400034: EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHandIndex3
+    400036: EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHandIndex4
+    400038: EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHandMiddle1
+    400040: EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHandMiddle2
+    400042: EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHandMiddle3
+    400044: EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHandMiddle4
+    400046: EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHandRing1
+    400048: EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHandRing2
+    400050: EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHandRing3
+    400052: EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHandRing4
+    400054: EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHandThumb1
+    400056: EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHandThumb2
+    400058: EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHandThumb3
+    400060: EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHandThumb4
+    400062: EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftLeg
+    400064: EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftShoulder
+    400066: EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftToe_End
+    400068: EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftToeBase
+    400070: EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightArm
+    400072: EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightFoot
+    400074: EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightForeArm
+    400076: EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHand
+    400078: EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHandIndex1
+    400080: EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHandIndex2
+    400082: EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHandIndex3
+    400084: EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHandIndex4
+    400086: EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHandMiddle1
+    400088: EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHandMiddle2
+    400090: EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHandMiddle3
+    400092: EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHandMiddle4
+    400094: EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHandRing1
+    400096: EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHandRing2
+    400098: EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHandRing3
+    400100: EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHandRing4
+    400102: EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHandThumb1
+    400104: EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHandThumb2
+    400106: EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHandThumb3
+    400108: EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHandThumb4
+    400110: EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightLeg
+    400112: EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightShoulder
+    400114: EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightToe_End
+    400116: EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightToeBase
+    400118: EditingMesh6:TailBase
+    400120: EditingMesh6:TailJoint2
+    400122: EditingMesh6:TailJoint3
+    400124: EditingMesh6:TailJoint4
+    400126: EditingMesh6:TailJoint5
+    400128: EditingMesh6:TailJoint6
+    400130: EditingMesh6:TailJoint7_end_
+    400132: EditingMesh6:UpperTorso
+    400134: SkeletonJoints
+    400136: //RootNode
+    7400000: Walking
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleRotations: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: "\nClip 'Take 001' has import animation warnings that
+      might lower retargeting quality:\nNote: Activate translation DOF on avatar to
+      improve retargeting quality.\n\t'EditingMesh6:Spine1' is inbetween humanoid
+      transforms and has rotation animation that will be discarded.\n\t'EditingMesh6:Head'
+      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\t'EditingMesh6:Head1'
+      is inbetween humanoid transforms and has rotation animation that will be discarded.\n"
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 3
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Walking
+      takeName: Take 001
+      firstFrame: 1
+      lastFrame: 40
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 1
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: SkeletonJoints
+        weight: 1
+      - path: SkeletonJoints/EditingMesh6:LeftLeg
+        weight: 1
+      - path: SkeletonJoints/EditingMesh6:LeftLeg/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftLeg
+        weight: 1
+      - path: SkeletonJoints/EditingMesh6:LeftLeg/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftLeg/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftFoot
+        weight: 1
+      - path: SkeletonJoints/EditingMesh6:LeftLeg/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftLeg/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftFoot/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftToeBase
+        weight: 1
+      - path: SkeletonJoints/EditingMesh6:LeftLeg/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftLeg/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftFoot/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftToeBase/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftToe_End
+        weight: 0
+      - path: SkeletonJoints/EditingMesh6:RightLeg
+        weight: 1
+      - path: SkeletonJoints/EditingMesh6:RightLeg/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightLeg
+        weight: 1
+      - path: SkeletonJoints/EditingMesh6:RightLeg/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightLeg/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightFoot
+        weight: 1
+      - path: SkeletonJoints/EditingMesh6:RightLeg/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightLeg/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightFoot/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightToeBase
+        weight: 1
+      - path: SkeletonJoints/EditingMesh6:RightLeg/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightLeg/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightFoot/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightToeBase/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightToe_End
+        weight: 0
+      - path: SkeletonJoints/EditingMesh6:TailBase
+        weight: 1
+      - path: SkeletonJoints/EditingMesh6:TailBase/EditingMesh6:TailJoint2
+        weight: 1
+      - path: SkeletonJoints/EditingMesh6:TailBase/EditingMesh6:TailJoint2/EditingMesh6:TailJoint3
+        weight: 1
+      - path: SkeletonJoints/EditingMesh6:TailBase/EditingMesh6:TailJoint2/EditingMesh6:TailJoint3/EditingMesh6:TailJoint4
+        weight: 1
+      - path: SkeletonJoints/EditingMesh6:TailBase/EditingMesh6:TailJoint2/EditingMesh6:TailJoint3/EditingMesh6:TailJoint4/EditingMesh6:TailJoint5
+        weight: 1
+      - path: SkeletonJoints/EditingMesh6:TailBase/EditingMesh6:TailJoint2/EditingMesh6:TailJoint3/EditingMesh6:TailJoint4/EditingMesh6:TailJoint5/EditingMesh6:TailJoint6
+        weight: 1
+      - path: SkeletonJoints/EditingMesh6:TailBase/EditingMesh6:TailJoint2/EditingMesh6:TailJoint3/EditingMesh6:TailJoint4/EditingMesh6:TailJoint5/EditingMesh6:TailJoint6/EditingMesh6:TailJoint7_end_
+        weight: 1
+      - path: SkeletonJoints/EditingMesh6:UpperTorso
+        weight: 1
+      - path: SkeletonJoints/EditingMesh6:UpperTorso/EditingMesh6:Spine1
+        weight: 1
+      - path: SkeletonJoints/EditingMesh6:UpperTorso/EditingMesh6:Spine1/EditingMesh6:Spine2
+        weight: 1
+      - path: SkeletonJoints/EditingMesh6:UpperTorso/EditingMesh6:Spine1/EditingMesh6:Spine2/EditingMesh6:Head
+        weight: 1
+      - path: SkeletonJoints/EditingMesh6:UpperTorso/EditingMesh6:Spine1/EditingMesh6:Spine2/EditingMesh6:Head/EditingMesh6:Head1
+        weight: 1
+      - path: SkeletonJoints/EditingMesh6:UpperTorso/EditingMesh6:Spine1/EditingMesh6:Spine2/EditingMesh6:Head/EditingMesh6:Head1/EditingMesh6:Head2
+        weight: 1
+      - path: SkeletonJoints/EditingMesh6:UpperTorso/EditingMesh6:Spine1/EditingMesh6:Spine2/EditingMesh6:Head/EditingMesh6:Head1/EditingMesh6:Head2/EditingMesh6:HairJoint1_base_
+        weight: 1
+      - path: SkeletonJoints/EditingMesh6:UpperTorso/EditingMesh6:Spine1/EditingMesh6:Spine2/EditingMesh6:Head/EditingMesh6:Head1/EditingMesh6:Head2/EditingMesh6:HairJoint1_base_/EditingMesh6:HairJoint2
+        weight: 1
+      - path: SkeletonJoints/EditingMesh6:UpperTorso/EditingMesh6:Spine1/EditingMesh6:Spine2/EditingMesh6:Head/EditingMesh6:Head1/EditingMesh6:Head2/EditingMesh6:HairJoint1_base_/EditingMesh6:HairJoint2/EditingMesh6:HairJoint3
+        weight: 1
+      - path: SkeletonJoints/EditingMesh6:UpperTorso/EditingMesh6:Spine1/EditingMesh6:Spine2/EditingMesh6:Head/EditingMesh6:Head1/EditingMesh6:Head2/EditingMesh6:HairJoint1_base_/EditingMesh6:HairJoint2/EditingMesh6:HairJoint3/EditingMesh6:HairJoint4_end_
+        weight: 0
+      - path: SkeletonJoints/EditingMesh6:UpperTorso/EditingMesh6:Spine1/EditingMesh6:Spine2/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftShoulder
+        weight: 1
+      - path: SkeletonJoints/EditingMesh6:UpperTorso/EditingMesh6:Spine1/EditingMesh6:Spine2/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftShoulder/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftArm
+        weight: 1
+      - path: SkeletonJoints/EditingMesh6:UpperTorso/EditingMesh6:Spine1/EditingMesh6:Spine2/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftShoulder/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftArm/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftForeArm
+        weight: 1
+      - path: SkeletonJoints/EditingMesh6:UpperTorso/EditingMesh6:Spine1/EditingMesh6:Spine2/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftShoulder/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftArm/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftForeArm/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHand
+        weight: 1
+      - path: SkeletonJoints/EditingMesh6:UpperTorso/EditingMesh6:Spine1/EditingMesh6:Spine2/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftShoulder/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftArm/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftForeArm/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHand/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHandIndex1
+        weight: 1
+      - path: SkeletonJoints/EditingMesh6:UpperTorso/EditingMesh6:Spine1/EditingMesh6:Spine2/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftShoulder/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftArm/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftForeArm/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHand/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHandIndex1/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHandIndex2
+        weight: 1
+      - path: SkeletonJoints/EditingMesh6:UpperTorso/EditingMesh6:Spine1/EditingMesh6:Spine2/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftShoulder/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftArm/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftForeArm/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHand/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHandIndex1/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHandIndex2/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHandIndex3
+        weight: 1
+      - path: SkeletonJoints/EditingMesh6:UpperTorso/EditingMesh6:Spine1/EditingMesh6:Spine2/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftShoulder/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftArm/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftForeArm/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHand/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHandIndex1/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHandIndex2/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHandIndex3/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHandIndex4
+        weight: 0
+      - path: SkeletonJoints/EditingMesh6:UpperTorso/EditingMesh6:Spine1/EditingMesh6:Spine2/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftShoulder/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftArm/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftForeArm/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHand/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHandMiddle1
+        weight: 1
+      - path: SkeletonJoints/EditingMesh6:UpperTorso/EditingMesh6:Spine1/EditingMesh6:Spine2/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftShoulder/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftArm/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftForeArm/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHand/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHandMiddle1/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHandMiddle2
+        weight: 1
+      - path: SkeletonJoints/EditingMesh6:UpperTorso/EditingMesh6:Spine1/EditingMesh6:Spine2/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftShoulder/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftArm/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftForeArm/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHand/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHandMiddle1/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHandMiddle2/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHandMiddle3
+        weight: 1
+      - path: SkeletonJoints/EditingMesh6:UpperTorso/EditingMesh6:Spine1/EditingMesh6:Spine2/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftShoulder/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftArm/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftForeArm/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHand/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHandMiddle1/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHandMiddle2/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHandMiddle3/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHandMiddle4
+        weight: 0
+      - path: SkeletonJoints/EditingMesh6:UpperTorso/EditingMesh6:Spine1/EditingMesh6:Spine2/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftShoulder/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftArm/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftForeArm/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHand/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHandRing1
+        weight: 1
+      - path: SkeletonJoints/EditingMesh6:UpperTorso/EditingMesh6:Spine1/EditingMesh6:Spine2/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftShoulder/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftArm/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftForeArm/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHand/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHandRing1/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHandRing2
+        weight: 1
+      - path: SkeletonJoints/EditingMesh6:UpperTorso/EditingMesh6:Spine1/EditingMesh6:Spine2/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftShoulder/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftArm/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftForeArm/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHand/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHandRing1/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHandRing2/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHandRing3
+        weight: 1
+      - path: SkeletonJoints/EditingMesh6:UpperTorso/EditingMesh6:Spine1/EditingMesh6:Spine2/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftShoulder/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftArm/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftForeArm/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHand/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHandRing1/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHandRing2/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHandRing3/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHandRing4
+        weight: 0
+      - path: SkeletonJoints/EditingMesh6:UpperTorso/EditingMesh6:Spine1/EditingMesh6:Spine2/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftShoulder/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftArm/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftForeArm/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHand/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHandThumb1
+        weight: 1
+      - path: SkeletonJoints/EditingMesh6:UpperTorso/EditingMesh6:Spine1/EditingMesh6:Spine2/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftShoulder/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftArm/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftForeArm/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHand/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHandThumb1/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHandThumb2
+        weight: 1
+      - path: SkeletonJoints/EditingMesh6:UpperTorso/EditingMesh6:Spine1/EditingMesh6:Spine2/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftShoulder/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftArm/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftForeArm/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHand/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHandThumb1/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHandThumb2/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHandThumb3
+        weight: 1
+      - path: SkeletonJoints/EditingMesh6:UpperTorso/EditingMesh6:Spine1/EditingMesh6:Spine2/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftShoulder/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftArm/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftForeArm/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHand/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHandThumb1/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHandThumb2/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHandThumb3/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHandThumb4
+        weight: 0
+      - path: SkeletonJoints/EditingMesh6:UpperTorso/EditingMesh6:Spine1/EditingMesh6:Spine2/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightShoulder
+        weight: 1
+      - path: SkeletonJoints/EditingMesh6:UpperTorso/EditingMesh6:Spine1/EditingMesh6:Spine2/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightShoulder/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightArm
+        weight: 1
+      - path: SkeletonJoints/EditingMesh6:UpperTorso/EditingMesh6:Spine1/EditingMesh6:Spine2/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightShoulder/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightArm/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightForeArm
+        weight: 1
+      - path: SkeletonJoints/EditingMesh6:UpperTorso/EditingMesh6:Spine1/EditingMesh6:Spine2/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightShoulder/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightArm/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightForeArm/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHand
+        weight: 1
+      - path: SkeletonJoints/EditingMesh6:UpperTorso/EditingMesh6:Spine1/EditingMesh6:Spine2/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightShoulder/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightArm/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightForeArm/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHand/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHandIndex1
+        weight: 1
+      - path: SkeletonJoints/EditingMesh6:UpperTorso/EditingMesh6:Spine1/EditingMesh6:Spine2/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightShoulder/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightArm/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightForeArm/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHand/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHandIndex1/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHandIndex2
+        weight: 1
+      - path: SkeletonJoints/EditingMesh6:UpperTorso/EditingMesh6:Spine1/EditingMesh6:Spine2/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightShoulder/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightArm/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightForeArm/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHand/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHandIndex1/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHandIndex2/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHandIndex3
+        weight: 1
+      - path: SkeletonJoints/EditingMesh6:UpperTorso/EditingMesh6:Spine1/EditingMesh6:Spine2/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightShoulder/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightArm/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightForeArm/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHand/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHandIndex1/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHandIndex2/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHandIndex3/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHandIndex4
+        weight: 0
+      - path: SkeletonJoints/EditingMesh6:UpperTorso/EditingMesh6:Spine1/EditingMesh6:Spine2/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightShoulder/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightArm/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightForeArm/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHand/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHandMiddle1
+        weight: 1
+      - path: SkeletonJoints/EditingMesh6:UpperTorso/EditingMesh6:Spine1/EditingMesh6:Spine2/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightShoulder/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightArm/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightForeArm/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHand/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHandMiddle1/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHandMiddle2
+        weight: 1
+      - path: SkeletonJoints/EditingMesh6:UpperTorso/EditingMesh6:Spine1/EditingMesh6:Spine2/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightShoulder/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightArm/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightForeArm/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHand/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHandMiddle1/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHandMiddle2/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHandMiddle3
+        weight: 1
+      - path: SkeletonJoints/EditingMesh6:UpperTorso/EditingMesh6:Spine1/EditingMesh6:Spine2/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightShoulder/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightArm/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightForeArm/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHand/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHandMiddle1/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHandMiddle2/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHandMiddle3/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHandMiddle4
+        weight: 0
+      - path: SkeletonJoints/EditingMesh6:UpperTorso/EditingMesh6:Spine1/EditingMesh6:Spine2/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightShoulder/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightArm/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightForeArm/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHand/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHandRing1
+        weight: 1
+      - path: SkeletonJoints/EditingMesh6:UpperTorso/EditingMesh6:Spine1/EditingMesh6:Spine2/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightShoulder/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightArm/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightForeArm/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHand/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHandRing1/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHandRing2
+        weight: 1
+      - path: SkeletonJoints/EditingMesh6:UpperTorso/EditingMesh6:Spine1/EditingMesh6:Spine2/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightShoulder/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightArm/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightForeArm/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHand/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHandRing1/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHandRing2/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHandRing3
+        weight: 1
+      - path: SkeletonJoints/EditingMesh6:UpperTorso/EditingMesh6:Spine1/EditingMesh6:Spine2/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightShoulder/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightArm/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightForeArm/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHand/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHandRing1/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHandRing2/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHandRing3/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHandRing4
+        weight: 0
+      - path: SkeletonJoints/EditingMesh6:UpperTorso/EditingMesh6:Spine1/EditingMesh6:Spine2/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightShoulder/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightArm/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightForeArm/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHand/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHandThumb1
+        weight: 1
+      - path: SkeletonJoints/EditingMesh6:UpperTorso/EditingMesh6:Spine1/EditingMesh6:Spine2/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightShoulder/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightArm/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightForeArm/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHand/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHandThumb1/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHandThumb2
+        weight: 1
+      - path: SkeletonJoints/EditingMesh6:UpperTorso/EditingMesh6:Spine1/EditingMesh6:Spine2/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightShoulder/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightArm/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightForeArm/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHand/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHandThumb1/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHandThumb2/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHandThumb3
+        weight: 1
+      - path: SkeletonJoints/EditingMesh6:UpperTorso/EditingMesh6:Spine1/EditingMesh6:Spine2/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightShoulder/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightArm/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightForeArm/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHand/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHandThumb1/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHandThumb2/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHandThumb3/EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHandThumb4
+        weight: 0
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0.96
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human:
+    - boneName: SkeletonJoints
+      humanName: Hips
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: EditingMesh6:LeftLeg
+      humanName: LeftUpperLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: EditingMesh6:RightLeg
+      humanName: RightUpperLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftLeg
+      humanName: LeftLowerLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightLeg
+      humanName: RightLowerLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftFoot
+      humanName: LeftFoot
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightFoot
+      humanName: RightFoot
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: EditingMesh6:UpperTorso
+      humanName: Spine
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: EditingMesh6:Spine2
+      humanName: Chest
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: EditingMesh6:Head2
+      humanName: Neck
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: EditingMesh6:HairJoint2
+      humanName: Head
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftShoulder
+      humanName: LeftShoulder
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightShoulder
+      humanName: RightShoulder
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftArm
+      humanName: LeftUpperArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightArm
+      humanName: RightUpperArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftForeArm
+      humanName: LeftLowerArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightForeArm
+      humanName: RightLowerArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHand
+      humanName: LeftHand
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHand
+      humanName: RightHand
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftToeBase
+      humanName: LeftToes
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightToeBase
+      humanName: RightToes
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: EditingMesh6:HairJoint3
+      humanName: RightEye
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHandThumb1
+      humanName: Left Thumb Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHandThumb2
+      humanName: Left Thumb Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHandThumb3
+      humanName: Left Thumb Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHandIndex1
+      humanName: Left Index Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHandIndex2
+      humanName: Left Index Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHandIndex3
+      humanName: Left Index Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHandMiddle1
+      humanName: Left Middle Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHandMiddle2
+      humanName: Left Middle Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHandMiddle3
+      humanName: Left Middle Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHandRing1
+      humanName: Left Ring Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHandRing2
+      humanName: Left Ring Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHandRing3
+      humanName: Left Ring Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHandThumb1
+      humanName: Right Thumb Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHandThumb2
+      humanName: Right Thumb Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHandThumb3
+      humanName: Right Thumb Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHandIndex1
+      humanName: Right Index Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHandIndex2
+      humanName: Right Index Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHandIndex3
+      humanName: Right Index Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHandMiddle1
+      humanName: Right Middle Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHandMiddle2
+      humanName: Right Middle Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHandMiddle3
+      humanName: Right Middle Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHandRing1
+      humanName: Right Ring Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHandRing2
+      humanName: Right Ring Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHandRing3
+      humanName: Right Ring Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    skeleton:
+    - name: walkAnimation01(Clone)
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: SkeletonJoints
+      position: {x: 0.0013675094, y: 0.3345315, z: 0.005993368}
+      rotation: {x: 0.020400157, y: 0.06347953, z: -0.016140694, w: 0.99764407}
+      scale: {x: 1, y: 1, z: 0.9999998}
+      transformModified: 1
+    - name: EditingMesh6:LeftLeg
+      position: {x: -0.10159002, y: -0.041172817, z: 0.0011026982}
+      rotation: {x: 0.0028967673, y: 0.12995817, z: 0.9915119, w: 0.002618039}
+      scale: {x: 0.9999998, y: 1, z: 1.0000002}
+      transformModified: 1
+    - name: EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftLeg
+      position: {x: 0.000000010422144, y: 0.1449827, z: 0.000000014196112}
+      rotation: {x: -0.22820634, y: 0.03050875, z: -0.0026203978, w: 0.9731312}
+      scale: {x: 1.0000012, y: 0.99999994, z: 1}
+      transformModified: 1
+    - name: EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftFoot
+      position: {x: -0.0000000069831096, y: 0.09449281, z: -0.000000018729958}
+      rotation: {x: 0.73125696, y: -0.059745956, z: 0.019037735, w: 0.6792137}
+      scale: {x: 0.99999905, y: 1, z: 1.0000002}
+      transformModified: 1
+    - name: EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftToeBase
+      position: {x: -0.000000001976263, y: 0.11253108, z: -0.00000003958545}
+      rotation: {x: 0.29574364, y: -0.02411415, z: -0.01867286, w: 0.9547804}
+      scale: {x: 1.0000008, y: 1.0000004, z: 1.0000006}
+      transformModified: 1
+    - name: EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftToe_End
+      position: {x: 0.00000001359305, y: 0.045819916, z: -0.000000024707184}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: EditingMesh6:RightLeg
+      position: {x: 0.10159004, y: -0.04117283, z: -0.000071196286}
+      rotation: {x: 0.0046483204, y: -0.07016563, z: 0.9975243, w: 0.0006311688}
+      scale: {x: 0.99999994, y: 0.99999994, z: 1}
+      transformModified: 1
+    - name: EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightLeg
+      position: {x: -0.0000000087108365, y: 0.14499113, z: -0.000000012296702}
+      rotation: {x: -0.13756533, y: 0.033498723, z: -0.019584628, w: 0.9897323}
+      scale: {x: 1.0000012, y: 1, z: 1.0000005}
+      transformModified: 1
+    - name: EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightFoot
+      position: {x: 0.000000009087387, y: 0.09441686, z: 0.000000010941543}
+      rotation: {x: 0.6431183, y: 0.14829814, z: -0.0024252299, w: 0.751266}
+      scale: {x: 1.0000007, y: 0.99999976, z: 1.0000006}
+      transformModified: 1
+    - name: EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightToeBase
+      position: {x: -5.1480917e-11, y: 0.11268487, z: 0.000000029008554}
+      rotation: {x: 0.36276886, y: 0.037017148, z: 0.02166444, w: 0.9308916}
+      scale: {x: 0.9999984, y: 0.9999995, z: 0.9999995}
+      transformModified: 1
+    - name: EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightToe_End
+      position: {x: -0.0000000044497392, y: 0.045728467, z: -0.000000015592198}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1.0000002, z: 1.0000001}
+      transformModified: 1
+    - name: EditingMesh6:TailBase
+      position: {x: 0.0000047834737, y: -0.0022724965, z: -0.12533754}
+      rotation: {x: 0.15259935, y: -0.6897962, z: -0.16254354, w: 0.6888209}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: EditingMesh6:TailJoint2
+      position: {x: -0.06882057, y: 8.417018e-10, z: 2.0601476e-12}
+      rotation: {x: 0, y: -0, z: -0.48203036, w: 0.87615454}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: EditingMesh6:TailJoint3
+      position: {x: -0.11268797, y: -0.000000001063096, z: -6.327405e-12}
+      rotation: {x: 0, y: -0, z: -0.1922621, w: 0.9813436}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: EditingMesh6:TailJoint4
+      position: {x: -0.24564748, y: -0.0000000029965772, z: -1.9356992e-11}
+      rotation: {x: 0.08399337, y: -0.2072835, z: 0.6892176, w: 0.68917173}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: EditingMesh6:TailJoint5
+      position: {x: -0.22819294, y: 0.000000003858999, z: -0.0000000021703537}
+      rotation: {x: 0, y: 0, z: 0.62946445, w: 0.7770293}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: EditingMesh6:TailJoint6
+      position: {x: -0.17097338, y: -0.0000000032374075, z: -1.1854627e-10}
+      rotation: {x: 0.059011646, y: -0.14668268, z: 0.36854133, w: 0.9160672}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: EditingMesh6:TailJoint7_end_
+      position: {x: -0.17601402, y: 0.000000003888471, z: 9.270523e-10}
+      rotation: {x: -0.0050867056, y: -0.7070885, z: -0.0050867056, w: 0.7070885}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: EditingMesh6:UpperTorso
+      position: {x: 0.000000002443846, y: 0.07403235, z: 0.0007700651}
+      rotation: {x: -0.03879146, y: -0.019076023, z: 0.018051157, w: 0.99890214}
+      scale: {x: 1.0000001, y: 1.0000001, z: 1.0000002}
+      transformModified: 1
+    - name: EditingMesh6:Spine1
+      position: {x: -0.0000000024778228, y: 0.08637572, z: 0.000000034765762}
+      rotation: {x: 0.035426494, y: -0.038202766, z: 0.0060387705, w: 0.9986236}
+      scale: {x: 1.0000001, y: 1.0000002, z: 1.0000002}
+      transformModified: 1
+    - name: EditingMesh6:Spine2
+      position: {x: 2.2528154e-10, y: 0.09871515, z: 0.000000005626155}
+      rotation: {x: 0.036069676, y: -0.03775626, z: 0.00840626, w: 0.9986004}
+      scale: {x: 0.9999997, y: 0.9999997, z: 0.99999964}
+      transformModified: 1
+    - name: EditingMesh6:Head
+      position: {x: -0.0000000049018767, y: 0.11105529, z: -0.00000007627029}
+      rotation: {x: -0.034468867, y: 0.013906019, z: 0.0042356527, w: 0.99930006}
+      scale: {x: 1.0000004, y: 1.0000002, z: 1.0000002}
+      transformModified: 1
+    - name: EditingMesh6:Head1
+      position: {x: -0.000000015960326, y: 0.035958815, z: 0.012257135}
+      rotation: {x: -0.029528059, y: 0.01383819, z: 0.0011837264, w: 0.9994675}
+      scale: {x: 0.99999994, y: 1, z: 1}
+      transformModified: 1
+    - name: EditingMesh6:Head2
+      position: {x: 7.923903e-18, y: 0.109350644, z: 0.00605557}
+      rotation: {x: -8.6736174e-19, y: 0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: EditingMesh6:HairJoint1_base_
+      position: {x: 1.02140514e-16, y: 0.046912286, z: -0.0048376382}
+      rotation: {x: -0.122887805, y: 0.48245576, z: -0.41870922, w: 0.7594852}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: EditingMesh6:HairJoint2
+      position: {x: -0.052888196, y: -7.105427e-17, z: 1.4210854e-16}
+      rotation: {x: -0.3228435, y: 0.44002727, z: 0.2802331, w: 0.78969455}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: EditingMesh6:HairJoint3
+      position: {x: -0.05695584, y: -1.4210854e-16, z: -1.7763568e-17}
+      rotation: {x: -0.24913539, y: -0.3409571, z: 0.46061704, w: 0.78071237}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: EditingMesh6:HairJoint4_end_
+      position: {x: -0.07723915, y: -7.105427e-17, z: 1.4210854e-16}
+      rotation: {x: 0.42988595, y: 0.63837314, z: -0.3566423, w: 0.5296076}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftShoulder
+      position: {x: -0.026711497, y: 0.103016645, z: 0.00033217415}
+      rotation: {x: 0.5713673, y: -0.4187402, z: 0.5642404, w: 0.4240624}
+      scale: {x: 1.0000007, y: 1.0000005, z: 1.0000007}
+      transformModified: 1
+    - name: EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftArm
+      position: {x: 0.000000019516257, y: 0.055009723, z: -0.0000000011788759}
+      rotation: {x: -0.16166349, y: -0.41020826, z: 0.031023458, w: 0.8970126}
+      scale: {x: 0.9999996, y: 0.9999993, z: 0.99999994}
+      transformModified: 1
+    - name: EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftForeArm
+      position: {x: -0.000000009924902, y: 0.07049138, z: -0.00000003596504}
+      rotation: {x: -0.019905612, y: 0.0029809475, z: -0.022029579, w: 0.99955475}
+      scale: {x: 1.0000004, y: 1, z: 1}
+      transformModified: 1
+    - name: EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHand
+      position: {x: -0.00000008634752, y: 0.14225385, z: -0.000000046323056}
+      rotation: {x: 0.091274455, y: 0.4203428, z: 0.0007438658, w: 0.90276265}
+      scale: {x: 1.0000004, y: 1.0000001, z: 1}
+      transformModified: 1
+    - name: EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHandIndex1
+      position: {x: 0.016756387, y: 0.08013047, z: -0.00090645556}
+      rotation: {x: 0.042691913, y: -0.0031660325, z: -0.06955635, w: 0.9966591}
+      scale: {x: 0.9999994, y: 0.99999964, z: 0.99999976}
+      transformModified: 1
+    - name: EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHandIndex2
+      position: {x: 0.000037445687, y: 0.01890387, z: -0.000000027136785}
+      rotation: {x: -0.0002946508, y: 0.000005584821, z: 0.0017219934, w: 0.9999985}
+      scale: {x: 1.0000006, y: 1.0000004, z: 1.0000006}
+      transformModified: 1
+    - name: EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHandIndex3
+      position: {x: 0.000023659604, y: 0.018276908, z: 0.000000014080484}
+      rotation: {x: -0.03709667, y: 0.0000943839, z: -0.0022112266, w: 0.9993093}
+      scale: {x: 0.9999993, y: 0.9999997, z: 0.9999996}
+      transformModified: 1
+    - name: EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHandIndex4
+      position: {x: -0.00006112913, y: 0.01333246, z: 0.000000031474165}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1.0000001, z: 0.99999976}
+      transformModified: 1
+    - name: EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHandMiddle1
+      position: {x: 0.00056176697, y: 0.080838725, z: 0.0005113023}
+      rotation: {x: -0.010556389, y: -0.000023700404, z: 0.0037872398, w: 0.9999371}
+      scale: {x: 0.9999997, y: 0.9999999, z: 0.9999997}
+      transformModified: 1
+    - name: EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHandMiddle2
+      position: {x: -0.000029994582, y: 0.021421742, z: -0.000000041583192}
+      rotation: {x: 0.0015959447, y: 0.0005778311, z: -0.009466969, w: 0.99995375}
+      scale: {x: 0.9999997, y: 0.99999994, z: 1.0000004}
+      transformModified: 1
+    - name: EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHandMiddle3
+      position: {x: 0.000020264066, y: 0.02314255, z: 0.00000001389142}
+      rotation: {x: -0.018045207, y: -0.0000039207007, z: -0.00033297186, w: 0.99983716}
+      scale: {x: 1.0000005, y: 1.0000004, z: 1.0000004}
+      transformModified: 1
+    - name: EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHandMiddle4
+      position: {x: 0.000009735482, y: 0.016048094, z: -0.00000002631844}
+      rotation: {x: -0.0000005194212, y: 0, z: -0, w: 1}
+      scale: {x: 1.0000001, y: 1, z: 0.9999998}
+      transformModified: 1
+    - name: EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHandRing1
+      position: {x: -0.017318197, y: 0.07689389, z: -0.0004858407}
+      rotation: {x: 0.015500568, y: 0.001751273, z: 0.07712828, w: 0.9968991}
+      scale: {x: 0.9999996, y: 0.9999996, z: 1.0000001}
+      transformModified: 1
+    - name: EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHandRing2
+      position: {x: -0.000033813205, y: 0.02041511, z: -0.00000003439015}
+      rotation: {x: 0.001662701, y: 0.00047294344, z: -0.008601941, w: 0.9999615}
+      scale: {x: 1.0000002, y: 1.0000002, z: 0.9999997}
+      transformModified: 1
+    - name: EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHandRing3
+      position: {x: 0.00003990341, y: 0.02155452, z: 0.000000026491035}
+      rotation: {x: 0.017731944, y: 0.0000065643912, z: -0.00036694822, w: 0.99984276}
+      scale: {x: 0.9999999, y: 1, z: 1.0000005}
+      transformModified: 1
+    - name: EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHandRing4
+      position: {x: -0.0000061172873, y: 0.015178534, z: -0.000000009583352}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 0.99999994, z: 0.9999999}
+      transformModified: 1
+    - name: EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHandThumb1
+      position: {x: 0.016323319, y: 0.03068277, z: 0.005221641}
+      rotation: {x: 0.019952824, y: 0.0039163064, z: -0.30819562, w: 0.9511057}
+      scale: {x: 0.99999964, y: 0.9999996, z: 0.9999998}
+      transformModified: 1
+    - name: EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHandThumb2
+      position: {x: 0.00095156196, y: 0.028099636, z: 6.882947e-10}
+      rotation: {x: 0.030179441, y: -0.00062924594, z: 0.0105120195, w: 0.99948907}
+      scale: {x: 0.99999994, y: 0.99999994, z: 1}
+      transformModified: 1
+    - name: EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHandThumb3
+      position: {x: -0.000041974035, y: 0.028090596, z: -0.000000039260538}
+      rotation: {x: -0.03852139, y: 0.0006409283, z: -0.008666434, w: 0.99922}
+      scale: {x: 1.0000004, y: 1.0000004, z: 1.0000001}
+      transformModified: 1
+    - name: EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:LeftHandThumb4
+      position: {x: -0.0009095845, y: 0.022203958, z: -0.000000059241366}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 0.9999999, y: 1, z: 0.99999994}
+      transformModified: 1
+    - name: EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightShoulder
+      position: {x: 0.02671149, y: 0.10301145, z: -0.00016491902}
+      rotation: {x: -0.56607544, y: -0.4226839, z: 0.5696318, w: -0.42001984}
+      scale: {x: 0.99999994, y: 0.99999994, z: 0.99999994}
+      transformModified: 1
+    - name: EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightArm
+      position: {x: 0.000000046905342, y: 0.055009715, z: -0.00000007783603}
+      rotation: {x: -0.10384981, y: 0.12798928, z: -0.061023347, w: 0.9844339}
+      scale: {x: 1.0000001, y: 0.99999994, z: 0.9999999}
+      transformModified: 1
+    - name: EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightForeArm
+      position: {x: -0.00000001217174, y: 0.07019981, z: -0.000000031700242}
+      rotation: {x: -0.020360483, y: 0.02800214, z: 0.01930171, w: 0.9992142}
+      scale: {x: 0.9999999, y: 1, z: 1.0000001}
+      transformModified: 1
+    - name: EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHand
+      position: {x: 0.0000000050846665, y: 0.14221002, z: -0.0000000784135}
+      rotation: {x: 0.08548307, y: -0.11282679, z: -0.014657639, w: 0.98982215}
+      scale: {x: 1.0000005, y: 1.0000001, z: 1.0000004}
+      transformModified: 1
+    - name: EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHandIndex1
+      position: {x: -0.017453622, y: 0.086793385, z: -0.0007068164}
+      rotation: {x: 0.07897884, y: 0.0039109266, z: 0.0044639083, w: 0.9968586}
+      scale: {x: 0.99999976, y: 0.9999999, z: 0.9999999}
+      transformModified: 1
+    - name: EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHandIndex2
+      position: {x: -0.000052159678, y: 0.017104028, z: 0.0000000646391}
+      rotation: {x: 0.0310741, y: -0.0029739134, z: -0.006773351, w: 0.9994898}
+      scale: {x: 1.0000008, y: 1.0000005, z: 1.000001}
+      transformModified: 1
+    - name: EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHandIndex3
+      position: {x: 0.0000071482673, y: 0.016313165, z: -0.00000003088075}
+      rotation: {x: 0.03305977, y: -0.00320485, z: -0.008515471, w: 0.99941194}
+      scale: {x: 0.9999995, y: 0.9999996, z: 0.9999995}
+      transformModified: 1
+    - name: EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHandIndex4
+      position: {x: 0.000045036548, y: 0.010548885, z: 0.00000006209829}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 0.99999994, y: 1, z: 1}
+      transformModified: 1
+    - name: EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHandMiddle1
+      position: {x: -0.00071600726, y: 0.08294872, z: 0.00079183205}
+      rotation: {x: 0.0773236, y: -0.013139899, z: -0.020874731, w: 0.9967009}
+      scale: {x: 1.0000005, y: 1.0000005, z: 1.0000007}
+      transformModified: 1
+    - name: EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHandMiddle2
+      position: {x: 0.000059552676, y: 0.022600805, z: -0.000000024387374}
+      rotation: {x: 0.031826485, y: 0.0021779828, z: -0.007807282, w: 0.9994605}
+      scale: {x: 0.99999917, y: 0.9999992, z: 0.9999991}
+      transformModified: 1
+    - name: EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHandMiddle3
+      position: {x: -0.000076077034, y: 0.021482663, z: 0.000000028670888}
+      rotation: {x: 0.033821125, y: -0.00377637, z: -0.009020028, w: 0.99938005}
+      scale: {x: 1.0000005, y: 1.0000002, z: 1.0000002}
+      transformModified: 1
+    - name: EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHandMiddle4
+      position: {x: 0.000016541062, y: 0.015078293, z: -0.000000013476204}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 0.99999934, y: 0.99999964, z: 0.99999976}
+      transformModified: 1
+    - name: EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHandRing1
+      position: {x: 0.018169582, y: 0.078013256, z: -0.00069718726}
+      rotation: {x: 0.07351212, y: -0.042180914, z: -0.02229529, w: 0.9961525}
+      scale: {x: 0.99999994, y: 0.9999998, z: 1.0000001}
+      transformModified: 1
+    - name: EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHandRing2
+      position: {x: -0.000013647266, y: 0.020912003, z: -0.000000014617009}
+      rotation: {x: 0.03163029, y: 0.0013080529, z: -0.0073931473, w: 0.9994714}
+      scale: {x: 1.0000002, y: 0.9999999, z: 1.0000001}
+      transformModified: 1
+    - name: EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHandRing3
+      position: {x: -0.00006625061, y: 0.020724576, z: 0.000000065699766}
+      rotation: {x: 0.03281532, y: -0.007671739, z: -0.01712381, w: 0.99928534}
+      scale: {x: 0.9999997, y: 1.0000005, z: 0.99999994}
+      transformModified: 1
+    - name: EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHandRing4
+      position: {x: 0.00007992609, y: 0.013816203, z: 0.000000008390424}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1.0000002, y: 1, z: 0.99999994}
+      transformModified: 1
+    - name: EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHandThumb1
+      position: {x: -0.016058475, y: 0.030948542, z: 0.004344408}
+      rotation: {x: -0.018087426, y: -0.011828761, z: 0.3173724, w: 0.9480547}
+      scale: {x: 1, y: 1.0000001, z: 1.0000002}
+      transformModified: 1
+    - name: EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHandThumb2
+      position: {x: -0.00054992025, y: 0.02810366, z: -0.000000030835643}
+      rotation: {x: 0.027488982, y: 0.00088149094, z: -0.029923838, w: 0.99917376}
+      scale: {x: 0.99999994, y: 0.9999998, z: 0.9999997}
+      transformModified: 1
+    - name: EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHandThumb3
+      position: {x: -0.00075611763, y: 0.027131934, z: -0.0000000058617986}
+      rotation: {x: -0.03505207, y: -0.00095903815, z: 0.027659742, w: 0.99900216}
+      scale: {x: 1.0000004, y: 1.0000002, z: 1.0000007}
+      transformModified: 1
+    - name: EditingMesh6:SuzieFullBeforeBinding:skull_belt_retopo:RightHandThumb4
+      position: {x: 0.0013059796, y: 0.022345662, z: 0.000000005514352}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 0.9999999, y: 0.9999999, z: 0.99999976}
+      transformModified: 1
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 3
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

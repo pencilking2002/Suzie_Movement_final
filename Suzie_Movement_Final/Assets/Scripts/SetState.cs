@@ -18,6 +18,15 @@ public class SetState : StateMachineBehaviour {
 			animator.GetComponent<RomanCharState>().SetState(characterState);
 			//Debug.Log("animator script, set: " + characterState);
 		//}
+
+			if (animator.GetComponent<RomanCharState>().GetState() == RomanCharState.State.Landing)
+			{
+				RSUtil.Instance.DelayedAction(() => {
+					animator.SetTrigger("Idle");
+					Debug.Log("FIRED");
+				}, 1f);
+			}
+		
 	}
 	
 	// OnStateExit is called when a transition ends and the state machine finishes evaluating this state
@@ -32,18 +41,23 @@ public class SetState : StateMachineBehaviour {
 //			animator.CrossFade("JumpLanding", 0.3f);
 ////			Debug.Log("force Idle");
 //		}
-//		else if (animator.GetComponent<RomanCharState>().GetState() == RomanCharState.State.Landing)
+//		if (animator.GetComponent<RomanCharState>().GetState() == RomanCharState.State.Landing)
 //		{
 //			Debug.Log("Force Idle");
-//			animator.CrossFade("Idle", 0.3f);
-//			animator.GetComponent<RomanCharState>().SetState(RomanCharState.State.Idle);
+//			animator.SetTrigger("Idle");
+//			//animator.CrossFade("Idle", 0.3f);
+//			//animator.GetComponent<RomanCharState>().SetState(RomanCharState.State.Idle);
 //		}
 	}
 
 	// OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
-	//override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
-	//
-	//}
+	override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
+		if (!GameManager.Instance.charState.IsIdle() && stateInfo.IsName("Idle"))
+		{
+			//Debug.Log("In Idle");
+			GameManager.Instance.charState.SetState(RomanCharState.State.Idle);
+		}
+	}
 
 	
 
